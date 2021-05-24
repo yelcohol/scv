@@ -92,12 +92,16 @@ if ($write['wr_reply'] == '' && ($is_admin == 'super' || $is_admin == 'group')) 
 }
 
 $scrap_href = '';
+$apply_href = '';
 $good_href = '';
 $nogood_href = '';
 if ($is_member) {
     // 스크랩 링크
     $scrap_href = G5_BBS_URL.'/scrap_popin.php?bo_table='.$bo_table.'&amp;wr_id='.$wr_id;
 
+    // 지원 링크
+    $apply_href = G5_BBS_URL.'/apply_popin.php?bo_table='.$bo_table.'&amp;wr_id='.$wr_id;
+    
     // 추천 링크
     if ($board['bo_use_good'])
         $good_href = G5_BBS_URL.'/good.php?bo_table='.$bo_table.'&amp;wr_id='.$wr_id.'&amp;good=good';
