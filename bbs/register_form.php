@@ -45,6 +45,8 @@ if ($w == "") {
     $agree  = preg_replace('#[^0-9]#', '', $_POST['agree']);
     $agree2 = preg_replace('#[^0-9]#', '', $_POST['agree2']);
 
+    $reg_type = $_POST['reg_type'];
+
     $member['mb_birth'] = '';
     $member['mb_sex']   = '';
     $member['mb_name']  = '';

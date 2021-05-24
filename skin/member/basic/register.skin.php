@@ -24,7 +24,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
             <label for="agree11"><span></span><b class="sound_only">회원가입약관의 내용에 동의합니다.</b></label>
         </fieldset>
     </section>
-
     <section id="fregister_private">
         <h2>개인정보처리방침안내</h2>
         <div>
@@ -62,7 +61,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
         <input type="checkbox" name="chk_all" id="chk_all" class="selec_chk">
         <label for="chk_all"><span></span>회원가입 약관에 모두 동의합니다</label>
     </div>
-	    
+	
     <div class="btn_confirm">
     	<a href="<?php echo G5_URL ?>" class="btn_close">취소</a>
         <button type="submit" class="btn_submit">회원가입</button>
