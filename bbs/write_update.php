@@ -123,7 +123,16 @@ if (isset($_POST['notice']) && $_POST['notice']) {
     $notice = $_POST['notice'];
 }
 
-for ($i=1; $i<=10; $i++) {
+//여분필드
+for ($i=1; $i<=7; $i++) {
+    $var = "wr_$i";
+    $$var = "";
+    if (isset($_POST['wr_'.$i]) && settype($_POST['wr_'.$i], 'string')) {
+        $$var = trim($_POST['wr_'.$i]);
+    }
+}
+$wr_8= implode('|', $_POST['wr_8']);
+for ($i=9; $i<=20; $i++) {
     $var = "wr_$i";
     $$var = "";
     if (isset($_POST['wr_'.$i]) && settype($_POST['wr_'.$i], 'string')) {

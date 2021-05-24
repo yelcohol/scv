@@ -1315,7 +1315,7 @@ $pg_anchor = '<ul class="anchor">
             <col class="grid_3">
         </colgroup>
         <tbody>
-        <?php for ($i=1; $i<=10; $i++) { ?>
+        <?php for ($i=1; $i<=20; $i++) { ?>
         <tr>
             <th scope="row">여분필드<?php echo $i ?></th>
             <td class="td_extra">
