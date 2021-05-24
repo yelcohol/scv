@@ -15,6 +15,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 	<form id="fregisterform" name="fregisterform" action="<?php echo $register_action_url ?>" onsubmit="return fregisterform_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
 	<input type="hidden" name="w" value="<?php echo $w ?>">
+	<input type="text" name="mb_10" value="<?php echo $reg_type?>" hidden>
 	<input type="hidden" name="url" value="<?php echo $urlencode ?>">
 	<input type="hidden" name="agree" value="<?php echo $agree ?>">
 	<input type="hidden" name="agree2" value="<?php echo $agree2 ?>">
@@ -98,6 +99,21 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	                <span class="tooltip">아이핀 본인확인 후에는 이름이 자동 입력되고 휴대폰 본인확인 후에는 이름과 휴대폰번호가 자동 입력되어 수동으로 입력할수 없게 됩니다.</span>
 	                <?php } ?>
 	            </li>
+
+				<?php if ($req_nick) {  ?>
+	            <li>
+	                <label for="reg_mb_nick">
+	                	닉네임<strong class="sound_only">필수</strong>
+	                	<button type="button" class="tooltip_icon"><i class="fa fa-question-circle-o" aria-hidden="true"></i><span class="sound_only">설명보기</span></button>
+						<span class="tooltip">공백없이 한글,영문,숫자만 입력 가능 (한글2자, 영문4자 이상)<br> 닉네임을 바꾸시면 앞으로 <?php echo (int)$config['cf_nick_modify'] ?>일 이내에는 변경 할 수 없습니다.</span>
+	                </label>
+	                
+                    <input type="hidden" name="mb_nick_default" value="<?php echo isset($member['mb_nick'])?get_text($member['mb_nick']):''; ?>">
+                    <input type="text" name="mb_nick" value="<?php echo isset($member['mb_nick'])?get_text($member['mb_nick']):''; ?>" id="reg_mb_nick" required class="frm_input required nospace full_input" size="10" maxlength="20" placeholder="닉네임">
+                    <span id="msg_mb_nick"></span>	                
+	            </li>
+	            <?php }  ?>
+
                 <li>
 	            <?php if ($config['cf_use_tel']) {  ?>
 
