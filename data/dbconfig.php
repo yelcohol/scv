@@ -27,6 +27,7 @@ $g5['poll_etc_table'] = G5_TABLE_PREFIX.'poll_etc'; // 투표 기타의견 테�
 $g5['point_table'] = G5_TABLE_PREFIX.'point'; // 포인트 테이블
 $g5['popular_table'] = G5_TABLE_PREFIX.'popular'; // 인기검색어 테이블
 $g5['scrap_table'] = G5_TABLE_PREFIX.'scrap'; // 게시글 스크랩 테이블
+$g5['apply_table'] = G5_TABLE_PREFIX.'apply'; // 지원하기 테이블
 $g5['visit_table'] = G5_TABLE_PREFIX.'visit'; // 방문자 테이블
 $g5['visit_sum_table'] = G5_TABLE_PREFIX.'visit_sum'; // 방문자 합계 테이블
 $g5['uniqid_table'] = G5_TABLE_PREFIX.'uniqid'; // 유니크한 값을 만드는 테이블

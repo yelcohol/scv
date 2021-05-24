@@ -497,6 +497,7 @@ CREATE TABLE IF NOT EXISTS `g5_member` (
   `mb_memo_call` varchar(255) NOT NULL default '',
   `mb_memo_cnt` int(11) NOT NULL DEFAULT '0',
   `mb_scrap_cnt` int(11) NOT NULL default '0',
+  `mb_apply_cnt` int(11) NOT NULL default '0',
   `mb_1` varchar(255) NOT NULL default '',
   `mb_2` varchar(255) NOT NULL default '',
   `mb_3` varchar(255) NOT NULL default '',
@@ -648,6 +649,23 @@ CREATE TABLE IF NOT EXISTS `g5_scrap` (
 
 -- --------------------------------------------------------
 
+--
+-- Table structure for table `g5_apply`
+--
+
+DROP TABLE IF EXISTS `g5_apply`;
+CREATE TABLE IF NOT EXISTS `g5_apply` (
+  `ma_id` int(11) NOT NULL auto_increment,
+  `mb_id` varchar(20) NOT NULL default '',
+  `bo_table` varchar(20) NOT NULL default '',
+  `wr_id` varchar(15) NOT NULL default '',
+  `ma_datetime` datetime NOT NULL default '0000-00-00 00:00:00',
+  `ma_state` varchar(45) NOT NULL default '지원검토중',
+  PRIMARY KEY  (`ma_id`),
+  KEY `mb_id` (`mb_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
 --
 -- Table structure for table `g5_visit`
 --
