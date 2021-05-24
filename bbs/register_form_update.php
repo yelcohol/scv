@@ -203,6 +203,10 @@ if ($config['cf_cert_use'] && $cert_type && $md5_cert_no) {
     }
 }
 //===============================================================
+if ($mb_10 == 'constructor')
+    $config['cf_register_level'] = 4;
+else if ($mb_10 == 'worker')
+    $config['cf_register_level'] = 3;
 
 if ($w == '') {
     $sql = " insert into {$g5['member_table']}
