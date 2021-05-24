@@ -270,6 +270,11 @@ if(!isset($member['mb_scrap_cnt'])) {
     sql_query(" ALTER TABLE `{$g5['member_table']}`
                 ADD `mb_scrap_cnt` int(11) NOT NULL DEFAULT '0' AFTER `mb_memo_cnt`", true);
 }
+// 지원하기 읽은 수 추가
+if(!isset($member['mb_apply_cnt'])) {
+    sql_query(" ALTER TABLE `{$g5['member_table']}`
+                ADD `mb_apply_cnt` int(11) NOT NULL DEFAULT '0' AFTER `mb_scrap_cnt`", true);
+}
 
 // 아이코드 토큰키 추가
 if( ! isset($config['cf_icode_token_key']) ){

@@ -155,6 +155,14 @@ if(!isset($member['mb_scrap_cnt'])) {
 	$is_check = true;
 }
 
+// 지원하기 읽은 수 추가
+if(!isset($member['mb_apply_cnt'])) {
+    sql_query(" ALTER TABLE `{$g5['member_table']}`
+                ADD `mb_apply_cnt` int(11) NOT NULL DEFAULT '0' AFTER `mb_scrap_cnt`", true);
+
+	$is_check = true;
+}
+
 // 짧은 URL 주소를 사용 여부 필드 추가
 if (!isset($config['cf_bbs_rewrite'])) {
     sql_query(" ALTER TABLE `{$g5['config_table']}`
