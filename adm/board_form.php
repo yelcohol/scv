@@ -1212,6 +1212,7 @@ $pg_anchor = '<ul class="anchor">
 
                         echo '<option value="'.$option_value.'" '.$selected.' >'.$order_by_str.' : '.$v[1].'</option>';
                     } //end foreach ?>
+                    <option value="wr_9+0 desc" <?php echo get_selected($board['bo_sort_field'], "wr_9+0 desc"); ?>>wr_9 desc: 일당 내림차순</option>
                 </select>
             </td>
             <td class="td_grpset">
