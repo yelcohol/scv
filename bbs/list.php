@@ -13,7 +13,7 @@ if ($board['bo_use_category']) {
         $category_option .= ' id="bo_cate_on"';
     $category_option .= '>전체</a></li>';
 
-    $categories = explode('|', $board['bo_category_list']); // 구분자가 , 로 되어 있음
+    $categories = explode('|', $board['bo_category_list']); // 구분자가 | 로 되어 있음
     for ($i=0; $i<count($categories); $i++) {
         $category = trim($categories[$i]);
         if ($category=='') continue;
@@ -26,6 +26,28 @@ if ($board['bo_use_category']) {
         $category_option .= '>'.$category_msg.$category.'</a></li>';
     }
 }
+
+// 여분필드 wr_8(모집 직종) 사용 여부
+// $is_wr_8 = false;
+// if ($board['bo_8']) {
+//     $is_wr_8 = true;
+//     $wr_8_href = get_pretty_url($bo_table);
+
+//     $categories = explode('|', $wr['_8']); // 구분자가 | 로 되어 있음
+//     for ($i=0; $i<count($categories); $i++) {
+//         $category = trim($categories[$i]);
+//         if ($category=='') continue;
+//         $category_option .= '<li><a href="'.(get_pretty_url($bo_table,'','sca='.urlencode($category))).'"';
+//         $category_msg = '';
+//         if ($category==$sca) { // 현재 선택된 카테고리라면
+//             $category_option .= ' id="bo_cate_on"';
+//             $category_msg = '<span class="sound_only">열린 분류 </span>';
+//         }
+//         $category_option .= '>'.$category_msg.$category.'</a></li>';
+//     }
+
+// }
+
 
 $sop = strtolower($sop);
 if ($sop != 'and' && $sop != 'or')
@@ -135,6 +157,8 @@ $is_checkbox = false;
 if ($is_member && ($is_admin == 'super' || $group['gr_admin'] == $member['mb_id'] || $board['bo_admin'] == $member['mb_id']))
     $is_checkbox = true;
 
+// 멤버라면 지원하기 보임 (? 넣어야 하나 ? 스킨에만 넣으면 되나?)
+
 // 정렬에 사용하는 QUERY_STRING
 $qstr2 = 'bo_table='.$bo_table.'&amp;sop='.$sop;
 
@@ -160,7 +184,7 @@ if (!$sst) {
         // 게시물 리스트의 정렬 대상 필드가 아니라면 공백으로 (nasca 님 09.06.16)
         // 리스트에서 다른 필드로 정렬을 하려면 아래의 코드에 해당 필드를 추가하세요.
         // $sst = preg_match("/^(wr_subject|wr_datetime|wr_hit|wr_good|wr_nogood)$/i", $sst) ? $sst : "";
-        $sst = preg_match("/^(wr_datetime|wr_hit|wr_good|wr_nogood)$/i", $sst) ? $sst : "";
+        $sst = preg_match("/^(wr_datetime|wr_hit|wr_good|wr_nogood|wr_9)$/i", $sst) ? $sst : "";
     }
 }
 
@@ -251,5 +275,11 @@ if ($board['bo_use_rss_view']) {
     $rss_href = G5_BBS_URL.'/rss.php?bo_table='.$bo_table;
 }
 
+// 지원 링크
+// $apply_href= '';
+// $apply_href = G5_BBS_URL.'/apply_popin.php?bo_table='.$bo_table.'&amp;wr_id='.$wr_id;
+
+
 $stx = get_text(stripslashes($stx));
 include_once($board_skin_path.'/list.skin.php');
+?>

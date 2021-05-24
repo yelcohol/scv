@@ -35,6 +35,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$outlogin_skin_url.'/style.css">'
             	<strong class="scrap"><?php echo $mb_scrap_cnt; ?></strong>
             </a>
         </li>
+        <li>
+            <a href="<?php echo G5_BBS_URL ?>/apply.php" target="_blank" id="ol_after_apply" class="win_apply">
+                <i class="fa fa-check-circle" aria-hidden="true"></i>지원 내역
+            	<strong class="apply"><?php echo $mb_apply_cnt; ?></strong>
+            </a>
+        </li>
     </ul>
     <footer>
     	<a href="<?php echo G5_BBS_URL ?>/logout.php" id="ol_after_logout"><i class="fa fa-sign-out" aria-hidden="true"></i> 로그아웃</a>

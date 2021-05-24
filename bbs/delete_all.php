@@ -136,6 +136,9 @@ for ($i=$chk_count-1; $i>=0; $i--)
     // 스크랩 삭제
     sql_query(" delete from {$g5['scrap_table']} where bo_table = '$bo_table' and wr_id = '{$write['wr_id']}' ");
 
+    // 지원내역 삭제
+    sql_query(" delete from {$g5['apply_table']} where bo_table = '$bo_table' and wr_id = '{$write['wr_id']}' ");
+
     /*
     // 공지사항 삭제
     $notice_array = explode(',', trim($board['bo_notice']));
@@ -162,3 +165,4 @@ delete_cache_latest($bo_table);
 run_event('bbs_delete_all', $tmp_array, $board);
 
 goto_url(short_url_clean(G5_HTTP_BBS_URL.'/board.php?bo_table='.$bo_table.'&amp;page='.$page.$qstr));
+?>

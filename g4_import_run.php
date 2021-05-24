@@ -387,7 +387,7 @@ unset($columns);
 unset($fiels);
 
 // 그외 테이블 복사
-$tables = array('board_file', 'board_new', 'board_good', 'mail', 'memo', 'group_member', 'auth', 'popular', 'poll', 'poll_etc', 'scrap');
+$tables = array('board_file', 'board_new', 'board_good', 'mail', 'memo', 'group_member', 'auth', 'popular', 'poll', 'poll_etc', 'scrap', 'apply');
 
 foreach($tables as $table) {
     $columns = sql_field_names($g5[$table.'_table']);
@@ -435,3 +435,4 @@ set_session('tables_copied', 'done');
 
 <?php
 include_once(G5_PATH.'/tail.php');
+?>

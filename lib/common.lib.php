@@ -3139,6 +3139,9 @@ function member_delete($mb_id)
     // 스크랩 삭제
     sql_query(" delete from {$g5['scrap_table']} where mb_id = '$mb_id' ");
 
+    // 지원하기 삭제
+    sql_query(" delete from {$g5['apply_table']} where mb_id = '$mb_id' ");
+
     // 관리권한 삭제
     sql_query(" delete from {$g5['auth_table']} where mb_id = '$mb_id' ");
 

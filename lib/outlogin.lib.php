@@ -45,6 +45,7 @@ function outlogin($skin_dir='basic')
         }
         
         $mb_scrap_cnt = isset($member['mb_scrap_cnt']) ? (int) $member['mb_scrap_cnt'] : '';
+        $mb_apply_cnt = isset($member['mb_apply_cnt']) ? (int) $member['mb_apply_cnt'] : '';
         $sql = " select count(*) as cnt from {$g5['auth_table']} where mb_id = '{$member['mb_id']}' ";
         $row = sql_fetch($sql);
         if ($row['cnt'])
@@ -64,3 +65,4 @@ function outlogin($skin_dir='basic')
 
     return run_replace('outlogin_content', $content, $is_auth, $outlogin_url, $outlogin_action_url);
 }
+?>

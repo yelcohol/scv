@@ -18,7 +18,7 @@ for($i=0;$i<$count_chk_bn_id;$i++)
 
     $bo_table = isset($_POST['bo_table'][$k]) ? preg_replace('/[^a-z0-9_]/i', '', $_POST['bo_table'][$k]) : '';
     $wr_id    = isset($_POST['wr_id'][$k]) ? preg_replace('/[^0-9]/i', '', $_POST['wr_id'][$k]) : 0;
-    
+
     $count_write = $count_comment = 0;
 
     $save_bo_table[$i] = $bo_table;
@@ -64,6 +64,7 @@ for($i=0;$i<$count_chk_bn_id;$i++)
                         delete_board_thumbnail($bo_table, $row2['bf_file']);
                     }
                 }
+
                 // 파일테이블 행 삭제
                 sql_query(" delete from {$g5['board_file_table']} where bo_table = '$bo_table' and wr_id = '{$row['wr_id']}' ");
 
@@ -92,6 +93,9 @@ for($i=0;$i<$count_chk_bn_id;$i++)
 
         // 스크랩 삭제
         sql_query(" delete from {$g5['scrap_table']} where bo_table = '$bo_table' and wr_id = '{$write['wr_id']}' ");
+
+        // 지원내역 삭제
+        sql_query(" delete from {$g5['apply_table']} where bo_table = '$bo_table' and wr_id = '{$write['wr_id']}' ");
 
         // 공지사항 삭제
         $notice_array = explode(",", trim($board['bo_notice']));
@@ -157,3 +161,4 @@ foreach ($save_bo_table as $key=>$value) {
 run_event('bbs_new_delete', $chk_bn_id, $save_bo_table, $save_wr_id);
 
 goto_url("new.php?sfl=$sfl&stx=$stx&page=$page");
+?>

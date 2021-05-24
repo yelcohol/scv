@@ -478,3 +478,15 @@ function get_scrap_totals($mb_id=''){
 
     return isset($row['cnt']) ? $row['cnt'] : 0;
 }
+
+function get_apply_totals($mb_id=''){
+    global $g5;
+
+    $add_where = $mb_id ? " and mb_id = '$mb_id' " : '';
+
+    $sql = " select count(*) as cnt from {$g5['apply_table']} where 1=1 $add_where";
+    $row = sql_fetch($sql, false);
+
+    return $row['cnt'];
+}
+?>

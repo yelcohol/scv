@@ -20,6 +20,9 @@ sql_query(" delete from {$g5['board_new_table']} where bo_table = '{$tmp_bo_tabl
 // 스크랩 삭제
 sql_query(" delete from {$g5['scrap_table']} where bo_table = '{$tmp_bo_table}' ");
 
+// 지원하기 삭제
+sql_query(" delete from {$g5['apply_table']} where bo_table = '{$tmp_bo_table}' ");
+
 // 파일 삭제
 sql_query(" delete from {$g5['board_file_table']} where bo_table = '{$tmp_bo_table}' ");
 
@@ -33,3 +36,4 @@ delete_cache_latest($tmp_bo_table);
 
 // 게시판 폴더 전체 삭제
 rm_rf(G5_DATA_PATH.'/file/'.$tmp_bo_table);
+?>

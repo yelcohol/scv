@@ -357,6 +357,14 @@ var win_scrap = function(href) {
 }
 
 /**
+ * 지원하기 창
+ **/
+ var win_apply = function(href) {
+    var new_win = window.open(href, 'win_apply', 'left=100,top=100,width=600,height=600,scrollbars=1');
+    new_win.focus();
+}
+
+/**
  * 홈페이지 창
  **/
 var win_homepage = function(href) {
@@ -585,6 +593,11 @@ $(function(){
 
     $(".win_scrap").click(function() {
         win_scrap(this.href);
+        return false;
+    });
+
+    $(".win_apply").click(function() {
+        win_apply(this.href);
         return false;
     });
 

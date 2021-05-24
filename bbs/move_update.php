@@ -112,8 +112,11 @@ while ($row = sql_fetch_array($result))
                              wr_7 = '".addslashes($row2['wr_7'])."',
                              wr_8 = '".addslashes($row2['wr_8'])."',
                              wr_9 = '".addslashes($row2['wr_9'])."',
-                             wr_10 = '".addslashes($row2['wr_10'])."' ";
-            sql_query($sql);
+                             wr_10 = '".addslashes($row2['wr_10'])."',
+                             wr_11 = '".addslashes($row2['wr_11'])."',
+                             wr_12 = '".addslashes($row2['wr_12'])."',
+                             wr_13 = '".addslashes($row2['wr_13'])."' ";
+                             sql_query($sql);
 
             $insert_id = sql_insert_id();
 
@@ -181,6 +184,9 @@ while ($row = sql_fetch_array($result))
                 {
                     // 스크랩 이동
                     sql_query(" update {$g5['scrap_table']} set bo_table = '$move_bo_table', wr_id = '$save_parent' where bo_table = '$bo_table' and wr_id = '{$row2['wr_id']}' ");
+                    
+                    // 지원내역 이동
+                    sql_query(" update {$g5['apply_table']} set bo_table = '$move_bo_table', wr_id = '$save_parent' where bo_table = '$bo_table' and wr_id = '{$row2['wr_id']}' ");
 
                     // 최신글 이동
                     sql_query(" update {$g5['board_new_table']} set bo_table = '$move_bo_table', wr_id = '$save_parent', wr_parent = '$save_parent' where bo_table = '$bo_table' and wr_id = '{$row2['wr_id']}' ");
@@ -233,7 +239,7 @@ if ($sw == 'move')
                 if ( is_file($del_file) && file_exists($del_file) ){
                     @unlink($del_file);
                 }
-                
+
                 // 썸네일 파일 삭제, 먼지손 님 코드 제안
                 delete_board_thumbnail($bo_table, basename($save[$i]['bf_file'][$k]));
             }
@@ -255,7 +261,8 @@ $opener_href  = get_pretty_url($bo_table,'','&amp;page='.$page.'&amp;'.$qstr);
 $opener_href1 = str_replace('&amp;', '&', $opener_href);
 
 run_event('bbs_move_update', $bo_table, $chk_bo_table, $wr_id_list, $opener_href);
-?>
+
+echo <<<HEREDOC
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <script>
 alert("<?php echo $msg; ?>");
