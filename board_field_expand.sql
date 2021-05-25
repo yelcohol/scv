@@ -1,0 +1,1 @@
+alter table g5_write_jobs add wr_11 varchar(255)

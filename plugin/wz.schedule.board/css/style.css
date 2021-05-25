@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+a.fc-event:link, a.fc-event:visited {color:#fff;}
+a.fc-event:hover {color: #fff;text-decoration: underline;}
+.fc-view, .fc-view > table {background-color: #fff;}
+.fc-view .fc-day-header {padding:10px 0}
+.fc-day-header.fc-widget-header {background: url('../img/bg_tbl.gif') 0 0 repeat-x;}
+.fc-sun span, .fc-sun a.fc-day-number {color:red}
+.fc-sat span, .fc-sat a.fc-day-number {color:blue}
+.fc-head-container.fc-widget-header {border-top: 2px solid #000;}
+.fc-event {font-size:12px;}
+
+.wz_tbl_1,.wz_tbl_1 th,.wz_tbl_1 td{border:0;}
+.wz_tbl_1{width:100%;text-align:center;margin: 7px 0 0px;}
+.wz_tbl_1 table {clear:both;width:100%;border-collapse:collapse;border-spacing:0;background-color:#fff}
+.wz_tbl_1 tbody, .wz_tbl_1 tr, .wz_tbl_1 td {vertical-align:middle}
+.wz_tbl_1 caption{display:none}
+.wz_tbl_1 th{padding:10px 0;border:1px solid #dcdcdc;color:#666;text-align:center;font-weight:bold;background-color: #fbfbfb;}
+.wz_tbl_1 td{padding:5px;border:1px solid #e5e5e5;color:#4c4c4c;text-align:left;}
+.wz_tbl_1 th span.last:after {border:none;}
+.wz_tbl_1 td .numberic {text-align:right;padding-right:4px;}
+
+.scdate-txt {margin:0 0 5px}
+.date-txt {font-weight:bold}
+
+.wzb_pops {position:absolute;border:1px solid #e9e9e9;background:#fff;z-index:999999;}
+.wzb_pops_con {}
+.wzb_pops_footer {padding:7px 0;background:#606578;color:#fff;text-align:right}
+.wzb_pops_footer button {margin-right:5px;padding:5px 10px;border:0;background:#434555;color:#fff}
+
+.wz-ajax-content h2 {border-bottom:1px solid #dfdfdf;margin:10px 0 0px;padding:3px 0 15px 15px;font-size:12px;font-weight:bold;}
+.wz-ajax-content .content-wrap {padding:10px;}
+.wetoz .modal-body {overflow-y: auto;max-height: 300px;}
+.fc-scroller {overflow-y: hidden !important;height:auto !important;}
+
+.btn-set {display:inline-block;padding:3px 10px;border:1px solid #d0d0d0;border-radius:1px;background:#fbfbfb;color:#333;text-align:center;vertical-align: middle;
+		-webkit-box-shadow: inset 1px 1px #fff,inset -1px -1px #f7f7f7,0 1px rgba(0,0,0,0.03);}
+.btn-set.sm {padding:0 3px;font-family:'돋움',Dotum,Verdana,applegothic;line-height:1.5;font-size:11px;letter-spacing:-1px;line-height:18px;height:18px;}
+.clr-list {list-style:none;}
+.clr-list:after {display:block;visibility:hidden;clear:both;content:''}
+.clr-list > li {float:left}
+.clr-list > li .btn-color {display:block;margin: 0 2px;padding: 4px 10px;border-radius: 3px;border:1px solid #dfdfdf}
+.clr-list > li .btn-color:hover, .clr-list > li .btn-color.active {border:1px solid #000}

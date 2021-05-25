@@ -198,7 +198,13 @@ if ($sst) {
 if ($is_search_bbs) {
     $sql = " select distinct wr_parent from {$write_table} where {$sql_search} {$sql_order} limit {$from_record}, $page_rows ";
 } else {
-    $sql = " select * from {$write_table} where wr_is_comment = 0 ";
+    if($jobs_switch){
+        $sql = " select * from {$write_table} where wr_is_comment = 0 and mb_id = '{$member['mb_id']}'";
+        $jobs_switch = 0;
+    }else{
+        $sql = " select * from {$write_table} where wr_is_comment = 0";
+    }
+    //$sql = " select * from {$write_table} where wr_is_comment = 0 ";
     if(!empty($notice_array))
         $sql .= " and wr_id not in (".implode(', ', $notice_array).") ";
     $sql .= " {$sql_order} limit {$from_record}, $page_rows ";

@@ -118,7 +118,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         <div><?='&nbsp&nbsp&nbsp&nbsp&nbsp-> 수수료(9%): '.number_format($view['wr_9']*0.09).'원 '?></div>
         <div><?="연락처: ".$view['wr_10']?></div>
         <div id="bo_v_con"><?php echo get_view_thumbnail($view['content']); ?></div>
+        <?php if($is_worker) {?>
         <a href="<?php echo $apply_href;  ?>" target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle" aria-hidden="true"></i> 지원하기</a>
+        <? } ?>
+        <?php if(!$is_worker && $view['mb_id'] == $member['mb_id']) {?>
+            <a href="<?php echo "";  ?>" target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle" aria-hidden="true"></i> 지원내역 확인하기</a>
+        <?php } ?>
         <?php //echo $view['rich_content']; // {이미지:0} 과 같은 코드를 사용할 경우 ?>
         <!-- } 본문 내용 끝 -->
         <?php if ($is_signature) { ?><p><?php echo $signature ?></p><?php } ?>
