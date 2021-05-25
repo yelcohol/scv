@@ -442,7 +442,38 @@ if (isset($_SESSION['ss_mb_id']) && $_SESSION['ss_mb_id']) { // 로그인중이�
     }
     // 자동로그인 end ---------------------------------------
 }
+$write = array();
+$write_table = '';
+if ($bo_table) {
+    $board = get_board_db($bo_table, true);
+    if (isset($board['bo_table']) && $board['bo_table']) {
+        set_cookie("ck_bo_table", $board['bo_table'], 86400 * 1);
+        $gr_id = $board['gr_id'];
+        $jobs_switch = 0;
+        if($bo_table == 'my_works'){
+            $write_table = $g5['write_prefix'] . 'work';
+            $jobs_switch = 1;
+        }
+        else{
+            $write_table = $g5['write_prefix'] . $bo_table; // 게시판 테이블 전체이름
+        }
+        //$write_table = $g5['write_prefix'] . $bo_table; // 게시판 테이블 전체이름
 
+        if (isset($wr_id) && $wr_id) {
+            $write = get_write($write_table, $wr_id);
+        } else if (isset($wr_seo_title) && $wr_seo_title) {
+            $write = get_content_by_field($write_table, 'bbs', 'wr_seo_title', generate_seo_title($wr_seo_title));
+            if( isset($write['wr_id']) ){
+                $wr_id = $write['wr_id'];
+            }
+        }
+    }
+    
+    // 게시판에서 
+    if (isset($board['bo_select_editor']) && $board['bo_select_editor']){
+        $config['cf_editor'] = $board['bo_select_editor'];
+    }
+}
 
 if ($gr_id && !is_array($gr_id)) {
     $group = get_group($gr_id, true);
