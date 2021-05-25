@@ -8,6 +8,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 <!-- 회원정보 입력/수정 시작 { -->
 
 <div class="register">
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="<?php echo G5_JS_URL ?>/jquery.register_form.js"></script>
 <?php if($config['cf_cert_use'] && ($config['cf_cert_ipin'] || $config['cf_cert_hp'])) { ?>
 <script src="<?php echo G5_JS_URL ?>/certify.js?v=<?php echo G5_JS_VER; ?>"></script>
@@ -114,23 +115,40 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	            </li>
 	            <?php }  ?>
 
-                <li>
-	            <?php if ($config['cf_use_tel']) {  ?>
-
-	                <label for="reg_mb_tel">전화번호<?php if ($config['cf_req_tel']) { ?><strong class="sound_only">필수</strong><?php } ?></label>
-	                <input type="text" name="mb_tel" value="<?php echo get_text($member['mb_tel']) ?>" id="reg_mb_tel" <?php echo $config['cf_req_tel']?"required":""; ?> class="frm_input full_input <?php echo $config['cf_req_tel']?"required":""; ?>" maxlength="20" placeholder="전화번호">
+				<li>
+				<?php if ($reg_type=='constructor'||$is_constructor) { ?>
+	                <label for="reg_mb_com_name">회사명<strong class="sound_only">필수</strong></label>
+	                <input type="text" name="mb_1" value="<?php echo get_text($member['mb_1']) ?>" id="reg_mb_com_name" <?php echo "required" ?> class="frm_input full_input <?php echo "required" ?>" maxlength="20" placeholder="회사명">
 	            <?php }  ?>
 				</li>
-				<li>
-	            <?php if ($config['cf_use_hp'] || $config['cf_cert_hp']) {  ?>
-	                <label for="reg_mb_hp">휴대폰번호<?php if ($config['cf_req_hp']) { ?><strong class="sound_only">필수</strong><?php } ?></label>
 
-	                <input type="text" name="mb_hp" value="<?php echo get_text($member['mb_hp']) ?>" id="reg_mb_hp" <?php echo ($config['cf_req_hp'])?"required":""; ?> class="frm_input full_input <?php echo ($config['cf_req_hp'])?"required":""; ?>" maxlength="20" placeholder="휴대폰번호">
+                <li>
+	            <?php //if ($config['cf_use_tel']) {  ?>
+				<?php if ($reg_type=='constructor'||$is_constructor) { ?>
+	                <label for="reg_mb_tel">회사 연락처<?php //if ($config['cf_req_tel']) { ?><strong class="sound_only">필수</strong><?php //} ?></label>
+	                <input type="text" name="mb_tel" value="<?php echo get_text($member['mb_tel']) ?>" id="reg_mb_tel" <?php echo "required"//echo $config['cf_req_tel']?"required":""; ?> class="frm_input full_input <?php echo "required"//echo $config['cf_req_tel']?"required":""; ?>" maxlength="20" placeholder="회사 연락처">
+	            <?php }  ?>
+				</li>
+
+				<li>
+	            <?php //if ($config['cf_use_hp'] || $config['cf_cert_hp']) {  ?>
+				<?php if ($reg_type=='constructor'||$is_constructor) { ?>
+	                <label for="reg_mb_hp">담당자 연락처<?php //if ($config['cf_req_hp']) { ?><strong class="sound_only">필수</strong><?php //} ?></label>
+
+	                <input type="text" name="mb_hp" value="<?php echo get_text($member['mb_hp']) ?>" id="reg_mb_hp" <?php echo "required"//echo ($config['cf_req_hp'])?"required":""; ?> class="frm_input full_input <?php echo "required"//echo ($config['cf_req_hp'])?"required":""; ?>" maxlength="20" placeholder="담당자 연락처">
 	                <?php if ($config['cf_cert_use'] && $config['cf_cert_hp']) { ?>
 	                <input type="hidden" name="old_mb_hp" value="<?php echo get_text($member['mb_hp']) ?>">
 	                <?php } ?>
 	            <?php }  ?>
-	            </li>
+	            </li> 
+
+				<li>
+				<?php if ($reg_type=='constructor'||$is_constructor) { ?>
+	                <label for="reg_mb_com_code">사업자 등록번호<strong class="sound_only">필수</strong></label>
+	                <input type="text" name="mb_2" value="<?php echo get_text($member['mb_2']) ?>" id="reg_mb_com_code" <?php echo "required" ?> class="frm_input full_input <?php echo "required" ?>" maxlength="20" placeholder="-를빼고입력해주세요.">
+	            <?php }  ?>
+				</li>
+
 	            <li>
 	                <label for="reg_mb_email">E-mail<strong class="sound_only">필수</strong>
 
@@ -147,11 +165,32 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	                <input type="text" name="mb_email" value="<?php echo isset($member['mb_email'])?$member['mb_email']:''; ?>" id="reg_mb_email" required class="frm_input email full_input required" size="70" maxlength="100" placeholder="E-mail">
 	            </li>
 
+				<!-- 건설사일시 주소입력 -->
+				<?php //if ($config['cf_use_addr']) { ?>
+				<?php if ($reg_type=='constructor'||$is_constructor) { ?>
+				<li>
+					<label>회사 주소</label>
+					<?php if ($config['cf_req_addr']) { ?><strong class="sound_only">필수</strong><?php }  ?>
+					<label for="reg_mb_zip" class=
+					"sound_only">우편번호<?php echo $config['cf_req_addr']?'<strong class="sound_only"> 필수</strong>':''; ?></label>
+					<input type="text" name="mb_zip" value="<?php echo $member['mb_zip1'].$member['mb_zip2']; ?>" id="reg_mb_zip" <?php echo $fig['cf_req_addr']?"required":""; ?> class="frm_input twopart_input <?php echo $config['cf_req_addr']?"required":""; ?>" size="5" maxlength="6"  placeholder="우편번호">
+					<button type="button" class="btn_frmline" onclick="win_zip('fregisterform', 'mb_zip', 'mb_addr1', 'mb_addr2', 'mb_addr3', 'mb_addr_jibeon');">주소 검색</button><br>
+					<input type="text" name="mb_addr1" value="<?php echo get_text($member['mb_addr1']) ?>" id="reg_mb_addr1" <?php echo $config['cf_req_addr']?"required":""; ?> class="frm_input frm_address full_input <?php echo $config['cf_req_addr']?"required":""; ?>" size="50"  placeholder="기본주소">
+					<label for="reg_mb_addr1" class="sound_only">기본주소<?php echo $config['cf_req_addr']?'<strong> 필수</strong>':''; ?></label><br>
+					<input type="text" name="mb_addr2" value="<?php echo get_text($member['mb_addr2']) ?>" id="reg_mb_addr2" class="frm_input frm_address full_input" size="50" placeholder="상세주소">
+					<label for="reg_mb_addr2" class="sound_only">상세주소</label>
+					<br>
+					<input type="text" name="mb_addr3" value="<?php echo get_text($member['mb_addr3']) ?>" id="reg_mb_addr3" class="frm_input frm_address full_input" size="50" readonly="readonly" placeholder="참고항목">
+					<label for="reg_mb_addr3" class="sound_only">참고항목</label>
+					<input type="hidden" name="mb_addr_jibeon" value="<?php echo get_text($member['mb_addr_jibeon']); ?>">
+				</li>
+				<?php }  ?>
+
 	        </ul>
 	    </div>
 <!-- 근로자이면 출력 -->
 <?php
-	if ($reg_type=='worker') {?>
+	if ($reg_type=='worker'||$is_worker) {?>
 	    <div class="tbl_frm01 tbl_wrap register_form_inner">
 	        <h2>직종 정보</h2>
 	        <ul>
@@ -219,31 +258,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 					</select>
 				</li>
 
-	            <?php if ($config['cf_use_addr']) { ?>
-	            <li>
-	            	<label>주소</label>
-					<?php if ($config['cf_req_addr']) { ?><strong class="sound_only">필수</strong><?php }  ?>
-	                <label for="reg_mb_zip" class=
-					"sound_only">우편번호<?php echo $config['cf_req_addr']?'<strong class="sound_only"> 필수</strong>':''; ?></label>
-	                <input type="text" name="mb_zip" value="<?php echo $member['mb_zip1'].$member['mb_zip2']; ?>" id="reg_mb_zip" <?php echo $fig['cf_req_addr']?"required":""; ?> class="frm_input twopart_input <?php echo $config['cf_req_addr']?"required":""; ?>" size="5" maxlength="6"  placeholder="우편번호">
-	                <button type="button" class="btn_frmline" onclick="win_zip('fregisterform', 'mb_zip', 'mb_addr1', 'mb_addr2', 'mb_addr3', 'mb_addr_jibeon');">주소 검색</button><br>
-	                <input type="text" name="mb_addr1" value="<?php echo get_text($member['mb_addr1']) ?>" id="reg_mb_addr1" <?php echo $config['cf_req_addr']?"required":""; ?> class="frm_input frm_address full_input <?php echo $config['cf_req_addr']?"required":""; ?>" size="50"  placeholder="기본주소">
-	                <label for="reg_mb_addr1" class="sound_only">기본주소<?php echo $config['cf_req_addr']?'<strong> 필수</strong>':''; ?></label><br>
-	                <input type="text" name="mb_addr2" value="<?php echo get_text($member['mb_addr2']) ?>" id="reg_mb_addr2" class="frm_input frm_address full_input" size="50" placeholder="상세주소">
-	                <label for="reg_mb_addr2" class="sound_only">상세주소</label>
-	                <br>
-	                <input type="text" name="mb_addr3" value="<?php echo get_text($member['mb_addr3']) ?>" id="reg_mb_addr3" class="frm_input frm_address full_input" size="50" readonly="readonly" placeholder="참고항목">
-	                <label for="reg_mb_addr3" class="sound_only">참고항목</label>
-	                <input type="hidden" name="mb_addr_jibeon" value="<?php echo get_text($member['mb_addr_jibeon']); ?>">
-	            </li>
-	            <?php }  ?>
+				
 	        </ul>
 	    </div>
 <?php } ?>
 
 <!-- 근로자이면 출력 -->
 <?php
-	if ($reg_type=='worker') { ?>
+	if ($reg_type=='worker'||$is_worker) { ?>
 	    <div class="tbl_frm01 tbl_wrap register_form_inner">
 	        <h2>관련 이수증</h2>
 	        <ul>
@@ -361,7 +383,14 @@ gif, jpg, png파일만 가능하며 용량 <?php echo number_format($config['cf_
 	                <?php }  ?>
 	            </li>
 
-	            <li class="chk_box">
+	            
+	        </ul>
+	    </div>
+	<?php } ?>
+	</div>
+	<div class="tbl_frm01 tbl_wrap register_form_inner2">
+		<ul>
+		<li class="chk_box">
 		        	<input type="checkbox" name="mb_mailling" value="1" id="reg_mb_mailling" <?php echo ($w=='' || $member['mb_mailling'])?'checked':''; ?> class="selec_chk">
 		            <label for="reg_mb_mailling">
 		            	<span></span>
@@ -426,10 +455,7 @@ gif, jpg, png파일만 가능하며 용량 <?php echo number_format($config['cf_
 	                자동등록방지
 	                <?php echo captcha_html(); ?>
 	            </li>
-	        </ul>
-	    </div>
-	<?php } ?>
-	</div>
+		</ul>
 	<div class="btn_confirm">
 	    <a href="<?php echo G5_URL ?>" class="btn_close">취소</a>
 	    <button type="submit" id="btn_submit" class="btn_submit" accesskey="s"><?php echo $w==''?'회원가입':'정보수정'; ?></button>
