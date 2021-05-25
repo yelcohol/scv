@@ -123,7 +123,7 @@ sql_query(" delete from {$g5['scrap_table']} where bo_table = '$bo_table' and wr
 // 지원 내역 삭제
 sql_query(" delete from {$g5['apply_table']} where bo_table = '$bo_table' and wr_id = '{$write['wr_id']}' ");
 $sql = " update {$write_table} set wr_11 = wr_11 - 1 where wr_id = '{$wr_id}' ";
-
+sql_query($sql);
 /*
 // 공지사항 삭제
 $notice_array = explode("\n", trim($board['bo_notice']));
