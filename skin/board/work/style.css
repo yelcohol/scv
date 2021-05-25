@@ -305,6 +305,16 @@ box-shadow:inset 0 1px 2px rgba(0, 0, 0, 0.1)}
 .bo_vc_w .btn_confirm .secret_cm label {font-size:1em !important}
 .bo_vc_w_wr:after {display:block;visibility:hidden;clear:both;content:""}
 .secret_cm {display:inline-block;float:left}
+.start_time:before{
+    content: '시작 시각';
+    margin-right:.6em;
+    color:#9d9d9d;
+}
+.end_time:before{
+    content: '종료 시각';
+    margin-right:.6em;
+    color:#9d9d9d;
+}
 
 #bo_vc_send_sns {display:inline-block;float:left}
 #bo_vc_sns {display:inline-block;margin:0;padding:0;list-style:none;zoom:1}

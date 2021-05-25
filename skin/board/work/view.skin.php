@@ -104,14 +104,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         <!-- 본문 내용 시작 { -->
         <div><?="건설사: ".$view['wr_1']?></div>
         <div><?="담당자: ".$view['wr_2']?></div>
-        <div><?="준비물: ".$view['wr_13']?></div>
-        <div><?="장소: ".$view['wr_3']?></div>
-        <div><?="모집인원: ".$view['wr_4']."명"?></div>
-        <div><?="현재 지원 인원: ".$view['wr_11']."명"?></div>
-        <div><?="작업 날짜: ".$view['wr_5']?></div>
-        <div><?="시작 시각: ".$view['wr_6']?></div>
-        <div><?="종료 시각: ".$view['wr_7']?></div>
-        <div><?="모집 직종: ".$view['wr_8']?></div>
+        <div><?="담당자 연락처: ".$view['wr_3']?></div>
+        <div><?="장소: ".$view['wr_11'].' '.$view['wr_12'].' '.$view['wr_13']?></div>
+        <div><?="현재 지원 인원/모집 인원: ".$view['wr_4']."명/".$view['wr_5']."명"?></div>
+        <div><?="작업 날짜: ".$view['wr_6']?></div>
+        <div><?="시작 시각: ".$view['wr_7']?></div>
+        <div><?="종료 시각: ".$view['wr_8']?></div>
+        <div><?="모집 직종: ".$view['wr_9']?></div>
         <div><?="일당: ".number_format($view['wr_9'])."원"?></div>
         <div><?="-> 실수령: ".number_format($view['wr_9']*0.902)."원"?></div>
         <div><?='&nbsp&nbsp&nbsp&nbsp&nbsp-> 고용보험료(0.8%): '.number_format($view['wr_9']*0.008).'원 '?></div>

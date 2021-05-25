@@ -112,93 +112,95 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     </div>
     <div class="write_div">
         <label for="wr_1" class="sound_only">건설사 이름</label>
-        <input class="wr_content" type="text" name="wr_1" value="<?=$write['wr_1']?>" id="wr_1" placeholder="건설사 이름">
+        <input class="frm_input full_input required" type="text" name="wr_1" value="<?=$write['wr_1']?>" id="wr_1" placeholder="건설사 이름">
     </div>
     <div class="write_div">
         <label for="wr_2" class="sound_only">담당자 이름</label>
-        <input class="wr_content" type="text" name="wr_2" value="<?=$write['wr_2']?>" id="wr_2" placeholder="담당자 이름">
+        <input class="frm_input full_input required" type="text" name="wr_2" value="<?=$write['wr_2']?>" id="wr_2" placeholder="담당자 이름">
     </div>
     <div class="write_div">
-        <label for="wr_13" class="sound_only">준비물</label>
-        <input class="wr_content" type="text" name="wr_13" value="<?=$write['wr_13']?>" id="wr_13" placeholder="준비물">
+        <label for="wr_3" class="sound_only">담당자 연락처</label>
+        <input class="frm_input full_input required" type="text" name="wr_3" value="<?=$write['wr_3']?>" id="wr_3" placeholder="연락처">
     </div>
+
+    <!-- 지원한 인원은 wr_4 -->
     <div class="write_div">
-        <label for="wr_3" class="sound_only">주소</label>
-        <input class="wr_content" type="text" name="wr_3" value="<?=$write['wr_3']?>" id="wr_3" placeholder="주소">
+        <label for="wr_5" class="sound_only">모집 인원</label>
+        <input class="wr_content" type="number" name="wr_5" value="<?=$write['wr_5']?>" id="wr_5" placeholder="모집 인원">
     </div>
+    
+    <h3>작업 날짜 및 시각</h3>
     <div class="write_div">
-        <label for="wr_4" class="sound_only">모집 인원</label>
-        <input class="wr_content" type="number" name="wr_4" value="<?=$write['wr_4']?>" id="wr_4" placeholder="모집 인원">
+        <label for="wr_6" class="sound_only">작업 날짜</label>
+        <input class="wr_content" type="date" name="wr_6" value="<?=$write['wr_6']?>" id="wr_6" placeholder="작업 날짜" required>
     </div>
+    
     <div class="write_div">
-        <label for="wr_5" class="sound_only">작업 날짜</label>
-        <input class="wr_content" type="date" name="wr_5" value="<?=$write['wr_5']?>" id="wr_5" placeholder="작업 날짜">
+        <label for="wr_7" class="sound_only">시작 시각</label>
+        <input class="frm_input half_input required start_time" type="time" name="wr_7" value="<?=$write['wr_7']?>" id="wr_7">
+    
+        <label for="wr_8" class="sound_only">종료 시각</label>
+        <input class="frm_input half_input required end_time" type="time" name="wr_8" value="<?=$write['wr_8']?>" id="wr_8">
     </div>
-    <div class="write_div">
-        <label for="wr_6" class="sound_only">시작 시각</label>
-        <input class="wr_content" type="time" name="wr_6" value="<?=$write['wr_6']?>" id="wr_6" placeholder="시작 시각">
-    </div>
-    <div class="write_div">
-        <label for="wr_7" class="sound_only">종료 시각</label>
-        <input class="wr_content" type="time" name="wr_7" value="<?=$write['wr_7']?>" id="wr_7" placeholder="종료    시각">
-    </div>
+
     <div class="write_div">
     <ul>
         <li>
 		    <label>조공</label>
-			<input type="checkbox" name="wr_8[]" value="일반공(잡부)"<?php if(strpos($write['wr_8'], "일반공(잡부)")!==false) echo ' checked';?>> 일반공(잡부)
-			<input type="checkbox" name="wr_8[]" value="조력공(조공)"<?php if(strpos($write['wr_8'], "조력공(조공)")!==false) echo ' checked';?>> 조력공(조공)
-			<input type="checkbox" name="wr_8[]" value="청소"<?php if(strpos($write['wr_8'], "청소")!==false) echo ' checked';?>> 청소
-			<input type="checkbox" name="wr_8[]" value="비계(아시바)"<?php if(strpos($write['wr_8'], "비계(아시바)")!==false) echo ' checked';?>> 비계(아시바)
-			<input type="checkbox" name="wr_8[]" value="철거(해체)"<?php if(strpos($write['wr_8'], "철거(해체)")!==false) echo ' checked';?>> 철거(해체)
-			<input type="checkbox" name="wr_8[]" value="할석공(하스리)"<?php if(strpos($write['wr_8'], "할석공(하스리)")!==false) echo ' checked';?>> 할석공(하스리)
-			<input type="checkbox" name="wr_8[]" value="운반공(곰방)"<?php if(strpos($write['wr_8'], "운반공(곰방)")!==false) echo ' checked';?>> 운반공(곰방)
-			<input type="checkbox" name="wr_8[]" value="기타(조공)"<?php if(strpos($write['wr_8'], "기타(조공)")!==false) echo ' checked';?>> 기타(조공)
+			<input type="checkbox" name="wr_9[]" value="일반공(잡부)"<?php if(strpos($write['wr_9'], "일반공(잡부)")!==false) echo ' checked';?>> 일반공(잡부)
+			<input type="checkbox" name="wr_9[]" value="조력공(조공)"<?php if(strpos($write['wr_9'], "조력공(조공)")!==false) echo ' checked';?>> 조력공(조공)
+			<input type="checkbox" name="wr_9[]" value="청소"<?php if(strpos($write['wr_9'], "청소")!==false) echo ' checked';?>> 청소
+			<input type="checkbox" name="wr_9[]" value="비계(아시바)"<?php if(strpos($write['wr_9'], "비계(아시바)")!==false) echo ' checked';?>> 비계(아시바)
+			<input type="checkbox" name="wr_9[]" value="철거(해체)"<?php if(strpos($write['wr_9'], "철거(해체)")!==false) echo ' checked';?>> 철거(해체)
+			<input type="checkbox" name="wr_9[]" value="할석공(하스리)"<?php if(strpos($write['wr_9'], "할석공(하스리)")!==false) echo ' checked';?>> 할석공(하스리)
+			<input type="checkbox" name="wr_9[]" value="운반공(곰방)"<?php if(strpos($write['wr_9'], "운반공(곰방)")!==false) echo ' checked';?>> 운반공(곰방)
+			<input type="checkbox" name="wr_9[]" value="기타(조공)"<?php if(strpos($write['wr_9'], "기타(조공)")!==false) echo ' checked';?>> 기타(조공)
 		</li>
 		<li>
 		    <label>기공</label>
-		    <input type="checkbox" name="wr_8[]" value="목수(목공)"<?php if(strpos($write['wr_8'], "목수(목공)")!==false) echo ' checked';?>> 목수(목공)
-			<input type="checkbox" name="wr_8[]" value="용접공"<?php if(strpos($write['wr_8'], "용접공")!==false) echo ' checked';?>> 용접공
-			<input type="checkbox" name="wr_8[]" value="설비"<?php if(strpos($write['wr_8'], "설비")!==false) echo ' checked';?>> 설비
-			<input type="checkbox" name="wr_8[]" value="조경"<?php if(strpos($write['wr_8'], "조경")!==false) echo ' checked';?>> 조경
-			<input type="checkbox" name="wr_8[]" value="미장공"<?php if(strpos($write['wr_8'], "미장공")!==false) echo ' checked';?>> 미장공
-			<input type="checkbox" name="wr_8[]" value="타일공"<?php if(strpos($write['wr_8'], "타일공")!==false) echo ' checked';?>> 타일공
-			<input type="checkbox" name="wr_8[]" value="석재"<?php if(strpos($write['wr_8'], "석재")!==false) echo ' checked';?>> 석제
-			<input type="checkbox" name="wr_8[]" value="조적공(쓰미)"<?php if(strpos($write['wr_8'], "조적공(쓰미)")!==false) echo ' checked';?>> 조적공(쓰미)
-			<input type="checkbox" name="wr_8[]" value="콘크리트공(타설)"<?php if(strpos($write['wr_8'], "콘크리트공(타설)")!==false) echo ' checked';?>> 콘크리트공(타설)
-			<input type="checkbox" name="wr_8[]" value="방수"<?php if(strpos($write['wr_8'], "방수")!==false) echo ' checked';?>> 방수
-			<input type="checkbox" name="wr_8[]" value="철근공"<?php if(strpos($write['wr_8'], "철근공")!==false) echo ' checked';?>> 철근공
-			<input type="checkbox" name="wr_8[]" value="전기"<?php if(strpos($write['wr_8'], "전기")!==false) echo ' checked';?>> 전기
-			<input type="checkbox" name="wr_8[]" value="로프공"<?php if(strpos($write['wr_8'], "로프공")!==false) echo ' checked';?>>로프공
-			<input type="checkbox" name="wr_8[]" value="기타(기공)"<?php if(strpos($write['wr_8'], "기타(기공)")!==false) echo ' checked';?>> 기타(기공)
-			<input type="checkbox" name="wr_8[]" value="도장공(페인트공)"<?php if(strpos($write['wr_8'], "도장공(페인트공)")!==false) echo ' checked';?>> 도장공(페인트공)
+		    <input type="checkbox" name="wr_9[]" value="목수(목공)"<?php if(strpos($write['wr_9'], "목수(목공)")!==false) echo ' checked';?>> 목수(목공)
+			<input type="checkbox" name="wr_9[]" value="용접공"<?php if(strpos($write['wr_9'], "용접공")!==false) echo ' checked';?>> 용접공
+			<input type="checkbox" name="wr_9[]" value="설비"<?php if(strpos($write['wr_9'], "설비")!==false) echo ' checked';?>> 설비
+			<input type="checkbox" name="wr_9[]" value="조경"<?php if(strpos($write['wr_9'], "조경")!==false) echo ' checked';?>> 조경
+			<input type="checkbox" name="wr_9[]" value="미장공"<?php if(strpos($write['wr_9'], "미장공")!==false) echo ' checked';?>> 미장공
+			<input type="checkbox" name="wr_9[]" value="타일공"<?php if(strpos($write['wr_9'], "타일공")!==false) echo ' checked';?>> 타일공
+			<input type="checkbox" name="wr_9[]" value="석재"<?php if(strpos($write['wr_9'], "석재")!==false) echo ' checked';?>> 석제
+			<input type="checkbox" name="wr_9[]" value="조적공(쓰미)"<?php if(strpos($write['wr_9'], "조적공(쓰미)")!==false) echo ' checked';?>> 조적공(쓰미)
+			<input type="checkbox" name="wr_9[]" value="콘크리트공(타설)"<?php if(strpos($write['wr_9'], "콘크리트공(타설)")!==false) echo ' checked';?>> 콘크리트공(타설)
+			<input type="checkbox" name="wr_9[]" value="방수"<?php if(strpos($write['wr_9'], "방수")!==false) echo ' checked';?>> 방수
+			<input type="checkbox" name="wr_9[]" value="철근공"<?php if(strpos($write['wr_9'], "철근공")!==false) echo ' checked';?>> 철근공
+			<input type="checkbox" name="wr_9[]" value="전기"<?php if(strpos($write['wr_9'], "전기")!==false) echo ' checked';?>> 전기
+			<input type="checkbox" name="wr_9[]" value="로프공"<?php if(strpos($write['wr_9'], "로프공")!==false) echo ' checked';?>>로프공
+			<input type="checkbox" name="wr_9[]" value="기타(기공)"<?php if(strpos($write['wr_9'], "기타(기공)")!==false) echo ' checked';?>> 기타(기공)
+			<input type="checkbox" name="wr_9[]" value="도장공(페인트공)"<?php if(strpos($write['wr_9'], "도장공(페인트공)")!==false) echo ' checked';?>> 도장공(페인트공)
 		</li>
 		<li>
 			<label>파출</label>
-			<input type="checkbox" name="wr_8[]" value="가사"<?php if(strpos($write['wr_8'], "가사")!==false) echo ' checked';?>> 가사
-			<input type="checkbox" name="wr_8[]" value="육아"<?php if(strpos($write['wr_8'], "육아")!==false) echo ' checked';?>> 육아
-			<input type="checkbox" name="wr_8[]" value="산후조리"<?php if(strpos($write['wr_8'], "산후조리")!==false) echo ' checked';?>> 산후조리
-			<input type="checkbox" name="wr_8[]" value="청소"<?php if(strpos($write['wr_8'], "청소")!==false) echo ' checked';?>> 청소
-			<input type="checkbox" name="wr_8[]" value="식당"<?php if(strpos($write['wr_8'], "식당")!==false) echo ' checked';?>> 식당
-			<input type="checkbox" name="wr_8[]" value="간병"<?php if(strpos($write['wr_8'], "간병")!==false) echo ' checked';?>> 간병
+			<input type="checkbox" name="wr_9[]" value="가사"<?php if(strpos($write['wr_9'], "가사")!==false) echo ' checked';?>> 가사
+			<input type="checkbox" name="wr_9[]" value="육아"<?php if(strpos($write['wr_9'], "육아")!==false) echo ' checked';?>> 육아
+			<input type="checkbox" name="wr_9[]" value="산후조리"<?php if(strpos($write['wr_9'], "산후조리")!==false) echo ' checked';?>> 산후조리
+			<input type="checkbox" name="wr_9[]" value="청소"<?php if(strpos($write['wr_9'], "청소")!==false) echo ' checked';?>> 청소
+			<input type="checkbox" name="wr_9[]" value="식당"<?php if(strpos($write['wr_9'], "식당")!==false) echo ' checked';?>> 식당
+			<input type="checkbox" name="wr_9[]" value="간병"<?php if(strpos($write['wr_9'], "간병")!==false) echo ' checked';?>> 간병
 		</li>
 		<li>
 			<label>기타</label>
-			<input type="checkbox" name="wr_8[]" value="제조, 생산"<?php if(strpos($write['wr_8'], "제조, 생산")!==false) echo ' checked';?>> 제조/생산
-			<input type="checkbox" name="wr_8[]" value="물류"<?php if(strpos($write['wr_8'], "물류")!==false) echo ' checked';?>> 물류
-			<input type="checkbox" name="wr_8[]" value="경비"<?php if(strpos($write['wr_8'], "경비")!==false) echo ' checked';?>> 경비
-			<input type="checkbox" name="wr_8[]" value="운전"<?php if(strpos($write['wr_8'], "운전")!==false) echo ' checked';?>> 운전
-			<input type="checkbox" name="wr_8[]" value="기타"<?php if(strpos($write['wr_8'], "기타")!==false) echo ' checked';?>> 기타
+			<input type="checkbox" name="wr_9[]" value="제조, 생산"<?php if(strpos($write['wr_9'], "제조, 생산")!==false) echo ' checked';?>> 제조/생산
+			<input type="checkbox" name="wr_9[]" value="물류"<?php if(strpos($write['wr_9'], "물류")!==false) echo ' checked';?>> 물류
+			<input type="checkbox" name="wr_9[]" value="경비"<?php if(strpos($write['wr_9'], "경비")!==false) echo ' checked';?>> 경비
+			<input type="checkbox" name="wr_9[]" value="운전"<?php if(strpos($write['wr_9'], "운전")!==false) echo ' checked';?>> 운전
+			<input type="checkbox" name="wr_9[]" value="기타"<?php if(strpos($write['wr_9'], "기타")!==false) echo ' checked';?>> 기타
 		</li>
     </ul>
     </div>
     <div class="write_div">
-        <label for="wr_9" class="sound_only">일당</label>
-        <input class="wr_content" type="number" name="wr_9" value="<?=$write['wr_9']?>" id="wr_9" placeholder="일당">
+        <label for="wr_10" class="sound_only">일당</label>
+        <input class="wr_content" type="number" name="wr_10" value="<?=$write['wr_10']?>" id="wr_10" placeholder="일당" required>
     </div>
+    <!-- 보류 -->
     <div class="write_div">
-        <label for="wr_10" class="sound_only">연락처</label>
-        <input class="wr_content" type="text" name="wr_10" value="<?=$write['wr_10']?>" id="wr_10" placeholder="연락처">
+        <label for="wr_15" class="sound_only">준비물</label>
+        <input class="wr_content" type="text" name="wr_15" value="<?=$write['wr_15']?>" id="wr_15" placeholder="준비물">
     </div>
     <div class="write_div">
         <label for="wr_content" class="sound_only">내용<strong>필수</strong></label>
@@ -248,6 +250,24 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         <?php echo $captcha_html ?>
     </div>
     <?php } ?>
+
+    <!-- 일자리 주소 입력  -->
+
+    <li>
+        <label>주소</label>
+        <?php if ($config['cf_req_addr']) { ?><strong class="sound_only">필수</strong><?php }  ?>
+        <label for="reg_wr_zip" class="sound_only">우편번호<strong class="sound_only"> 필수</strong></label>
+        <input type="text" name="wr_11" id="reg_wr_zip" <?php echo "required" ?> class="frm_input twopart_input <?php echo "required" ?>" size="5" maxlength="6"  placeholder="우편번호">
+        <button type="button" class="btn_frmline" onclick="win_zip('fwrite', 'wr_11', 'wr_12', 'wr_13', 'wr_14', 'wr_addr_jibeon');">주소 검색</button><br>
+        <input type="text" name="wr_12" id="reg_wr_addr1" class="frm_input frm_address full_input" size="50"  placeholder="기본주소">
+        <label for="reg_wr_addr1" class="sound_only">기본주소<strong> 필수</strong></label><br>
+        <input type="text" name="wr_13" id="reg_wr_addr2" class="frm_input frm_address full_input" size="50" placeholder="상세주소">
+        <label for="reg_wr_addr2" class="sound_only">상세주소</label>
+        <br>
+        <input type="text" name="wr_14" id="reg_wr_addr3" class="frm_input frm_address full_input" size="50" readonly="readonly" placeholder="참고항목">
+        <label for="reg_wr_addr3" class="sound_only">참고항목</label>
+        <input type="hidden" name="wr_addr_jibeon" value="<?php //echo get_text($member['mb_addr_jibeon']); ?>">
+    </li>
 
     <div class="btn_confirm write_div">
         <a href="<?php echo get_pretty_url($bo_table); ?>" class="btn_cancel btn">취소</a>
@@ -340,5 +360,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         return true;
     }
     </script>
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 </section>
 <!-- } 게시물 작성/수정 끝 -->

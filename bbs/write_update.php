@@ -124,15 +124,15 @@ if (isset($_POST['notice']) && $_POST['notice']) {
 }
 
 //여분필드
-for ($i=1; $i<=7; $i++) {
+for ($i=1; $i<=8; $i++) {
     $var = "wr_$i";
     $$var = "";
     if (isset($_POST['wr_'.$i]) && settype($_POST['wr_'.$i], 'string')) {
         $$var = trim($_POST['wr_'.$i]);
     }
 }
-$wr_8= implode('|', $_POST['wr_8']);
-for ($i=9; $i<=20; $i++) {
+$wr_9= implode('|', $_POST['wr_9']);
+for ($i=10; $i<=20; $i++) {
     $var = "wr_$i";
     $$var = "";
     if (isset($_POST['wr_'.$i]) && settype($_POST['wr_'.$i], 'string')) {

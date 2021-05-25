@@ -7,7 +7,7 @@ if(G5_TIME_YMD != $board['bo_1']){
 	$sql = " select wr_id, ca_name, wr_5 from {$write_table} where wr_is_comment = 0 order by wr_id desc limit 0, 1000 ";
 	$result = sql_query($sql);
 	for ($i=0; $row = sql_fetch_array($result); $i++) {
-		if($row['ca_name']=='모집중' && $row['wr_5'] < G5_TIME_YMD){
+		if($row['ca_name']=='모집중' && ($row['wr_6'] < G5_TIME_YMD || $row['wr_4']==$row['wr_5'])){
 			sql_query(" update {$write_table} set ca_name='모집종료' where wr_id = {$row['wr_id']} ");
 		}
 	}
@@ -146,14 +146,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                         <?php echo $list[$i]['icon_reply'] ?>
                         <?php
                             if (isset($list[$i]['icon_secret'])) echo rtrim($list[$i]['icon_secret']);
-                         ?>
+                         ?><br><br>
                         <?php echo $list[$i]['subject'] ?><br>
                         <?="<b>".$list[$i]['wr_1']."</b>"?><br>
-                        <?=$list[$i]['wr_2']?><br>
-                        <?=$list[$i]['wr_3']?><br>
-                        <?=$list[$i]['wr_11']?>/<?=$list[$i]['wr_4']?><br>
-                        <?=$list[$i]['wr_5']?><br>
-                        <?=$list[$i]['wr_6']."~".$list[$i]['wr_7']?><br>
+                        <?=$list[$i]['wr_2']?><span>의 연락처:</span><?=$list[$i]['wr_3']?><br>
+                        <?=$list[$i]['wr_4']?>/<?=$list[$i]['wr_5']?><br>
+                        <?=$list[$i]['wr_6']?><br>
+                        <?=$list[$i]['wr_7']."~".$list[$i]['wr_8']?><br>
                         <?=$list[$i]['wr_8']?><br>
                         <?=number_format($list[$i]['wr_9'])."원"?><br>
                         <?=$list[$i]['wr_10']?><br>
@@ -161,9 +160,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                     </a>
                     <?php $bbs=G5_BBS_URL?>
                     <?php 
-                    // if($list[$i]['wr_11']<$list[$i]['wr_4']&&$list[$i]['ca_name']=='모집중'){
                     if($is_worker){
-                        if($list[$i]['wr_11']<$list[$i]['wr_4']){
+                        if($list[$i]['wr_4']<$list[$i]['wr_5']){
                             echo '<a href="./apply_popin.php?bo_table='.$bo_table.'&wr_id='.$list[$i]['wr_id'].'target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
                         }
                         else{
