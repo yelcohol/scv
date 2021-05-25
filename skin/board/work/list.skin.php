@@ -42,7 +42,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     <!-- } 게시판 카테고리 끝 -->
     
     <form name="fboardlist" id="fboardlist" action="<?php echo G5_BBS_URL; ?>/board_list_update.php" onsubmit="return fboardlist_submit(this);" method="post">
-    
+    <input value="<?=$is_constructor?>">
     <input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
     <input type="hidden" name="sfl" value="<?php echo $sfl ?>">
     <input type="hidden" name="stx" value="<?php echo $stx ?>">
@@ -153,9 +153,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                         <?=$list[$i]['wr_4']?>/<?=$list[$i]['wr_5']?><br>
                         <?=$list[$i]['wr_6']?><br>
                         <?=$list[$i]['wr_7']."~".$list[$i]['wr_8']?><br>
-                        <?=$list[$i]['wr_8']?><br>
-                        <?=number_format($list[$i]['wr_9'])."원"?><br>
-                        <?=$list[$i]['wr_10']?><br>
+                        <?=$list[$i]['wr_9']?><br>
+                        <?=number_format((double)$list[$i]['wr_10'])."원"?><br>
                         
                     </a>
                     <?php $bbs=G5_BBS_URL?>

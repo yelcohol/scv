@@ -105,22 +105,29 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         <div><?="건설사: ".$view['wr_1']?></div>
         <div><?="담당자: ".$view['wr_2']?></div>
         <div><?="담당자 연락처: ".$view['wr_3']?></div>
-        <div><?="장소: ".$view['wr_11'].' '.$view['wr_12'].' '.$view['wr_13']?></div>
+        <div><?="장소: ".$view['wr_11'].$view['wr_12'].$view['wr_13']?></div>
         <div><?="현재 지원 인원/모집 인원: ".$view['wr_4']."명/".$view['wr_5']."명"?></div>
         <div><?="작업 날짜: ".$view['wr_6']?></div>
         <div><?="시작 시각: ".$view['wr_7']?></div>
         <div><?="종료 시각: ".$view['wr_8']?></div>
         <div><?="모집 직종: ".$view['wr_9']?></div>
-        <div><?="일당: ".number_format($view['wr_9'])."원"?></div>
-        <div><?="-> 실수령: ".number_format($view['wr_9']*0.902)."원"?></div>
-        <div><?='&nbsp&nbsp&nbsp&nbsp&nbsp-> 고용보험료(0.8%): '.number_format($view['wr_9']*0.008).'원 '?></div>
-        <div><?='&nbsp&nbsp&nbsp&nbsp&nbsp-> 수수료(9%): '.number_format($view['wr_9']*0.09).'원 '?></div>
-        <div><?="연락처: ".$view['wr_10']?></div>
+        <div><?="일당: ".number_format($view['wr_10'])."원"?></div>
+        <div><?="-> 실수령: ".number_format($view['wr_10']*0.902)."원"?></div>
+        <div><?='&nbsp&nbsp&nbsp&nbsp&nbsp-> 고용보험료(0.8%): '.number_format((int)$view['wr_10']*0.008).'원 '?></div>
+        <div><?='&nbsp&nbsp&nbsp&nbsp&nbsp-> 수수료(9%): '.number_format($view['wr_10']*0.09).'원 '?></div>
         <div id="bo_v_con"><?php echo get_view_thumbnail($view['content']); ?></div>
-        <?php if($is_worker) {?>
-        <a href="<?php echo $apply_href;  ?>" target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle" aria-hidden="true"></i> 지원하기</a>
-        <? } ?>
-        <?php if(!$is_worker && $view['mb_id'] == $member['mb_id']) {?>
+        
+        <?php 
+            if($is_worker){
+                if($view['wr_4']<$view['wr_5']){
+                    echo '<a href='.$apply_href.' target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
+                        }
+                else{
+                    echo '<h3 style="color:red"><b>지원마감</b></h3>';
+                }
+            }?>
+        <?php 
+        if($is_constructor && $view['mb_id'] == $member['mb_id']) {?>
             <a href="<?php echo "";  ?>" target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle" aria-hidden="true"></i> 지원내역 확인하기</a>
         <?php } ?>
         <?php //echo $view['rich_content']; // {이미지:0} 과 같은 코드를 사용할 경우 ?>
