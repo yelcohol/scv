@@ -118,7 +118,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                 $pieces_2 = explode("|", $list[$i]['wr_9']);
                 $pieces_result = array_intersect($pieces_1, $pieces_2);
             }
-            if(($is_worker&&count($pieces_result)>0)||$is_constructor||($is_worker&&$list[$i]['wr_9']=='')){
+            if(($is_worker&&count($pieces_result)>0)||$is_constructor||($is_worker&&($list[$i]['wr_9']==''||$member['mb_5']==''))){
         	if ($i%2==0) $lt_class = "even";
         	else $lt_class = "";
 		?>
@@ -168,7 +168,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                     <?php $bbs=G5_BBS_URL?>
                     <?php 
                     if($is_worker){
-                        if($list[$i]['wr_4']<$list[$i]['wr_5']){
+                        if($list[$i]['wr_4']<$list[$i]['wr_5']&&$list[$i]['ca_name']=='모집중'){
                             echo '<a href="./apply_popin.php?bo_table='.$bo_table.'&wr_id='.$list[$i]['wr_id'].'target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
                         }
                         else{
