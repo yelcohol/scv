@@ -257,14 +257,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         <label>주소</label>
         <?php if ($config['cf_req_addr']) { ?><strong class="sound_only">필수</strong><?php }  ?>
         <label for="reg_wr_zip" class="sound_only">우편번호<strong class="sound_only"> 필수</strong></label>
-        <input type="text" name="wr_11" id="reg_wr_zip" <?php echo "required" ?> class="frm_input twopart_input <?php echo "required" ?>" size="5" maxlength="6"  placeholder="우편번호">
+        <input type="text" name="wr_11" id="reg_wr_zip" <?php echo "required" ?> class="frm_input twopart_input <?php echo "required" ?>" size="5" maxlength="6"  placeholder="우편번호" value="<?=$write['wr_11']?>">
         <button type="button" class="btn_frmline" onclick="win_zip('fwrite', 'wr_11', 'wr_12', 'wr_13', 'wr_14', 'wr_addr_jibeon');">주소 검색</button><br>
-        <input type="text" name="wr_12" id="reg_wr_addr1" class="frm_input frm_address full_input" size="50"  placeholder="기본주소">
+        <input type="text" name="wr_12" id="reg_wr_addr1" class="frm_input frm_address full_input" size="50"  placeholder="기본주소" value="<?=$write['wr_12']?>">
         <label for="reg_wr_addr1" class="sound_only">기본주소<strong> 필수</strong></label><br>
-        <input type="text" name="wr_13" id="reg_wr_addr2" class="frm_input frm_address full_input" size="50" placeholder="상세주소">
+        <input type="text" name="wr_13" id="reg_wr_addr2" class="frm_input frm_address full_input" size="50" placeholder="상세주소" value="<?=$write['wr_13']?>">
         <label for="reg_wr_addr2" class="sound_only">상세주소</label>
         <br>
-        <input type="text" name="wr_14" id="reg_wr_addr3" class="frm_input frm_address full_input" size="50" readonly="readonly" placeholder="참고항목">
+        <input type="text" name="wr_14" id="reg_wr_addr3" class="frm_input frm_address full_input" size="50" readonly="readonly" placeholder="참고항목" value="<?=$write['wr_14']?>">
         <label for="reg_wr_addr3" class="sound_only">참고항목</label>
         <input type="hidden" name="wr_addr_jibeon" value="<?php //echo get_text($member['mb_addr_jibeon']); ?>">
     </li>

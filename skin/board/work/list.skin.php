@@ -109,14 +109,16 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         </thead>
         <tbody>
         <?php
+        if($is_worker){
+            $pieces_1 = explode("|", $member['mb_5']);
+        }
         for ($i=0; $i<count($list); $i++) {
             // 선호 직종만 출력하기
             if($is_worker){
-                $pieces_1 = explode("|", $member['mb_5']);
                 $pieces_2 = explode("|", $list[$i]['wr_9']);
                 $pieces_result = array_intersect($pieces_1, $pieces_2);
             }
-            if(($is_worker&&count($pieces_result)>0)||$is_constructor){
+            if(($is_worker&&count($pieces_result)>0)||$is_constructor||($is_worker&&$list[$i]['wr_9']=='')){
         	if ($i%2==0) $lt_class = "even";
         	else $lt_class = "";
 		?>
