@@ -105,7 +105,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         <div><?="건설사: ".$view['wr_1']?></div>
         <div><?="담당자: ".$view['wr_2']?></div>
         <div><?="담당자 연락처: ".$view['wr_3']?></div>
-        <div><?="장소: ".$view['wr_11'].$view['wr_12'].$view['wr_13']?></div>
+        <div><?="장소: ".$view['wr_12'].' '.$view['wr_14'].' '.$view['wr_13']?></div>
         <div><?="현재 지원 인원/모집 인원: ".$view['wr_4']."명/".$view['wr_5']."명"?></div>
         <div><?="작업 날짜: ".$view['wr_6']?></div>
         <div><?="시작 시각: ".$view['wr_7']?></div>

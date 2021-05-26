@@ -42,7 +42,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     <!-- } 게시판 카테고리 끝 -->
     
     <form name="fboardlist" id="fboardlist" action="<?php echo G5_BBS_URL; ?>/board_list_update.php" onsubmit="return fboardlist_submit(this);" method="post">
-    <input value="<?=$is_constructor?>">
     <input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
     <input type="hidden" name="sfl" value="<?php echo $sfl ?>">
     <input type="hidden" name="stx" value="<?php echo $stx ?>">
@@ -111,6 +110,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         <tbody>
         <?php
         for ($i=0; $i<count($list); $i++) {
+            // 선호 직종만 출력하기
+            if($is_worker){
+                $pieces_1 = explode("|", $member['mb_5']);
+                $pieces_2 = explode("|", $list[$i]['wr_9']);
+                $pieces_result = array_intersect($pieces_1, $pieces_2);
+            }
+            if(($is_worker&&count($pieces_result)>0)||$is_constructor){
         	if ($i%2==0) $lt_class = "even";
         	else $lt_class = "";
 		?>
@@ -184,7 +190,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             <td class="td_datetime"><?php echo $list[$i]['datetime2'] ?></td>
 
         </tr>
-        <?php } ?>
+        <?php } } ?>
         <?php if (count($list) == 0) { echo '<tr><td colspan="'.$colspan.'" class="empty_table">게시물이 없습니다.</td></tr>'; } ?>
         </tbody>
         </table>
