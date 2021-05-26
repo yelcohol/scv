@@ -365,6 +365,14 @@ var win_scrap = function(href) {
 }
 
 /**
+ * 지원내역 확인하기(건설사) 창
+ **/
+ var win_apply_cons = function(href) {
+    var new_win = window.open(href, 'win_apply_cons');
+    new_win.focus();
+}
+
+/**
  * 홈페이지 창
  **/
 var win_homepage = function(href) {

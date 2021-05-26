@@ -118,7 +118,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                 $pieces_2 = explode("|", $list[$i]['wr_9']);
                 $pieces_result = array_intersect($pieces_1, $pieces_2);
             }
-            if(($is_worker&&count($pieces_result)>0)||$is_constructor||($is_worker&&($list[$i]['wr_9']==''||$member['mb_5']==''))){
+            if(($is_worker&&count($pieces_result)>0)||$is_constructor||($is_worker&&($list[$i]['wr_9']==''||$member['mb_5']==''))||$is_admin){
         	if ($i%2==0) $lt_class = "even";
         	else $lt_class = "";
 		?>

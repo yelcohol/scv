@@ -68,7 +68,7 @@ $sql = " insert into {$g5['apply_table']} ( mb_id, bo_table, wr_id, ma_datetime 
 sql_query($sql);
 
 // free_table에서 현재 지원자 수 1 증가
-$sql = " update {$write_table} set wr_11 = wr_11 + 1 where wr_id = '{$wr_id}' ";
+$sql = " update {$write_table} set wr_4 = wr_4 + 1 where wr_id = '{$wr_id}' ";
 sql_query($sql);
 
 // g5_member에서 지원횟수 추가

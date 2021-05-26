@@ -128,7 +128,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
             }?>
         <?php 
         if($is_constructor && $view['mb_id'] == $member['mb_id']) {?>
-            <a href="<?php echo "";  ?>" target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle" aria-hidden="true"></i> 지원내역 확인하기</a>
+            <a href="<?=$apply_cons_href?>" target="_blank" class="btn btn_b03" onclick="win_apply_cons(this.href); return false;"><i class="fa fa-check-circle" aria-hidden="true"></i> 지원내역 확인하기</a>
         <?php } ?>
         <?php //echo $view['rich_content']; // {이미지:0} 과 같은 코드를 사용할 경우 ?>
         <!-- } 본문 내용 끝 -->
