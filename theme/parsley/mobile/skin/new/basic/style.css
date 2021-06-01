@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+/* 새글 */
+#new_sch {padding:15px;text-align:center;background:#fff;border:1px solid #e4e5e7}
+#new_sch select {width:26%;float:left;height:40px;margin-bottom:5px;border:1px solid #e4e5e7;background:transparent;border-radius:3px}
+#new_sch #gr_id {margin-right:1%}
+#new_sch #view {border-left:1px solid #e2e2e2}
+#new_sch .sch_ipt {float:left;position:relative;width:45%;height:40px;margin-left:1%}
+#new_sch .frm_input {width:100%;margin-bottom:10px;border:1px solid #fff;border-radius:3px;background:transparent;border:2px solid #2aba8a}
+#new_sch .btn_sch_submit {position:absolute;right:2px;top:2px;height:36px;line-height:0;padding:0 10px;font-size:1.5em;background:transparent;color:#2aba8a;border:0;cursor:pointer}
+
+#new_list {border:1px solid #e4e5e7;border-top:0}
+#new_list li {border-bottom:1px solid #f0f0f0;padding:10px}
+#new_list li:last-child {border-bottom:0}
+#new_list .new_tit {display:block;font-weight:bold;margin:5px 0;font-size:1.083em}
+#new_list .new_group {font-weight:bold;line-height:16px;color:#17bb9c}
+#new_list .new_board {font-weight:bold;line-height:16px;color:#8e74ef}
+
+.newli_info {margin-top:5px}
+.newli_info span, .newli_info a {color:#848484}
+.new_guest img {border-radius:50%}
+.new_date, .new_view {padding-left:5px}
+.new_cmt {float:right;color:#3598dc !important}

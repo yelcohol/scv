@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+#tnb .tnb_member ul {margin:0;padding:0}
+#tnb .tnb_member span {display:inline-block;float:right;color:#694ecc}
+#tnb .tnb_member li>a {display:block;padding:10px 15px}
+#tnb .tnb_member li.tnb_me {border-bottom:1px solid #ececec}
+#tnb .tnb_member li.tnb_me:after {display:block;visibility:hidden;clear:both;content:""}
+#tnb .tnb_member li.tnb_me .profile_img {position:relative;display:block;float:inherit;text-align:center;padding:20px 0 10px}
+#tnb .tnb_member li.tnb_me .profile_img img {border-radius:50%;width:50px;height:50px}
+#tnb .tnb_member li.tnb_me .profile_img a {position:absolute;bottom:10px;right:45px;color:#000;background:#fff;width:20px;line-height:20px;height:20px;overflow:hidden;border-radius:50%;-webkit-box-shadow:0 1px 5px #d6d6d6;-moz-box-shadow:0 1px 5px #d6d6d6;box-shadow:0 1px 5px #d6d6d6}
+#tnb .tnb_member li.tnb_me strong {text-align:center;display:block;margin-bottom:20px}
+#tnb .tnb_member li.tnb_logout {border-top:1px solid #ececec}
+#tnb .tnb_member li.tnb_logout a {color:#fd1a5d;text-align:center}
