@@ -46,11 +46,15 @@ add_stylesheet('<link rel="stylesheet" href="'.$outlogin_skin_url.'/style.css">'
             	<strong class="scrap"><?php echo $scrap_cnt ?></strong>
             </a>
         </li>
+        <li><input value="<?=$is_worker?>"></li>
+        <?php 
+        if($is_worker){ ?>
         <li>
             <a href="<?php echo G5_BBS_URL ?>/apply.php" target="_blank" id="ol_after_apply" class="win_apply">지원 내역<br>
             	<strong class="apply"><?php echo $apply_cnt ?></strong>
             </a>
         </li>
+        <?php } ?>
     </ul>
 
 </section>

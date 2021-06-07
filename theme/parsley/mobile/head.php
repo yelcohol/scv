@@ -71,7 +71,7 @@ jQuery(function($) {
       	<div id="logo">
             <a href="<?php echo G5_URL ?>#wrapper">
             	<span class="sound_only"><?php echo $config['cf_title']; ?></span>
-            	<img src="<?php echo G5_IMG_URL ?>/logo.png" alt="<?php echo $config['cf_title']; ?>">
+            	<img src="<?php echo G5_IMG_URL ?>/logo.png" alt="<?php echo $config['cf_title']; ?> " style="width:50%;">
             </a>
         </div>
         

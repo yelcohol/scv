@@ -1,9 +1,10 @@
 <?php
 include_once('./_common.php');
 
-if (!$is_member)
-    alert_close('회원만 조회하실 수 있습니다.');
+if (!$is_worker)
+    alert_close('근로자만 조회하실 수 있습니다.');
 
+// 공고 제목 출력
 $g5['title'] = get_text($member['mb_nick']).'님의 지원 내역';
 include_once(G5_PATH.'/head.sub.php');
 

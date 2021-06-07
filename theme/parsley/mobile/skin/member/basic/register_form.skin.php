@@ -7,13 +7,19 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 <div class="register">
 	<h1>회원가입</h1>
+	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
     <script src="<?php echo G5_JS_URL ?>/jquery.register_form.js"></script>
     <?php if($config['cf_cert_use'] && ($config['cf_cert_ipin'] || $config['cf_cert_hp'])) { ?>
     <script src="<?php echo G5_JS_URL ?>/certify.js?v=<?php echo G5_JS_VER; ?>"></script>
     <?php } ?>
 
     <form name="fregisterform" id="fregisterform" action="<?php echo $register_action_url ?>" onsubmit="return fregisterform_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
-    <input type="hidden" name="w" value="<?php echo $w ?>">
+    <?php
+	if(!isset($reg_type)){
+		$reg_type=$member['mb_10'];
+	}?>
+	<input type="text" name="mb_10" value="<?php echo $reg_type?>" readonly>
+	<input type="hidden" name="w" value="<?php echo $w ?>">
     <input type="hidden" name="url" value="<?php echo $urlencode ?>">
     <input type="hidden" name="agree" value="<?php echo $agree ?>">
     <input type="hidden" name="agree2" value="<?php echo $agree2 ?>">
@@ -30,6 +36,22 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	    <div class="form_01">
 	        <h2>사이트 이용정보 입력</h2>
 	        <ul>
+				<li class="reg_mb_img_file">
+	                <label for="reg_mb_img" class="frm_label">
+	                	회원이미지
+	                	<button type="button" class="tooltip_icon"><i class="fa fa-question-circle-o" aria-hidden="true"></i><span class="sound_only">설명보기</span></button>
+	                	<span class="tooltip">이미지 크기는 가로 <?php echo $config['cf_member_img_width'] ?>픽셀, 세로 <?php echo $config['cf_member_img_height'] ?>픽셀 이하로 해주세요.<br>
+	                    gif, jpg, png파일만 가능하며 용량 <?php echo number_format($config['cf_member_img_size']) ?>바이트 이하만 등록됩니다.</span>
+	                </label>
+	                <input type="file" name="mb_img" id="reg_mb_img">
+	
+	                <?php if ($w == 'u' && file_exists($mb_img_path)) {  ?>
+	                <img src="<?php echo $mb_img_url ?>" alt="회원이미지">
+	                <input type="checkbox" name="del_mb_img" value="1" id="del_mb_img">
+	                <label for="del_mb_img" class="inline">삭제</label>
+	                <?php }  ?>
+	            
+	            </li>
 		        <li>
 		            <label for="reg_mb_id">아이디<strong class="sound_only">필수</strong></label>
 		            <input type="text" name="mb_id" value="<?php echo $member['mb_id'] ?>" id="reg_mb_id" class="frm_input full_input <?php echo $required ?> <?php echo $readonly ?>" minlength="3" maxlength="20" <?php echo $required ?> <?php echo $readonly ?> placeholder="아이디">

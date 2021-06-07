@@ -14,6 +14,21 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 	        <h2 id="bo_v_title">
 	            <?php if($view['ca_name']) { ?><span class="bo_v_cate">[<?php echo $view['ca_name']; // 분류 출력 끝 ?>]</span><?php } ?>
 	            <span class="bo_v_tit"><?php echo cut_str(get_text($view['wr_subject']), 70); // 글제목 출력 ?></span>
+				<span style="float:right;">
+				<?php 
+				if($is_worker){
+					if($view['wr_4']<$view['wr_5']&&$view['ca_name']=='모집중'){
+						echo '<a href='.$apply_href.' target="_blank" class="btn_b01 btn" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
+							}
+					else{
+						echo '<h3 style="color:red"><b>지원마감</b></h3>';
+					}
+				}?>
+				<?php 
+				if($is_constructor && $view['mb_id'] == $member['mb_id']) {?>
+					<a href="<?=$apply_cons_href?>" target="_blank" class="btn_b01 btn" onclick="win_apply_cons(this.href); return false;"><i class="fa fa-check-circle" aria-hidden="true"></i> 지원내역 확인하기</a>
+				<?php } ?>
+				</span>
 	        </h2>
 	        <div id="bo_v_info">
 	        	<h2>페이지 정보</h2>
@@ -61,7 +76,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 			        ?>
 		    	</div>
 		    	<?php if ($scrap_href) { ?><a href="<?php echo $scrap_href;  ?>" target="_blank" class="btn_scrap" onclick="win_scrap(this.href); return false;"><i class="fa fa-thumb-tack" aria-hidden="true"></i><span class="sound_only">스크랩</span></a><?php } ?>
-		        <div id="bo_v_share">
+		        				
+				<div id="bo_v_share">
 		    		<?php include_once($board_skin_path. "/view.sns.skin.php"); ?>
 		        </div>
 	    	</aside>
@@ -82,8 +98,25 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 	            echo "</div>\n";
 	        }
 			?>
-	
-	        <div id="bo_v_con"><?php echo get_view_thumbnail($view['content']); ?></div>
+			<!-- 본문 내용 시작 { -->
+			<div><?="건설사: ".$view['wr_1']?></div>
+			<div><?="담당자: ".$view['wr_2']?></div>
+			<div><?="담당자 연락처: ".$view['wr_3']?></div>
+			<div><?="장소: ".$view['wr_12'].' '.$view['wr_14'].' '.$view['wr_13']?></div>
+			<div><?="현재 지원 인원/모집 인원: ".$view['wr_4']."명/".$view['wr_5']."명"?></div>
+			<div><?="작업 날짜: ".$view['wr_6']?></div>
+			<div><?="시작 시각: ".$view['wr_7']?></div>
+			<div><?="종료 시각: ".$view['wr_8']?></div>
+			<?php $new_wr_9 = explode("|", $view['wr_9']); 
+			$new_wr_9 = implode(", ", $new_wr_9); ?>
+			<div><?="모집 직종: ".$new_wr_9?></div>
+			<div><?="일당: ".number_format($view['wr_10'])."원"?></div>
+			<div><?="-> 실수령: ".number_format($view['wr_10']*0.902)."원"?></div>
+			<div><?='&nbsp&nbsp&nbsp&nbsp&nbsp-> 고용보험료(0.8%): '.number_format((int)$view['wr_10']*0.008).'원 '?></div>
+			<div><?='&nbsp&nbsp&nbsp&nbsp&nbsp-> 수수료(9%): '.number_format($view['wr_10']*0.09).'원 '?></div><br>
+			<div id="bo_v_con"><?php echo get_view_thumbnail($view['content']); ?></div>
+			
+			
 	        <?php //echo $view['rich_content']; // {이미지:0} 과 같은 코드를 사용할 경우 ?>
 	
 	        <?php if ($is_signature) { ?><p><?php echo $signature ?></p><?php } //서명 ?>

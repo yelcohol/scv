@@ -13,9 +13,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
         <li>
             <?=$list[$i]['mb_name']?>
             <?=$list[$i]['mb_occupation']?>
-            <span class="apply_datetime"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo $list[$i]['ma_datetime'] ?></span>
-            <?php print_r($member_result) ?>
-            <span class="apply_datetime"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo $list[$i]['ma_datetime'] ?></span>
+            <?=$list[$i]['mb_career']?>
+            <span class="apply_datetime"><i class="fa fa-clock-o" aria-hidden="true"></i> <?=$list[$i]['ma_datetime'] ?></span>
             <span class="apply_datetime">&nbsp;&nbsp;<i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp;<?php echo $list[$i]['ma_state']?></span>
             <!-- 삭제는 '지원검토중' 상태일 때만 가능하다 -->
             <?php

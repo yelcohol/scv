@@ -368,7 +368,7 @@ var win_scrap = function(href) {
  * 지원내역 확인하기(건설사) 창
  **/
  var win_apply_cons = function(href) {
-    var new_win = window.open(href, 'win_apply_cons');
+    var new_win = window.open(href, 'win_apply_cons', 'left=100,top=100,width=600,height=600,scrollbars=1');
     new_win.focus();
 }
 
@@ -606,6 +606,11 @@ $(function(){
 
     $(".win_apply").click(function() {
         win_apply(this.href);
+        return false;
+    });
+
+    $(".win_apply_cons").click(function() {
+        win_apply_cons(this.href);
         return false;
     });
 

@@ -11,7 +11,7 @@ $wr_subject = $row['wr_subject'];
 $g5['title'] = $wr_subject.' 공고에 지원한 사람들';
 include_once(G5_PATH.'/head.sub.php');
 
-$sql_common = " from {$g5['apply_table']} where wr_id = '{$_GET['wr_id']}' and bo_table = '{$_GET['bo_table']}' ";
+$sql_common = " from {$g5['apply_table']} where wr_id = '{$_GET['wr_id']}' and bo_table =  '{$_GET['bo_table']}' ";
 $sql_order = " order by ma_id desc ";
 
 $sql = " select count(*) as cnt $sql_common ";
@@ -25,7 +25,7 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
 
 $list = array();
 
-$sql = " select *
+$sql = " select mb_id
             $sql_common
             $sql_order
             limit $from_record, $rows ";
@@ -40,13 +40,14 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
     $list[$i]['num'] = $num;
 
     // 멤버 정보
-    $sql2 = " select * from {$g5['member_table']} where mb_id = '{$row2['mb_id']}' ";
+    $sql2 = " select * from {$g5['member_table']} where mb_id = '{$row['mb_id']}' ";
     $member_result = sql_fetch($sql2);
     $list[$i]['mb_name'] = $member_result['mb_name'];   // 이름
     $list[$i]['mb_occupation'] = $member_result['mb_5'];    // 희망 직종
     $list[$i]['mb_career'] = $member_result['mb_9'];    // 경력
 
-
+    $sql3 = " select * $sql_common and mb_id = '{$row['mb_id']}' ";
+    $row2 = sql_fetch($sql3);
     $list[$i]['ma_datetime'] = $row2['ma_datetime'];    // 지원 시각
     $list[$i]['ma_state'] = $row2['ma_state'];          // 지원 상태
     $list[$i]['del_href'] = './apply_delete.php?ma_id='.$row['ma_id'].'&amp;page='.$page;

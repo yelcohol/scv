@@ -128,7 +128,7 @@
 
 .btn_confirm {text-align:center;margin:20px 0}
 .btn_confirm .btn_submit {height:45px;padding:0 30px;font-weight:bold;font-size:1.083em;border-radius:30px;background:#2aba8a;color:#fff;border:0}
-.btn_confirm .btn_cancel {height:45px;padding:0 30px;font-weight:bold;font-size:1.083em;border-radius:30px;line-height:45px;background:#fff;border:1px solid #ccc}
+.btn_confirm .btn_cancel {height:45px;padding:0 30px;font-weight:bold;font-size:1.083em;border-radius:30px;background:rgb(180, 57, 57);color:#fff;border:1px solid #ccc}
 
 .personal_date .frm_label {position:absolute;font-size:0;text-indent:-9999em;line-height:0;overflow:hidden}
 .personal_setting li.mem_pic {clear:both;margin-top:10px}

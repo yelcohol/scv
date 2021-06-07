@@ -317,8 +317,12 @@ a.btn_b01, .btn_b01,
 a.btn_b02, .btn_b02,
 a.btn_b03, .btn_b03,
 a.btn_b04, .btn_b04,
+a.btn_b05, .btn_b05,
 a.btn_admin, .btn_admin {display:inline-block;padding:0 20px;border-radius:30px;font-size:1em;height:37px;line-height:34px;text-decoration:none;vertical-align:middle}
 
+a.btn_b05, .btn_05{
+	width: 150px;
+}
 a.btn_b04, .btn_b04 {padding:0 10px}
 
 @media (max-width:730px){

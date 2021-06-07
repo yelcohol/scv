@@ -152,6 +152,26 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 		                    <a href="<?php echo $list[$i]['href'] ?>" style="<?php echo $list[$i]['wr_reply_style']; ?>">
 		                        <?php echo $list[$i]['icon_reply']; ?>
 								<?php echo $list[$i]['subject'] ?>
+								<?=" by <b>".$list[$i]['wr_1']."</b>"?><br>
+								<?=$list[$i]['wr_2']?><span>의 연락처:</span><?=$list[$i]['wr_3']?><br>
+								<?=$list[$i]['wr_4']?>/<?=$list[$i]['wr_5']?><br>
+								<?=$list[$i]['wr_6']?>&nbsp;<?=$list[$i]['wr_7']."~".$list[$i]['wr_8']?><br>
+								<?php $new_wr_9 = explode("|", $list[$i]['wr_9']); 
+								$new_wr_9 = implode(", ", $new_wr_9); ?>
+								<?=$new_wr_9?><br>
+								일당: <?=number_format((double)$list[$i]['wr_10'])."원"?><br>
+								
+							</a>
+							<?php $bbs=G5_BBS_URL?>
+							<?php 
+							if($is_worker){
+								if($list[$i]['wr_4']<$list[$i]['wr_5']&&$list[$i]['ca_name']=='모집중'){
+									echo '<a href="./apply_popin.php?bo_table='.$bo_table.'&wr_id='.$list[$i]['wr_id'].'target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
+								}
+								else{
+									echo '<h3 style="color:red"><b>지원마감</b></h3>';
+								}
+							}?>
 		                        <?php
 		                        if (isset($list[$i]['icon_hot'])) echo $list[$i]['icon_hot'];
 		                        if (isset($list[$i]['icon_file'])) echo $list[$i]['icon_file'];
