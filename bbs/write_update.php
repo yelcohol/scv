@@ -131,7 +131,11 @@ for ($i=1; $i<=8; $i++) {
         $$var = trim($_POST['wr_'.$i]);
     }
 }
+
+
 $wr_9= implode('|', $_POST['wr_9']);
+
+
 for ($i=10; $i<=20; $i++) {
     $var = "wr_$i";
     $$var = "";

@@ -6,6 +6,7 @@ if (G5_IS_MOBILE) {
     return;
 }
 
+include_once('./_common.php');
 include_once(G5_THEME_PATH.'/head.sub.php');
 include_once(G5_LIB_PATH.'/latest.lib.php');
 include_once(G5_LIB_PATH.'/outlogin.lib.php');
@@ -112,6 +113,17 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
                     if( empty($row) ) continue;
                     $add_class = (isset($row['sub']) && $row['sub']) ? 'gnb_al_li_plus' : '';
                 ?>
+                    <?php 
+
+                    if($row['me_name'] == '내가 지원한 일자리' && $is_constructor){
+                        continue;
+                    }
+
+                    if($row['me_name'] == '내가 올린 일자리' && $is_worker){
+                        continue;
+                    }
+                    
+                    ?>
                 <li class="gnb_1dli <?php echo $add_class; ?>" style="z-index:<?php echo $gnb_zindex--; ?>">
                     <a href="<?php echo $row['me_link']; ?>" target="_<?php echo $row['me_target']; ?>" class="gnb_1da"><?php echo $row['me_name'] ?></a>
                     <?php

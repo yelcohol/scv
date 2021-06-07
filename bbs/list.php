@@ -27,28 +27,6 @@ if ($board['bo_use_category']) {
     }
 }
 
-// 여분필드 wr_8(모집 직종) 사용 여부
-// $is_wr_8 = false;
-// if ($board['bo_8']) {
-//     $is_wr_8 = true;
-//     $wr_8_href = get_pretty_url($bo_table);
-
-//     $categories = explode('|', $wr['_8']); // 구분자가 | 로 되어 있음
-//     for ($i=0; $i<count($categories); $i++) {
-//         $category = trim($categories[$i]);
-//         if ($category=='') continue;
-//         $category_option .= '<li><a href="'.(get_pretty_url($bo_table,'','sca='.urlencode($category))).'"';
-//         $category_msg = '';
-//         if ($category==$sca) { // 현재 선택된 카테고리라면
-//             $category_option .= ' id="bo_cate_on"';
-//             $category_msg = '<span class="sound_only">열린 분류 </span>';
-//         }
-//         $category_option .= '>'.$category_msg.$category.'</a></li>';
-//     }
-
-// }
-
-
 $sop = strtolower($sop);
 if ($sop != 'and' && $sop != 'or')
     $sop = 'and';
@@ -157,8 +135,6 @@ $is_checkbox = false;
 if ($is_member && ($is_admin == 'super' || $group['gr_admin'] == $member['mb_id'] || $board['bo_admin'] == $member['mb_id']))
     $is_checkbox = true;
 
-// 멤버라면 지원하기 보임 (? 넣어야 하나 ? 스킨에만 넣으면 되나?)
-
 // 정렬에 사용하는 QUERY_STRING
 $qstr2 = 'bo_table='.$bo_table.'&amp;sop='.$sop;
 
@@ -197,14 +173,14 @@ if ($sst) {
 
 if ($is_search_bbs) {
     $sql = " select distinct wr_parent from {$write_table} where {$sql_search} {$sql_order} limit {$from_record}, $page_rows ";
-} else {
-    if($jobs_switch){
-        $sql = " select * from {$write_table} where wr_is_comment = 0 and mb_id = '{$member['mb_id']}'";
-        $jobs_switch = 0;
-    }else{
-        $sql = " select * from {$write_table} where wr_is_comment = 0";
-    }
-    //$sql = " select * from {$write_table} where wr_is_comment = 0 ";
+}else {
+    // if($jobs_switch == 1){
+    //     $sql = " select * from {$write_table} where wr_is_comment = 0 and mb_id = '{$member['mb_id']}'";
+    // }else{
+    //     $sql = " select * from {$write_table} where wr_is_comment = 0";
+    // }
+    //$write_table = $g5['write_prefix'].'work';
+    $sql = " select * from {$write_table} where wr_is_comment = 0";
     if(!empty($notice_array))
         $sql .= " and wr_id not in (".implode(', ', $notice_array).") ";
     $sql .= " {$sql_order} limit {$from_record}, $page_rows ";
@@ -266,6 +242,11 @@ if ($is_search_bbs) {
 
 $write_href = '';
 if ($member['mb_level'] >= $board['bo_write_level']) {
+    // if($jobs_switch == 1){ //올린 일자리 게시판에서 글쓰기할 시에 일자리 게시판 글쓰기로 보냄
+    //     $write_href = short_url_clean(G5_BBS_URL.'/write.php?bo_table=work');    
+    // }else{
+    //     $write_href = short_url_clean(G5_BBS_URL.'/write.php?bo_table='.$bo_table);
+    // }
     $write_href = short_url_clean(G5_BBS_URL.'/write.php?bo_table='.$bo_table);
 }
 
@@ -280,12 +261,6 @@ $rss_href = '';
 if ($board['bo_use_rss_view']) {
     $rss_href = G5_BBS_URL.'/rss.php?bo_table='.$bo_table;
 }
-
-// 지원 링크
-// $apply_href= '';
-// $apply_href = G5_BBS_URL.'/apply_popin.php?bo_table='.$bo_table.'&amp;wr_id='.$wr_id;
-
-
 $stx = get_text(stripslashes($stx));
+
 include_once($board_skin_path.'/list.skin.php');
-?>

@@ -13,14 +13,14 @@ $cnt_color = count($arr_color);
 if ($res) sql_free_result($res);
 
 $is_time_use = false;
-$wr_5_1 = $wr_5_2 = '00'; // 시작시간
-$wr_6_1 = $wr_6_2 = '00'; // 종료시간
+$wr_7_1 = $wr_7_2 = '00'; // 시작시간
+$wr_8_1 = $wr_8_2 = '00'; // 종료시간
 if ($wscb['wrc_display_types']) {
     $arr_display_types = unserialize($wscb['wrc_display_types']);
     if (in_array('timeGridWeek', $arr_display_types) || in_array('timeGridDay', $arr_display_types)) {
         $is_time_use = true;
-        list($wr_5_1, $wr_5_2) = explode(':', $write['wr_5']);
-        list($wr_6_1, $wr_6_2) = explode(':', $write['wr_6']);
+        list($wr_7_1, $wr_7_2) = explode(':', $write['wr_7']);
+        list($wr_8_1, $wr_8_2) = explode(':', $write['wr_8']);
     }
 }
 
@@ -154,44 +154,44 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css?v=191
     <tr>
         <th>기간<span class="sound_only">필수</span></th>
         <td>
-            <input type="text" name="wr_1" value="<?php echo $write['wr_1']; ?>" readonly id="wr_1" required class="frm_input required" size="8" maxlength="8">
+            <input type="text" name="wr_6" value="<?php echo $write['wr_6']; ?>" readonly id="wr_6" required class="frm_input required" size="8" maxlength="8">
             <?php if ($is_time_use) {?>
-            <select name="wr_5_1" id="wr_5_1">
+            <select name="wr_7_1" id="wr_7_1">
                 <?php
                 for ($z=0; $z<=23; $z++) {
                     $str = sprintf('%02d', $z);
-                    $selected = ($wr_5_1 == $str ? 'selected=selected' : '');
+                    $selected = ($wr_7_1 == $str ? 'selected=selected' : '');
                     echo '<option value="'.$str.'" '.$selected.'>'.$str.'</option>'.PHP_EOL;
                 }
                 ?>
             </select>
-            <select name="wr_5_2" id="wr_5_2">
+            <select name="wr_7_2" id="wr_7_2">
                 <?php
                 for ($z=0; $z<=59; $z++) {
                     $str = sprintf('%02d', $z);
-                    $selected = ($wr_5_2 == $str ? 'selected=selected' : '');
+                    $selected = ($wr_7_2 == $str ? 'selected=selected' : '');
                     echo '<option value="'.$str.'" '.$selected.'>'.$str.'</option>'.PHP_EOL;
                 }
                 ?>
             </select>
             <?php } ?>
             ~
-            <input type="text" name="wr_2" value="<?php echo $write['wr_2']; ?>" readonly id="wr_2" required class="frm_input required" size="8" maxlength="8">
+            <input type="text" name="wr_16" value="<?php echo $write['wr_16']; ?>" readonly id="wr_16" required class="frm_input required" size="8" maxlength="8">
             <?php if ($is_time_use) {?>
-            <select name="wr_6_1" id="wr_6_1">
+            <select name="wr_8_1" id="wr_8_1">
                 <?php
                 for ($z=0; $z<=23; $z++) {
                     $str = sprintf('%02d', $z);
-                    $selected = ($wr_6_1 == $str ? 'selected=selected' : '');
+                    $selected = ($wr_8_1 == $str ? 'selected=selected' : '');
                     echo '<option value="'.$str.'" '.$selected.'>'.$str.'</option>'.PHP_EOL;
                 }
                 ?>
             </select>
-            <select name="wr_6_2" id="wr_6_2">
+            <select name="wr_8_2" id="wr_8_2">
                 <?php
                 for ($z=0; $z<=59; $z++) {
                     $str = sprintf('%02d', $z);
-                    $selected = ($wr_6_2 == $str ? 'selected=selected' : '');
+                    $selected = ($wr_8_2 == $str ? 'selected=selected' : '');
                     echo '<option value="'.$str.'" '.$selected.'>'.$str.'</option>'.PHP_EOL;
                 }
                 ?>
@@ -208,14 +208,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css?v=191
             if ($cnt_color) {
                 foreach ($arr_color as $k => $v) {
                     ?>
-                    <li><a href="#none" class="btn-color <?php echo ($v['wrr_color_bg'] == $write['wr_4'] ? 'active' : '');?>" data-bg="<?php echo $v['wrr_color_bg'];?>" data-tx="<?php echo $v['wrr_color_tx'];?>" style="background-color:<?php echo $v['wrr_color_bg'];?>;color:<?php echo $v['wrr_color_tx'];?>;"><?php echo ($v['wrr_color_bg'] == $write['wr_4'] ? '사용' : '선택');?></a></li>
+                    <li><a href="#none" class="btn-color <?php echo ($v['wrr_color_bg'] == $write['wr_18'] ? 'active' : '');?>" data-bg="<?php echo $v['wrr_color_bg'];?>" data-tx="<?php echo $v['wrr_color_tx'];?>" style="background-color:<?php echo $v['wrr_color_bg'];?>;color:<?php echo $v['wrr_color_tx'];?>;"><?php echo ($v['wrr_color_bg'] == $write['wr_18'] ? '사용' : '선택');?></a></li>
                     <?php
                 }
             }
             ?>
             </ul>
-            <input type="hidden" name="wr_3" id="wr_3" value="<?php echo $write['wr_3']; ?>"/>
-            <input type="hidden" name="wr_4" id="wr_4" value="<?php echo $write['wr_4']; ?>"/>
+            <input type="hidden" name="wr_17" id="wr_17" value="<?php echo $write['wr_17']; ?>"/>
+            <input type="hidden" name="wr_18" id="wr_18" value="<?php echo $write['wr_18']; ?>"/>
         </td>
     </tr>
 
@@ -284,15 +284,15 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css?v=191
 
     <script>
     $(function(){ // 날짜 입력
-		$("#wr_1, #wr_2").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yymmdd", showButtonPanel: true });
+		$("#wr_6, #wr_16").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yymmdd", showButtonPanel: true });
 
         $(document).on('click', '.btn-color', function() {
             $('.btn-color').text('선택').css('font-weight', 'normal').removeClass('active');
             $(this).text('사용').css('font-weight', 'bold').addClass('active');
             var color_bg = $(this).attr('data-bg');
             var color_tx = $(this).attr('data-tx');
-            $('#wr_3').val(color_tx);
-            $('#wr_4').val(color_bg);
+            $('#wr_17').val(color_tx);
+            $('#wr_18').val(color_bg);
         });
 	});
 

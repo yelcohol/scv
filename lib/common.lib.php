@@ -362,9 +362,9 @@ function get_list($write_row, $board, $skin_url, $subject_len=40)
     global $qstr, $page;
 
     //$t = get_microtime();
-    if($board['bo_table']=='my_works'){
-        $board['bo_table'] = 'work';
-    }
+    // if($board['bo_table']=='my_works'){
+    //     $board['bo_table'] = 'work';
+    // }
     $g5_object->set('bbs', $write_row['wr_id'], $write_row, $board['bo_table']);
 
     // 배열전체를 복사
