@@ -2,14 +2,14 @@
 if (!defined('_GNUBOARD_')) exit;
 define('G5_MYSQL_HOST', 'localhost');
 
-define('G5_MYSQL_USER', 'mjw');
-define('G5_MYSQL_PASSWORD', 'akwodhks!');
-define('G5_MYSQL_DB', 'dbmjw');
-define('G5_MYSQL_SET_MODE', true);
-// define('G5_MYSQL_USER', 'root');
-// define('G5_MYSQL_PASSWORD', '1234');
-// define('G5_MYSQL_DB', 'scv_db');
-// define('G5_MYSQL_SET_MODE', false);
+// define('G5_MYSQL_USER', 'mjw');
+// define('G5_MYSQL_PASSWORD', 'akwodhks!');
+// define('G5_MYSQL_DB', 'dbmjw');
+// define('G5_MYSQL_SET_MODE', true);
+define('G5_MYSQL_USER', 'root');
+define('G5_MYSQL_PASSWORD', '1234');
+define('G5_MYSQL_DB', 'scv_db');
+define('G5_MYSQL_SET_MODE', false);
 
 
 define('G5_TABLE_PREFIX', 'g5_');
