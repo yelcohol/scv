@@ -117,7 +117,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 				<!-- 건설사 정보 시작 -->
 				<li>
-				<?php if ($reg_type=='constructor'||$is_constructor) { ?>
+				<?php if ($reg_type=='constructor'||$member['mb_10']=='constructor') { ?>
 	                <label for="reg_mb_com_name">회사명<strong class="sound_only">필수</strong></label>
 	                <input type="text" name="mb_1" value="<?php echo get_text($member['mb_1']) ?>" id="reg_mb_com_name" <?php echo "required" ?> class="frm_input full_input <?php echo "required" ?>" maxlength="20" placeholder="회사명">
 	            <?php }  ?>
@@ -125,7 +125,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
                 <li>
 	            <?php //if ($config['cf_use_tel']) {  ?>
-				<?php if ($reg_type=='constructor'||$is_constructor) { ?>
+				<?php if ($reg_type=='constructor'||$member['mb_10']=='constructor') { ?>
 	                <label for="reg_mb_tel">회사 연락처<?php //if ($config['cf_req_tel']) { ?><strong class="sound_only">필수</strong><?php //} ?></label>
 	                <input type="text" name="mb_tel" value="<?php echo get_text($member['mb_tel']) ?>" id="reg_mb_tel" <?php echo "required"//echo $config['cf_req_tel']?"required":""; ?> class="frm_input full_input <?php echo "required"//echo $config['cf_req_tel']?"required":""; ?>" maxlength="20" placeholder="회사 연락처">
 	            <?php }  ?>
@@ -133,7 +133,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 				<li>
 	            <?php //if ($config['cf_use_hp'] || $config['cf_cert_hp']) {  ?>
-				<?php if ($reg_type=='constructor'||$is_constructor) { ?>
+				<?php if ($reg_type=='constructor'||$member['mb_10']=='constructor') { ?>
 	                <label for="reg_mb_hp">담당자 연락처<?php //if ($config['cf_req_hp']) { ?><strong class="sound_only">필수</strong><?php //} ?></label>
 
 	                <input type="text" name="mb_hp" value="<?php echo get_text($member['mb_hp']) ?>" id="reg_mb_hp" <?php echo "required"//echo ($config['cf_req_hp'])?"required":""; ?> class="frm_input full_input <?php echo "required"//echo ($config['cf_req_hp'])?"required":""; ?>" maxlength="20" placeholder="담당자 연락처">
@@ -144,7 +144,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	            </li> 
 
 				<li>
-				<?php if ($reg_type=='constructor'||$is_constructor) { ?>
+				<?php if ($reg_type=='constructor'||$member['mb_10']=='constructor') { ?>
 	                <label for="reg_mb_com_code">사업자 등록번호<strong class="sound_only">필수</strong></label>
 	                <input type="text" name="mb_2" value="<?php echo get_text($member['mb_2']) ?>" id="reg_mb_com_code" <?php echo "required" ?> class="frm_input full_input <?php echo "required" ?>" maxlength="20" placeholder="-를빼고입력해주세요.">
 	            <?php }  ?>
@@ -165,7 +165,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 				<!-- 건설사일시 주소입력 -->
 				<?php //if ($config['cf_use_addr']) { ?>
-				<?php if ($reg_type=='constructor'||$is_constructor) { ?>
+				<?php if ($reg_type=='constructor'||$member['mb_10']=='constructor') { ?>
 				<li>
 					<label>회사 주소</label>
 					<?php if ($config['cf_req_addr']) { ?><strong class="sound_only">필수</strong><?php }  ?>
@@ -188,7 +188,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	    </div>
 <!-- 근로자이면 출력 -->
 <?php
-	if ($reg_type=='worker'||$is_worker) {?>
+	if ($reg_type=='worker'||$member['mb_10']=='worker') {?>
 	    <div class="tbl_frm01 tbl_wrap register_form_inner">
 	        <h2>직종 정보</h2>
 	        <ul>
@@ -263,7 +263,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 <!-- 근로자이면 출력 -->
 <?php
-	if ($reg_type=='worker'||$is_worker) { ?>
+	if ($reg_type=='worker'||$member['mb_10']=='worker') { ?>
 	    <div class="tbl_frm01 tbl_wrap register_form_inner">
 	        <h2>관련 이수증</h2>
 	        <ul>
