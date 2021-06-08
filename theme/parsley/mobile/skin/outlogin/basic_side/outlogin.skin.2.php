@@ -47,6 +47,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$outlogin_skin_url.'/style.css">'
             </a>
         </li>
         <li><input value="<?=$is_worker?>"></li>
+        <li><input value="<?=$member['mb_10']?>"></li>
         <?php 
         if($is_worker){ ?>
         <li>
