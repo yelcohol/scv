@@ -21,6 +21,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 	    <section id="fregister_term">
 	        <h2>회원가입약관</h2>
+			<input name="reg_type" value="<?=$reg_type?>" readonly>
 	        <textarea readonly><?php echo get_text($config['cf_stipulation']) ?></textarea>
 	        <fieldset class="fregister_agree li_chk">
 	            <input type="checkbox" name="agree" value="1" id="agree11">

@@ -52,7 +52,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	                <?php }  ?>
 	            
 	            </li>
-		        <li>
+	        </ul>
+		</div>
+		<div class="form_01 personal_date">
+			<h2>기본 정보</h2>
+			<ul>
+				<li class="rgs_name_li">
 		            <label for="reg_mb_id">아이디<strong class="sound_only">필수</strong></label>
 		            <input type="text" name="mb_id" value="<?php echo $member['mb_id'] ?>" id="reg_mb_id" class="frm_input full_input <?php echo $required ?> <?php echo $readonly ?>" minlength="3" maxlength="20" <?php echo $required ?> <?php echo $readonly ?> placeholder="아이디">
 		            <span id="msg_mb_id"></span>
@@ -66,7 +71,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 		            <label for="reg_mb_password_re">비밀번호 확인<strong class="sound_only">필수</strong></label>
 		            <input type="password" name="mb_password_re" id="reg_mb_password_re" class="frm_input full_input <?php echo $required ?>" minlength="3" maxlength="20" <?php echo $required ?>  placeholder="비밀번호확인">
 		        </li>
-	        </ul>
+			</ul>
 	    </div>
 
 	    <div class="form_01 personal_date">
@@ -74,7 +79,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	        <ul>
 		        <li class="rgs_name_li">
 		            <label for="reg_mb_name">이름<strong class="sound_only">필수</strong></label>
-		            <input type="text" id="reg_mb_name" name="mb_name" value="<?php echo get_text($member['mb_name']) ?>" <?php echo $required ?> <?php echo $readonly; ?> class="frm_input full_input <?php echo $required ?> <?php echo $readonly ?>" placeholder="이름">
+		            <input type="text" id="reg_mb_name" name="mb_name" value="<?php echo get_text($member['mb_name']) ?>" <?php echo $required ?> class="frm_input full_input <?php echo $required ?>" placeholder="이름">
 		            <?php
 		            if($config['cf_cert_use']) {
 		                if($config['cf_cert_ipin'])
@@ -110,6 +115,42 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 		        </li>
 		        <?php } ?>
 
+				<!-- 건설사 정보 시작 -->
+				<li>
+				<?php if ($reg_type=='constructor'||$is_constructor) { ?>
+	                <label for="reg_mb_com_name">회사명<strong class="sound_only">필수</strong></label>
+	                <input type="text" name="mb_1" value="<?php echo get_text($member['mb_1']) ?>" id="reg_mb_com_name" <?php echo "required" ?> class="frm_input full_input <?php echo "required" ?>" maxlength="20" placeholder="회사명">
+	            <?php }  ?>
+				</li>
+
+                <li>
+	            <?php //if ($config['cf_use_tel']) {  ?>
+				<?php if ($reg_type=='constructor'||$is_constructor) { ?>
+	                <label for="reg_mb_tel">회사 연락처<?php //if ($config['cf_req_tel']) { ?><strong class="sound_only">필수</strong><?php //} ?></label>
+	                <input type="text" name="mb_tel" value="<?php echo get_text($member['mb_tel']) ?>" id="reg_mb_tel" <?php echo "required"//echo $config['cf_req_tel']?"required":""; ?> class="frm_input full_input <?php echo "required"//echo $config['cf_req_tel']?"required":""; ?>" maxlength="20" placeholder="회사 연락처">
+	            <?php }  ?>
+				</li>
+
+				<li>
+	            <?php //if ($config['cf_use_hp'] || $config['cf_cert_hp']) {  ?>
+				<?php if ($reg_type=='constructor'||$is_constructor) { ?>
+	                <label for="reg_mb_hp">담당자 연락처<?php //if ($config['cf_req_hp']) { ?><strong class="sound_only">필수</strong><?php //} ?></label>
+
+	                <input type="text" name="mb_hp" value="<?php echo get_text($member['mb_hp']) ?>" id="reg_mb_hp" <?php echo "required"//echo ($config['cf_req_hp'])?"required":""; ?> class="frm_input full_input <?php echo "required"//echo ($config['cf_req_hp'])?"required":""; ?>" maxlength="20" placeholder="담당자 연락처">
+	                <?php if ($config['cf_cert_use'] && $config['cf_cert_hp']) { ?>
+	                <input type="hidden" name="old_mb_hp" value="<?php echo get_text($member['mb_hp']) ?>">
+	                <?php } ?>
+	            <?php }  ?>
+	            </li> 
+
+				<li>
+				<?php if ($reg_type=='constructor'||$is_constructor) { ?>
+	                <label for="reg_mb_com_code">사업자 등록번호<strong class="sound_only">필수</strong></label>
+	                <input type="text" name="mb_2" value="<?php echo get_text($member['mb_2']) ?>" id="reg_mb_com_code" <?php echo "required" ?> class="frm_input full_input <?php echo "required" ?>" maxlength="20" placeholder="-를빼고입력해주세요.">
+	            <?php }  ?>
+				</li>
+				<!-- 건설사 정보 끝 -->
+
 		        <li>
 		            <label for="reg_mb_email">E-mail<strong class="sound_only">필수</strong></label>
 		            <?php if ($config['cf_use_email_certify']) {  ?>
@@ -121,6 +162,229 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 		            <input type="hidden" name="old_email" value="<?php echo $member['mb_email'] ?>">
 		            <input type="email" name="mb_email" value="<?php echo isset($member['mb_email'])?$member['mb_email']:''; ?>" id="reg_mb_email" required class="frm_input email required" size="50" maxlength="100" placeholder="E-mail">
 		    	</li>
+
+				<!-- 건설사일시 주소입력 -->
+				<?php //if ($config['cf_use_addr']) { ?>
+				<?php if ($reg_type=='constructor'||$is_constructor) { ?>
+				<li>
+					<label>회사 주소</label>
+					<?php if ($config['cf_req_addr']) { ?><strong class="sound_only">필수</strong><?php }  ?>
+					<label for="reg_mb_zip" class=
+					"sound_only">우편번호<?php echo $config['cf_req_addr']?'<strong class="sound_only"> 필수</strong>':''; ?></label>
+					<input type="text" name="mb_zip" value="<?php echo $member['mb_zip1'].$member['mb_zip2']; ?>" id="reg_mb_zip" <?php echo $fig['cf_req_addr']?"required":""; ?> class="frm_input twopart_input <?php echo $config['cf_req_addr']?"required":""; ?>" size="5" maxlength="6"  placeholder="우편번호">
+					<button type="button" class="btn_frmline" onclick="win_zip('fregisterform', 'mb_zip', 'mb_addr1', 'mb_addr2', 'mb_addr3', 'mb_addr_jibeon');">주소 검색</button><br>
+					<input type="text" name="mb_addr1" value="<?php echo get_text($member['mb_addr1']) ?>" id="reg_mb_addr1" <?php echo $config['cf_req_addr']?"required":""; ?> class="frm_input frm_address full_input <?php echo $config['cf_req_addr']?"required":""; ?>" size="50"  placeholder="기본주소">
+					<label for="reg_mb_addr1" class="sound_only">기본주소<?php echo $config['cf_req_addr']?'<strong> 필수</strong>':''; ?></label><br>
+					<input type="text" name="mb_addr2" value="<?php echo get_text($member['mb_addr2']) ?>" id="reg_mb_addr2" class="frm_input frm_address full_input" size="50" placeholder="상세주소">
+					<label for="reg_mb_addr2" class="sound_only">상세주소</label>
+					<br>
+					<input type="text" name="mb_addr3" value="<?php echo get_text($member['mb_addr3']) ?>" id="reg_mb_addr3" class="frm_input frm_address full_input" size="50" readonly="readonly" placeholder="참고항목">
+					<label for="reg_mb_addr3" class="sound_only">참고항목</label>
+					<input type="hidden" name="mb_addr_jibeon" value="<?php echo get_text($member['mb_addr_jibeon']); ?>">
+				</li>
+				<?php }  ?>
+
+	        </ul>
+	    </div>
+<!-- 근로자이면 출력 -->
+<?php
+	if ($reg_type=='worker'||$is_worker) {?>
+	    <div class="tbl_frm01 tbl_wrap register_form_inner">
+	        <h2>직종 정보</h2>
+	        <ul>
+
+				<li>
+					<label>조공</label>
+					<input type="checkbox" name="mb_5[]" value="일반공(잡부)"<?php if(strpos($member['mb_5'], "일반공(잡부)")!==false) echo ' checked';?>> 일반공(잡부)
+					<input type="checkbox" name="mb_5[]" value="조력공(조공)"<?php if(strpos($member['mb_5'], "조력공(조공)")!==false) echo ' checked';?>> 조력공(조공)
+					<input type="checkbox" name="mb_5[]" value="청소"<?php if(strpos($member['mb_5'], "청소")!==false) echo ' checked';?>> 청소
+					<input type="checkbox" name="mb_5[]" value="비계(아시바)"<?php if(strpos($member['mb_5'], "비계(아시바)")!==false) echo ' checked';?>> 비계(아시바)
+					<input type="checkbox" name="mb_5[]" value="철거(해체)"<?php if(strpos($member['mb_5'], "철거(해체)")!==false) echo ' checked';?>> 철거(해체)
+					<input type="checkbox" name="mb_5[]" value="할석공(하스리)"<?php if(strpos($member['mb_5'], "할석공(하스리)")!==false) echo ' checked';?>> 할석공(하스리)
+					<input type="checkbox" name="mb_5[]" value="운반공(곰방)"<?php if(strpos($member['mb_5'], "운반공(곰방)")!==false) echo ' checked';?>> 운반공(곰방)
+					<input type="checkbox" name="mb_5[]" value="기타(조공)"<?php if(strpos($member['mb_5'], "기타(조공)")!==false) echo ' checked';?>> 기타(조공)
+				</li>
+				<li>
+					<label>기공</label>
+					<input type="checkbox" name="mb_5[]" value="목수(목공)"<?php if(strpos($member['mb_5'], "목수(목공)")!==false) echo ' checked';?>> 목수(목공)
+					<input type="checkbox" name="mb_5[]" value="용접공"<?php if(strpos($member['mb_5'], "용접공")!==false) echo ' checked';?>> 용접공
+					<input type="checkbox" name="mb_5[]" value="설비"<?php if(strpos($member['mb_5'], "설비")!==false) echo ' checked';?>> 설비
+					<input type="checkbox" name="mb_5[]" value="조경"<?php if(strpos($member['mb_5'], "조경")!==false) echo ' checked';?>> 조경
+					<input type="checkbox" name="mb_5[]" value="미장공"<?php if(strpos($member['mb_5'], "미장공")!==false) echo ' checked';?>> 미장공
+					<input type="checkbox" name="mb_5[]" value="타일공"<?php if(strpos($member['mb_5'], "타일공")!==false) echo ' checked';?>> 타일공
+					<input type="checkbox" name="mb_5[]" value="석재"<?php if(strpos($member['mb_5'], "석재")!==false) echo ' checked';?>> 석제
+					<input type="checkbox" name="mb_5[]" value="조적공(쓰미)"<?php if(strpos($member['mb_5'], "조적공(쓰미)")!==false) echo ' checked';?>> 조적공(쓰미)
+					<input type="checkbox" name="mb_5[]" value="콘크리트공(타설)"<?php if(strpos($member['mb_5'], "콘크리트공(타설)")!==false) echo ' checked';?>> 콘크리트공(타설)
+					<input type="checkbox" name="mb_5[]" value="방수"<?php if(strpos($member['mb_5'], "방수")!==false) echo ' checked';?>> 방수
+					<input type="checkbox" name="mb_5[]" value="철근공"<?php if(strpos($member['mb_5'], "철근공")!==false) echo ' checked';?>> 철근공
+					<input type="checkbox" name="mb_5[]" value="전기"<?php if(strpos($member['mb_5'], "전기")!==false) echo ' checked';?>> 전기
+					<input type="checkbox" name="mb_5[]" value="로프공"<?php if(strpos($member['mb_5'], "로프공")!==false) echo ' checked';?>>로프공
+					<input type="checkbox" name="mb_5[]" value="기타(기공)"<?php if(strpos($member['mb_5'], "기타(기공)")!==false) echo ' checked';?>> 기타(기공)
+					<input type="checkbox" name="mb_5[]" value="도장공(페인트공)"<?php if(strpos($member['mb_5'], "도장공(페인트공)")!==false) echo ' checked';?>> 도장공(페인트공)
+				</li>
+				<li>
+					<label>파출</label>
+					<input type="checkbox" name="mb_5[]" value="가사"<?php if(strpos($member['mb_5'], "가사")!==false) echo ' checked';?>> 가사
+					<input type="checkbox" name="mb_5[]" value="육아"<?php if(strpos($member['mb_5'], "육아")!==false) echo ' checked';?>> 육아
+					<input type="checkbox" name="mb_5[]" value="산후조리"<?php if(strpos($member['mb_5'], "산후조리")!==false) echo ' checked';?>> 산후조리
+					<input type="checkbox" name="mb_5[]" value="청소"<?php if(strpos($member['mb_5'], "청소")!==false) echo ' checked';?>> 청소
+					<input type="checkbox" name="mb_5[]" value="식당"<?php if(strpos($member['mb_5'], "식당")!==false) echo ' checked';?>> 식당
+					<input type="checkbox" name="mb_5[]" value="간병"<?php if(strpos($member['mb_5'], "간병")!==false) echo ' checked';?>> 간병
+				</li>
+				<li>
+					<label>기타</label>
+					<input type="checkbox" name="mb_5[]" value="제조, 생산"<?php if(strpos($member['mb_5'], "제조, 생산")!==false) echo ' checked';?>> 제조/생산
+					<input type="checkbox" name="mb_5[]" value="물류"<?php if(strpos($member['mb_5'], "물류")!==false) echo ' checked';?>> 물류
+					<input type="checkbox" name="mb_5[]" value="경비"<?php if(strpos($member['mb_5'], "경비")!==false) echo ' checked';?>> 경비
+					<input type="checkbox" name="mb_5[]" value="운전"<?php if(strpos($member['mb_5'], "운전")!==false) echo ' checked';?>> 운전
+					<input type="checkbox" name="mb_5[]" value="기타"<?php if(strpos($member['mb_5'], "기타")!==false) echo ' checked';?>> 기타
+				</li>
+				<li>
+					<label>경력기간</label>
+					<select name="mb_9">
+						<option value="0년"<?php if($member['mb_9']==='0년'){echo ' selected="selected"';}?>>0년</option>
+						<option value="1년"<?php if($member['mb_9']==='1년'){echo ' selected="selected"';}?>>1년</option>
+						<option value="2년"<?php if($member['mb_9']==='2년'){echo ' selected="selected"';}?>>2년</option>
+						<option value="3년"<?php if($member['mb_9']==="3년"){echo ' selected="selected"';}?>>3년</option>
+						<option value="4년"<?php if($member['mb_9']==='4년'){echo ' selected="selected"';}?>>4년</option>
+						<option value="5년"<?php if($member['mb_9']==='5년'){echo ' selected="selected"';}?>>5년</option>
+						<option value="6년"<?php if($member['mb_9']==='6년'){echo ' selected="selected"';}?>>6년</option>
+						<option value="7년"<?php if($member['mb_9']==='7년'){echo ' selected="selected"';}?>>7년</option>
+						<option value="8년"<?php if($member['mb_9']==='8년'){echo ' selected="selected"';}?>>8년</option>
+						<option value="9년"<?php if($member['mb_9']==='9년'){echo ' selected="selected"';}?>>9년</option>
+						<option value="10년 이상"<?php if($member['mb_9']==='10년 이상'){echo ' selected="selected"';}?>>10년 이상</option>
+					</select>
+				</li>
+
+				
+	        </ul>
+	    </div>
+<?php } ?>
+
+<!-- 근로자이면 출력 -->
+<?php
+	if ($reg_type=='worker'||$is_worker) { ?>
+	    <div class="tbl_frm01 tbl_wrap register_form_inner">
+	        <h2>관련 이수증</h2>
+	        <ul>
+				<?php
+                // 첨부파일 경로
+				$mb_1_path = G5_DATA_PATH.'/member/'.$member['mb_id'].'/'.$member['mb_1'];
+    			$mb_1_url  = G5_DATA_URL.'/member/'.$member['mb_id'].'/'.$member['mb_1'];
+				?>
+                <li>
+	                <label for="reg_mb_1" class="frm_label">
+	                	기초안전교육
+	                	<button type="button" class="tooltip_icon"><i class="fa fa-question-circle-o" aria-hidden="true"></i><span class="sound_only">설명보기</span></button>
+	                	<span class="tooltip">이미지 크기는 가로 <?php echo $config['cf_member_icon_width'] ?>픽셀, 세로 <?php echo $config['cf_member_icon_height'] ?>픽셀 이하로 해주세요.<br>
+gif, jpg, png파일만 가능하며 용량 <?php echo number_format($config['cf_member_icon_size']) ?>바이트 이하만 등록됩니다.</span>
+	                </label>
+					
+					<!-- 파일선택 꾸미기 -->
+					<!-- <span class="fileName"></span>
+					<label for="reg_mb_1" class="btn_file">등록</label>
+	                <input type="file" name="mb_1" id="reg_mb_1" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0  "> -->
+
+
+	                <input type="file" name="mb_1" id="reg_mb_1" style="float:right;">
+
+	                <?php if ($w == 'u' && file_exists($mb_1_path)) {  ?>
+	                <img src="<?php echo $mb_1_url ?>" alt="기초안전교육">
+	                <input type="checkbox" name="del_mb_1" value="1" id="del_mb_1">
+	                <label for="del_mb_1" class="inline">삭제</label>
+	                <?php }  ?>
+	            </li>
+
+                <?php
+                // 첨부파일 경로
+				$mb_2_path = G5_DATA_PATH.'/member/'.$member['mb_id'].'/'.$member['mb_2'];
+    			$mb_2_url  = G5_DATA_URL.'/member/'.$member['mb_id'].'/'.$member['mb_2'];
+				?>
+                <li>
+	                <label for="reg_mb_2" class="frm_label">
+	                	보건증
+	                	<button type="button" class="tooltip_icon"><i class="fa fa-question-circle-o" aria-hidden="true"></i><span class="sound_only">설명보기</span></button>
+	                	<span class="tooltip">이미지 크기는 가로 <?php echo $config['cf_member_icon_width'] ?>픽셀, 세로 <?php echo $config['cf_member_icon_height'] ?>픽셀 이하로 해주세요.<br>
+gif, jpg, png파일만 가능하며 용량 <?php echo number_format($config['cf_member_icon_size']) ?>바이트 이하만 등록됩니다.</span>
+	                </label>
+					
+					<!-- 파일선택 꾸미기 -->
+					<!-- <span class="fileName"></span>
+					<label for="reg_mb_2" class="btn_file">등록</label>
+	                <input type="file" name="mb_2" id="reg_mb_2" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0  "> -->
+
+
+	                <input type="file" name="mb_2" id="reg_mb_2" style="float:right;">
+
+	                <?php if ($w == 'u' && file_exists($mb_2_path)) {  ?>
+	                <img src="<?php echo $mb_2_url ?>" alt="보건증">
+	                <input type="checkbox" name="del_mb_2" value="1" id="del_mb_2">
+	                <label for="del_mb_2" class="inline">삭제</label>
+	                <?php }  ?>
+	            </li>
+
+				<?php
+                // 첨부파일 경로
+				$mb_3_path = G5_DATA_PATH.'/member/'.$member['mb_id'].'/'.$member['mb_3'];
+    			$mb_3_url  = G5_DATA_URL.'/member/'.$member['mb_id'].'/'.$member['mb_3'];
+				?>
+                <li>
+	                <label for="reg_mb_3" class="frm_label">
+	                	신분증 앞면
+	                	<button type="button" class="tooltip_icon"><i class="fa fa-question-circle-o" aria-hidden="true"></i><span class="sound_only">설명보기</span></button>
+	                	<span class="tooltip">이미지 크기는 가로 <?php echo $config['cf_member_icon_width'] ?>픽셀, 세로 <?php echo $config['cf_member_icon_height'] ?>픽셀 이하로 해주세요.<br>
+gif, jpg, png파일만 가능하며 용량 <?php echo number_format($config['cf_member_icon_size']) ?>바이트 이하만 등록됩니다.</span>
+	                </label>
+					
+					<!-- 파일선택 꾸미기 -->
+					<!-- <span class="fileName"></span>
+					<label for="reg_mb_3" class="btn_file">등록</label>
+	                <input type="file" name="mb_3" id="reg_mb_3" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0  "> -->
+
+
+	                <input type="file" name="mb_3" id="reg_mb_3" style="float:right;">
+
+	                <?php if ($w == 'u' && file_exists($mb_3_path)) {  ?>
+	                <img src="<?php echo $mb_3_url ?>" alt="신분증앞면">
+	                <input type="checkbox" name="del_mb_3" value="1" id="del_mb_3">
+	                <label for="del_mb_3" class="inline">삭제</label>
+	                <?php }  ?>
+	            </li>
+
+
+
+				<?php
+				// 첨부파일 경로
+				$mb_4_path = G5_DATA_PATH.'/member/'.$member['mb_id'].'/'.$member['mb_4'];
+    			$mb_4_url  = G5_DATA_URL.'/member/'.$member['mb_id'].'/'.$member['mb_4'];
+				?>
+                <li>
+	                <label for="reg_mb_4" class="frm_label">
+	                	신분증 뒷면
+	                	<button type="button" class="tooltip_icon"><i class="fa fa-question-circle-o" aria-hidden="true"></i><span class="sound_only">설명보기</span></button>
+	                	<span class="tooltip">이미지 크기는 가로 <?php echo $config['cf_member_icon_width'] ?>픽셀, 세로 <?php echo $config['cf_member_icon_height'] ?>픽셀 이하로 해주세요.<br>
+gif, jpg, png파일만 가능하며 용량 <?php echo number_format($config['cf_member_icon_size']) ?>바이트 이하만 등록됩니다.</span>
+	                </label>
+					
+					<!-- 파일선택 꾸미기 -->
+					<!-- <span class="fileName"></span>
+					<label for="reg_mb_4" class="btn_file">등록</label>
+	                <input type="file" name="mb_4" id="reg_mb_4" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0  "> -->
+
+
+	                <input type="file" name="mb_4" id="reg_mb_4" style="float:right;">
+
+	                <?php if ($w == 'u' && file_exists($mb_4_path)) {  ?>
+	                <img src="<?php echo $mb_4_url ?>" alt="신분증뒷면">
+	                <input type="checkbox" name="del_mb_4" value="1" id="del_mb_4">
+	                <label for="del_mb_4" class="inline">삭제</label>
+	                <?php }  ?>
+	            </li>
+
+	            
+	        </ul>
+	    </div>
+	<?php } ?>
 
 		        <?php if ($config['cf_use_homepage']) { ?>
 		        <li>
