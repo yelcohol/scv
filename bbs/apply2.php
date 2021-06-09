@@ -50,7 +50,13 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
     $row2 = sql_fetch($sql3);
     $list[$i]['ma_datetime'] = $row2['ma_datetime'];    // 지원 시각
     $list[$i]['ma_state'] = $row2['ma_state'];          // 지원 상태
-    $list[$i]['del_href'] = './apply_delete.php?ma_id='.$row['ma_id'].'&amp;page='.$page;
+
+    // 지원 수락하기
+    $list[$i]['ok_href'] = './';
+
+    // 지원 반려하기
+    $list[$i]['del_href'] = './apply_delete.php?ma_id='.$row['ma_id'].'&bo_table='.$tmp_write_table.'&wr_id='.$row['wr_id'].'&amp;page='.$page;
+
 }
 
 include_once($member_skin_path.'/apply2.skin.php');

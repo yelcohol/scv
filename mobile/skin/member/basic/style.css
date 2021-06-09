@@ -275,7 +275,7 @@
 #scrap_do .win_btn .btn_submit {float:inherit}
 #scrap_do .win_desc {margin:0 20px}
 
-/* 지원하기 */
+/* 지원하기 - 근로자용 */
 #apply ul {border:1px solid #d9dee9}
 #apply li {position:relative;background:#fff;border-bottom:1px solid #d9dee9}
 #apply li:last-child {border-bottom:0}
@@ -290,6 +290,12 @@
 #apply_do textarea {height:100px;background:#fff}
 #apply_do .apply_tit {padding:10px 15px;font-size:1.083em;font-weight:bold;background:#fff;border: 1px solid #d9dee9}
 #apply_do label {display:block;margin:0 0 5px;font-size:1em}
+
+/* 지원자 확인하기 - 건설사용 */
+#apply .apply_left2 {padding:10px;width:70%;font-size:1.083em;line-height:1.3em;font-weight:bold;border-right:1px solid #f1f3f6}
+#apply .apply_ok {position:absolute;top:0;right:15%;display:block;width:15%;height:inherit;text-align:center;padding:10px;color:#49857c;font-size:15px;border-right:1px solid #f1f3f6}
+#apply .apply_del2 {position:absolute;top:0;right:0;display:block;width:15%;height:inherit;text-align:center;padding:10px;color:#ff4f76;font-size:15px}
+
 
 /* 포인트 */
 #point {text-align:center}
