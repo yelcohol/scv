@@ -52,10 +52,9 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
     $list[$i]['opener_href_wr_id'] = get_pretty_url($row['bo_table'], $row['wr_id']);
     $list[$i]['bo_subject'] = $row2['bo_subject'];
     $list[$i]['subject'] = $subject;
-    $list[$i]['del_href'] = './apply_delete.php?ma_id='.$row['ma_id'].'&bo_table='.$tmp_write_table.'&amp;page='.$page;
+    $list[$i]['del_href'] = './apply_delete.php?ma_id='.$row['ma_id'].'&bo_table='.$tmp_write_table.'&wr_id='.$row['wr_id'].'&amp;page='.$page;
 }
 
 include_once($member_skin_path.'/apply.skin.php');
-
 include_once(G5_PATH.'/tail.sub.php');
 ?>

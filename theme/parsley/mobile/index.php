@@ -17,7 +17,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.bxslider.js"></script>', 10);
     // 이 함수가 바로 최신글을 추출하는 역할을 합니다.
     // 사용방법 : latest(스킨, 게시판아이디, 출력라인, 글자수);
     // 테마의 스킨을 사용하려면 theme/basic 과 같이 지정
-    echo latest('theme/basic', 'work', 2, 20);
+    echo latest('theme/basic', 'works', 4, 20);
     ?>
     </div>
     
@@ -26,7 +26,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.bxslider.js"></script>', 10);
     // 이 함수가 바로 최신글을 추출하는 역할을 합니다.
     // 사용방법 : latest(스킨, 게시판아이디, 출력라인, 글자수);
     // 테마의 스킨을 사용하려면 theme/basic 과 같이 지정
-    echo latest('theme/basic', 'free', 5, 20);
+    echo latest('theme/basic', 'applied_works', 4, 20);
     ?>
 	</div>
 	<div class="conle_lt conle_bt_lt">
@@ -34,7 +34,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.bxslider.js"></script>', 10);
     // 이 함수가 바로 최신글을 추출하는 역할을 합니다.
     // 사용방법 : latest(스킨, 게시판아이디, 출력라인, 글자수);
     // 테마의 스킨을 사용하려면 theme/basic 과 같이 지정
-    echo latest('theme/basic', 'free', 5, 20);
+    echo latest('theme/basic', 'uploaded_works', 4, 20);
     ?>
     </div>
     
@@ -43,7 +43,7 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.bxslider.js"></script>', 10);
     // 이 함수가 바로 최신글을 추출하는 역할을 합니다.
     // 사용방법 : latest(스킨, 게시판아이디, 출력라인, 글자수);
     // 테마의 스킨을 사용하려면 theme/basic 과 같이 지정
-    echo latest('theme/basic', 'free', 5, 20);
+    echo latest('theme/basic', 'free', 4, 20);
     ?>
 	</div>
 	

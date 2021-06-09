@@ -67,7 +67,7 @@ if ($row['cnt'])
 $sql = " insert into {$g5['apply_table']} ( mb_id, bo_table, wr_id, ma_datetime ) values ( '{$member['mb_id']}', '$bo_table', '$wr_id', '".G5_TIME_YMDHIS."' ) ";
 sql_query($sql);
 
-// free_table에서 현재 지원자 수 1 증가
+// works table에서 현재 지원자 수 1 증가
 $sql = " update {$write_table} set wr_4 = wr_4 + 1 where wr_id = '{$wr_id}' ";
 sql_query($sql);
 
