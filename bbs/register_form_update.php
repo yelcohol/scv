@@ -213,10 +213,14 @@ if ($config['cf_cert_use'] && $cert_type && $md5_cert_no) {
     }
 }
 //===============================================================
-if ($mb_10 == 'constructor')
+if ($mb_10 == 'constructor'){
     $config['cf_register_level'] = 4;
-else if ($mb_10 == 'worker')
+    $gr_id = 'construct';
+}
+else if ($mb_10 == 'worker'){
     $config['cf_register_level'] = 3;
+    $gr_id = 'worker';
+}
 
 if ($w == '') {
     $sql = " insert into {$g5['member_table']}
@@ -267,6 +271,13 @@ if ($w == '') {
                      mb_19 = '{$mb_19}',
                      mb_20 = '{$mb_20}'
                      {$sql_certify} ";
+
+    $sql2 = " insert into {$g5['group_member_table']}
+                set gr_id = '{$gr_id}',
+                    mb_id = '{$mb_id}',
+                    gm_datetime = '".G5_TIME_YMDHIS."'
+                    ";
+    sql_query($sql2);
 
     // 이메일 인증을 사용하지 않는다면 이메일 인증시간을 바로 넣는다
     if (!$config['cf_use_email_certify'])
@@ -397,6 +408,13 @@ if ($w == '') {
                     {$sql_certify}
               where mb_id = '$mb_id' ";
     sql_query($sql);
+
+    $sql2 = " update {$g5['group_member_table']}
+                set gr_id = '{$gr_id}',
+                    mb_id = '{$mb_id}',
+                    gm_datetime = '".G5_TIME_YMDHIS."'
+                    ";
+    sql_query($sql2);
 }
 
 
