@@ -52,10 +52,10 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
     $list[$i]['ma_state'] = $row2['ma_state'];          // 지원 상태
 
     // 지원 수락하기
-    $list[$i]['ok_href'] = './';
+    // $list[$i]['ok_href'] = './';
 
-    // 지원 반려하기
-    $list[$i]['del_href'] = './apply_delete.php?ma_id='.$row['ma_id'].'&bo_table='.$tmp_write_table.'&wr_id='.$row['wr_id'].'&amp;page='.$page;
+    // 지원 반려하기 - 단순히 삭제가 아니라 거절되었음을 알려줘야 함.
+    // $list[$i]['reject_href'] = './apply_delete.php?ma_id='.$row['ma_id'].'&bo_table='.$tmp_write_table.'&wr_id='.$row['wr_id'].'&amp;page='.$page;
 
 }
 

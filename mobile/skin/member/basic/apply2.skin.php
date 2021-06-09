@@ -23,7 +23,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                 <?php
                 if($list[$i]['ma_state']=='지원검토중'){ ?>
                     <a href="<?php echo $list[$i]['ok_href'];  ?>" onclick="confirm('지원을 수락하시겠습니까?'); return false;" class="apply_ok">수락하기</a>
-                    <a href="<?php echo $list[$i]['del_href'];  ?>" onclick="confirm('지원을 반려하시겠습니까?'); return false;" class="apply_del2">반려하기</a>
+                    <a href="<?php echo $list[$i]['reject_href'];  ?>" onclick="confirm('지원을 반려하시겠습니까?'); return false;" class="apply_reject">반려하기</a>
                 <?php } ?>
             </div>
         </li>

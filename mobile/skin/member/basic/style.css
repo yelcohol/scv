@@ -294,7 +294,7 @@
 /* 지원자 확인하기 - 건설사용 */
 #apply .apply_left2 {padding:10px;width:70%;font-size:1.083em;line-height:1.3em;font-weight:bold;border-right:1px solid #f1f3f6}
 #apply .apply_ok {position:absolute;top:0;right:15%;display:block;width:15%;height:inherit;text-align:center;padding:10px;color:#49857c;font-size:15px;border-right:1px solid #f1f3f6}
-#apply .apply_del2 {position:absolute;top:0;right:0;display:block;width:15%;height:inherit;text-align:center;padding:10px;color:#ff4f76;font-size:15px}
+#apply .apply_reject {position:absolute;top:0;right:0;display:block;width:15%;height:inherit;text-align:center;padding:10px;color:#ff4f76;font-size:15px}
 
 
 /* 포인트 */
