@@ -1,15 +1,5 @@
 <?php
 if (!defined("_GNUBOARD_")) exit; // 개별 페이지 접근 불가
-$is_worker = $is_constructor = false;
-if ($is_member) {
-    // 근로자면
-    if ($member['mb_10'] === 'worker')
-        $is_worker = true;
-
-    // 건설사면
-    else if ($member['mb_10'] === 'constructor')
-        $is_constructor = true;
-}
 
 // 스크랩 개수 표시
 $sql = " select count(*) as cnt from {$g5['scrap_table']} where mb_id = '{$member['mb_id']}' ";
@@ -56,6 +46,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$outlogin_skin_url.'/style.css">'
             	<strong class="scrap"><?php echo $scrap_cnt ?></strong>
             </a>
         </li>
+        <li><input value="<?=$is_worker?>"></li>
         <?php 
         if($is_worker){ ?>
         <li>

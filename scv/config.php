@@ -187,7 +187,7 @@ define('G5_MYSQL_PASSWORD_LENGTH', 41);         // mysql password length 41, old
 
 // SQL 에러를 표시할 것인지 지정
 // 에러를 표시하려면 TRUE 로 변경
-define('G5_DISPLAY_SQL_ERROR', FALSE);
+define('G5_DISPLAY_SQL_ERROR', TRUE);
 
 // escape string 처리 함수 지정
 // addslashes 로 변경 가능

@@ -198,7 +198,7 @@
 #memo_list .memo_name {display:block;float:left;width:80%;padding:10px;line-height:25px}
 #memo_list .memo_name,#memo_list .memo_name .sv_wrap {font-weight:bold}
 #memo_list .memo_datetime {display:block;font-size:0.92em;color:#9c9c9c;line-height:0}
-#memo_list .memo_datetime i.fa-trash-o {display:inline-block;width:30px;padding:5px;margin:10px;text-align:center}
+#memo_list .memo_datetime i.fa-trash-alt {display:inline-block;width:30px;padding:5px;margin:10px;text-align:center}
 #memo_list .memo_del {float:right;display:block;height:56px;line-height:32px;margin-left:5px;padding:10px 15px;color:#49857c;border-left:1px solid #f1f3f6;font-size:15px}
 
 .list_02 li {border-left:2px solid #fff}
@@ -231,7 +231,7 @@
 #scrap .scrap_cate {display:inline-block;margin-right:5px;padding:1px 2px 2px;background:#2aba8a;border:1px solid #2aba8a;color:#fff;border-radius:1px;font-size:0.92em}
 #scrap .scrap_datetime {color:#9c9c9c}
 #scrap .scrap_del {position:absolute;top:0;right:0;display:block;width:50px;height:62px;text-align:center;line-height:62px;color:#49857c;font-size:15px}
-#scrap .scrap_del i.fa-trash-o {display:inline-block;width:30px;padding:5px;margin:10px;text-align:center}
+#scrap .scrap_del i.fa-trash-alt {display:inline-block;width:30px;padding:5px;margin:10px;text-align:center}
 
 #scrap_do table {width:100%;margin:0 0 10px}
 #scrap_do textarea {height:100px;background:#fff}
@@ -247,7 +247,7 @@
 #apply .apply_cate {display:inline-block;margin-right:5px;padding:1px 2px 2px;background:#2aba8a;border:1px solid #2aba8a;color:#fff;border-radius:1px;font-size:0.92em}
 #apply .apply_datetime {color:#9c9c9c}
 #apply .apply_del {position:absolute;top:0;right:0;display:block;width:50px;height:62px;text-align:center;line-height:62px;color:#49857c;font-size:15px}
-#apply .apply_del i.fa-trash-o {display:inline-block;width:30px;padding:5px;margin:10px;text-align:center}
+#apply .apply_del i.fa-trash-alt {display:inline-block;width:30px;padding:5px;margin:10px;text-align:center}
 
 #apply_do table {width:100%;margin:0 0 10px}
 #apply_do textarea {height:100px;background:#fff}
@@ -256,8 +256,8 @@
 
 /* 지원자 확인하기 - 건설사용 */
 #apply .apply_left2 {padding:10px;width:70%;font-size:1.083em;line-height:1.3em;font-weight:bold;border-right:1px solid #f1f3f6}
-#apply .apply_ok {position:absolute;top:0;right:15%;display:block;width:15%;height:inherit;text-align:center;padding:10px;color:#49857c;font-size:15px;border-right:1px solid #f1f3f6}
-#apply .apply_reject {position:absolute;top:0;right:0;display:block;width:15%;height:inherit;text-align:center;padding:10px;color:#ff4f76;font-size:15px}
+#apply .apply_accept {position:absolute;top:0;right:15%;display:block;width:15%;height:inherit;text-align:center;padding:10px;color:#49857c;font-size:15px;border-right:1px solid #f1f3f6}
+#apply .apply_refuse {position:absolute;top:0;right:0;display:block;width:15%;height:inherit;text-align:center;padding:10px;color:#ff4f76;font-size:15px}
 
 /* 포인트 */
 #point .point_all {border:1px solid #2aba8a;color:#fff;font-weight:bold;margin-bottom:10px;background:#fff;text-align:right}

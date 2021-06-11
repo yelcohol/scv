@@ -63,8 +63,15 @@ if ($row['cnt'])
 
 // $wr_content = trim($_POST['wr_content']);
 
+
+// $sql = " select distinct mb_id from {$write_table} where wr_id = '{$wr_id}'";
+// $me_recv_mb_id = sql_fetch($sql);
+
+// include_once(G5_HTTP_BBS_URL.'/apply_memo_form.php?me_recv_mb_id='.$me_recv_mb_id);
+
 // g5_apply에 지원내역 추가
-$sql = " insert into {$g5['apply_table']} ( mb_id, bo_table, wr_id, ma_datetime ) values ( '{$member['mb_id']}', '$bo_table', '$wr_id', '".G5_TIME_YMDHIS."' ) ";
+$sql = " insert into {$g5['apply_table']} ( mb_id, bo_table, wr_id, ma_datetime ) values 
+                                            ( '{$member['mb_id']}', '$bo_table', '$wr_id', '".G5_TIME_YMDHIS."' ) ";
 sql_query($sql);
 
 // works table에서 현재 지원자 수 1 증가
