@@ -3,21 +3,21 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<link rel="shortcut icon" type="image/x-icon" href="http://fullscreen.ety.kr/fa.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="home/fa.ico" />
 <meta http-equiv="imagetoolbar" content="no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>scv</title>
-<link rel="stylesheet" href="http://fullscreen.ety.kr/theme/ety_theme_company/css/default.css?ver=191202">
-<link rel="stylesheet" href="http://fullscreen.ety.kr/theme/ety_theme_company/skin/latest/basic_main_one/style.css?ver=191202">
-<link rel="stylesheet" href="http://fullscreen.ety.kr/theme/ety_theme_company/skin/latest/pic_basic_company/style.css?ver=191202">
-<link rel="stylesheet" href="http://fullscreen.ety.kr/theme/ety_theme_company/skin/latest/pic_basic_owl/style.css?ver=191202">
+<title>SCV</title>
+<link rel="stylesheet" href="home/css/default.css">
+<link rel="stylesheet" href="home/skin/latest/basic_main_one/style.css">
+<link rel="stylesheet" href="home/skin/latest/pic_basic_company/style.css">
+<link rel="stylesheet" href="home/skin/latest/pic_basic_owl/style.css">
 <!--[if lte IE 8]>
-<script src="http://fullscreen.ety.kr/js/html5.js"></script>
+<script src="home/js/html5.js"></script>
 <![endif]-->
 <script>
 // 자바스크립트에서 사용하는 전역변수 선언
-var g5_url       = "http://fullscreen.ety.kr";
-var g5_bbs_url   = "http://fullscreen.ety.kr/bbs";
+var g5_url       = "home";
+var g5_bbs_url   = "home/bbs";
 var g5_is_member = "";
 var g5_is_admin  = "";
 var g5_is_mobile = "";
@@ -26,33 +26,33 @@ var g5_sca       = "";
 var g5_editor    = "";
 var g5_cookie_domain = "";
 </script>
-<script src="http://fullscreen.ety.kr/js/jquery-1.8.3.min.js"></script>
-<script src="http://fullscreen.ety.kr/js/jquery.menu.js?ver=191202"></script>
-<script src="http://fullscreen.ety.kr/js/common.js?ver=191202"></script>
-<script src="http://fullscreen.ety.kr/js/wrest.js?ver=191202"></script>
-<script src="http://fullscreen.ety.kr/js/placeholders.min.js"></script>
-<link rel="stylesheet" href="http://fullscreen.ety.kr/js/font-awesome/css/font-awesome.min.css">
+<script src="scv/js/jquery-1.8.3.min.js"></script>
+<script src="scv/js/jquery.menu.js"></script>
+<script src="scv/js/common.js"></script>
+<script src="scv/js/wrest.js"></script>
+<script src="scv/js/placeholders.min.js"></script>
+<link rel="stylesheet" href="scv/js/font-awesome/css/font-awesome.min.css">
 
 <!-- google fonts -->
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800|Noto+Sans+KR:100,300,400,500,700,900|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
 
 <!-- Bootstrap core CSS -->
-<link href="http://fullscreen.ety.kr/theme/ety_theme_company/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="home/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!-- fontawesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 <!-- owl Carousel -->
-<link rel="stylesheet" href="http://fullscreen.ety.kr/theme/ety_theme_company/assets/owlcarousel/css/owl.carousel.min.css">
-<link rel="stylesheet" href="http://fullscreen.ety.kr/theme/ety_theme_company/assets/owlcarousel/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="home/assets/owlcarousel/css/owl.carousel.min.css">
+<link rel="stylesheet" href="home/assets/owlcarousel/css/owl.theme.default.min.css">
 
 <!-- countdown -->
-<link href="http://fullscreen.ety.kr/theme/ety_theme_company/assets/countdown/css/demo.css" rel="stylesheet">
+<link href="home/assets/countdown/css/demo.css" rel="stylesheet">
 <!-- bootstrap-social icon -->
-<link href="http://fullscreen.ety.kr/theme/ety_theme_company/assets/bootstrap-social/bootstrap-social.css" rel="stylesheet">
-<link href="http://fullscreen.ety.kr/theme/ety_theme_company/css/animate.css" rel="stylesheet">
-<link href="http://fullscreen.ety.kr/theme/ety_theme_company/css/bootstrap-dropdownhover.css" rel="stylesheet">
+<link href="home/assets/bootstrap-social/bootstrap-social.css" rel="stylesheet">
+<link href="home/css/animate.css" rel="stylesheet">
+<link href="home/css/bootstrap-dropdownhover.css" rel="stylesheet">
 <!-- Custom & ety -->
-<link href="http://fullscreen.ety.kr/theme/ety_theme_company/css/modern-business.css" rel="stylesheet">
-<link href="http://fullscreen.ety.kr/theme/ety_theme_company/css/ety.css" rel="stylesheet">
+<link href="home/css/modern-business.css" rel="stylesheet">
+<link href="home/css/ety.css" rel="stylesheet">
 
 
 </head>
@@ -88,19 +88,19 @@ $(function() {
 <meta property="og:type" content="website">
 <meta property="og:title" content="무료테마 에티 플라워테마">
 <meta property="og:description" content="반응형홈페이지제작, 무료커뮤니티제작, 에티테마, 그누보드 무료 테마, 무료 반응형 커뮤니티">
-<meta property="og:image" content="http://flower.ety.kr/theme/ety_theme_company/img/logo.png">
-<meta property="og:url" content="http://flower.ety.kr/">
+<meta property="og:image" content="home/img/photo_2021-06-11_13-40-21.jpg">
+<meta property="og:url" content="">
 <!-------------------------- ./수정해서 사용하세요 -------------------------->
 
 
 
 <!-------------------------- 네비게이션 -------------------------->
-<div class="container-fluid top-line fixed-header">
+<!-- <div class="container-fluid top-line fixed-header">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<div id="tnb-left">
-					<!-- social -->
+					#social
 					<div class="sns_icon">
 					<a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
 					</div>
@@ -113,19 +113,19 @@ $(function() {
 				</div>
 				<div id="tnb">
 					<ul>
-											<li><a href="http://fullscreen.ety.kr/bbs/register.php"><i class="fa fa-user-plus" aria-hidden="true"></i> 회원가입</a></li>
-						<li><a href="http://fullscreen.ety.kr/bbs/login.php"><i class="fas fa-sign-in-alt"></i> 로그인</a></li>
-											<li><a href="http://fullscreen.ety.kr/bbs/faq.php"><i class="fa fa-question" aria-hidden="true"></i> <span>FAQ</span></a></li>
-						<li><a href="http://fullscreen.ety.kr/bbs/qalist.php"><i class="fa fa-comments" aria-hidden="true"></i> <span>1:1문의</span></a></li>
-						<li><a href="http://fullscreen.ety.kr/bbs/current_connect.php" class="visit"><i class="fa fa-users" aria-hidden="true"></i> <span>접속자</span><strong class="visit-num">
+											<li><a href="home/bbs/register.php"><i class="fa fa-user-plus" aria-hidden="true"></i> 회원가입</a></li>
+						<li><a href="home/bbs/login.php"><i class="fas fa-sign-in-alt"></i> 로그인</a></li>
+											<li><a href="home/bbs/faq.php"><i class="fa fa-question" aria-hidden="true"></i> <span>FAQ</span></a></li>
+						<li><a href="home/bbs/qalist.php"><i class="fa fa-comments" aria-hidden="true"></i> <span>1:1문의</span></a></li>
+						<li><a href="home/bbs/current_connect.php" class="visit"><i class="fa fa-users" aria-hidden="true"></i> <span>접속자</span><strong class="visit-num">
 						1</strong></a></li>
-						<li><a href="http://fullscreen.ety.kr/bbs/new.php"><i class="fa fa-history" aria-hidden="true"></i> <span>새글</span></a></li>
+						<li><a href="home/bbs/new.php"><i class="fa fa-history" aria-hidden="true"></i> <span>새글</span></a></li>
 											</ul>
 				</div>
-			</div><!-- /col -->
-		</div><!-- /row -->
-	</div><!-- /container -->
-</div>
+			</div>#column
+		</div>#row
+	</div>#container
+</div> -->
 <style>
 .collapse.in{
     -webkit-transition-delay: 4s;
@@ -135,32 +135,32 @@ $(function() {
 </style>
 <nav class="navbar fixed-top navbar-expand-lg navbar-white bg-white fixed-top">
   <div class="container">
-	<a class="navbar-brand" href="http://fullscreen.ety.kr" class="logo"><img src="http://fullscreen.ety.kr/theme/ety_theme_company/img/logo.png"></a>
+	<a class="navbar-brand" href="" class="logo"><img src="home/img/photo_2021-06-11_13-40-21.jpg" style="width:70px;">&nbsp;SCV</a>
 	<button class="navbar-toggler navbar-dark navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 	  <span class="navbar-toggler-icon"></span>
 	</button>
 	<div class="collapse navbar-collapse" id="navbarResponsive" data-hover="dropdown" data-animations="fadeIn fadeIn fadeInUp fadeInRight">
 	  <ul class="navbar-nav ml-auto">
 					
-							<li class="nav-item dropdown">
+							<!-- <li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle ks4 f16" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" target="_self">
 					회사소개					</a>
-						<!-- 서브 -->
+						#서브
 						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-														<a class="dropdown-item ks4 f15 fw4" href="/pages/about.php" target="_self">인사말</a>
+														<a class="dropdown-item ks4 f15 fw4" href="about.php" target="_self">인사말</a>
 
-														<a class="dropdown-item ks4 f15 fw4" href="/pages/history.php" target="_self">연혁</a>
+														<a class="dropdown-item ks4 f15 fw4" href="history.php" target="_self">연혁</a>
 
-														<a class="dropdown-item ks4 f15 fw4" href="/pages/pages-1.php" target="_self">빈페이지</a>
+														<a class="dropdown-item ks4 f15 fw4" href="pages-1.php" target="_self">빈페이지</a>
 
 							</ul>
-					</li>
+					</li> -->
 
 					
-							<li class="nav-item dropdown">
+							<!-- <li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle ks4 f16" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" target="_self">
 					비즈니스					</a>
-						<!-- 서브 -->
+						#서브
 						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
 														<a class="dropdown-item ks4 f15 fw4" href="/pages/product.php" target="_self">사업안내 1</a>
 
@@ -169,74 +169,39 @@ $(function() {
 														<a class="dropdown-item ks4 f15 fw4" href="/pages/service.php" target="_self">서비스</a>
 
 							</ul>
-					</li>
+					</li> -->
 
 					
-							<li class="nav-item dropdown">
+							<!-- <li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle ks4 f16" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" target="_self">
 					제품안내					</a>
-						<!-- 서브 -->
+						#서브
 						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
 														<a class="dropdown-item ks4 f15 fw4" href="/gallery" target="_self">갤러리 1</a>
 
 							</ul>
-					</li>
+					</li> -->
 
 					
-							<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle ks4 f16" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" target="_self">
-					고객센터					</a>
-						<!-- 서브 -->
-						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-														<a class="dropdown-item ks4 f15 fw4" href="/notice" target="_self">공지사항</a>
-
-														<a class="dropdown-item ks4 f15 fw4" href="/free" target="_self">자유게시판</a>
-
-														<a class="dropdown-item ks4 f15 fw4" href="/qa" target="_self">QnA</a>
-
-														<a class="dropdown-item ks4 f15 fw4" href="/bbs/faq.php" target="_self">FAQ</a>
-
-							</ul>
+					<li class="nav-item dropdown">
+					<a class="nav-link ks4 f16" href="scv" id="navbarDropdownBlog" aria-haspopup="true" aria-expanded="false" target="_self">
+					SCV 페이지</a>
 					</li>
 
-					
-							<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle ks4 f16" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" target="_self">
-					온라인문의					</a>
-						<!-- 서브 -->
-						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-														<a class="dropdown-item ks4 f15 fw4" href="/bbs/qalist.php" target="_self">1:1문의</a>
-
-							</ul>
+					<li class="nav-item dropdown">
+					<a class="nav-link ks4 f16" href="worker_faq.php" id="navbarDropdownBlog" aria-haspopup="true" aria-expanded="false" target="_self">
+					근로자 FAQ</a>
 					</li>
 
-					
-							<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle ks4 f16" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" target="_self">
-					서비스					</a>
-						<!-- 서브 -->
-						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-														<a class="dropdown-item ks4 f15 fw4" href="/bbs/new.php" target="_self">새글</a>
-
-														<a class="dropdown-item ks4 f15 fw4" href="/bbs/current_connect.php" target="_self">접속자</a>
-
-														<a class="dropdown-item ks4 f15 fw4" href="/bbs/search.php" target="_self">전체검색</a>
-
-							</ul>
+					<li class="nav-item dropdown">
+					<a class="nav-link ks4 f16" href="constructor_faq.php" id="navbarDropdownBlog" aria-haspopup="true" aria-expanded="false" target="_self">
+					건설사 FAQ</a>
 					</li>
 
-				<li class="nav-item dropdown login">
-		  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			LOGIN
-		  </a>
-		  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-			
-						<a class="dropdown-item" href="http://fullscreen.ety.kr/bbs/new.php">새글</a>
-			<a class="dropdown-item" href="http://fullscreen.ety.kr/bbs/qalist.php">1:1문의</a>
-						<a class="dropdown-item" href="http://fullscreen.ety.kr/bbs/login.php">로그인</a>
-			<a class="dropdown-item" href="http://fullscreen.ety.kr/bbs/register.php">회원가입</a>
-					  </div>
-		</li>
+					<li class="nav-item dropdown">
+					<a class="nav-link ks4 f16" href="#googleform" id="navbarDropdownBlog" aria-haspopup="true" aria-expanded="false" target="_self">
+					제휴 문의</a>
+					</li>
 	  </ul>
 	</div>
   </div>
@@ -257,13 +222,6 @@ $(function() {
 
 
 
-<!-------------------------- 게시판 상단 배경 수정하는 곳 -------------------------->
-<!-------------------------- ./게시판 상단 배경 수정하는 곳 -------------------------->
-
-
-
-
-
 <!-------------------------- 슬라이드 -------------------------->
 <header>
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="5000">
@@ -274,24 +232,24 @@ $(function() {
 	</ol>
 	<div class="carousel-inner" role="listbox">
 	  <!-- Slide One - Set the background image for this slide in the line below -->
-	  <div class="carousel-item active" style="background-image: url('http://fullscreen.ety.kr/theme/ety_theme_company/img/bg1.png')">
+	  <div class="carousel-item active" style="background-image: url('home/img/site-4686908.jpg')">
 		<div class="carousel-caption d-md-block">
-		  <h3 class="ks4">에티와이드테마</h3>
-		  <p class="ks4 f20">전체페이지를 와이드 형태로만 제작하였습니다.</p>
+		  <h3 class="ks4">Service</h3>
+		  <p class="ks4 f20">새벽에 인력사무소로 출근하는 대신 SCV를 사용하여 일자리를 간편하게 지원하세요</p>
 		</div>
 	  </div>
 	  <!-- Slide Two - Set the background image for this slide in the line below -->
-	  <div class="carousel-item" style="background-image: url('http://fullscreen.ety.kr/theme/ety_theme_company/img/bg2.png')">
+	  <div class="carousel-item" style="background-image: url('home/img/construction-silhouette.jpg')">
 		<div class="carousel-caption d-md-block">
-		  <h3 class="ks4">반응형 비즈니스 테마</h3>
-		  <p class="ks4 f20">CMS 인 그누보드 5.4 와 연동되어 사용가능한 테마 입니다.</p>
+		  <h3 class="ks4">Connect</h3>
+		  <p class="ks4 f20">좋은 건설 일자리를 믿을 수 있는 근로자에게 연결합니다</p>
 		</div>
 	  </div>
 	  <!-- Slide Three - Set the background image for this slide in the line below -->
-	  <div class="carousel-item" style="background-image: url('http://fullscreen.ety.kr/theme/ety_theme_company/img/bg3.png')">
+	  <div class="carousel-item" style="background-image: url('home/img/construction-worker-495373.jpg')">
 		<div class="carousel-caption d-md-block">
-		  <h3 class="ks4">테마몰 오픈</h3>
-		  <p class="ks4 f20">테마몰을 오픈하였습니다.</p>
+		  <h3 class="ks4">Velocity</h3>
+		  <p class="ks4 f20">매칭은 즉시, 일당 지급은 당일</p>
 		</div>
 	  </div>
 	</div>
@@ -471,87 +429,9 @@ $(function() {
 <div class="margin-top-50"></div>
 <div class="container">
 	<div class="row">
+		<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12"></div>
 		<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-			<style>
-.main_one_title {
-    position: relative;
-    display: block;
-    width: 191px;
-    text-align: left;
-    color: #111;
-    padding: 15px 0px 15px 0px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    margin-left: 15px;
-}
-.one_more{position:absolute;top:15px;right:15px;font-size:22px}
-</style>
 
-<div class="row">
-	<div class="col-md-12 main_one_title ks4">
-		공지사항		
-	</div>
-</div>
-<a href="http://fullscreen.ety.kr/bbs/board.php?bo_table=notice" class="one_more"><span class="sound_only">공지사항</span><i class="fa fa-plus" aria-hidden="true" style="font-size:22px;line-height: 1px;"></i><span class="sound_only"> 더보기</span></a>
-<div class="lat_list_one">
-    <ul>
-            <li class="ks4">
-            <a href="http://fullscreen.ety.kr/notice/6"> 질문게시판 안내</a>
-            <span class="lt_date hidden-xs hidden-sm">05-16</span>
-        </li>
-            <li class="ks4">
-            <a href="http://fullscreen.ety.kr/notice/5"> 테마 세팅 및 수정방법 안내</a>
-            <span class="lt_date hidden-xs hidden-sm">05-16</span>
-        </li>
-            <li class="ks4">
-            <a href="http://fullscreen.ety.kr/notice/4"> 각 서브페이지별 배경이미지 수정방법</a>
-            <span class="lt_date hidden-xs hidden-sm">05-16</span>
-        </li>
-            <li class="ks4">
-            <a href="http://fullscreen.ety.kr/notice/3"> <strong>에티 와이드 버전 안내</strong></a>
-            <span class="lt_date hidden-xs hidden-sm">05-16</span>
-        </li>
-            </ul>
-	
-</div>
-		</div>
-		<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-			<style>
-.main_one_title {
-    position: relative;
-    display: block;
-    width: 191px;
-    text-align: left;
-    color: #111;
-    padding: 15px 0px 15px 0px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    margin-left: 15px;
-}
-.one_more{position:absolute;top:15px;right:15px;font-size:22px}
-</style>
-
-<div class="row">
-	<div class="col-md-12 main_one_title ks4">
-		자유게시판		
-	</div>
-</div>
-<a href="http://fullscreen.ety.kr/bbs/board.php?bo_table=free" class="one_more"><span class="sound_only">자유게시판</span><i class="fa fa-plus" aria-hidden="true" style="font-size:22px;line-height: 1px;"></i><span class="sound_only"> 더보기</span></a>
-<div class="lat_list_one">
-    <ul>
-            <li class="ks4">
-            <a href="http://fullscreen.ety.kr/free/2"> 글쓰기 테스트 입니다.</a>
-            <span class="lt_date hidden-xs hidden-sm">04-16</span>
-        </li>
-            <li class="ks4">
-            <span class="hot_icon">H<span class="sound_only">인기글</span></span><a href="http://fullscreen.ety.kr/free/1"> <strong>자유게시판 불법관련 홍보글 안내</strong></a>
-            <span class="lt_date hidden-xs hidden-sm">02-27</span>
-        </li>
-            </ul>
-	
-</div>
 		</div>
 	</div>
 </div>
@@ -581,199 +461,25 @@ $(function() {
 </div>
 
 
-
-
-<!-------------------------- USE A LIBRARY -------------------------->
-<div class="py-5" style="">
-	<div class="container">
-		<div class="center-heading margin-top-40">
-			<h2 class="en1">USE A <strong>LIBRARY</strong> </h2>
-			<span class="center-line"></span>
-		</div>
-		  <div class="row margin-top-50 margin-bottom-50">
-			<div class="col-lg-6">
-			  <h2 class="en1">JavaScript Library</h2>
-			  <p class="ko_17">테마폴더내 라이선스 문서 확인</p>
-			  <ul class="en2">
-				<li><strong>GNUboard5 (5.4.5.1)</strong></li>
-				<li><strong>Bootstrap4</strong></li>
-				<li>jQuery</li>
-				<li>Font Awesome5</li>
-				<li>Working contact form with validation</li>
-				<li>Unstyled page elements for easy customization</li>
-				<li>Parallax</li>
-				<li>Owl</li>
-			  </ul>
-			  <p class="ks5">
-			  현제 제작되는 모든 테마는 에티테마 에서 제작되고 있으며 무료 테마 및 템플릿의 경우에는 이미지가 포함 되어 있지 않습니다. 또한 에티테마로 오시면 추가적인 업데이트된 파일을 다운로드 하실 수 있습니다.</p>
-			</div>
-			<div class="col-lg-6 text-right">
-				<img class="img-fluid rounded" src="http://fullscreen.ety.kr/theme/ety_theme_company/img/w001.png" alt="">
-				<!--<img class="img-fluid rounded" src="http://placehold.it/570x400" alt="">-->
-			</div>
-		  </div>
-	  <!-- /.row -->
-	</div>
-</div>
-
-
-
-<!-------------------------- USE A LIBRARY -------------------------->
-<div class="py-5" style="background:#f2f2f2;">
-	<div class="container">
-		<div class="center-heading margin-top-40">
-			<h2 class="en1">USE A <strong>LIBRARY</strong> </h2>
-			<span class="center-line"></span>
-		</div>
-	  <div class="row margin-top-50 margin-bottom-50">
-		<div class="col-lg-6 text-left">
-			<img class="img-fluid rounded" src="http://fullscreen.ety.kr/theme/ety_theme_company/img/w002.png" alt="">
-			<!--<img class="img-fluid rounded" src="http://placehold.it/570x400" alt="">-->
-		</div>
-		<div class="col-lg-6">
-		  <h2 class="en1">JavaScript Library</h2>
-		  <p class="ko_17">테마폴더내 라이선스 문서 확인</p>
-		  <ul class="en2">
-		  	<li><strong>GNUboard5 (5.4.5.1)</strong></li>
-			<li><strong>Bootstrap4</strong></li>
-			<li>jQuery</li>
-			<li>Font Awesome5</li>
-			<li>Working contact form with validation</li>
-			<li>Unstyled page elements for easy customization</li>
-			<li>Parallax</li>
-			<li>Owl</li>
 			
-		  </ul>
-		  <p class="ks5">
-		  현제 제작되는 모든 테마 및 템플릿은 글로벌하게 에티테마 에서 제작되고 있으며 무료 테마 및 템플릿의 경우에는 이미지가 포함 되어 있지 않습니다. 또한 에티테마로 오시면 추가적인 업데이트된 파일을 다운로드 하실 수 있습니다.</p>
-		</div>
-
-	  </div>
-	  <!-- /.row -->
-	</div>
-</div>
-
 
 
 
 <!-------------------------- 회사소개 및 안내 -------------------------->
 <div class="container margin-top-80 margin-bottom-80">
+<a name="googleform"></a>
 	<div class="center-heading margin-top-40">
-		<h2 class="en1">PRODUCT</h2>
+		<h2 class="en1">제휴 문의</h2>
 		<span class="center-line"></span>
 	</div>
-	<!-- LATEST : pic_basic_company -->
-	
+
 <div class="row">
-	
-	<div class="col-md-4" style="margin-bottom:20px;">
-		<div class="card-group">
-		  <div class="card">
-			<a href="http://fullscreen.ety.kr/gallery/14"><img src="http://fullscreen.ety.kr/data/file/gallery/thumb-2042508775_zm8epSPx_41cdcfa4274526af8fd399a453bf845121bd8ec4_368x250.jpg" alt="" class="card-img-top"></a>
-			<div class="card-body">
-			  <h5 class="card-title ks4 f17">
-					<a href="http://fullscreen.ety.kr/gallery/14"> <strong>홈페이지의 이미지는 포함되어 있지 않습니다.</strong>					</a>
-			  </h5>
-			  <p class="card-text ks3 f14" style='height:65px;'>
-				홈페이지의 이미지는 포함되어 있지 않습니다.
-&nbsp;
-홈페이지의 이미지는 포함되어 있지 않습니다.
-홈페이지의 이미지는 포함되어 있지 않.. 
-							  </p>
-			  <p class="card-text"><small class="text-muted">2021-05-16</small></p>
-			</div>
-		  </div>
-		</div><!-- /card-group -->
-	</div><!-- /col -->
-	
-	<div class="col-md-4" style="margin-bottom:20px;">
-		<div class="card-group">
-		  <div class="card">
-			<a href="http://fullscreen.ety.kr/gallery/13"><img src="http://fullscreen.ety.kr/data/file/gallery/thumb-2042508775_an8GXujy_4f4d68d148b0ec4855a97c14ff3ed34e9d30b745_368x250.jpg" alt="" class="card-img-top"></a>
-			<div class="card-body">
-			  <h5 class="card-title ks4 f17">
-					<a href="http://fullscreen.ety.kr/gallery/13"> <strong>홈페이지의 이미지는 포함되어 있지 않습니다.</strong>					</a>
-			  </h5>
-			  <p class="card-text ks3 f14" style='height:65px;'>
-				홈페이지의 이미지는 포함되어 있지 않습니다. 
-							  </p>
-			  <p class="card-text"><small class="text-muted">2021-05-16</small></p>
-			</div>
-		  </div>
-		</div><!-- /card-group -->
-	</div><!-- /col -->
-	
-	<div class="col-md-4" style="margin-bottom:20px;">
-		<div class="card-group">
-		  <div class="card">
-			<a href="http://fullscreen.ety.kr/gallery/12"><img src="http://fullscreen.ety.kr/data/file/gallery/thumb-2042508775_eHkGhoMN_5e3e911f9686f05b6f1895cdece97048d4f4cfdd_368x250.jpg" alt="" class="card-img-top"></a>
-			<div class="card-body">
-			  <h5 class="card-title ks4 f17">
-					<a href="http://fullscreen.ety.kr/gallery/12"> <strong>홈페이지의 이미지는 포함되어 있지 않습니다.</strong>					</a>
-			  </h5>
-			  <p class="card-text ks3 f14" style='height:65px;'>
-				홈페이지의 이미지는 포함되어 있지 않습니다. 
-							  </p>
-			  <p class="card-text"><small class="text-muted">2021-05-16</small></p>
-			</div>
-		  </div>
-		</div><!-- /card-group -->
-	</div><!-- /col -->
-	
-	<div class="col-md-4" style="margin-bottom:20px;">
-		<div class="card-group">
-		  <div class="card">
-			<a href="http://fullscreen.ety.kr/gallery/11"><img src="http://fullscreen.ety.kr/data/file/gallery/thumb-2042508775_B35Ln4tl_15f0e2edcc00f83e33d7717e8528d6b9eb8812bf_368x250.jpg" alt="" class="card-img-top"></a>
-			<div class="card-body">
-			  <h5 class="card-title ks4 f17">
-					<a href="http://fullscreen.ety.kr/gallery/11"> <strong>홈페이지의 이미지는 포함되어 있지 않습니다.</strong>					</a>
-			  </h5>
-			  <p class="card-text ks3 f14" style='height:65px;'>
-				홈페이지의 이미지는 포함되어 있지 않습니다. 
-							  </p>
-			  <p class="card-text"><small class="text-muted">2021-05-16</small></p>
-			</div>
-		  </div>
-		</div><!-- /card-group -->
-	</div><!-- /col -->
-	
-	<div class="col-md-4" style="margin-bottom:20px;">
-		<div class="card-group">
-		  <div class="card">
-			<a href="http://fullscreen.ety.kr/gallery/10"><img src="http://fullscreen.ety.kr/data/file/gallery/thumb-2042508775_tHKiBfp3_9082c3e4f5b0f6dfc68f3322b4099ca16f515ba4_368x250.jpg" alt="" class="card-img-top"></a>
-			<div class="card-body">
-			  <h5 class="card-title ks4 f17">
-					<a href="http://fullscreen.ety.kr/gallery/10"> <strong>홈페이지의 이미지는 포함되어 있지 않습니다.</strong>					</a>
-			  </h5>
-			  <p class="card-text ks3 f14" style='height:65px;'>
-				홈페이지의 이미지는 포함되어 있지 않습니다. 
-							  </p>
-			  <p class="card-text"><small class="text-muted">2021-05-16</small></p>
-			</div>
-		  </div>
-		</div><!-- /card-group -->
-	</div><!-- /col -->
-	
-	<div class="col-md-4" style="margin-bottom:20px;">
-		<div class="card-group">
-		  <div class="card">
-			<a href="http://fullscreen.ety.kr/gallery/8"><img src="http://fullscreen.ety.kr/data/file/gallery/thumb-2042508775_Oy0JK4mF_0f624da9fc2831d1ab126fc416c3fff76aeb318b_368x250.jpg" alt="" class="card-img-top"></a>
-			<div class="card-body">
-			  <h5 class="card-title ks4 f17">
-					<a href="http://fullscreen.ety.kr/gallery/8"> <strong>홈페이지의 이미지는 포함되어 있지 않습니다.</strong>					</a>
-			  </h5>
-			  <p class="card-text ks3 f14" style='height:65px;'>
-				홈페이지의 이미지는 포함되어 있지 않습니다. 
-							  </p>
-			  <p class="card-text"><small class="text-muted">2021-05-16</small></p>
-			</div>
-		  </div>
-		</div><!-- /card-group -->
-	</div><!-- /col -->
-	
 
-</div><!-- /row --></div>
+<iframe style="display:block; margin:0 auto;" src="https://docs.google.com/forms/d/e/1FAIpQLScxNldjOkdOAhxkeCotnpgc-KX_yqQS2FfwqUW6czRPoZJaZQ/viewform?embedded=true" width="640" height="1000" frameborder="0" marginheight="0" marginwidth="0">로드 중…</iframe>
 
+</div>
+
+</div>
 
 
 
@@ -788,66 +494,25 @@ $(function() {
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 text-center p-center para-text">
-				<h2 class='text-light ks5'>반응형 커뮤니티 , 반응형 와이드 에티테마 무료 다운로드 바로가기</h2>
-				<button type="button" class="btn btn-outline-light ks4" onclick='window.open("about:blank").location.href="http://ety.kr/board/theme_update"'>바로가기</button>
+				<h2 class='text-light ks5'>비대면 인력사무소, SCV 바로가기</h2>
+				<button type="button" class="btn btn-outline-light ks4" onclick='window.open("about:blank").location.href="scv"'>바로가기</button>
 			</div>
 		</div>
 	</div>
 </div><!-- /parallax -->
-
-
-
-<!-------------------------- GALLERY -------------------------->
-<!-- 
-
-테마폴더/tail.php : 99번째줄에서 수정하시면 됩니다.
-owlcarousel 시간조정, 개수조정, 오토플레이 조정
--->
-
-<div class="container margin-top-50 margin-bottom-50">
-	<h3 class="margin-bottom-50 text-left">GALLERY</h3>
-	
-<div class="owl-carousel owl-theme">
-    		<div class="item"><a href="http://fullscreen.ety.kr/gallery/14"><img src="http://fullscreen.ety.kr/data/file/gallery/thumb-2042508775_zm8epSPx_41cdcfa4274526af8fd399a453bf845121bd8ec4_200x200.jpg" alt="" ></a></div>
-	
-			<div class="item"><a href="http://fullscreen.ety.kr/gallery/13"><img src="http://fullscreen.ety.kr/data/file/gallery/thumb-2042508775_an8GXujy_4f4d68d148b0ec4855a97c14ff3ed34e9d30b745_200x200.jpg" alt="" ></a></div>
-	
-			<div class="item"><a href="http://fullscreen.ety.kr/gallery/12"><img src="http://fullscreen.ety.kr/data/file/gallery/thumb-2042508775_eHkGhoMN_5e3e911f9686f05b6f1895cdece97048d4f4cfdd_200x200.jpg" alt="" ></a></div>
-	
-			<div class="item"><a href="http://fullscreen.ety.kr/gallery/11"><img src="http://fullscreen.ety.kr/data/file/gallery/thumb-2042508775_B35Ln4tl_15f0e2edcc00f83e33d7717e8528d6b9eb8812bf_200x200.jpg" alt="" ></a></div>
-	
-			<div class="item"><a href="http://fullscreen.ety.kr/gallery/10"><img src="http://fullscreen.ety.kr/data/file/gallery/thumb-2042508775_tHKiBfp3_9082c3e4f5b0f6dfc68f3322b4099ca16f515ba4_200x200.jpg" alt="" ></a></div>
-	
-			<div class="item"><a href="http://fullscreen.ety.kr/gallery/8"><img src="http://fullscreen.ety.kr/data/file/gallery/thumb-2042508775_Oy0JK4mF_0f624da9fc2831d1ab126fc416c3fff76aeb318b_200x200.jpg" alt="" ></a></div>
-	
-	</div></div>
-
-
-
-
-
-
-
-
-
-
-
-
 		
 	<footer class="py-5 bg-dark margin-top-80">
 		<div class="container footer">
 			<div class="row">
 				<div class="col-md-12 text-white text-center">
-					<h2 class="en1">ETY.KR</h2><!-- image or text  -->
+					<h2 class="en1">MJW.DEB.KR</h2><!-- image or text  -->
 					<p class="ks2 f12">
-					무료테마인 <a href="http://ety.kr" target="_blank" class="color-white">에티 비즈니스테마</a>는 상업적으로 이용하셔도 됩니다. 하지만 배포, 재배포는 안됩니다. <br />
-					또한 해당 테마에 대해서 지적재산권을 주장 할 수 없음을 미리 알려드립니다. <br />
-					별도 문의사항은 <span class="color-white">softzonecokr@naver.com</span> 으로 연락 주시기 바랍니다.
+					별도 문의사항은 <span class="color-white">admin@scv.com</span> 으로 연락 주시기 바랍니다.
 					</p>
 					<p class="ks2 f12">
-						<i class="far fa-building"></i> 사무실 : 경기도 아름다운 아파트 101동 1004호<br />
-						<i class="fas fa-phone"></i> 연락처 : 010-0000-0000<br />
-						<i class="far fa-envelope-open"></i> <a href="mailto:softzonecokr@naver.com" class="color-white">Email : SOFTZONECOKR@NAVER.COM</a><br />
+						<i class="far fa-building"></i> 사무실 : 서울 강동구 성내로6길 14-20 청정빌딩 402호<br />
+						<i class="fas fa-phone"></i> 연락처 : 010-3886-3419<br />
+						<i class="far fa-envelope-open"></i> <a href="mailto:admin@scv.com" class="color-white">Email : ADMIN@SCV.COM</a><br />
 						<i class="fas fa-fax"></i> 팩스번호 : 02) 1234-1234<br />
 					</p>
 
@@ -855,11 +520,7 @@ owlcarousel 시간조정, 개수조정, 오토플레이 조정
 			</div>
 		</div><!--/container-->
     </footer>
-	<div class="container-fluid bg-gray">
-		<div class="col-md-12 text-white text-center en1">
-				Copyright 2019-2021 &copy; <a href="http://ety.kr" target="_blank"><span class="color-white ks4">에티테마</span></a>
-		</div>
-	</div><!-- /container -->
+
 
     <!-- Bootstrap core JavaScript -->
     <!--<script src="vendor/jquery/jquery.min.js"></script>-->
@@ -867,17 +528,17 @@ owlcarousel 시간조정, 개수조정, 오토플레이 조정
 	<script>
 	var jQuery = $.noConflict(true);
 	</script>
-    <script src="http://fullscreen.ety.kr/theme/ety_theme_company/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="http://fullscreen.ety.kr/theme/ety_theme_company/assets/parallax/js/parallax.min.js"></script>
-	<script src="http://fullscreen.ety.kr/theme/ety_theme_company/assets/owlcarousel/js/owl.carousel.min.js"></script>
+    <script src="home/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="home/assets/parallax/js/parallax.min.js"></script>
+	<script src="home/assets/owlcarousel/js/owl.carousel.min.js"></script>
 	<!-- countdown -->
-	<script type="text/javascript" src="http://fullscreen.ety.kr/theme/ety_theme_company/assets/countdown/js/kinetic.js"></script>
-	<script type="text/javascript" src="http://fullscreen.ety.kr/theme/ety_theme_company/assets/countdown/js/jquery.final-countdown.js"></script>
-	<script type="text/javascript" src="http://fullscreen.ety.kr/theme/ety_theme_company/js/bootstrap-dropdownhover.js"></script>
-	<script type="text/javascript" src="http://fullscreen.ety.kr/theme/ety_theme_company/js/custom.js"></script>
+	<script type="text/javascript" src="home/assets/countdown/js/kinetic.js"></script>
+	<script type="text/javascript" src="home/assets/countdown/js/jquery.final-countdown.js"></script>
+	<script type="text/javascript" src="home/js/bootstrap-dropdownhover.js"></script>
+	<script type="text/javascript" src="home/js/custom.js"></script>
 	<script>
 		// para
-		jQuery('.parallax-window').parallax({imageSrc: 'http://fullscreen.ety.kr/theme/ety_theme_company/img/pallax.jpg'});
+		jQuery('.parallax-window').parallax({imageSrc: 'home/img/pallax.jpg'});
 	</script>
 	<script>
 		$(document).ready(function () {
