@@ -166,7 +166,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 							<?php 
 							if($is_worker){
 								if($list[$i]['wr_4']<$list[$i]['wr_5']&&$list[$i]['ca_name']=='모집중'){
-									echo '<a href="./apply_popin.php?bo_table='.$bo_table.'&wr_id='.$list[$i]['wr_id'].'target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
+									//echo '<a href="./apply_popin.php?bo_table='.$bo_table.'&wr_id='.$list[$i]['wr_id'].' target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
+									echo '<a href="./apply_memo_form.php?'.'me_recv_mb_id='.$list[$i]['mb_id'].'&bo_table='.$bo_table.'&wr_id='.$list[$i]['wr_id'].' target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
 								}
 								else{
 									echo '<h3 style="color:red"><b>지원마감</b></h3>';

@@ -23,7 +23,7 @@
 #bo_w .btn_confirm {} /* 서식단계 진행 */
 #bo_w .btn_submit {padding:0 20px;border-radius:30px;color:#fff;display:inline-block;background:#2aba8a;border:0;height:40px;line-height:40px;padding:0 15px;font-weight:bold;text-decoration:none;vertical-align:bottom}
 #bo_w .btn_cancel {border-radius:30px}
-#bo_w .btn_frmline {color:black;} /* 우편번호검색버튼 등 */
+#bo_w .btn_frmline {} /* 우편번호검색버튼 등 */
 
 /* 게시판 목록 */
 #bo_list {background:#fff;border:1px solid #e4e5e7}

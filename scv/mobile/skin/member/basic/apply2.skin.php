@@ -8,7 +8,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 <!-- 지원하기 목록 시작 { -->
 <div id="apply" class="new_win">
     <h1 id="win_title"><?php echo $g5['title'] ?></h1>
-    <div class="new_win_con">   
+    <div class="new_win_con">
     <ul>
         <?php for ($i=0; $i<count($list); $i++) {  ?>
         <li>
@@ -22,8 +22,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                 <!-- 근로자: 지원검토중 / 건설사: 수락하기 or 반려하기 -->
                 <?php
                 if($list[$i]['ma_state']=='지원검토중'){ ?>
-                    <a href="<?php echo $list[$i]['ok_href'];  ?>" onclick="confirm('지원을 수락하시겠습니까?'); return false;" class="apply_ok">수락하기</a>
-                    <a href="<?php echo $list[$i]['reject_href'];  ?>" onclick="confirm('지원을 반려하시겠습니까?'); return false;" class="apply_reject">반려하기</a>
+                    <a href="<?php echo $list[$i]['accept_href'];  ?>" onclick="accpet(this.href); return false;" class="apply_accept"><i class="" aria-hidden="true"></i><span>합격 처리</span></a>
+                    <a href="<?php echo $list[$i]['refuse_href'];  ?>" onclick="del(this.href); return false;" class="apply_refuse"><i class="fas fa-check" aria-hidden="true"></i><span>삭제</span></a>
                 <?php } ?>
             </div>
         </li>
@@ -31,7 +31,6 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
         <?php if ($i == 0) echo "<li class=\"empty_li\">자료가 없습니다.</li>";  ?>
     </ul>
-    </div>
     <?php echo get_paging($config['cf_write_pages'], $page, $total_page, "?$qstr&amp;page="); ?>
 
     <div class="win_btn">

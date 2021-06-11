@@ -1,16 +1,16 @@
 <?php
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php'); // 달력 
-include_once(G5_PLUGIN_PATH.'/wz.schedule.board/config.php');
+//include_once(G5_PLUGIN_PATH.'/wz.schedule.board/config.php');
 
-$arr_color = array();
-$query = "select * from {$g5['board_schedule_color_table']} where wrc_id = '".$wscb['wrc_id']."' order by wrr_id asc";
-$res = sql_query($query);
-while($row = sql_fetch_array($res)) {
-    $arr_color[] = $row;
-}
-$cnt_color = count($arr_color);
-if ($res) sql_free_result($res);
+// $arr_color = array();
+// $query = "select * from {$g5['board_schedule_color_table']} where wrc_id = '".$wscb['wrc_id']."' order by wrr_id asc";
+// $res = sql_query($query);
+// while($row = sql_fetch_array($res)) {
+//     $arr_color[] = $row;
+// }
+// $cnt_color = count($arr_color);
+// if ($res) sql_free_result($res);
 
 $is_time_use = false;
 $wr_7_1 = $wr_7_2 = '00'; // 시작시간

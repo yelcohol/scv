@@ -16,7 +16,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	    <ul>
 	        <li class="apply_tit">
 	            <span class="sound_only">제목</span>
-	            <?php echo get_text(cut_str($write['wr_subject'], 255)) ?>
+	            <?php echo "공고: ".get_text(cut_str($write['wr_subject'], 255)) ?>
 	        </li>
 	        <!-- <li>
 	            <label for="wr_content">댓글작성</label>
@@ -27,7 +27,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
     <!-- <p class="win_desc">지원하기 하시면서 감사 혹은 격려의 댓글을 남기실 수 있습니다.</p> -->
 
     <div class="win_btn">
-        <button type="submit" class="btn_submit">지원 내역 확인</button>
+        <button type="submit" class="btn_submit">지원하기</button>
     </div>
     </form>
 </div>

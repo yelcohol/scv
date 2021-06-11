@@ -5,7 +5,6 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 0);
 ?>
 
-<!-- 회원 비밀번호 확인 시작 { -->
 <div id="mb_confirm" class="mbskin">
     <h1><?php echo $g5['title'] ?></h1>
 
@@ -21,17 +20,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
     <form name="fmemberconfirm" action="<?php echo $url ?>" onsubmit="return fmemberconfirm_submit(this);" method="post">
     <input type="hidden" name="mb_id" value="<?php echo $member['mb_id'] ?>">
     <input type="hidden" name="w" value="u">
-
     <fieldset>
-        <span class="confirm_id">회원아이디</span>
+        회원아이디
         <span id="mb_confirm_id"><?php echo $member['mb_id'] ?></span>
-        <label for="confirm_mb_password" class="sound_only">비밀번호<strong>필수</strong></label>
-        <input type="password" name="mb_password" id="confirm_mb_password" required class="required frm_input" size="15" maxLength="20" placeholder="비밀번호">
-        <input type="submit" value="확인" id="btn_submit" class="btn_submit">
+        <input type="password" name="mb_password" id="mb_confirm_pw" placeholder="비밀번호(필수)" required class="frm_input" size="15" maxLength="20">
+        <button type="submit" id="btn_submit" class="btn_submit">확인</button>
     </fieldset>
-
     </form>
-
 </div>
 
 <script>
@@ -42,4 +37,3 @@ function fmemberconfirm_submit(f)
     return true;
 }
 </script>
-<!-- } 회원 비밀번호 확인 끝 -->
