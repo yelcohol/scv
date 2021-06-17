@@ -35,7 +35,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 		        </div>
 		        Copyright &copy; <b>소유하신 도메인.</b> All rights reserved.<br>
 		    </div>
-		    <button type="button" id="top_btn"><i class="fa fa-arrow-up" aria-hidden="true"></i><span class="sound_only">상단으로</span></button>
+		    <button type="button" id="top_btn" style="padding:0px;"><i class="fa fa-arrow-up" aria-hidden="true"></i><span class="sound_only">상단으로</span></button>
 
             <script>
             $(function() {

@@ -7,7 +7,7 @@ if(G5_TIME_YMD != $board['bo_1']){
 	$sql = " select wr_id, ca_name, wr_5 from {$write_table} where wr_is_comment = 0 order by wr_id desc limit 0, 1000 ";
 	$result = sql_query($sql);
 	for ($i=0; $row = sql_fetch_array($result); $i++) {
-		if($row['ca_name']=='모집중' && ($row['wr_6'] < G5_TIME_YMD || $row['wr_4']==$row['wr_5'])){
+		if($row['ca_name']=='모집중' && $row['wr_6'] < G5_TIME_YMD){
 			sql_query(" update {$write_table} set ca_name='모집종료' where wr_id = {$row['wr_id']} ");
 		}
 	}
@@ -165,7 +165,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 							<?php $bbs=G5_BBS_URL?>
 							<?php 
 							if($is_worker){
-								if($list[$i]['wr_4']<$list[$i]['wr_5']&&$list[$i]['ca_name']=='모집중'){
+								if($list[$i]['ca_name']!='모집종료'){
 									//echo '<a href="./apply_popin.php?bo_table='.$bo_table.'&wr_id='.$list[$i]['wr_id'].' target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
 									echo '<a href="./apply_memo_form.php?'.'me_recv_mb_id='.$list[$i]['mb_id'].'&bo_table='.$bo_table.'&wr_id='.$list[$i]['wr_id'].' target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
 								}

@@ -17,7 +17,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 				<span style="float:right;">
 				<?php 
 				if($is_worker){
-					if($view['wr_4']<$view['wr_5']&&$view['ca_name']=='모집중'){
+					if($view['ca_name']!='모집종료'){
 						echo '<a href='.$apply_href.' target="_blank" class="btn_b01 btn" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
 							}
 					else{
