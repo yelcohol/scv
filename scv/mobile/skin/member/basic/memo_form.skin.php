@@ -8,7 +8,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 <!-- 쪽지 보내기 시작 { -->
 <div id="memo_write" class="new_win">
     <h1 id="win_title">쪽지 보내기</h1>
-    <div class="new_win_con2">
+    <div class="new_win_con">
         <ul class="win_ul">
             <li><a href="./memo.php?kind=recv">받은쪽지</a></li>
             <li><a href="./memo.php?kind=send">보낸쪽지</a></li>
@@ -41,7 +41,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
         </div>
 
         <div class="win_btn">
-        	<button type="submit" id="btn_submit" class="btn btn_b02 reply_btn">보내기</button>
+        	<button type="submit" id="btn_submit" class="btn_close">보내기</button>
         	<button type="button" onclick="window.close();" class="btn_close">창닫기</button>
         </div>
     </div>

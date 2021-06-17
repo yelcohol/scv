@@ -43,7 +43,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	                    gif, jpg, png파일만 가능하며 용량 <?php echo number_format($config['cf_member_img_size']) ?>바이트 이하만 등록됩니다.</span>
 	                <?php if ($w == 'u' && file_exists($mb_img_path)) {  ?>
 	                <img src="<?php echo $mb_img_url ?>" alt="회원이미지">
-	                <input type="checkbox" name="del_mb_img" value="1" id="del_mb_img">
+	                <span><input type="checkbox" name="del_mb_img" value="1" id="del_mb_img">
 	                <label for="del_mb_img" class="inline">삭제</label>
 	                <?php }  ?>
 	            
@@ -183,54 +183,63 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	    <h2>직종 정보</h2>
 	    <ul>
             <li>
-				<label>조공</label>
-				<input type="checkbox" name="mb_5[]" value="일반공(잡부)"<?php if(strpos($member['mb_5'], "일반공(잡부)")!==false) echo ' checked';?>> 일반공(잡부)
-				<input type="checkbox" name="mb_5[]" value="조력공(조공)"<?php if(strpos($member['mb_5'], "조력공(조공)")!==false) echo ' checked';?>> 조력공(조공)
-				<input type="checkbox" name="mb_5[]" value="청소"<?php if(strpos($member['mb_5'], "청소")!==false) echo ' checked';?>> 청소
-				<input type="checkbox" name="mb_5[]" value="비계(아시바)"<?php if(strpos($member['mb_5'], "비계(아시바)")!==false) echo ' checked';?>> 비계(아시바)
-				<input type="checkbox" name="mb_5[]" value="철거(해체)"<?php if(strpos($member['mb_5'], "철거(해체)")!==false) echo ' checked';?>> 철거(해체)
-				<input type="checkbox" name="mb_5[]" value="할석공(하스리)"<?php if(strpos($member['mb_5'], "할석공(하스리)")!==false) echo ' checked';?>> 할석공(하스리)
-				<input type="checkbox" name="mb_5[]" value="운반공(곰방)"<?php if(strpos($member['mb_5'], "운반공(곰방)")!==false) echo ' checked';?>> 운반공(곰방)
-				<input type="checkbox" name="mb_5[]" value="기타(조공)"<?php if(strpos($member['mb_5'], "기타(조공)")!==false) echo ' checked';?>> 기타(조공)
+				<label><b>조공</b></label><br>
+				<div style="display:flex;flex-wrap: wrap;">
+				<span><input type="checkbox" name="mb_5[]" value="일반공(잡부)"<?php if(strpos($member['mb_5'], "일반공(잡부)")!==false) echo ' checked';?>> 일반공(잡부)&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="조력공(조공)"<?php if(strpos($member['mb_5'], "조력공(조공)")!==false) echo ' checked';?>> 조력공(조공)&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="청소"<?php if(strpos($member['mb_5'], "청소")!==false) echo ' checked';?>> 청소&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="비계(아시바)"<?php if(strpos($member['mb_5'], "비계(아시바)")!==false) echo ' checked';?>> 비계(아시바)&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="철거(해체)"<?php if(strpos($member['mb_5'], "철거(해체)")!==false) echo ' checked';?>> 철거(해체)&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="할석공(하스리)"<?php if(strpos($member['mb_5'], "할석공(하스리)")!==false) echo ' checked';?>> 할석공(하스리)&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="운반공(곰방)"<?php if(strpos($member['mb_5'], "운반공(곰방)")!==false) echo ' checked';?>> 운반공(곰방)&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="기타(조공)"<?php if(strpos($member['mb_5'], "기타(조공)")!==false) echo ' checked';?>> 기타(조공)&nbsp;&nbsp;&nbsp;</span>
+				</div>
 			</li>
 			<li>
-				<label>기공</label>
-				<input type="checkbox" name="mb_5[]" value="목수(목공)"<?php if(strpos($member['mb_5'], "목수(목공)")!==false) echo ' checked';?>> 목수(목공)
-				<input type="checkbox" name="mb_5[]" value="용접공"<?php if(strpos($member['mb_5'], "용접공")!==false) echo ' checked';?>> 용접공
-				<input type="checkbox" name="mb_5[]" value="설비"<?php if(strpos($member['mb_5'], "설비")!==false) echo ' checked';?>> 설비
-				<input type="checkbox" name="mb_5[]" value="조경"<?php if(strpos($member['mb_5'], "조경")!==false) echo ' checked';?>> 조경
-				<input type="checkbox" name="mb_5[]" value="미장공"<?php if(strpos($member['mb_5'], "미장공")!==false) echo ' checked';?>> 미장공
-				<input type="checkbox" name="mb_5[]" value="타일공"<?php if(strpos($member['mb_5'], "타일공")!==false) echo ' checked';?>> 타일공
-				<input type="checkbox" name="mb_5[]" value="석재"<?php if(strpos($member['mb_5'], "석재")!==false) echo ' checked';?>> 석제
-				<input type="checkbox" name="mb_5[]" value="조적공(쓰미)"<?php if(strpos($member['mb_5'], "조적공(쓰미)")!==false) echo ' checked';?>> 조적공(쓰미)
-				<input type="checkbox" name="mb_5[]" value="콘크리트공(타설)"<?php if(strpos($member['mb_5'], "콘크리트공(타설)")!==false) echo ' checked';?>> 콘크리트공(타설)
-				<input type="checkbox" name="mb_5[]" value="방수"<?php if(strpos($member['mb_5'], "방수")!==false) echo ' checked';?>> 방수
-				<input type="checkbox" name="mb_5[]" value="철근공"<?php if(strpos($member['mb_5'], "철근공")!==false) echo ' checked';?>> 철근공
-				<input type="checkbox" name="mb_5[]" value="전기"<?php if(strpos($member['mb_5'], "전기")!==false) echo ' checked';?>> 전기
-				<input type="checkbox" name="mb_5[]" value="로프공"<?php if(strpos($member['mb_5'], "로프공")!==false) echo ' checked';?>>로프공
-				<input type="checkbox" name="mb_5[]" value="기타(기공)"<?php if(strpos($member['mb_5'], "기타(기공)")!==false) echo ' checked';?>> 기타(기공)
-				<input type="checkbox" name="mb_5[]" value="도장공(페인트공)"<?php if(strpos($member['mb_5'], "도장공(페인트공)")!==false) echo ' checked';?>> 도장공(페인트공)
+				<label><b>기공</b></label><br>
+				<div style="display:flex;flex-wrap: wrap;">
+				<span><input type="checkbox" name="mb_5[]" value="목수(목공)"<?php if(strpos($member['mb_5'], "목수(목공)")!==false) echo ' checked';?>> 목수(목공)&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="용접공"<?php if(strpos($member['mb_5'], "용접공")!==false) echo ' checked';?>> 용접공&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="설비"<?php if(strpos($member['mb_5'], "설비")!==false) echo ' checked';?>> 설비&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="조경"<?php if(strpos($member['mb_5'], "조경")!==false) echo ' checked';?>> 조경&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="미장공"<?php if(strpos($member['mb_5'], "미장공")!==false) echo ' checked';?>> 미장공&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="타일공"<?php if(strpos($member['mb_5'], "타일공")!==false) echo ' checked';?>> 타일공&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="석재"<?php if(strpos($member['mb_5'], "석재")!==false) echo ' checked';?>> 석제&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="조적공(쓰미)"<?php if(strpos($member['mb_5'], "조적공(쓰미)")!==false) echo ' checked';?>> 조적공(쓰미)&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="콘크리트공(타설)"<?php if(strpos($member['mb_5'], "콘크리트공(타설)")!==false) echo ' checked';?>> 콘크리트공(타설)&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="방수"<?php if(strpos($member['mb_5'], "방수")!==false) echo ' checked';?>> 방수&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="철근공"<?php if(strpos($member['mb_5'], "철근공")!==false) echo ' checked';?>> 철근공&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="전기"<?php if(strpos($member['mb_5'], "전기")!==false) echo ' checked';?>> 전기&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="로프공"<?php if(strpos($member['mb_5'], "로프공")!==false) echo ' checked';?>>로프공&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="기타(기공)"<?php if(strpos($member['mb_5'], "기타(기공)")!==false) echo ' checked';?>> 기타(기공)&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="도장공(페인트공)"<?php if(strpos($member['mb_5'], "도장공(페인트공)")!==false) echo ' checked';?>> 도장공(페인트공)&nbsp;&nbsp;&nbsp;</span>
+				</div>
 			</li>
 			<li>
-				<label>파출</label>
-				<input type="checkbox" name="mb_5[]" value="가사"<?php if(strpos($member['mb_5'], "가사")!==false) echo ' checked';?>> 가사
-				<input type="checkbox" name="mb_5[]" value="육아"<?php if(strpos($member['mb_5'], "육아")!==false) echo ' checked';?>> 육아
-				<input type="checkbox" name="mb_5[]" value="산후조리"<?php if(strpos($member['mb_5'], "산후조리")!==false) echo ' checked';?>> 산후조리
-				<input type="checkbox" name="mb_5[]" value="청소"<?php if(strpos($member['mb_5'], "청소")!==false) echo ' checked';?>> 청소
-				<input type="checkbox" name="mb_5[]" value="식당"<?php if(strpos($member['mb_5'], "식당")!==false) echo ' checked';?>> 식당
-				<input type="checkbox" name="mb_5[]" value="간병"<?php if(strpos($member['mb_5'], "간병")!==false) echo ' checked';?>> 간병
+				<label><b>파출</b></label><br>
+				<div style="display:flex;flex-wrap: wrap;">
+				<span><input type="checkbox" name="mb_5[]" value="가사"<?php if(strpos($member['mb_5'], "가사")!==false) echo ' checked';?>> 가사&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="육아"<?php if(strpos($member['mb_5'], "육아")!==false) echo ' checked';?>> 육아&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="산후조리"<?php if(strpos($member['mb_5'], "산후조리")!==false) echo ' checked';?>> 산후조리&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="청소"<?php if(strpos($member['mb_5'], "청소")!==false) echo ' checked';?>> 청소&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="식당"<?php if(strpos($member['mb_5'], "식당")!==false) echo ' checked';?>> 식당&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="간병"<?php if(strpos($member['mb_5'], "간병")!==false) echo ' checked';?>> 간병&nbsp;&nbsp;&nbsp;</span>
+				</div>
 			</li>
 			<li>
-				<label>기타</label>
-				<input type="checkbox" name="mb_5[]" value="제조, 생산"<?php if(strpos($member['mb_5'], "제조, 생산")!==false) echo ' checked';?>> 제조/생산
-				<input type="checkbox" name="mb_5[]" value="물류"<?php if(strpos($member['mb_5'], "물류")!==false) echo ' checked';?>> 물류
-				<input type="checkbox" name="mb_5[]" value="경비"<?php if(strpos($member['mb_5'], "경비")!==false) echo ' checked';?>> 경비
-				<input type="checkbox" name="mb_5[]" value="운전"<?php if(strpos($member['mb_5'], "운전")!==false) echo ' checked';?>> 운전
-				<input type="checkbox" name="mb_5[]" value="기타"<?php if(strpos($member['mb_5'], "기타")!==false) echo ' checked';?>> 기타
+				<label><b>기타</b></label><br>
+				<div style="display:flex;flex-wrap: wrap;">
+				<span><input type="checkbox" name="mb_5[]" value="제조, 생산"<?php if(strpos($member['mb_5'], "제조, 생산")!==false) echo ' checked';?>> 제조/생산&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="물류"<?php if(strpos($member['mb_5'], "물류")!==false) echo ' checked';?>> 물류&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="경비"<?php if(strpos($member['mb_5'], "경비")!==false) echo ' checked';?>> 경비&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="운전"<?php if(strpos($member['mb_5'], "운전")!==false) echo ' checked';?>> 운전&nbsp;&nbsp;&nbsp;</span>
+				<span><input type="checkbox" name="mb_5[]" value="기타"<?php if(strpos($member['mb_5'], "기타")!==false) echo ' checked';?>> 기타&nbsp;&nbsp;&nbsp;</span>
+				</div>
 			</li>
+			<br>
 			<li>
-				<label>경력기간</label>
-				<select name="mb_9">
+				<label><b>경력기간</b></label>
+				<select name="mb_9" style="height:20px;">
 					<option value="0년"<?php if($member['mb_9']==='0년'){echo ' selected="selected"';}?>>0년</option>
 					<option value="1년"<?php if($member['mb_9']==='1년'){echo ' selected="selected"';}?>>1년</option>
 					<option value="2년"<?php if($member['mb_9']==='2년'){echo ' selected="selected"';}?>>2년</option>
@@ -270,7 +279,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                 gif, jpg, png파일만 가능하며 용량 <?php echo number_format($config['cf_member_icon_size']) ?>바이트 이하만 등록됩니다.</span>
                  <?php if ($w == 'u' && file_exists($mb_1_path)) {  ?>
 	                <img src="<?php echo $mb_1_url ?>" alt="기초안전교육">
-	                <input type="checkbox" name="del_mb_1" value="1" id="del_mb_1">
+	                <span><input type="checkbox" name="del_mb_1" value="1" id="del_mb_1">
 	                <label for="del_mb_1" class="inline">삭제</label>
 	            <?php }  ?>
 	        </li>
@@ -295,7 +304,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 	                <?php if ($w == 'u' && file_exists($mb_2_path)) {  ?>
 	                <img src="<?php echo $mb_2_url ?>" alt="보건증">
-	                <input type="checkbox" name="del_mb_2" value="1" id="del_mb_2">
+	                <span><input type="checkbox" name="del_mb_2" value="1" id="del_mb_2">
 	                <label for="del_mb_2" class="inline">삭제</label>
 	                <?php }  ?>
 	            </li>
@@ -323,7 +332,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 	                <?php if ($w == 'u' && file_exists($mb_3_path)) {  ?>
 	                <img src="<?php echo $mb_3_url ?>" alt="신분증앞면">
-	                <input type="checkbox" name="del_mb_3" value="1" id="del_mb_3">
+	                <span><input type="checkbox" name="del_mb_3" value="1" id="del_mb_3">
 	                <label for="del_mb_3" class="inline">삭제</label>
 	                <?php }  ?>
 	            </li>
@@ -353,7 +362,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 	                <?php if ($w == 'u' && file_exists($mb_4_path)) {  ?>
 	                <img src="<?php echo $mb_4_url ?>" alt="신분증뒷면">
-	                <input type="checkbox" name="del_mb_4" value="1" id="del_mb_4">
+	                <span><input type="checkbox" name="del_mb_4" value="1" id="del_mb_4">
 	                <label for="del_mb_4" class="inline">삭제</label>
 	                <?php }  ?>
 	            </li>
@@ -364,6 +373,20 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
     <div class="form_01">
         <h2>연락처 (선택)</h2>
         <ul>
+
+			<!-- 임시 -->
+			<li>
+	            <label for="reg_mb_hp" class="sound_only">휴대폰번호<?php if ($config['cf_req_hp']) { ?><strong>필수</strong><?php } ?></label>
+	            
+	            <input type="text" name="mb_hp" value="<?php echo get_text($member['mb_hp']) ?>" id="reg_mb_hp" <?php echo ($config['cf_req_hp'])?"required":""; ?> class="frm_input full_input <?php echo ($config['cf_req_hp'])?"required":""; ?>" maxlength="20" placeholder="휴대폰번호">
+	            <?php if ($config['cf_cert_use'] && $config['cf_cert_hp']) { ?>
+	            <input type="hidden" name="old_mb_hp" value="<?php echo get_text($member['mb_hp']) ?>">
+	            <?php } ?>
+	            
+	    	</li>
+			<!-- 임시 -->
+
+
 	        <?php if ($config['cf_use_homepage']) { ?>
 	        <li>
 	            <label for="reg_mb_homepage" class="sound_only">홈페이지<?php if ($config['cf_req_homepage']){ ?><strong>필수</strong><?php } ?></label>
@@ -432,7 +455,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	        
 
 	        <li class="chk_box">
-	        	<input type="checkbox" name="mb_mailling" value="1" id="reg_mb_mailling" <?php echo ($w=='' || $member['mb_mailling'])?'checked':''; ?> class="selec_chk">
+	        	<span><input type="checkbox" name="mb_mailling" value="1" id="reg_mb_mailling" <?php echo ($w=='' || $member['mb_mailling'])?'checked':''; ?> class="selec_chk">
 	            <label for="reg_mb_mailling">
 	            	<span></span>
 	            	<b class="sound_only">메일링서비스</b>
@@ -442,7 +465,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 	        <?php if ($config['cf_use_hp']) { ?>
 	        <li class="chk_box">
-	            <input type="checkbox" name="mb_sms" value="1" id="reg_mb_sms" <?php echo ($w=='' || $member['mb_sms'])?'checked':''; ?> class="selec_chk">
+	            <span><input type="checkbox" name="mb_sms" value="1" id="reg_mb_sms" <?php echo ($w=='' || $member['mb_sms'])?'checked':''; ?> class="selec_chk">
 	        	<label for="reg_mb_sms">
 	            	<span></span>
 	            	<b class="sound_only">SMS 수신여부</b>
@@ -453,7 +476,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 	        <?php if (isset($member['mb_open_date']) && $member['mb_open_date'] <= date("Y-m-d", G5_SERVER_TIME - ($config['cf_open_modify'] * 86400)) || empty($member['mb_open_date'])) { // 정보공개 수정일이 지났다면 수정가능 ?>
 	        <li class="chk_box">
-	            <input type="checkbox" name="mb_open" value="1" id="reg_mb_open" <?php echo ($w=='' || $member['mb_open'])?'checked':''; ?> class="selec_chk">
+	            <span><input type="checkbox" name="mb_open" value="1" id="reg_mb_open" <?php echo ($w=='' || $member['mb_open'])?'checked':''; ?> class="selec_chk">
 	      		<label for="reg_mb_open">
 	      			<span></span>
 	      			<b class="sound_only">정보공개</b>
