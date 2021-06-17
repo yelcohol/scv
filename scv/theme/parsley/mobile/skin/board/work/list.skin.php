@@ -151,11 +151,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 		             
 		                    <a href="<?php echo $list[$i]['href'] ?>" style="<?php echo $list[$i]['wr_reply_style']; ?>">
 		                        <?php echo $list[$i]['icon_reply']; ?>
-								<?php echo $list[$i]['subject'] ?>
-								<?=" by <b>".$list[$i]['wr_1']."</b>"?><br>
-								<?=$list[$i]['wr_2']?><span>의 연락처:</span><?=$list[$i]['wr_3']?><br>
+								<span style="font-weight:normal;color:gray;"><?php echo $list[$i]['wr_1'] ?></span>
+								<div style="font-size:1.3em;"><?=$list[$i]['subject']?></div>
 								<?=$list[$i]['wr_4']?>/<?=$list[$i]['wr_5']?><br>
 								<?=$list[$i]['wr_6']?>&nbsp;<?=$list[$i]['wr_7']."~".$list[$i]['wr_8']?><br>
+								<?=$list[$i]['wr_12']?>
 								<?php $new_wr_9 = explode("|", $list[$i]['wr_9']); 
 								$new_wr_9 = implode(", ", $new_wr_9); ?>
 								<?=$new_wr_9?><br>

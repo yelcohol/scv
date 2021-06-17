@@ -27,6 +27,9 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.bxslider.js"></script>', 10);
             for($i=0; $row=sql_fetch_array($result); $i++) {
             ?>
                 <li class="gnb_1dli">
+                    <?php if(($is_constructor && $row['me_name'] == '내가 지원한 일자리') || ($is_worker && $row['me_name'] == '내가 올린 일자리')) {?>
+                    <?php continue;?>
+                    <?php } ?>
                     <a href="<?php echo $row['me_link']; ?>" target="_<?php echo $row['me_target']; ?>" class="gnb_1da"><i class="far fa-list-alt"></i> <?php echo $row['me_name'] ?></a>
                     <?php
                     $sql2 = " select *

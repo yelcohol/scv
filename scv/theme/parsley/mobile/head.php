@@ -5,6 +5,7 @@ if($uri == 'index') {
     define("_INDEX_", true);
 }
 
+include_once('./_common.php');
 include_once(G5_THEME_PATH.'/head.sub.php');
 include_once(G5_LIB_PATH.'/latest.lib.php');
 include_once(G5_LIB_PATH.'/outlogin.lib.php');
@@ -125,6 +126,9 @@ jQuery(function($) {
             for($i=0; $row=sql_fetch_array($result); $i++) {
             ?>
                 <li class="gnb_1dli">
+                    <?php if(($is_constructor && $row['me_name'] == '내가 지원한 일자리') || ($is_worker && $row['me_name'] == '내가 올린 일자리')) {?>
+                    <?php continue;?>
+                    <?php } ?>
                     <a href="<?php echo $row['me_link']; ?>" target="_<?php echo $row['me_target']; ?>" class="gnb_1da"><i class="far fa-list-alt"></i> <?php echo $row['me_name'] ?></a>
                     <?php
                     $sql2 = " select *
