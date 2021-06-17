@@ -21,7 +21,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
         <ul id="apply_ul">       	
 	        <?php for ($i=0; $i<count($list); $i++) {
                 $readed = (substr($list[$i]['me_read_datetime'],0,1) == 0) ? '' : 'read';
-                $memo_preview = utf8_strcut(strip_tags($list[$i]['me_memo']), 17, '..');
+                $memo_preview = utf8_strcut(strip_tags($list[$i]['me_memo']), 35, '..');
             ?>
 	        <li class="<?php echo $readed; ?>">
             <div class="apply_left">
