@@ -31,8 +31,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
         <?php if ($i == 0) echo "<li class=\"empty_li\">자료가 없습니다.</li>";  ?>
     </ul>
+    </div>
     <?php echo get_paging($config['cf_write_pages'], $page, $total_page, "?$qstr&amp;page="); ?>
-
+    
     <div class="win_btn">
         <button type="button" onclick="window.close();" class="btn_close">창닫기</button>
     </div>
