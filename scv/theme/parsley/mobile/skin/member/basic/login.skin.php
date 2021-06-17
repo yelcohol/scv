@@ -36,7 +36,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 		<aside id="login_info">
 	        <h2>회원로그인 안내</h2>
 	        <span>
-	        	<a href="./register.php">회원 가입</a>
+	        	<a href="./register_temp.php">회원 가입</a>
 	        	<a href="<?php echo G5_BBS_URL ?>/password_lost.php" target="_blank" id="login_password_lost">정보찾기</a>
 			</span>
 	    </aside>
