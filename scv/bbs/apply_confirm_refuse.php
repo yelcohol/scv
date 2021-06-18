@@ -6,7 +6,8 @@ if (!$is_member)
 
 $temp_ma_id = $_GET['ma_id'];
 
-$sql = " delete from {$g5['apply_table']} where mb_id = '{$member['mb_id']}' and ma_id = '{$temp_ma_id}' ";
+$sql = "update {$g5['apply_table']}  set ma_state = '지원 철회'
+                                     where mb_id = '{$member['mb_id']}' and ma_id = '{$temp_ma_id}' ";
 sql_query($sql);
 
 // works table에서 현재 지원자 수 1 감소

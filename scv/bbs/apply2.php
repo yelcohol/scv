@@ -54,8 +54,10 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
     $row2 = sql_fetch($sql3);
     $list[$i]['ma_datetime'] = $row2['ma_datetime'];    // 지원 시각
     $list[$i]['ma_state'] = $row2['ma_state'];          // 지원 상태
-    $list[$i]['refuse_href'] = './apply_refuse.php?ma_id='.$row2['ma_id'].'&wr_id='.$temp_wr_id.'&mb_id='.$row['mb_id'].'&amp;page='.$page;
-    $list[$i]['accept_href'] = './apply_accept.php?ma_id='.$row2['ma_id'].'&wr_id='.$temp_wr_id.'&mb_id='.$row['mb_id'].'&amp;page='.$page;
+    $list[$i]['refuse_href'] = './apply_memo_form.php?val=0&ma_id='.$row2['ma_id'].'&wr_id='.$temp_wr_id.'&me_recv_mb_id='.$row['mb_id'].'&amp;page='.$page;
+    $list[$i]['accept_href'] = './apply_memo_form.php?val=1&ma_id='.$row2['ma_id'].'&wr_id='.$temp_wr_id.'&me_recv_mb_id='.$row['mb_id'].'&amp;page='.$page;
+    // $list[$i]['refuse_href'] = './apply_refuse.php?ma_id='.$row2['ma_id'].'&wr_id='.$temp_wr_id.'&mb_id='.$row['mb_id'].'&amp;page='.$page;
+    // $list[$i]['accept_href'] = './apply_accept.php?ma_id='.$row2['ma_id'].'&wr_id='.$temp_wr_id.'&mb_id='.$row['mb_id'].'&amp;page='.$page;
     $list[$i]['refuse_href'] = './apply_refuse.php?ma_id='.$row['ma_id'].'&amp;page='.$page;
 }
 
