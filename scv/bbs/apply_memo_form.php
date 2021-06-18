@@ -10,7 +10,7 @@ if (!$member['mb_open'] && $is_admin != 'super' && $member['mb_id'] != $mb_id)
 
 $val = isset($_GET['val']) ? (int) $_GET['val'] : 2;
 $ma_id = isset($_GET['ma_id']) ? $_GET['ma_id'] : -1;
-
+$wr_id = $_GET['wr_id'];
 //$val이 2면 노동자 회원이 지원
 //$val이 1이면 건설사 회원이 지원 합격시킴
 //$val이 0이면 건설사 회원이 지원 불합격

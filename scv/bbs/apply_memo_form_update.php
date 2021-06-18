@@ -126,11 +126,11 @@ if ($member_list) {
         $alert_message = "지원자 합격 처리됐습니다.";
     }
     else if($val == 3){//출근 확정
-        $redirect_url = G5_HTTP_BBS_URL."/apply_confirm.php?wr_id=".$_POST['wr_id']."&mb_id=".$mb_id."&ma_id=".$ma_id;
+        $redirect_url = G5_HTTP_BBS_URL."/apply_confirm.php?wr_id=".$_POST['wr_id']."&ma_id=".$ma_id;
         $alert_message = "출근 확정했습니다.";
     }
     else if($val == 4){//지원 철회
-        $redirect_url = G5_HTTP_BBS_URL."/apply_confirm_refuse.php?wr_id=".$_POST['wr_id']."&mb_id=".$mb_id."&ma_id=".$ma_id;
+        $redirect_url = G5_HTTP_BBS_URL."/apply_confirm_refuse.php?wr_id=".$_POST['wr_id']."&ma_id=".$ma_id;
         $alert_message = "지원 철회했습니다.";
     }
     else{

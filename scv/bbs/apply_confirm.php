@@ -5,6 +5,8 @@ if (!$is_member)
     alert('회원만 이용하실 수 있습니다.');
 
 $temp_ma_id = $_GET['ma_id'];
+$write_table = $g5['write_prefix'].'works';
+$wr_id = $_GET['wr_id'];
 
 $sql = " update {$g5['apply_table']}    set ma_state = '출근 확정'
                                         where mb_id = '{$member['mb_id']}' and ma_id = '{$temp_ma_id}' ";

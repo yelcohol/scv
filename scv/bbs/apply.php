@@ -50,10 +50,12 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
     //해당 일자리 게시글의 시작 날짜의 전날이 오늘이고 17시00분에서 17시59분 사이인 경우, 그리고 ma_state가 '지원합격'인 경우 최종 출근 할지 안 할지 결정하는 버튼 
     $confirm_check = false;
     $start_date = date('Y-m-d',strtotime($row3['wr_6']));
-    $start_time = G5_TIME_YMD.' 17:55:00';
-    $end_time = G5_TIME_YMD.' 17:56:59';
+    $start_time = G5_TIME_YMD.' 18:05:00';
+    $end_time = G5_TIME_YMD.' 18:29:59';
     if(date("Y-m-d",strtotime ("+1 days")) == $start_date && strtotime(date('Y-m-d H:i:s')) >= strtotime($start_time) && strtotime(date('Y-m-d H:i:s')) <= strtotime($end_time)){
-        $confirm_check = true;
+        if($row['ma_state'] == '지원 합격'){
+            $confirm_check = true;
+        }
     }
     $list[$i]['num'] = $num;
     $list[$i]['opener_href'] = get_pretty_url($row['bo_table']);
