@@ -58,7 +58,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
     $list[$i]['accept_href'] = './apply_memo_form.php?val=1&ma_id='.$row2['ma_id'].'&wr_id='.$temp_wr_id.'&me_recv_mb_id='.$row['mb_id'].'&amp;page='.$page;
     // $list[$i]['refuse_href'] = './apply_refuse.php?ma_id='.$row2['ma_id'].'&wr_id='.$temp_wr_id.'&mb_id='.$row['mb_id'].'&amp;page='.$page;
     // $list[$i]['accept_href'] = './apply_accept.php?ma_id='.$row2['ma_id'].'&wr_id='.$temp_wr_id.'&mb_id='.$row['mb_id'].'&amp;page='.$page;
-    $list[$i]['refuse_href'] = './apply_refuse.php?ma_id='.$row['ma_id'].'&amp;page='.$page;
+    //$list[$i]['refuse_href'] = './apply_refuse.php?ma_id='.$row['ma_id'].'&amp;page='.$page;
 }
 
 include_once($member_skin_path.'/apply2.skin.php');
