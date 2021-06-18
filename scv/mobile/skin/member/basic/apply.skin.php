@@ -20,7 +20,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                 </div>
                 
 
-				<?php if($confirm_check){  //지원합격된 일자리를 정해진 시간에 출근/미출근 선택 버튼?>   
+				<?php if($list[$i]['confirm_check']){  //지원합격된 일자리를 정해진 시간에 출근/미출근 선택 버튼?>   
 					<a href="<?php echo $list[$i]['confirm_href'];  ?>" onclick="confirm_check(this.href); return false;" class="apply_confirm"><span>출근 확정하기</span></a>
                     <a href="<?php echo $list[$i]['confirm_refuse_href'];  ?>" onclick="confirm_refuse_check(this.href); return false;" class="apply_confirm_refuse"><span>지원 철회하기</span></a>
 				<?php } ?>

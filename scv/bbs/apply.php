@@ -60,6 +60,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
     $list[$i]['opener_href_wr_id'] = get_pretty_url($row['bo_table'], $row['wr_id']);
     $list[$i]['bo_subject'] = $row2['bo_subject'];
     $list[$i]['subject'] = $subject;
+    $list[$i]['confirm_check'] = $confirm_check;
     $list[$i]['confirm_href'] = './apply_memo_form.php?val=3&ma_id='.$row2['ma_id'].'&wr_id='.$temp_wr_id.'&me_recv_mb_id='.$row['mb_id'].'&amp;page='.$page;
     $list[$i]['confrim_refuse_href'] = './apply_memo_form.php?val=4&ma_id='.$row2['ma_id'].'&wr_id='.$temp_wr_id.'&me_recv_mb_id='.$row['mb_id'].'&amp;page='.$page;
     $list[$i]['del_href'] = './apply_delete.php?ma_id='.$row['ma_id'].'&bo_table='.$row['bo_table'].'&wr_id='.$row['wr_id'].'&amp;page='.$page;
