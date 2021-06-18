@@ -254,6 +254,9 @@ if ($member['mb_level'] >= $board['bo_write_level']) {
     //     $write_href = short_url_clean(G5_BBS_URL.'/write.php?bo_table='.$bo_table);
     // }
     $write_href = short_url_clean(G5_BBS_URL.'/write.php?bo_table='.$bo_table);
+    if($bo_table == "uploaded_works"){
+        $write_href = short_url_clean(G5_BBS_URL.'/write.php?bo_table=works');
+    }
 }
 
 $nobr_begin = $nobr_end = "";
