@@ -225,7 +225,7 @@
 .bo_v_nb li a span {display:inline-block;margin-top:5px;font-weight:bold;color:#000;font-size:1.2em}
 .bo_v_nb .link_way {padding-right:10px;color:#777;font-weight:normal}
 
-#bo_v_atc {position:relative;min-height:200px;background:#fff;padding:15px 0 0}
+#bo_v_atc {position:relative;min-height:200px;background:#fff}
 #bo_v_atc_title {margin:0;padding:0;height:0;overflow:hidden}
 
 #bo_v_img {display:inline-block;overflow:hidden}
@@ -364,7 +364,7 @@
 .viewTable td strong{margin-right:10px;color:#2aba8a;}
 .viewTable td span,
 .viewTable td a{font-size:15px;word-break:break-all}
-.viewTable td span{display:inline-block;margin-bottom:10px}
+.viewTable td span{display:inline-block;margin-bottom:14px}
 .viewTable td span.comma{margin:0 8px 0 1px} 
 .viewTable td a{display:inline-block;margin-bottom:5px;position:relative} 
 .viewTable td a.dateInfo{margin-right:10px} 
@@ -413,6 +413,10 @@
 .bo_w_option label.click_on {background:url('img/input_chk.png') no-repeat 0 0}
 .bo_w_option input {position:absolute;top:0;left:0;width:1px;height:1px;opacity:0;outline:0;z-index:9}
 
+/* 작업 시각 커스터마이징 */
+.clock select{
+	width:55px;
+}
 
 @media (max-width:980px){
 	#bo_cate {}

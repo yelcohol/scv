@@ -38,18 +38,20 @@
 #ol_after_private:after {display:block;visibility:hidden;clear:both;content:""}
 #ol_after_private li {float:left;width:33.333%}
 
-#ol_after_private a {display:block;color:#525d71}
+#ol_after_private a, #ol_after_private span {display:block;color:#525d71}
 #ol_after_private span {display:block}
 #ol_after_private i {margin:5px 0;color:#fff;font-size:1em}
 
-#ol_after_memo, #ol_after_pt {border-right:1px solid #f5f5f5}
+#ol_after_memo, #ol_after_pt, #ol_after_scrap, #ol_after_apply, #ol_after_work {border-right:1px solid #f5f5f5}
 #ol_after_memo strong,
 #ol_after_pt strong,
-#ol_after_scrap strong {display:inline-block;font-weight:normal;margin:5px 0;padding:1px 5px;background:#17bb9c;color:#fff;border-radius:10px}
-#ol_after_apply strong {display:inline-block;font-weight:normal;margin:5px 0;padding:1px 5px;background:#17bb9c;color:#fff;border-radius:10px}
+#ol_after_scrap strong,
+#ol_after_apply strong,
+#ol_after_work strong {display:inline-block;font-weight:normal;margin:5px 0;padding:1px 5px;background:#17bb9c;color:#fff;border-radius:10px}
 #ol_after_pt strong {background:#8e74ef}
 #ol_after_scrap strong {background:#ff9138}
 #ol_after_apply strong {background:#ff38a5}
+#ol_after_work strong {background:rgb(45, 201, 221)}
 
 #ol_after_btn {margin:0 0 15px}
 #ol_after_btn a {display:inline-block;padding:0 10px;line-height:25px;border-radius:3px;font-weight:bold;vertical-align:baseline}

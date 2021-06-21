@@ -279,7 +279,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                 gif, jpg, png파일만 가능하며 용량 <?php echo number_format($config['cf_member_icon_size']) ?>바이트 이하만 등록됩니다.</span>
                  <?php if ($w == 'u' && file_exists($mb_1_path)) {  ?>
 	                <img src="<?php echo $mb_1_url ?>" alt="기초안전교육">
-	                <span><input type="checkbox" name="del_mb_1" value="1" id="del_mb_1">
+	                <input type="checkbox" name="del_mb_1" value="1" id="del_mb_1">
 	                <label for="del_mb_1" class="inline">삭제</label>
 	            <?php }  ?>
 	        </li>
@@ -304,7 +304,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 	                <?php if ($w == 'u' && file_exists($mb_2_path)) {  ?>
 	                <img src="<?php echo $mb_2_url ?>" alt="보건증">
-	                <span><input type="checkbox" name="del_mb_2" value="1" id="del_mb_2">
+	                <input type="checkbox" name="del_mb_2" value="1" id="del_mb_2">
 	                <label for="del_mb_2" class="inline">삭제</label>
 	                <?php }  ?>
 	            </li>
@@ -332,7 +332,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 	                <?php if ($w == 'u' && file_exists($mb_3_path)) {  ?>
 	                <img src="<?php echo $mb_3_url ?>" alt="신분증앞면">
-	                <span><input type="checkbox" name="del_mb_3" value="1" id="del_mb_3">
+	                <input type="checkbox" name="del_mb_3" value="1" id="del_mb_3">
 	                <label for="del_mb_3" class="inline">삭제</label>
 	                <?php }  ?>
 	            </li>
@@ -362,7 +362,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 	                <?php if ($w == 'u' && file_exists($mb_4_path)) {  ?>
 	                <img src="<?php echo $mb_4_url ?>" alt="신분증뒷면">
-	                <span><input type="checkbox" name="del_mb_4" value="1" id="del_mb_4">
+	                <input type="checkbox" name="del_mb_4" value="1" id="del_mb_4">
 	                <label for="del_mb_4" class="inline">삭제</label>
 	                <?php }  ?>
 	            </li>
@@ -418,7 +418,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	        	<div class="adress">
 	            	<span class="frm_label sound_only">주소<?php if ($config['cf_req_addr']) { ?>필수<?php } ?></span>
 	            	<label for="reg_mb_zip" class="sound_only">우편번호<?php echo $config['cf_req_addr']?'<strong class="sound_only"> 필수</strong>':''; ?></label>
-	            	<input type="text" name="mb_zip" value="<?php echo $member['mb_zip1'].$member['mb_zip2']; ?>" id="reg_mb_zip" <?php echo $config['cf_req_addr']?"required":""; ?> class="frm_input <?php echo $config['cf_req_addr']?"required":""; ?>" size="5" maxlength="6" placeholder="우편번호">
+	            	<input type="text" name="mb_zip" value="<?php echo $member['mb_zip1'].$member['mb_zip2']; ?>" id="reg_mb_zip" style="width:80px;" <?php echo $config['cf_req_addr']?"required":""; ?> class="frm_input <?php echo $config['cf_req_addr']?"required":""; ?>" size="5" maxlength="6" placeholder="우편번호">
 	            	<button type="button" class="btn_frmline" onclick="win_zip('fregisterform', 'mb_zip', 'mb_addr1', 'mb_addr2', 'mb_addr3', 'mb_addr_jibeon');">주소검색</button><br>
 	            </div>
 	            <label for="reg_mb_addr1" class="sound_only">주소<?php echo $config['cf_req_addr']?'<strong class="sound_only"> 필수</strong>':''; ?></label>
@@ -455,7 +455,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	        
 
 	        <li class="chk_box">
-	        	<span><input type="checkbox" name="mb_mailling" value="1" id="reg_mb_mailling" <?php echo ($w=='' || $member['mb_mailling'])?'checked':''; ?> class="selec_chk">
+	        	<input type="checkbox" name="mb_mailling" value="1" id="reg_mb_mailling" <?php echo ($w=='' || $member['mb_mailling'])?'checked':''; ?> class="selec_chk">
 	            <label for="reg_mb_mailling">
 	            	<span></span>
 	            	<b class="sound_only">메일링서비스</b>
@@ -465,7 +465,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 	        <?php if ($config['cf_use_hp']) { ?>
 	        <li class="chk_box">
-	            <span><input type="checkbox" name="mb_sms" value="1" id="reg_mb_sms" <?php echo ($w=='' || $member['mb_sms'])?'checked':''; ?> class="selec_chk">
+	            <input type="checkbox" name="mb_sms" value="1" id="reg_mb_sms" <?php echo ($w=='' || $member['mb_sms'])?'checked':''; ?> class="selec_chk">
 	        	<label for="reg_mb_sms">
 	            	<span></span>
 	            	<b class="sound_only">SMS 수신여부</b>
@@ -476,7 +476,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
 	        <?php if (isset($member['mb_open_date']) && $member['mb_open_date'] <= date("Y-m-d", G5_SERVER_TIME - ($config['cf_open_modify'] * 86400)) || empty($member['mb_open_date'])) { // 정보공개 수정일이 지났다면 수정가능 ?>
 	        <li class="chk_box">
-	            <span><input type="checkbox" name="mb_open" value="1" id="reg_mb_open" <?php echo ($w=='' || $member['mb_open'])?'checked':''; ?> class="selec_chk">
+	            <input type="checkbox" name="mb_open" value="1" id="reg_mb_open" <?php echo ($w=='' || $member['mb_open'])?'checked':''; ?> class="selec_chk">
 	      		<label for="reg_mb_open">
 	      			<span></span>
 	      			<b class="sound_only">정보공개</b>

@@ -47,7 +47,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 		<section id="bo_v_atc">
 	        <h2 id="bo_v_atc_title">본문</h2>
 			
-			<?php if ( $good_href || $nogood_href || $scrap_href || $sns_msg) { ?>
+			<!-- <?php if ( $good_href || $nogood_href || $scrap_href || $sns_msg) { ?>
 			<aside id="bo_v_aside">
 		        <div id="bo_v_act">
 			        <?php if ( $good_href || $nogood_href) { //추천, 비추천 ?>
@@ -80,7 +80,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 		    		<?php include_once($board_skin_path. "/view.sns.skin.php"); ?>
 		        </div>
 	    	</aside>
-	        <?php } ?>
+	        <?php } ?> -->
 	        
 	        <?php
 	        // 파일 출력
@@ -122,7 +122,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 			<!-- 근무 상세 정보 -->
             <tbody>
 				<tr>
-					<th>업체명</th>	
+					<th>회사명</th>	
 					<td>
 						<span><?=$view['wr_1']?></span>
 					</td>
@@ -176,10 +176,20 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                 <td>
 					<span><?=$new_wr_9?></span>
             </tr>
+			<tr>
+                <th>모집 인원</th>
+                <td>
+					<span><?=$view['wr_5']?></span>
+            </tr>
+			<tr>
+                <th>준비물</th>
+                <td>
+					<span><?=$view['wr_15']?></span>
+            </tr>
             <tr>
                 <th>복리후생</th>
 	            <td>
-                	<span>(예시)국민연금, 고용보험, 산재보험, 건강보험, 연장근로수당, 통근버스 운행, 석식제공</span>
+                	<span><?=$view['wr_17']?></span>
                 </td>
             </tr>
 

@@ -5,6 +5,7 @@
 .register h1 {position:absolute;font-size:0;line-height:0;overflow:hidden}
 .register:after {display:block;visibility:hidden;clear:both;content:""}
 .register_inner {}
+* {font-family: 'S-CoreDream-4Regular';}
 
 @media (max-width:420px) {
 	.register h1 {padding:10px 0;font-size:1.4em}

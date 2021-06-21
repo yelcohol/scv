@@ -161,7 +161,14 @@ jQuery(function($) {
         </div>
 	</div>
 	<ul class="shortcut">
-		<li><a href="<?php echo G5_BBS_URL ?>/faq.php"><i class="far fa-question-circle"></i> 자주묻는 질문</a></li>
+        <!-- 건설사일 경우 -->
+        <?php if($is_constructor){ ?>
+		<li><a href="//mjw.deb.kr/constructor_faq.php"><i class="far fa-question-circle"></i> 자주묻는 질문</a></li>
+        <?php } ?>
+        <!-- 근로자일 경우 -->
+        <?php if($is_worker){ ?>
+		<li><a href="//mjw.deb.kr/worker_faq.php"><i class="far fa-question-circle"></i> 자주묻는 질문</a></li>
+        <?php } ?>
         <li><a href="<?php echo G5_BBS_URL ?>/qalist.php"><i class="far fa-comments"></i> 1:1 문의</a></li>
         <li><a href="<?php echo G5_BBS_URL ?>/new.php"><i class="fas fa-history"></i> 새글</a></li>
         <li class="sc_current">

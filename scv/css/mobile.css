@@ -1,19 +1,49 @@
 @charset "utf-8";
 
 /* 초기화 */
+@font-face {
+  font-family: 'S-CoreDream-2ExtraLight';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'S-CoreDream-3Light';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'S-CoreDream-4Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'S-CoreDream-5Medium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'S-CoreDream-9Black';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 html {overflow-y:scroll;height:100%;min-width:320px}
-body {margin:0;padding:0;font-size:0.75em;background:#f8f8f8;height:100%;font-family:'Malgun Gothic', dotum, sans-serif}
+body {margin:0;padding:0;font-size:0.75em;background:#f8f8f8;height:100%;font-family:"S-CoreDream-4Regular", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif}
 html, h1, h2, h3, h4, h5, h6, form, fieldset, img {margin:0;padding:0;border:0}
-h1, h2, h3, h4, h5, h6 {font-size:1em;font-family:'Malgun Gothic', dotum, sans-serif}
+h1, h2, h3, h4, h5, h6 {font-size:1em;font-family:"S-CoreDream-4Regular", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif}
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display:block}
 legend {position:absolute;font-size:0;line-height:0;text-indent:-9999em;overflow:hidden}
 label, input, button, select, img {vertical-align:middle}
-input, button {margin:0;padding:0;font-size:1em;font-family:'Malgun Gothic', dotum, sans-serif}
+input, button {margin:0;padding:0;font-size:1em;font-family:"S-CoreDream-4Regular", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif}
 button {cursor:pointer}
 input[type=text], input[type=password], input[type=submit], input[type=image], button {font-size:1em;-webkit-appearance:none}
-textarea, select {font-size:1em;font-family:'Malgun Gothic', dotum, sans-serif}
-textarea {border-radius:0;-webkit-appearance:none;font-family:'Malgun Gothic', dotum, sans-serif}
-select {margin:0;background:none;font-family:'Malgun Gothic', dotum, sans-serif}
+textarea, select {font-size:1em;font-family:"S-CoreDream-4Regular", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif}
+textarea {border-radius:0;-webkit-appearance:none;font-family:"S-CoreDream-4Regular", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif}
+select {margin:0;background:none;font-family:"S-CoreDream-4Regular", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif}
 p {margin:0;padding:0;word-break:break-all}
 hr {display:none}
 pre {overflow-x:scroll;font-size:1.1em}

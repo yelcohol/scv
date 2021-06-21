@@ -20,6 +20,11 @@ $sql = " select count(*) as cnt from {$g5['apply_table']} where mb_id = '{$membe
 $row = sql_fetch($sql);
 $apply_cnt = $row['cnt'];
 
+// 일한 횟수 표시
+$sql = " select count(*) as cnt from {$g5['apply_table']} where mb_id = '{$member['mb_id']}' and ma_state = '작업 완료' ";
+$row = sql_fetch($sql);
+$work_cnt = $row['cnt'];
+
 // add_stylesheet('css 구문', 출력순서); 숫자가 작을 수록 먼저 출력됨
 add_stylesheet('<link rel="stylesheet" href="'.$outlogin_skin_url.'/style.css">', 0);
 ?>
@@ -45,21 +50,29 @@ add_stylesheet('<link rel="stylesheet" href="'.$outlogin_skin_url.'/style.css">'
                 <strong><?php echo $memo_not_read ?></strong>
             </a>
         </li>
+
+        <?php if($is_worker){ ?>
+        <li>
+            <a href="<?php echo G5_BBS_URL ?>/scrap.php" target="_blank" id="ol_after_scrap" class="win_scrap">찜한 일자리<br>
+            	<strong class="scrap"><?php echo $scrap_cnt ?></strong>
+            </a>
+        </li>
+        <li>
+            <a href="<?php echo G5_BBS_URL ?>/apply.php" target="_blank" id="ol_after_apply" class="win_apply">지원 내역<br>
+            	<strong class="apply"><?php echo $apply_cnt ?></strong>
+            </a>
+        </li>
+        <?php } ?>
+
         <li>
             <a href="<?php echo G5_BBS_URL ?>/point.php" target="_blank" id="ol_after_pt" class="win_point">포인트<br>
 				<strong><?php echo $point ?></strong>
             </a>
         </li>
+        <?php if($is_worker) { ?>
         <li>
-            <a href="<?php echo G5_BBS_URL ?>/scrap.php" target="_blank" id="ol_after_scrap" class="win_scrap">스크랩<br>
-            	<strong class="scrap"><?php echo $scrap_cnt ?></strong>
-            </a>
-        </li>
-        <?php 
-        if($is_worker){ ?>
-        <li>
-            <a href="<?php echo G5_BBS_URL ?>/apply.php" target="_blank" id="ol_after_apply" class="win_apply">지원 내역<br>
-            	<strong class="apply"><?php echo $apply_cnt ?></strong>
+            <span id="ol_after_work">일한 횟수<br>
+				<strong><?php echo $work_cnt ?></strong>
             </a>
         </li>
         <?php } ?>
