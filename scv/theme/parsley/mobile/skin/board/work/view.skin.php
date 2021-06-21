@@ -38,7 +38,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 	        		<span class="ip"><?php if ($is_ip_view) { echo "&nbsp;($ip)"; } ?></span>
 	        		<span class="sound_only">조회</span><strong><i class="fa fa-eye" aria-hidden="true"></i> <?php echo number_format($view['wr_hit']) ?>회</strong>
 	        		<span class="sound_only">작성일</span><i class="fa fa-calendar" aria-hidden="true"></i> <?php echo $view['wr_datetime'] ?></span>
-					<?php if ($scrap_href) { ?><a href="<?php echo $scrap_href;  ?>" target="_blank" class="bo_vc_btn btn_scrap" onclick="win_scrap(this.href); return false;"><i class="fa fa-thumb-tack" aria-hidden="true"></i><span> 찜하기</span></a><?php } ?>
+					<?php if ($scrap_href&&$is_worker) { ?><a href="<?php echo $scrap_href;  ?>" target="_blank" class="bo_vc_btn btn_scrap" onclick="win_scrap(this.href); return false;"><i class="fa fa-thumb-tack" aria-hidden="true"></i><span> 찜하기</span></a><?php } ?>
 					<a href="#bo_vc" class="bo_vc_btn"><span class="sound_only">댓글</span><i class="far fa-comment-dots"></i> <?php echo $view['wr_comment'] ?></a>
 	        	</div>
 	        </div>
