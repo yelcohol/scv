@@ -157,7 +157,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 								<div style="font-size:1.3em;"><?=$list[$i]['subject']?></div>
 								<?php $new_wr_9 = explode("|", $list[$i]['wr_9']); 
 								$new_wr_9 = implode(", ", $new_wr_9); ?>
-								<div style="font-weight:normal;">&nbsp;⤷&nbsp;<?=$new_wr_9?></div>
+								<div style="font-weight:normal;">&nbsp;&#x2937;&nbsp;<?=$new_wr_9?></div>
 								
 							</a>
 							<?php $bbs=G5_BBS_URL?>

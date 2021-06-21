@@ -135,7 +135,7 @@
 /* 게시판 읽기 */
 #bo_v {margin-bottom:20px}
 #bo_v .bo_v_innr {padding:20px;margin-bottom:10px;border:1px solid #ececec;background:#fff}
-#bo_v #bo_v_title {border-bottom:1px solid #f1f3f6;padding-bottom:15px}
+#bo_v #bo_v_title {border-bottom:1px solid #f1f3f6;padding-bottom:40px}
 #bo_v .bo_top_hd:after {display:block;visibility:hidden;clear:both;content:""}
 
 #bo_v .bo_v_cate {display:inline-block;font-size:1.4em;height:20px;padding:0 5px;line-height:16px;color:#2aba8a;font-weight:normal;text-decoration:none;font-weight:bold}
@@ -153,9 +153,10 @@
 #bo_v_act .bo_v_good:hover {color:#ff067b}
 #bo_v_act .bo_v_nogood:hover {color:#1c6acb}
 
-#bo_v_atc .btn_scrap {display:block;height:54px;line-height:30px;padding:10px;border-bottom:1px solid #f1f1f1;font-size:1.35em;color:#9fa2a6;text-align:center;transition:background 0.3s ease-in}
+#bo_v_atc .btn_scrap {display:block;height:54px;line-height:30px;padding:10px;font-size:1.35em;color:#9fa2a6;text-align:center;transition:background 0.3s ease-in}
 #bo_v_atc .btn_scrap:hover {color:#694ecc}
 #bo_v_atc .btn_scrap i {display:inline-block}
+#bo_v_info .btn_scrap:hover {color:#2aba8a;}
 
 #bo_v_share {padding:0;list-style:none;text-align:center}
 #bo_v_share:after {display:block;visibility:hidden;clear:both;content:""}
@@ -339,6 +340,62 @@
 #bo_w .bo_w_select select {width:40%;height:40px;border:1px solid #d9dee9;background:#f1f3f6;border-radius:3px}
 #bo_w .bo_w_btn {text-align:right;margin:20px 15px}
 
+/* 테이블 */
+.viewTable{
+	margin-bottom: 30px;
+}
+.viewTable th{
+	font-size: 15px;
+    letter-spacing: -1px;
+    color: #999;
+    font-weight: 400;
+    vertical-align: top;
+    line-height: 18px;
+	text-align:left;
+	padding-left:1%;
+}
+.viewTable td {
+    color: #222;
+    word-break: break-all;
+}
+.viewTable td>span{line-height:18px}
+.viewTable td .letter_0{letter-spacing:0}
+.viewTable td{color:#222;font-size:0;word-break:break-all}
+.viewTable td strong{margin-right:10px;color:#2aba8a;}
+.viewTable td span,
+.viewTable td a{font-size:15px;word-break:break-all}
+.viewTable td span{display:inline-block;margin-bottom:10px}
+.viewTable td span.comma{margin:0 8px 0 1px} 
+.viewTable td a{display:inline-block;margin-bottom:5px;position:relative} 
+.viewTable td a.dateInfo{margin-right:10px} 
+.viewTable td a>.tag{margin-bottom:0} 
+.viewTable td a span.brand{position:relative;top:0px} 
+.viewTable td a span.textPoint{margin-left:4px} 
+.viewTable td .deadLine{font-size:16px}
+.viewTable td span.monthPay{font-size:24px;vertical-align:-4px;margin:0 0 6px 10px;display:inline-block}
+.viewTable td span.monthPay span{font-size:15px;vertical-align:2px}
+.viewTable td.payInfo{
+	font-size:0;
+	position:relative
+}
+.viewTable td.payInfo .payInfoBox {
+    width: 356px;
+    position: relative;
+    top: -6px;
+}
+.viewTable td.payInfo .summary {
+    color: #999;
+    font-size: 12px;
+    margin-bottom: 14px;
+    word-break: break-all;
+    display: inline-block;
+}
+.viewTable td .restTime{
+	color:#999;
+	padding-left:6px;
+	letter-spacing:-0.5px
+}
+
 /*글쓰기 옵션*/
 .bo_w_option {position:relative;display:inline-block;width:100%}
 .bo_w_option:after {display:block;visibility:hidden;clear:both;content:""}
@@ -382,7 +439,8 @@
 
 @media (max-width:730px){
 	#bo_v {padding:0}
-	#bo_v .bo_v_tit {font-size:1.4em}
+	#bo_v .bo_v_tit {font-size:1.4em;}
+	/* #bo_v .bo_v_tit btn_b01 {font-size: 0.5em;} */
 	#bo_v_info .bo_vc_btn {float:inherit}
 	
 	#bo_v_aside {float:inherit;width:100%;margin:0;margin-bottom:20px;border:0}
