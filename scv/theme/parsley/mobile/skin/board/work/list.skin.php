@@ -7,7 +7,7 @@ if(G5_TIME_YMD != $board['bo_1']){
 	$sql = " select wr_id, ca_name, wr_5 from {$write_table} where wr_is_comment = 0 order by wr_id desc limit 0, 1000 ";
 	$result = sql_query($sql);
 	for ($i=0; $row = sql_fetch_array($result); $i++) {
-		if($row['ca_name']=='모집중' && $row['wr_6'] < G5_TIME_YMD){
+		if($row['ca_name']=='모집중' && $row['wr_16'] < G5_TIME_YMD){
 			sql_query(" update {$write_table} set ca_name='모집종료' where wr_id = {$row['wr_id']} ");
 		}
 	}
@@ -102,11 +102,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 				    <?php } ?>
 	            </li>
 	            <?php } ?>
-	            <li class="num">번호</li>
+	            <li class="num">지역</li>
 	            <li class="tit">제목</li>
 	            <li class="wri">글쓴이</li>
-	            <li class="view"><?php echo subject_sort_link('wr_hit', $qstr2, 1) ?>조회</a></th>
-	            <li class="date"><?php echo subject_sort_link('wr_datetime', $qstr2, 1) ?>날짜</a></th>
+	            <li class="view"><?php echo subject_sort_link('wr_10', $qstr2, 1) ?>일당</a></th>
+	            <li class="date"><?php echo subject_sort_link(strtotime('wr_6'), $qstr2, 1) ?>근무날짜</a></th>
 	    	</ul>
 	    	<div id="bo_li_01" class="list_03">   
 		        <ul>
@@ -132,7 +132,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 		                    <input type="checkbox" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
 		                </span>
 		                <?php } ?>
-		                
+		                <?php $tmp_place = explode(" ", $list[$i]['wr_12']);
+						$place = $tmp_place[0].' '.$tmp_place[1];
+						?>
 		            	<div class="num cnt_left li_status">
 							<?php
 				            if ($list[$i]['is_notice']) // 공지사항
@@ -140,7 +142,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 				            else if ($wr_id == $list[$i]['wr_id'])
 				                echo "<span class=\"bo_current\">열람중</span>";
 				            else
-								echo $list[$i]['num'];
+								echo $place;
 				            ?>
 						</div>
 	
@@ -153,13 +155,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 		                        <?php echo $list[$i]['icon_reply']; ?>
 								<span style="font-weight:normal;color:gray;"><?php echo $list[$i]['wr_1'] ?></span>
 								<div style="font-size:1.3em;"><?=$list[$i]['subject']?></div>
-								<?=$list[$i]['wr_4']?>/<?=$list[$i]['wr_5']?><br>
-								<?=$list[$i]['wr_6']?>&nbsp;<?=$list[$i]['wr_7']."~".$list[$i]['wr_8']?><br>
-								<?=$list[$i]['wr_12']?>
 								<?php $new_wr_9 = explode("|", $list[$i]['wr_9']); 
 								$new_wr_9 = implode(", ", $new_wr_9); ?>
-								<?=$new_wr_9?><br>
-								일당: <?=number_format((double)$list[$i]['wr_10'])."원"?><br>
+								<div style="font-weight:normal;">&nbsp;⤷&nbsp;<?=$new_wr_9?></div>
 								
 							</a>
 							<?php $bbs=G5_BBS_URL?>
@@ -192,10 +190,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 				        	<span class="sound_only">작성자</span><span class="bo_guest"><?php echo $list[$i]['name'] ?></span>
 				        </div>
 				        <div class="view cnt_left">
-				        	<span class="sound_only">조회</span><span class="bo_view"><i class="far fa-eye"></i> <?php echo $list[$i]['wr_hit'] ?></span>
+				        	<span class="sound_only">일당</span><span class="bo_view"></i> <?=number_format((double)$list[$i]['wr_10'])?></span>
 				        </div>
 				        <div class="date cnt_left">
-				        	<span class="sound_only">날짜</span><span class="bo_date"><i class="far fa-clock"></i> <?php echo $list[$i]['datetime2'] ?></span>
+				        	<span class="sound_only">근무날짜</span><span class="bo_date"><i class="far fa-clock"></i> <?=date("m/d",strtotime($list[$i]['wr_6']))?><?="~".date("m/d",strtotime($list[$i]['wr_16']))?></span>
 				        </div>	
 		            </li><?php } } ?>
 		            <?php if (count($list) == 0) { echo '<li class="empty_table">게시물이 없습니다.</li>'; } ?>
