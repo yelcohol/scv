@@ -119,7 +119,7 @@ $view = get_view($write, $board, $board_skin_path);
 
 //해당 일자리 게시글의 시작 날짜의 전날이 오늘이고 17시00분에서 17시59분 사이인 경우에는 지원하기 버튼 미출력
 $start_date = date('Y-m-d',strtotime($view['wr_6']));
-$start_time = G5_TIME_YMD.' 18:05:00';
+$start_time = G5_TIME_YMD.' 16:40:00';
 $end_time = G5_TIME_YMD.' 18:29:59';
 if(date("Y-m-d",strtotime ("+1 days")) == $start_date && strtotime(date('Y-m-d H:i:s')) >= strtotime($start_time) && strtotime(date('Y-m-d H:i:s')) <= strtotime($end_time)){
     $view['ca_name'] = '모집종료';
