@@ -51,19 +51,19 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                     <label for="me_memo" class="sound_only">내용</label>
                     <textarea name="me_memo" id="me_memo" required class="required"><?php
                         if($val == 2){ //노동자 회원 지원 메시지
-                            echo "[지원] 공고보고 지원합니다. 잘부탁드립니다.";
+                            echo "[지원] [".$wr_subject."] 공고보고 지원합니다. 잘부탁드립니다.";
                         }
                         else if($val == 1){ //건설사 회원 지원자에게 합격 메시지
-                            echo "[합격] 본 공고에 지원해주셔서 감사합니다. 일자리 시작 일시 하루 전날 오후 5시에 출근확정부탁드립니다.";
+                            echo "[합격] [".$wr_subject."] 본 공고에 지원해주셔서 감사합니다. 일자리 시작 일시 하루 전날 오후 5시에 출근확정부탁드립니다.";
                         }
                         else if($val == 3){ //출근 확정
-                            echo "[출근확정] 출근확정합니다. 내일 뵙겠습니다.";
+                            echo "[출근확정] [".$wr_subject."] 출근확정합니다. 내일 뵙겠습니다.";
                         }
                         else if($val == 4){ //출근 안하기로 확정
-                            echo "[지원 취소] 지원 합격했지만 철회합니다. 다음 기회에 함께하겠습니다.";
+                            echo "[지원 취소] [".$wr_subject."] 지원 합격했지만 철회합니다. 다음 기회에 함께하겠습니다.";
                         }
                         else{ //건설하 회원 지원자에게 불합격 메시지
-                            echo "[불합격] 본 공고에 지원해주셔서 감사합니다. 아쉽게도 이번 공고에 맞지 않게 되서 반려하게 됬습니다. 다음에도 많은 지원 부탁드리겠습니다.";
+                            echo "[불합격] [".$wr_subject."] 본 공고에 지원해주셔서 감사합니다. 아쉽게도 이번 공고에 맞지 않게 되서 반려하게 됬습니다. 다음에도 많은 지원 부탁드리겠습니다.";
                         }
                     ?></textarea>
                 </li>

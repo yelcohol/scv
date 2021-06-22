@@ -17,6 +17,10 @@ $wr_id = $_GET['wr_id'];
 //$val이 3이면 노동자회원이 지원합격 후 출근 확정
 //$val이 4이면 노동자회원이 지원합격 후 출근안하고 지원 취소
 
+$write_table = $g5['write_prefix'].'works';
+$sql = " select wr_subject from {$write_table} where wr_id = '{$wr_id}'";
+$wr_subject = sql_fetch($sql);
+
 $content = "";
 $me_recv_mb_id = isset($_GET['me_recv_mb_id']) ? clean_xss_tags($_GET['me_recv_mb_id'], 1, 1) : '';
 // 탈퇴한 회원에게 쪽지 보낼 수 없음
