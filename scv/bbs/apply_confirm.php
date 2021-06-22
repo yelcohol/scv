@@ -13,7 +13,7 @@ $sql = " update {$g5['apply_table']}    set ma_state = '출근 확정'
 sql_query($sql);
 
 // works table에서 현재 지원자 수 1, 총 모집인원 1 감소
-$sql2 = " update {$write_table} set wr_4 = wr_4-1,
+$sql2 = " update {$write_table} set wr_4 = wr_4-1
                             where wr_id = '{$wr_id}' ";
 sql_query($sql2);
 
@@ -22,11 +22,11 @@ $tommorow_final = str_replace("-", "", $tommorow_cur);
 
 $sql3 = " update {$g5['apply_table']}    set ma_state = '지원 철회'
                                         where mb_id = '{$member['mb_id']}' and ma_state = '지원 합격' 
-                                        and wr_id exists (select wr_id from {$write_table} where wr_6 = '{$tommorow_final}')";
+                                        and wr_id in (select wr_id from {$write_table} where wr_6 = '{$tommorow_final}')";
 sql_query($sql3);
 
-$sql4 = " update {$write_table} set wr_4 = wr_4-1,
-                            where wr_id exists (select wr_id from {$write_table} where wr_6 = '{$tommorow_final}')";
+$sql4 = " update {$write_table} set wr_4 = wr_4-1
+                            where wr_id in (select wr_id from {$write_table} where wr_6 = '{$tommorow_final}')";
 sql_query($sql4);
 
 $sql = " update `{$g5['member_table']}` set mb_apply_cnt = '".get_apply_totals($member['mb_id'])."' where mb_id = '{$member['mb_id']}' ";
