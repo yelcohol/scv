@@ -15,10 +15,11 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.bxslider.js"></script>', 10);
 		//쪽지 테이블에서 마지막 쪽지를 읽어온다.
 		$sql = "select * from {$g5['memo_table']} where me_recv_mb_id = '{$member['mb_id']}' and me_read_datetime = '0000-00-00 00:00:00' order by me_id desc limit 0,1 ";
 		$result = sql_fetch($sql);	
-		$get_nick = get_member($result['me_send_mb_id'], $fields='mb_nick');
+		//$get_nick = get_member($result['me_send_mb_id'], $fields='mb_nick');
 		if ($result) {
 			//새창을 띄워준다.
-			$msg = "{$get_nick['mb_nick']} 님으로부터 쪽지가 도착했습니다.";
+			//$msg = "{$get_nick['mb_nick']} 님으로부터 쪽지가 도착했습니다.";
+            $msg = "알림 - {$result['me_memo']}";
 			$url = G5_BBS_URL."/memo.php";				
 	?>
 	<script>
