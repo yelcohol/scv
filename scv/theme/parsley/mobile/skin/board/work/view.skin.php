@@ -114,7 +114,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 				<tr>
 					<th>담당자</th>
 					<td>
-						<span><?=$view['wr_2']."(".$view['wr_3'].")"?></span>
+						<span><?=$view['wr_2']."("?><a href="tel:<?=$view['wr_3']?>"><span style="color:#2aba8a"><u><?=$view['wr_3']?></u></span></a>)</span>
 					</td>
 				</tr>
 				<tr>

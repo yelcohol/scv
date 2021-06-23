@@ -135,7 +135,7 @@ $(function() {
 </style>
 <nav class="navbar fixed-top navbar-expand-lg navbar-white bg-white fixed-top">
   <div class="container">
-	<a class="navbar-brand" href="" class="logo"><img src="home/img/photo_2021-06-11_13-40-21.jpg" style="width:70px;">&nbsp;SCV</a>
+	<a class="navbar-brand" href="" class="logo"><img src="home/img/photo_2021-06-11_13-40-21.jpg" style="width:70px;">&nbsp;<span style="font-family:'S-CoreDream-4Regular'";>건설왕</span></a>
 	<button class="navbar-toggler navbar-dark navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 	  <span class="navbar-toggler-icon"></span>
 	</button>
@@ -229,27 +229,35 @@ $(function() {
 	  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 	  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 	  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+	  <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
 	</ol>
 	<div class="carousel-inner" role="listbox">
 	  <!-- Slide One - Set the background image for this slide in the line below -->
 	  <div class="carousel-item active" style="background-image: url('home/img/site-4686908.jpg')">
 		<div class="carousel-caption d-md-block">
-		  <h3 class="ks4">Service</h3>
-		  <p class="ks4 f20">새벽에 인력사무소로 출근하는 대신 SCV를 사용하여 일자리를 간편하게 지원하세요</p>
+		  <h3 class="ks4"></h3>
+		  <p class="ks4 f20">쉽고 빠른, AI 건설 일자리 매칭  건설왕</p>
 		</div>
 	  </div>
 	  <!-- Slide Two - Set the background image for this slide in the line below -->
 	  <div class="carousel-item" style="background-image: url('home/img/construction-silhouette.jpg')">
 		<div class="carousel-caption d-md-block">
-		  <h3 class="ks4">Connect</h3>
-		  <p class="ks4 f20">좋은 건설 일자리를 믿을 수 있는 근로자에게 연결합니다</p>
+		  <h3 class="ks4"><strong>EASY</strong></h3>
+		  <p class="ks4 f20">나에게 맞는 다양한 일자리를 <strong><u>쉽게</u></strong> 지원해서 <strong><u>수익</u></strong>을 극대화하세요</p>
 		</div>
 	  </div>
 	  <!-- Slide Three - Set the background image for this slide in the line below -->
 	  <div class="carousel-item" style="background-image: url('home/img/construction-worker-495373.jpg')">
 		<div class="carousel-caption d-md-block">
-		  <h3 class="ks4">Velocity</h3>
-		  <p class="ks4 f20">매칭은 즉시, 일당 지급은 당일</p>
+		  <h3 class="ks4"><strong>Fast</strong></h3>
+		  <p class="ks4 f20"><strong>매칭은 즉시, 입금은 당일</strong></p>
+		</div>
+	  </div>
+	  <!-- Slide Four - Set the background image for this slide in the line below -->
+	  <div class="carousel-item" style="background-image: url('home/img/construction-worker-495373.jpg')">
+		<div class="carousel-caption d-md-block">
+		  <h3 class="ks4"><strong>Smart</strong></h3>
+		  <p class="ks4 f20"><strong>자동 공수 계산, 일자리 스케줄 관리</strong></p>
 		</div>
 	  </div>
 	</div>
@@ -270,10 +278,10 @@ $(function() {
 <div class="margin-top-80"></div>
 <div class="container">
 	<div class="center-heading en1">
-		<h2>WIDE FREE <strong>THEME</strong> </h2>
+		<h2 style="font-family:'S-CoreDream-4Regular'">인력과 건설 일자리를 빠르고 정확하게 매칭합니다</h2>
 		<span class="center-line"></span>
 		<p class="sub-text margin-bottom-80 ks5 f19">
-		무료 폰트어썸5 버전을 사용합니다. 폰트어썸5 프로버전은 사용하지 않습니다.
+		건설취업포털 건설왕
 		</p>
 	</div>
 	<!-------------------------- 첫번째 줄 -------------------------->
@@ -284,10 +292,10 @@ $(function() {
 					<div class="info-pink">
 						<i class="fas fa-chart-line"></i>
 						<p class="ks4 f15 h75">
-							애플사의 IOS 부터 안드로이드 운영체제까지 모두 지원되는 무료 비즈니스 반응형 홈페이지 입니다.
+							고객센터
 						</p>
 						<div class="margin-top-20 margin-bottom-20">
-							<button type="button" class="btn btn-secondary btn-sm ks4" onclick="location.href='#'">바로가기</button>
+							<button type="button" class="btn btn-secondary btn-sm ks4"><a href="tel:070-4118-0113">070-4118-0113</a></button>
 						</div>
 					</div>
 				</div>
@@ -301,10 +309,10 @@ $(function() {
 					<div class="info-pink-2">
 						<i class="fas fa-cloud-moon-rain"></i>
 						<p class="ks4 f15 h75">
-							갤럭시 시리즈의 모든 기종에서도 문제 없이 최적화된 사이트로 적용됩니다.
+							인력요청
 						</p>
 						<div class="margin-top-20 margin-bottom-20">
-							<button type="button" class="btn btn-secondary btn-sm ks4" onclick="location.href='#'">바로가기</button>
+							<button type="button" class="btn btn-secondary btn-sm ks4" onclick='window.open("about:blank").location.href="scv"'>구인자</button>
 						</div>
 					</div>
 				</div>
@@ -318,10 +326,10 @@ $(function() {
 					<div class="info">
 						<i class="fas fa-cog"></i>
 						<p class="ks4 f15 h75">
-							갤럭시 시리즈의 모든 기종에서도 문제 없이 최적화된 사이트로 적용됩니다.
+							일자리 요청
 						</p>
 						<div class="margin-top-20 margin-bottom-20">
-							<button type="button" class="btn btn-secondary btn-sm ks4" onclick="location.href='#'">바로가기</button>
+							<button type="button" class="btn btn-secondary btn-sm ks4" onclick='window.open("about:blank").location.href="scv"'>근로자</button>
 						</div>
 					</div>
 				</div>
@@ -339,7 +347,7 @@ $(function() {
 							문의사항은 질문게시판에 글 남겨주세요.
 						</p>
 						<div class="margin-top-20 margin-bottom-20">
-							<button type="button" class="btn btn-secondary btn-sm ks4" onclick="location.href='#'">바로가기</button>
+							<button type="button" class="btn btn-secondary btn-sm ks4"><a href="#googleform" style="color:white;">제휴문의</a></button>
 						</div>
 					</div>
 				</div>
@@ -507,7 +515,7 @@ $(function() {
 				<div class="col-md-12 text-white text-center">
 					<h2 class="en1">MJW.DEB.KR</h2><!-- image or text  -->
 					<p class="ks2 f12">
-					별도 문의사항은 <span class="color-white">admin@scv.com</span> 으로 연락 주시기 바랍니다.
+					별도 문의사항은 <a href="mailto:admin@scv.com" class="color-white">admin@scv.com</a> 으로 연락 주시기 바랍니다.
 					</p>
 					<p class="ks2 f12">
 						<i class="far fa-building"></i> 사무실 : 서울 강동구 성내로6길 14-20 청정빌딩 402호<br />
