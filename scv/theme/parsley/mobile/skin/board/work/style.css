@@ -342,7 +342,9 @@
 
 /* 테이블 */
 .viewTable{
+	margin-top:15px;
 	margin-bottom: 30px;
+	max-width: 100%;
 }
 .viewTable th{
 	font-size: 15px;
@@ -380,6 +382,7 @@
 }
 .viewTable td.payInfo .payInfoBox {
     width: 356px;
+	max-width: 100%;
     position: relative;
     top: -6px;
 }
@@ -468,11 +471,14 @@
 	.bo_v_nb li a span {display:none}
 }
 
-@media (max-width:480px){
+@media (max-width:480px){	
 	.bo_vc_w_info .frm_input {width:100%;margin-bottom:10px}
 	.bo_vc_w_info #wr_password {margin-left:0}
 	.bo_vc_w textarea {margin:0}
 	.bo_vc_w_wr .btn_confirm {margin:10px 0}
+
+	.viewTable{margin-top:0px;}
+	#bo_v_atc .viewTable *{width:inherit;}
 	
 	#bo_li_op {padding:15px 10px}
 	.bo_vl_opt .cmt_opt {font-size:1em}

@@ -81,28 +81,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 		        </div>
 	    	</aside>
 	        <?php } ?> -->
-	        
-	        <?php
-	        // 파일 출력
-	        $v_img_count = count($view['file']);
-	        if($v_img_count) {
-	            echo "<div id=\"bo_v_img\">\n";
-	
-	            for ($i=0; $i<=count($view['file']); $i++) {
-	                if ($view['file'][$i]['view']) {
-	                    //echo $view['file'][$i]['view'];
-	                    echo get_view_thumbnail($view['file'][$i]['view']);
-	                }
-	            }
-	            echo "</div>\n";
-	        }
-			?>
 
 		<!-- 본문 내용 시작 -->
 		<table class="viewTable">
             <colgroup>
-                <col style="width: 20%;">
-                <col style="width: 80%;">
+                <col style="width: 25%;">
+                <col style="width: 75%;">
             </colgroup>
             <thead></thead>
 
@@ -197,7 +181,25 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
         </table>
 		<div id="bo_v_con"><?php echo get_view_thumbnail($view['content']); ?></div>
 	        <?php //echo $view['rich_content']; // {이미지:0} 과 같은 코드를 사용할 경우 ?>
+
+			
+			<?php
+	        // 파일 출력
+	        $v_img_count = count($view['file']);
+	        if($v_img_count) {
+	            echo "<div id=\"bo_v_img\">\n";
 	
+	            for ($i=0; $i<=count($view['file']); $i++) {
+	                if ($view['file'][$i]['view']) {
+	                    //echo $view['file'][$i]['view'];
+	                    echo get_view_thumbnail($view['file'][$i]['view']);
+	                }
+	            }
+	            echo "</div>\n";
+	        }
+			?>
+
+
 	        <?php if ($is_signature) { ?><p><?php echo $signature ?></p><?php } //서명 ?>
 	
 			<?php
