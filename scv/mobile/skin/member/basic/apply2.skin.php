@@ -22,8 +22,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                 <!-- 근로자: 지원검토중 / 건설사: 수락하기 or 반려하기 -->
                 <?php
                 if($list[$i]['ma_state']=='지원검토중'){ ?>
-                    <a href="<?php echo $list[$i]['accept_href'];  ?>" onclick="accpet(this.href); return false;" class="apply_accept"><i class="" aria-hidden="true"></i><span>합격 처리</span></a>
-                    <a href="<?php echo $list[$i]['refuse_href'];  ?>" onclick="del(this.href); return false;" class="apply_refuse"><i class="fas fa-check" aria-hidden="true"></i><span>삭제</span></a>
+                    <a href="<?php echo $list[$i]['accept_href'];  ?>" onclick="accpet(this.href); return false;" class="apply_accept"><i class="far fa-check" aria-hidden="true"></i><span>합격 처리</span></a>
+                    <a href="<?php echo $list[$i]['refuse_href'];  ?>" onclick="del(this.href); return false;" class="apply_refuse"><i class="far fa-trash-alt" aria-hidden="true"></i><span>삭제</span></a>
                 <?php } ?>
             </div>
         </li>

@@ -32,7 +32,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                     </div>
                 </div>
             </div>
-			<a href="<?php echo $list[$i]['del_href'] ?>" onclick="del(this.href); return false;" class="apply_del"><i class="fas fa-trash-alt" aria-hidden="true"></i> <span class="sound_only">삭제</span></a>
+			<a href="<?php echo $list[$i]['del_href'] ?>" onclick="del(this.href); return false;" class="apply_del"><i class="far fa-trash-alt" aria-hidden="true"></i> <span class="sound_only">삭제</span></a>
 	        </li>
 	        <?php }  ?>
 	        <?php if ($i==0) { echo '<li class="empty_table">자료가 없습니다.</li>'; }  ?>

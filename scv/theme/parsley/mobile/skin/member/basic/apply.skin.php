@@ -20,7 +20,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                 </div>
                 <?php
                 if($list[$i]['ma_state']=='지원검토중'){ ?>
-                    <a href="<?php echo $list[$i]['del_href'];  ?>" onclick="del(this.href); return false;" class="apply_del"><i class="fa fa-trash-o" aria-hidden="true"></i><span class="sound_only">삭제</span></a>
+                    <a href="<?php echo $list[$i]['del_href'];  ?>" onclick="del(this.href); return false;" class="apply_del"><i class="far fa-trash-alt"></i><span class="sound_only">삭제</span></a>
                 <?php } ?>
 	        </li>
 	        <?php } ?>

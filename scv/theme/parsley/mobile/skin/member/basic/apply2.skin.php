@@ -19,8 +19,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
             <!-- 삭제는 '지원검토중' 상태일 때만 가능하다 -->
             <?php
             if($list[$i]['ma_state']=='지원검토중'){ ?>
-                <a href="<?php echo $list[$i]['accept_href'];  ?>" onclick="accpet(this.href); return false;" class="apply_datetime"><i class="fa fa-trash-o" aria-hidden="true"></i><span>합격 처리</span></a>
-                <a href="<?php echo $list[$i]['del_href'];  ?>" onclick="del(this.href); return false;" class="apply_datetime"><i class="fa fa-trash-o" aria-hidden="true"></i><span>삭제</span></a>
+                <a href="<?php echo $list[$i]['accept_href'];  ?>" onclick="accpet(this.href); return false;" class="apply_datetime"><i class="fas fa-check"></i><span>합격 처리</span></a>
+                <a href="<?php echo $list[$i]['del_href'];  ?>" onclick="del(this.href); return false;" class="apply_datetime"><i class="far fa-trash-alt"></i><span>삭제</span></a>
             <?php } ?>
         </li>
         <?php }  ?>
