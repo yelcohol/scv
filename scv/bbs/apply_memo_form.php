@@ -19,7 +19,8 @@ $wr_id = $_GET['wr_id'];
 
 $write_table = $g5['write_prefix'].'works';
 $sql = " select wr_subject from {$write_table} where wr_id = '{$wr_id}'";
-$wr_subject = sql_query($sql);
+$wr_subject = sql_fetch($sql);
+$wr_subject = $wr_subject['wr_subject'];
 
 $content = "";
 $me_recv_mb_id = isset($_GET['me_recv_mb_id']) ? clean_xss_tags($_GET['me_recv_mb_id'], 1, 1) : '';
