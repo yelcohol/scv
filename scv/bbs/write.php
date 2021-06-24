@@ -54,10 +54,18 @@ if ($w == '') {
         }
     }
 
+    if(!write_new_check()){
+        alert("지금은 새로운 공고를 올릴 수 없는 시간대 입니다. \\n 06시부터 17시59분 사이에 공고를 올려주세요.", G5_BBS_URL.'/board.php?bo_table='.$bo_table);
+    }
+    
     $title_msg = '글쓰기';
 } else if ($w == 'u') {
     // 김선용 1.00 : 글쓰기 권한과 수정은 별도로 처리되어야 함
     //if ($member['mb_level'] < $board['bo_write_level']) {
+    if(write_fix_check()){
+        alert("지금은 공고를 수정할 수 없는 시간대 입니다. \\n 노동자들이 출근을 결정하는 중입니다.", G5_BBS_URL.'/board.php?bo_table='.$bo_table);
+    }
+    
     if($member['mb_id'] && $write['mb_id'] === $member['mb_id']) {
         ;
     } else if ($member['mb_level'] < $board['bo_write_level']) {
