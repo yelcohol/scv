@@ -10,7 +10,7 @@ $g5['title'] = '게시글 저장';
 
 $msg = array();
 $uid = isset($_POST['uid']) ? preg_replace('/[^0-9]/', '', $_POST['uid']) : 0;
-
+$w = $_POST['w'];
 if($board['bo_use_category']) {
     $ca_name = isset($_POST['ca_name']) ? trim($_POST['ca_name']) : '';
     if(!$ca_name) {
@@ -20,11 +20,24 @@ if($board['bo_use_category']) {
         if(!empty($categories) && !in_array($ca_name, $categories))
             $msg[] = '분류를 올바르게 입력하세요.';
 
+        if($w == '' && $ca_name != '모집중'){
+            //$msg[] = '<strong>처음 글을 올릴 때 카테고리는  "모집 중" 만 가능합니다.</strong>';
+            alert('처음 글을 올릴 때 카테고리는  모집 중 만 가능합니다.',G5_BBS_URL.'/board.php?bo_table=works');
+        }
         if(empty($categories))
             $ca_name = '';
     }
 } else {
     $ca_name = '';
+}
+
+if($w == '' && write_new_check($wr_6)){
+    // $msg[] = '<strong>지금은 내일 일자리를 올릴 수 없습니다.</strong>\\n 내일 오전 6시 이후에 올릴 수 있습니다.';
+    alert('<strong>지금은 내일 일자리를 올릴 수 없습니다.</strong>\\n 내일 오전 6시 이후에 올릴 수 있습니다.',G5_BBS_URL.'/board.php?bo_table=works');
+}
+
+if($w == 'u' && write_new_check() && $ca_name == '모집 중'){
+    alert("06시부터 18시 이외에 시간엔 모집 중이 아닌 게시글의 수정은 \\n 재모집으로 변경하는 것 이외에는 제한됩나다.",G5_BBS_URL.'/board.php?bo_table=works');
 }
 
 $wr_subject = '';

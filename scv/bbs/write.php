@@ -54,17 +54,11 @@ if ($w == '') {
         }
     }
 
-    if(!write_new_check()){
-        alert("지금은 새로운 공고를 올릴 수 없는 시간대 입니다. \\n 06시부터 17시59분 사이에 공고를 올려주세요.", G5_BBS_URL.'/board.php?bo_table='.$bo_table);
-    }
     
     $title_msg = '글쓰기';
 } else if ($w == 'u') {
     // 김선용 1.00 : 글쓰기 권한과 수정은 별도로 처리되어야 함
     //if ($member['mb_level'] < $board['bo_write_level']) {
-    if(write_fix_check()){
-        alert("지금은 공고를 수정할 수 없는 시간대 입니다. \\n 노동자들이 출근을 결정하는 중입니다.", G5_BBS_URL.'/board.php?bo_table='.$bo_table);
-    }
     
     if($member['mb_id'] && $write['mb_id'] === $member['mb_id']) {
         ;
@@ -74,6 +68,12 @@ if ($w == '') {
         } else {
             alert('글을 수정할 권한이 없습니다.\\n\\n회원이시라면 로그인 후 이용해 보십시오.', G5_BBS_URL.'/login.php?'.$qstr.'&amp;url='.urlencode($_SERVER['SCRIPT_NAME'].'?bo_table='.$bo_table));
         }
+    }
+
+    $current_date_origin = date('Y-m-d', strtotime("+1 days"));
+    $current_date = str_replace('-','',$current_date_origin);
+    if($write['wr_6'] == $current_date && write_fix_check()){
+        alert("내일 시작하는 일자리 글은 지금 수정할 수 없습니다 \\n 지금 노동자들이 출근을 확정하고 있습니다.", G5_BBS_URL.'/board.php?bo_table='.$bo_table);
     }
 
     $len = strlen($write['wr_reply']);
