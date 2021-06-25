@@ -241,10 +241,11 @@ h3 {
 .box > .icon > .image > i { font-size: 36px !important; color: #fff !important; }
 .box > .icon > .info { margin-top: -24px; border: 1px solid #e0e0e0; padding: 15px 0 10px 0; height:257px; }
 .box > .icon > .info > h3.title { margin-top:20px; font-size: 20px; color: #222; font-weight: 500; }
-.box > .icon > .info > p { font-weight:300; color: #666; line-height: 1.7; margin: 20px; text-align:left;}
+.box > .icon > .info > p { font-size: 20px; font-weight:300; color: #666; line-height: 3; margin: 20px; text-align:center;}
 .box > .icon > .info > .more a { font-family: "Roboto",sans-serif !important; font-size: 12px; color: #222; line-height: 12px; text-transform: uppercase; text-decoration: none; }
 .box .space { height: 30px; }
 .info i{font-size:60px;}
+.info a{color:white;}
 
 
 
@@ -255,18 +256,17 @@ h3 {
 .box > .icon > .image > i { font-size: 36px !important; color: #fff !important; }
 .box > .icon > .info-pink { 
 	margin-top: -24px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #E9BF02;
     padding: 15px 0 10px 0;
-    background: #8e9aaf;
-    color: #fff;
-	 height:257px;
+    color: #E9BF02;
+	height:257px;
 }
 .box > .icon > .info-pink > h3.title { margin-top:20px;  font-size: 20px; color: #222; font-weight: 500; }
-.box > .icon > .info-pink > p {  font-weight:300; color: #fff; line-height: 1.7; margin: 20px; text-align:left;}
+.box > .icon > .info-pink > p { font-size: 20px; font-weight:300; color: #666; line-height: 3; margin: 20px; text-align:center;}
 .box > .icon > .info-pink > .more a { font-family: "Roboto",sans-serif !important; font-size: 12px; color: #222; line-height: 12px; text-transform: uppercase; text-decoration: none; }
 .box .space { height: 30px; }
 .info-pink i{font-size:60px;}
-
+.info-pink a{color:white;}
 
 
 /* info-pink-2 */
@@ -276,17 +276,18 @@ h3 {
 .box > .icon > .image > i { font-size: 36px !important; color: #fff !important; }
 .box > .icon > .info-pink-2 { 
 	margin-top: -24px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #2489FF;
     padding: 15px 0 10px 0;
-    background: #cbc0d3;
-    color: #fff;
-	 height:257px;
+    color: #2489FF;
+	height:257px;
 }
 .box > .icon > .info-pink-2 > h3.title { margin-top:20px; font-size: 20px; color: #222; font-weight: 500; }
-.box > .icon > .info-pink-2 > p {  font-weight:300; color: #fff; line-height: 1.7; margin: 20px; text-align:left;}
+.box > .icon > .info-pink-2 > p { font-size: 20px; font-weight:300; color: #222; line-height: 3; margin: 20px; text-align:center;}
 .box > .icon > .info-pink-2 > .more a { font-family: "Roboto",sans-serif !important; font-size: 12px; color: #222; line-height: 12px; text-transform: uppercase; text-decoration: none; }
 .box .space { height: 30px; }
 .info-pink-2 i{font-size:60px;}
+.info-pink-2 a{color:white;}
+
 
 
 
