@@ -50,6 +50,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                 <li>
                     <label for="me_memo" class="sound_only">내용</label>
                     <textarea name="me_memo" id="me_memo" required class="required"><?php
+
+                        if($re == 1){
+                            echo "[재모집]";
+                        }
+                        
                         if($val == 2){ //노동자 회원 지원 메시지
                             echo "[지원] [".$wr_subject."] 공고보고 지원합니다. 잘부탁드립니다.";
                         }

@@ -49,6 +49,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
 
     //해당 일자리 게시글의 시작 날짜의 전날이 오늘이고 17시00분에서 17시59분 사이인 경우, 그리고 ma_state가 '지원합격'인 경우 최종 출근 할지 안 할지 결정하는 버튼 
     $confirm_check = false;
+    $re_confirm = false;
     $start_date = date('Y-m-d',strtotime($row3['wr_6']));
     $start_time = G5_TIME_YMD.' 14:50:00';
     $end_time = G5_TIME_YMD.' 14:59:00';
@@ -57,14 +58,29 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
             $confirm_check = true;
         }
     }
+
+    $start_time = G5_TIME_YMD.' 05:00:00';
+    $end_time = G5_TIME_YMD.' 05:59:59';
+    if(date("Y-m-d") == $start_date && strtotime(date('Y-m-d H:i:s')) >= strtotime($start_time) && strtotime(date('Y-m-d H:i:s')) <= strtotime($end_time)){
+        if($row['ma_state'] == '지원 합격'){
+            $confirm_check = true;
+            $re_confirm = true;
+        }
+    }
+
     $list[$i]['num'] = $num;
     $list[$i]['opener_href'] = get_pretty_url($row['bo_table']);
     $list[$i]['opener_href_wr_id'] = get_pretty_url($row['bo_table'], $row['wr_id']);
     $list[$i]['bo_subject'] = $row2['bo_subject'];
     $list[$i]['subject'] = $subject;
     $list[$i]['confirm_check'] = $confirm_check;
-    $list[$i]['confirm_href'] = './apply_memo_form.php?val=3&ma_id='.$row['ma_id'].'&wr_id='.$row['wr_id'].'&me_recv_mb_id='.$row3['mb_id'].'&amp;page='.$page;
-    $list[$i]['confirm_refuse_href'] = './apply_memo_form.php?val=4&ma_id='.$row['ma_id'].'&wr_id='.$row['wr_id'].'&me_recv_mb_id='.$row3['mb_id'].'&amp;page='.$page;
+    if($re_confirm){
+        $list[$i]['confirm_href'] = './apply_memo_form.php?re=1&val=3&ma_id='.$row['ma_id'].'&wr_id='.$row['wr_id'].'&me_recv_mb_id='.$row3['mb_id'].'&amp;page='.$page;
+        $list[$i]['confirm_refuse_href'] = './apply_memo_form.php?re=1&val=4&ma_id='.$row['ma_id'].'&wr_id='.$row['wr_id'].'&me_recv_mb_id='.$row3['mb_id'].'&amp;page='.$page;
+    }else{
+        $list[$i]['confirm_href'] = './apply_memo_form.php?val=3&ma_id='.$row['ma_id'].'&wr_id='.$row['wr_id'].'&me_recv_mb_id='.$row3['mb_id'].'&amp;page='.$page;
+        $list[$i]['confirm_refuse_href'] = './apply_memo_form.php?val=4&ma_id='.$row['ma_id'].'&wr_id='.$row['wr_id'].'&me_recv_mb_id='.$row3['mb_id'].'&amp;page='.$page;
+    }
     $list[$i]['del_href'] = './apply_delete.php?ma_id='.$row['ma_id'].'&bo_table='.$row['bo_table'].'&wr_id='.$row['wr_id'].'&amp;page='.$page;
 }
 
