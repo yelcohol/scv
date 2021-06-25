@@ -7,7 +7,7 @@
 <meta http-equiv="imagetoolbar" content="no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>건설취업포털, 건설왕</title>
-<link rel="shortcut icon" type="image/x-icon" href="home/img/photo_2021-06-11_13-40-21.jpg">
+<link rel="shortcut icon" type="image/x-icon" href="https://image.flaticon.com/icons/png/512/2092/2092877.png">
 <link rel="stylesheet" href="home/css/default.css">
 <link rel="stylesheet" href="home/skin/latest/basic_main_one/style.css">
 <link rel="stylesheet" href="home/skin/latest/pic_basic_company/style.css">
