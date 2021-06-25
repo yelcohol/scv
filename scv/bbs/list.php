@@ -205,14 +205,27 @@ if($page_rows > 0) {
         $list[$i]['is_notice'] = false;
         $list_num = $total_count - ($page - 1) * $list_page_rows - $notice_count;
         $list[$i]['num'] = $list_num - $k;
-        //해당 일자리 게시글의 시작 날짜의 전날이 오늘이고 17시00분에서 17시59분 사이인 경우에는 지원하기 버튼 미출력
+        //해당 일자리 게시글의 시작 날짜의 전날이 오늘이고 18시00분에서 18시59분 사이인 경우에는 지원하기 버튼 미출력
         $start_date = date('Y-m-d',strtotime($list[$i]['wr_6']));
-        $start_time = G5_TIME_YMD.' 14:50:00';
-        $end_time = G5_TIME_YMD.' 14:59:00';
+        $start_time = G5_TIME_YMD.' 18:00:00';
+        $end_time = G5_TIME_YMD.' 18:59:59';
         if(date("Y-m-d",strtotime ("+1 days")) == $start_date && strtotime(date('Y-m-d H:i:s')) >= strtotime($start_time) && strtotime(date('Y-m-d H:i:s')) <= strtotime($end_time)){
-            $list[$i]['ca_name'] = '모집종료';
-            sql_query("update {$write_table} set ca_name = '모집 종료'
+            if($List[$i]['ca_name'] == '모집중'){
+                sql_query("update {$write_table} set ca_name = '모집 종료'
                                             where wr_id = '{$list[$i]['wr_id']}'");
+            }
+            $list[$i]['ca_name'] = '모집종료';
+        }
+
+        $start_date = date('Y-m-d',strtotime($list[$i]['wr_6']));
+        $start_time = G5_TIME_YMD.' 05:00:00';
+        $end_time = G5_TIME_YMD.' 05:59:59';
+        if(date("Y-m-d",strtotime ("now")) == $start_date && strtotime(date('Y-m-d H:i:s')) >= strtotime($start_time) && strtotime(date('Y-m-d H:i:s')) <= strtotime($end_time)){
+            if($List[$i]['ca_name'] == '재모집'){
+                sql_query("update {$write_table} set ca_name = '모집 종료'
+                                            where wr_id = '{$list[$i]['wr_id']}'");
+            }
+            $list[$i]['ca_name'] = '모집종료';
         }
         $i++;
         $k++;

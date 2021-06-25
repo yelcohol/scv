@@ -51,8 +51,8 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
     $confirm_check = false;
     $re_confirm = false;
     $start_date = date('Y-m-d',strtotime($row3['wr_6']));
-    $start_time = G5_TIME_YMD.' 14:50:00';
-    $end_time = G5_TIME_YMD.' 14:59:00';
+    $start_time = G5_TIME_YMD.' 18:00:00';
+    $end_time = G5_TIME_YMD.' 18:59:59';
     if(date("Y-m-d",strtotime ("+1 days")) == $start_date && strtotime(date('Y-m-d H:i:s')) >= strtotime($start_time) && strtotime(date('Y-m-d H:i:s')) <= strtotime($end_time)){
         if($row['ma_state'] == '지원 합격'){
             $confirm_check = true;
@@ -61,7 +61,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
 
     $start_time = G5_TIME_YMD.' 05:00:00';
     $end_time = G5_TIME_YMD.' 05:59:59';
-    if(date("Y-m-d") == $start_date && strtotime(date('Y-m-d H:i:s')) >= strtotime($start_time) && strtotime(date('Y-m-d H:i:s')) <= strtotime($end_time)){
+    if(date("Y-m-d",strtotime("now")) == $start_date && strtotime(date('Y-m-d H:i:s')) >= strtotime($start_time) && strtotime(date('Y-m-d H:i:s')) <= strtotime($end_time)){
         if($row['ma_state'] == '지원 합격'){
             $confirm_check = true;
             $re_confirm = true;
