@@ -72,7 +72,8 @@ jQuery(function($) {
       	<div id="logo">
             <a href="<?php echo G5_URL ?>#wrapper">
             	<span class="sound_only"><?php echo $config['cf_title']; ?></span>
-            	<img src="<?php echo G5_IMG_URL ?>/logo.png" alt="<?php echo $config['cf_title']; ?> " style="width:50%;">
+            	<!-- <img src="<?php echo G5_IMG_URL ?>/logo.png" alt="<?php echo $config['cf_title']; ?> " style="width:50%;"> -->
+                <img src="https://image.flaticon.com/icons/png/512/2092/2092877.png" alt="<?php echo $config['cf_title'];?>" style="width:5%;margin-bottom:7px;">&nbsp;<span style="color:white; font-size:20px;">건설왕</span></a>
             </a>
         </div>
         
