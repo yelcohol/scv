@@ -35,7 +35,7 @@ $row = sql_fetch($sql);
 $start_date = $row['wr_6'];
 $sql = "select count(*) as cnt 
     from {$g5['apply_table']} as A join {$write_table} as W on A.wr_id = W.wr_id 
-    where A.mb_id = '{$member['mb_id']}' and W.wr_6 = '{$start_date}'";
+    where A.mb_id = '{$member['mb_id']}' and W.wr_6 = '{$start_date}' and A.ma_state = '출근 확정'";
 
 $row = sql_fetch($sql);
 if($row['cnt']){
