@@ -70,10 +70,19 @@ if ($w == '') {
         }
     }
 
-    $current_date_origin = date('Y-m-d', strtotime("+1 days"));
-    $current_date = str_replace('-','',$current_date_origin);
-    if($write['wr_6'] == $current_date && write_fix_check()){
-        alert("내일 시작하는 일자리 글은 지금 수정할 수 없습니다 \\n 지금 노동자들이 출근을 확정하고 있습니다.", G5_BBS_URL.'/board.php?bo_table='.$bo_table);
+    $tommorow_origin = date('Y-m-d', strtotime("+1 days"));
+    $tommorow = str_replace('-','',$tommorow_origin);
+    $today_origin = date('Y-m-d', strtotime("now"));
+    $today = str_replace('-','',$today_origin);
+    if($write['wr_6'] == $tommorow){
+        if(write_fix_check_tommorow()){
+            alert("내일 시작하는 일자리 글은 지금 수정할 수 없습니다 \\n 지금 노동자들이 출근을 확정하고 있습니다.", G5_BBS_URL.'/board.php?bo_table='.$bo_table);
+        }
+    }
+    if($write['wr_6'] == $today){
+        if(write_fix_check_today()){
+            alert("오늘 시작하는 일자리 글은 지금 수정할 수 없습니다 \\n 지금 노동자들이 출근을 확정하고 있습니다.", G5_BBS_URL.'/board.php?bo_table='.$bo_table);
+        }
     }
 
     $len = strlen($write['wr_reply']);
