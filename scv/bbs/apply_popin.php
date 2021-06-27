@@ -30,6 +30,18 @@ HEREDOC;
 if ($write['wr_is_comment'])
     alert_close('코멘트에는 지원 할 수 없습니다.');
 
+$sql = " select wr_6 from {$write_table} where wr_id = '{$wr_id}'";
+$row = sql_fetch($sql);
+$start_date = $row['wr_6'];
+$sql = "select count(*) as cnt 
+    from {$g5['apply_table']} as A join {$write_table} as W on A.wr_id = W.wr_id 
+    where A.mb_id = '{$member['mb_id']}' and W.wr_6 = '{$start_date}'";
+
+$row = sql_fetch($sql);
+if($row['cnt']){
+    alert("출근 확정한 경우 재모집 공고에 지원할 수 없습니다.", G5_BBS_URL.'/board.php?bo_table='.$bo_table);
+}
+
 $sql = " select count(*) as cnt from {$g5['apply_table']}
             where mb_id = '{$member['mb_id']}'
             and bo_table = '$bo_table'
