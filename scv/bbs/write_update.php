@@ -7,6 +7,7 @@ include_once(G5_CAPTCHA_PATH.'/captcha.lib.php');
 check_write_token($bo_table);
 
 $g5['title'] = '게시글 저장';
+$ca_name_before = $_POST['ca_name_before'];
 
 $msg = array();
 $uid = isset($_POST['uid']) ? preg_replace('/[^0-9]/', '', $_POST['uid']) : 0;
@@ -33,12 +34,29 @@ if($board['bo_use_category']) {
 
 if($w == '' && write_new_check($wr_6)){
     // $msg[] = '<strong>지금은 내일 일자리를 올릴 수 없습니다.</strong>\\n 내일 오전 6시 이후에 올릴 수 있습니다.';
-    alert('<strong>지금은 내일 일자리를 올릴 수 없습니다.</strong>\\n 내일 오전 6시 이후에 올릴 수 있습니다.',G5_BBS_URL.'/board.php?bo_table=works');
+    alert('지금은 내일 일자리를 올릴 수 없습니다.',G5_BBS_URL.'/board.php?bo_table=works');
 }
 
-if($w == 'u' && write_new_check() && $ca_name == '모집 중'){
-    alert("06시부터 18시 이외에 시간엔 모집 중이 아닌 게시글의 수정은 \\n 재모집으로 변경하는 것 이외에는 제한됩나다.",G5_BBS_URL.'/board.php?bo_table=works');
+if($ca_name == '모집종료'){
+    alert("모집종료는 관리자가 처리합니다.",G5_BBS_URL.'/board.php?bo_table=works');
 }
+
+$current_date_origin = date('Y-m-d', strtotime("+1 days"));
+$current_date = str_replace('-','',$current_date_origin);
+if($w == 'u' && $wr_6 == $current_date){
+    if(write_re_check() && $ca_name == '재모집'){
+        alert("재모집으로 변경하는 것은 19시 이후에 가능합니다.",G5_BBS_URL.'/board.php?bo_table=works');
+    }
+    if(!write_re_check()){
+        if($ca_name == '모집중'&& $ca_name_before == '재모집'){
+            alert("재모집중인 글은 모집중으로 변경할 수 없습니다.",G5_BBS_URL.'/board.php?bo_table=works');
+        }
+        if($ca_name_before == '모집종료' && $ca_name == '모집중'){
+            alert("19시 이후에는 재모집으로만 변경할 수 있습니다.",G5_BBS_URL.'/board.php?bo_table=works');
+        }
+    }
+}
+
 
 $wr_subject = '';
 if (isset($_POST['wr_subject'])) {
