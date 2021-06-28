@@ -160,7 +160,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 				<label>회사 주소</label>
 				<?php if ($config['cf_req_addr']) { ?><strong class="sound_only">필수</strong><?php }  ?>
 				<label for="reg_mb_zip" class="sound_only">우편번호<?php echo $config['cf_req_addr']?'<strong class="sound_only"> 필수</strong>':''; ?></label>
-				<input type="text" name="mb_zip" value="<?php echo $member['mb_zip1'].$member['mb_zip2']; ?>" id="reg_mb_zip" <?php echo $fig['cf_req_addr']?"required":""; ?> class="frm_input twopart_input <?php echo $config['cf_req_addr']?"required":""; ?>" size="5" maxlength="6"  placeholder="우편번호" readonly onclick="win_zip('fregisterform', 'mb_zip', 'mb_addr1', 'mb_addr2', 'mb_addr3', 'mb_addr_jibeon');">
+				<input type="text" name="mb_zip" value="<?php echo $member['mb_zip1'].$member['mb_zip2']; ?>" id="reg_mb_zip" <?php echo $fig['cf_req_addr']?"required":""; ?> class="frm_input twopart_input <?php echo $config['cf_req_addr']?"required":""; ?>" size="6" maxlength="6"  placeholder="우편번호" readonly onclick="win_zip('fregisterform', 'mb_zip', 'mb_addr1', 'mb_addr2', 'mb_addr3', 'mb_addr_jibeon');">
 				<button type="button" class="btn_frmline" onclick="win_zip('fregisterform', 'mb_zip', 'mb_addr1', 'mb_addr2', 'mb_addr3', 'mb_addr_jibeon');">주소 검색</button><br>
 				<input type="text" name="mb_addr1" value="<?php echo get_text($member['mb_addr1']) ?>" id="reg_mb_addr1" <?php echo $config['cf_req_addr']?"required":""; ?> class="frm_input frm_address full_input <?php echo $config['cf_req_addr']?"required":""; ?>" size="50"  placeholder="기본주소" readonly>
 				<label for="reg_mb_addr1" class="sound_only">기본주소<?php echo $config['cf_req_addr']?'<strong> 필수</strong>':''; ?></label><br>
@@ -371,10 +371,15 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	<?php } ?>
     
     <div class="form_01">
-        <h2>연락처 (선택)</h2>
+		<?php if($is_worker){ ?>
+        <h2>연락처</h2>
+		<?php } ?>
+
         <ul>
 
 			<!-- 임시 -->
+			<!-- 연락처(근로자) -->
+			<?php if($is_worker){ ?>
 			<li>
 	            <label for="reg_mb_hp" class="sound_only">휴대폰번호<?php if ($config['cf_req_hp']) { ?><strong>필수</strong><?php } ?></label>
 	            
@@ -384,6 +389,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	            <?php } ?>
 	            
 	    	</li>
+			<?php } ?>
 			<!-- 임시 -->
 
 
@@ -418,7 +424,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	        	<div class="adress">
 	            	<span class="frm_label sound_only">주소<?php if ($config['cf_req_addr']) { ?>필수<?php } ?></span>
 	            	<label for="reg_mb_zip" class="sound_only">우편번호<?php echo $config['cf_req_addr']?'<strong class="sound_only"> 필수</strong>':''; ?></label>
-	            	<input type="text" name="mb_zip" value="<?php echo $member['mb_zip1'].$member['mb_zip2']; ?>" id="reg_mb_zip" style="width:80px;" <?php echo $config['cf_req_addr']?"required":""; ?> class="frm_input <?php echo $config['cf_req_addr']?"required":""; ?>" size="5" maxlength="6" placeholder="우편번호">
+	            	<input type="text" name="mb_zip" value="<?php echo $member['mb_zip1'].$member['mb_zip2']; ?>" id="reg_mb_zip" <?php echo $config['cf_req_addr']?"required":""; ?> class="frm_input <?php echo $config['cf_req_addr']?"required":""; ?>" size="6" maxlength="6" placeholder="우편번호" onclick="win_zip('fregisterform', 'mb_zip', 'mb_addr1', 'mb_addr2', 'mb_addr3', 'mb_addr_jibeon');">
 	            	<button type="button" class="btn_frmline" onclick="win_zip('fregisterform', 'mb_zip', 'mb_addr1', 'mb_addr2', 'mb_addr3', 'mb_addr_jibeon');">주소검색</button><br>
 	            </div>
 	            <label for="reg_mb_addr1" class="sound_only">주소<?php echo $config['cf_req_addr']?'<strong class="sound_only"> 필수</strong>':''; ?></label>
@@ -731,5 +737,73 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 		}
 		$(this).siblings('.fileName').val(filename);
 	});
+
+//휴대번호 하이픈(-)
+function autoHypenTel(str) {
+  str = str.replace(/[^0-9]/g, '');
+  var tmp = '';
+
+  if (str.substring(0, 2) == 02) {
+    // 서울 전화번호일 경우 10자리까지만 나타나고 그 이상의 자리수는 자동삭제
+    if (str.length < 3) {
+      return str;
+    } else if (str.length < 6) {
+      tmp += str.substr(0, 2);
+      tmp += '-';
+      tmp += str.substr(2);
+      return tmp;
+    } else if (str.length < 10) {
+      tmp += str.substr(0, 2);
+      tmp += '-';
+      tmp += str.substr(2, 3);
+      tmp += '-';
+      tmp += str.substr(5);
+      return tmp;
+    } else {
+      tmp += str.substr(0, 2);
+      tmp += '-';
+      tmp += str.substr(2, 4);
+      tmp += '-';
+      tmp += str.substr(6, 4);
+      return tmp;
+    }
+  } else {
+    // 핸드폰 및 다른 지역 전화번호 일 경우
+    if (str.length < 4) {
+      return str;
+    } else if (str.length < 7) {
+      tmp += str.substr(0, 3);
+      tmp += '-';
+      tmp += str.substr(3);
+      return tmp;
+    } else if (str.length < 11) {
+      tmp += str.substr(0, 3);
+      tmp += '-';
+      tmp += str.substr(3, 3);
+      tmp += '-';
+      tmp += str.substr(6);
+      return tmp;
+    } else {
+      tmp += str.substr(0, 3);
+      tmp += '-';
+      tmp += str.substr(3, 4);
+      tmp += '-';
+      tmp += str.substr(7);
+      return tmp;
+    }
+  }
+
+  return str;
+}
+$('#reg_mb_tel').keyup(function (event) {
+  event = event || window.event;
+  var _val = this.value.trim();
+  this.value = autoHypenTel(_val);
+});
+$('#reg_mb_hp').keyup(function (event) {
+  event = event || window.event;
+  var _val = this.value.trim();
+  this.value = autoHypenTel(_val);
+});
     </script>
 </div>

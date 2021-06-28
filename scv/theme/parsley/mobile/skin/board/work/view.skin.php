@@ -18,9 +18,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 				<?php 
 				if($is_worker){
 					if($view['ca_name']!='모집종료'){
-						echo '<a href='.$apply_href.' target="_blank" class="btn_b01 btn" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
-							}
-					else{
+						//echo '<a href='.$apply_href.' target="_blank" class="btn_b01 btn" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
+						if($list[$i]['ca_name'] == '재모집'){
+							echo '<a href="./apply_memo_form.php?re=1'.'&me_recv_mb_id='.$view['mb_id'].'&bo_table='.$bo_table.'&wr_id='.$view['wr_id'].'" target="_blank" class="btn_b01 btn" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';	
+						}else{
+							//echo '<a href="./apply_popin.php?bo_table='.$bo_table.'&wr_id='.$list[$i]['wr_id'].' target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
+							echo '<a href="./apply_memo_form.php?'.'me_recv_mb_id='.$view['mb_id'].'&bo_table='.$bo_table.'&wr_id='.$view['wr_id'].'" target="_blank" class="btn_b01 btn" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
+						}	
+					}else{
 						echo '<h3 style="color:red"><b>지원마감</b></h3>';
 					}
 				}?>

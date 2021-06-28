@@ -329,7 +329,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 				<label>근무지</label>
 				<?php if ($config['cf_req_addr']) { ?><strong class="sound_only">필수</strong><?php }  ?>
 				<label for="reg_wr_zip" class="sound_only">우편번호<strong class="sound_only"> 필수</strong></label>
-				<input type="text" name="wr_11" id="reg_wr_zip" <?php echo "required" ?> style="width:80px;" class="frm_input twopart_input <?php echo "required" ?>" size="5" maxlength="6"  placeholder="우편번호" value="<?=$write['wr_11']?>" onclick="win_zip('fwrite', 'wr_11', 'wr_12', 'wr_13', 'wr_14', 'wr_addr_jibeon');">
+				<input type="text" name="wr_11" id="reg_wr_zip" <?php echo "required" ?> class="frm_input twopart_input <?php echo "required" ?>" size="6" maxlength="6"  placeholder="우편번호" value="<?=$write['wr_11']?>" onclick="win_zip('fwrite', 'wr_11', 'wr_12', 'wr_13', 'wr_14', 'wr_addr_jibeon');">
 				<button type="button" class="btn_frmline" onclick="win_zip('fwrite', 'wr_11', 'wr_12', 'wr_13', 'wr_14', 'wr_addr_jibeon');">주소 검색</button><br>
 				<input type="text" name="wr_12" id="reg_wr_addr1" class="frm_input frm_address full_input" size="50"  placeholder="기본주소" value="<?=$write['wr_12']?>">
 				<label for="reg_wr_addr1" class="sound_only">기본주소<strong> 필수</strong></label><br>
