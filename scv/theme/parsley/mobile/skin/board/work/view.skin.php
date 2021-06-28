@@ -17,16 +17,22 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 				<span style="float:right;">
 				<?php 
 				if($is_worker){
-					if($view['wr_4']<$view['wr_5']&&$view['ca_name']=='모집중'){
-						echo '<a href='.$apply_href.' target="_blank" class="btn_b01 btn" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
-							}
-					else{
+					if($view['ca_name']!='모집종료'){
+						// echo '<a href='' target="_blank" class="btn_b01 btn" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
+						// 	}
+						if($list[$i]['ca_name'] == '재모집'){
+							echo '<a href="./apply_memo_form.php?re=1'.'&me_recv_mb_id='.$view['mb_id'].'&bo_table='.$bo_table.'&wr_id='.$view['wr_id'].'" target="_blank" class="btn_b01 btn" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';	
+						}else{
+							//echo '<a href="./apply_popin.php?bo_table='.$bo_table.'&wr_id='.$list[$i]['wr_id'].' target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
+							echo '<a href="./apply_memo_form.php?'.'me_recv_mb_id='.$view['mb_id'].'&bo_table='.$bo_table.'&wr_id='.$view['wr_id'].'" target="_blank" class="btn_b01 btn" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
+						}
+					}else{
 						echo '<h3 style="color:red"><b>지원마감</b></h3>';
 					}
 				}?>
 				<?php 
 				if($is_constructor && $view['mb_id'] == $member['mb_id']) {?>
-					<a href="<?=$apply_cons_href?>" target="_blank" class="btn_b01 btn" onclick="win_apply_cons(this.href); return false;"><i class="fa fa-check-circle" aria-hidden="true"></i> 지원내역 확인하기</a>
+					<a style="float:right;" href="<?=$apply_cons_href?>" target="_blank" class="btn_b01 btn" onclick="win_apply_cons(this.href); return false;"><i class="fa fa-check-circle" aria-hidden="true"></i> 지원내역 확인하기</a>
 				<?php } ?>
 				</span>
 	        </h2>
@@ -38,7 +44,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 	        		<span class="ip"><?php if ($is_ip_view) { echo "&nbsp;($ip)"; } ?></span>
 	        		<span class="sound_only">조회</span><strong><i class="fa fa-eye" aria-hidden="true"></i> <?php echo number_format($view['wr_hit']) ?>회</strong>
 	        		<span class="sound_only">작성일</span><i class="fa fa-calendar" aria-hidden="true"></i> <?php echo $view['wr_datetime'] ?></span>
-	        		<a href="#bo_vc" class="bo_vc_btn"><span class="sound_only">댓글</span><i class="far fa-comment-dots"></i> <?php echo $view['wr_comment'] ?></a>
+					<?php if ($scrap_href&&$is_worker) { ?><a href="<?php echo $scrap_href;  ?>" target="_blank" class="bo_vc_btn btn_scrap" onclick="win_scrap(this.href); return false;"><i class="fa fa-thumb-tack" aria-hidden="true"></i><span> 찜하기</span></a><?php } ?>
+					<a href="#bo_vc" class="bo_vc_btn"><span class="sound_only">댓글</span><i class="far fa-comment-dots"></i> <?php echo $view['wr_comment'] ?></a>
 	        	</div>
 	        </div>
 	    </header>
@@ -46,7 +53,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 		<section id="bo_v_atc">
 	        <h2 id="bo_v_atc_title">본문</h2>
 			
-			<?php if ( $good_href || $nogood_href || $scrap_href || $sns_msg) { ?>
+			<!-- <?php if ( $good_href || $nogood_href || $scrap_href || $sns_msg) { ?>
 			<aside id="bo_v_aside">
 		        <div id="bo_v_act">
 			        <?php if ( $good_href || $nogood_href) { //추천, 비추천 ?>
@@ -74,16 +81,115 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 			            }
 			        }
 			        ?>
-		    	</div>
-		    	<?php if ($scrap_href) { ?><a href="<?php echo $scrap_href;  ?>" target="_blank" class="btn_scrap" onclick="win_scrap(this.href); return false;"><i class="fa fa-thumb-tack" aria-hidden="true"></i><span class="sound_only">스크랩</span></a><?php } ?>
-		        				
+		    	</div>				
 				<div id="bo_v_share">
 		    		<?php include_once($board_skin_path. "/view.sns.skin.php"); ?>
 		        </div>
 	    	</aside>
-	        <?php } ?>
-	        
-	        <?php
+	        <?php } ?> -->
+
+		<!-- 본문 내용 시작 -->
+		<table class="viewTable">
+            <colgroup>
+                <col style="width: 25%;">
+                <col style="width: 75%;">
+            </colgroup>
+            <thead></thead>
+
+			<!-- 요일 계산 -->
+			<?php 
+			$weekString = array("일", "월", "화", "수", "목", "금", "토");
+			$start_day = ($weekString[date('w', strtotime($view['wr_6']))]);
+			$end_day = ($weekString[date('w', strtotime($view['wr_16']))]);
+			?>
+
+			<!-- 모집 직종 수정 -->
+			<?php 
+			$new_wr_9 = explode("|", $view['wr_9']); 
+			$new_wr_9 = implode(", ", $new_wr_9); 
+			?>
+
+			<!-- 근무 상세 정보 -->
+            <tbody>
+				<tr>
+					<th>회사명</th>	
+					<td>
+						<span><?=$view['wr_1']?></span>
+					</td>
+				</tr>
+				<tr>
+					<th>담당자</th>
+					<td>
+						<span><?=$view['wr_2']."("?><a href="tel:<?=$view['wr_3']?>"><span style="color:#2aba8a"><u><?=$view['wr_3']?></u></span></a>)</span>
+					</td>
+				</tr>
+				<tr>
+					<th>근무지</th>
+					<td>
+						<span><?=$view['wr_12'].' '.$view['wr_14'].' '.$view['wr_13']?></span>
+					</td>
+				</tr>
+                <tr>
+                    <th>급여</th>
+                    <td class="payInfo">
+                        <div class="payInfoBox">
+                            <span class="textPoint"><strong>일급</strong></span>
+                            <span class="monthPay"><?=number_format($view['wr_10'])?><span>원</span></span>
+                            <div>
+                                                                                                                                                                                                                </div>
+                            </div>
+                            <div class="summary"><?='
+							고용보험료(0.8%): '.number_format((int)$view['wr_10']*0.008).'원<br>
+							수수료(9%): '.number_format($view['wr_10']*0.09).'원<br>
+							&#8658;실수령: '.number_format($view['wr_10']*0.902).'원'?>
+						</div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>근무기간</th>
+                    <td>
+						<span class="textPoint letter_0"><?=date("m.d", strtotime($view['wr_6']))."(".$start_day.") ~ ".date("m.d", strtotime($view['wr_16']))."(".$end_day.")"?></span>
+                            
+                    </td>
+                </tr>
+                <tr>
+                    <th>근무시간</th>
+                    <td>
+                        <span class="letter_0">
+                            <?=$view['wr_7']."~".$view['wr_8']?>
+                        </span>
+                    </td>
+                </tr>
+
+            <tr>
+                <th>모집 직종</th>
+                <td>
+					<span><?=$new_wr_9?></span>
+            </tr>
+			<tr>
+                <th>모집 인원</th>
+                <td>
+					<span><?=$view['wr_5']?></span>
+            </tr>
+			<tr>
+                <th>준비물</th>
+                <td>
+					<span><?=$view['wr_15']?></span>
+            </tr>
+            <tr>
+                <th>복리후생</th>
+	            <td>
+                	<span><?=$view['wr_17']?></span>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+		<div id="bo_v_con"><?php echo get_view_thumbnail($view['content']); ?></div>
+	        <?php //echo $view['rich_content']; // {이미지:0} 과 같은 코드를 사용할 경우 ?>
+
+			
+			<?php
 	        // 파일 출력
 	        $v_img_count = count($view['file']);
 	        if($v_img_count) {
@@ -98,27 +204,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 	            echo "</div>\n";
 	        }
 			?>
-			<!-- 본문 내용 시작 { -->
-			<div><?="건설사: ".$view['wr_1']?></div>
-			<div><?="담당자: ".$view['wr_2']?></div>
-			<div><?="담당자 연락처: ".$view['wr_3']?></div>
-			<div><?="장소: ".$view['wr_12'].' '.$view['wr_14'].' '.$view['wr_13']?></div>
-			<div><?="현재 지원 인원/모집 인원: ".$view['wr_4']."명/".$view['wr_5']."명"?></div>
-			<div><?="작업 날짜: ".$view['wr_6']?></div>
-			<div><?="시작 시각: ".$view['wr_7']?></div>
-			<div><?="종료 시각: ".$view['wr_8']?></div>
-			<?php $new_wr_9 = explode("|", $view['wr_9']); 
-			$new_wr_9 = implode(", ", $new_wr_9); ?>
-			<div><?="모집 직종: ".$new_wr_9?></div>
-			<div><?="일당: ".number_format($view['wr_10'])."원"?></div>
-			<div><?="-> 실수령: ".number_format($view['wr_10']*0.902)."원"?></div>
-			<div><?='&nbsp&nbsp&nbsp&nbsp&nbsp-> 고용보험료(0.8%): '.number_format((int)$view['wr_10']*0.008).'원 '?></div>
-			<div><?='&nbsp&nbsp&nbsp&nbsp&nbsp-> 수수료(9%): '.number_format($view['wr_10']*0.09).'원 '?></div><br>
-			<div id="bo_v_con"><?php echo get_view_thumbnail($view['content']); ?></div>
-			
-			
-	        <?php //echo $view['rich_content']; // {이미지:0} 과 같은 코드를 사용할 경우 ?>
-	
+
+
 	        <?php if ($is_signature) { ?><p><?php echo $signature ?></p><?php } //서명 ?>
 	
 			<?php
