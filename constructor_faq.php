@@ -5,7 +5,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="home/fa.ico" />
 <meta http-equiv="imagetoolbar" content="no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>자주하시는 질문 | SCV</title>
+<title>건설사 | 자주하시는 질문 | 건설왕</title>
 <link rel="stylesheet" href="home/css/default.css?ver=191202">
 <link rel="stylesheet" href="home/skin/faq/basic/style.css?ver=191202">
 <!--[if lte IE 8]>
@@ -58,11 +58,11 @@ var g5_cookie_domain = "";
 
 
 <!-------------------------- 수정해서 사용하세욧 -------------------------->
-<meta name="description" content="비대면 인력사무소 SCV">
+<meta name="description" content="건설 취업 포털, 건설왕">
 <meta property="og:type" content="website">
-<meta property="og:title" content="비대면 인력사무소 SCV">
-<meta property="og:description" content="비대면 인력사무소 SCV">
-<meta property="og:image" content="home/img/photo_2021-06-11_13-40-21.jpg.">
+<meta property="og:title" content="건설왕">
+<meta property="og:description" content="건설 취업 포털, 건설왕">
+<meta property="og:image" content="https://image.flaticon.com/icons/png/512/2092/2092877.png">
 <meta property="og:url" content="">
 <!-------------------------- ./수정해서 사용하세요 -------------------------->
 
@@ -74,60 +74,21 @@ var g5_cookie_domain = "";
     transition-delay: 5s;
     visibility: visible;
 }
+.half_HL{
+	background: linear-gradient(to top, #FFE400 40%, transparent 40%);
+}
 </style>
 <nav class="navbar fixed-top navbar-expand-lg navbar-white bg-white fixed-top">
   <div class="container">
-	<a class="navbar-brand" href="index.php" class="logo"><img src="home/img/photo_2021-06-11_13-40-21.jpg" style="width:70px;">&nbsp;SCV</a>
+  	<a class="navbar-brand" href="" class="logo"><img src="https://image.flaticon.com/icons/png/512/2092/2092877.png" style="width:70px;">&nbsp;<span class="ks4">건설왕</span></a>
 	<button class="navbar-toggler navbar-dark navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 	  <span class="navbar-toggler-icon"></span>
 	</button>
 	<div class="collapse navbar-collapse" id="navbarResponsive" data-hover="dropdown" data-animations="fadeIn fadeIn fadeInUp fadeInRight">
 	  <ul class="navbar-nav ml-auto">
-					
-							<!-- <li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle ks4 f16" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" target="_self">
-					회사소개					</a>
-						#서브
-						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-														<a class="dropdown-item ks4 f15 fw4" href="about.php" target="_self">인사말</a>
-
-														<a class="dropdown-item ks4 f15 fw4" href="history.php" target="_self">연혁</a>
-
-														<a class="dropdown-item ks4 f15 fw4" href="pages-1.php" target="_self">빈페이지</a>
-
-							</ul>
-					</li> -->
-
-					
-							<!-- <li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle ks4 f16" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" target="_self">
-					비즈니스					</a>
-						#서브
-						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-														<a class="dropdown-item ks4 f15 fw4" href="/pages/product.php" target="_self">사업안내 1</a>
-
-														<a class="dropdown-item ks4 f15 fw4" href="/pages/product-2.php" target="_self">사업안내 2</a>
-
-														<a class="dropdown-item ks4 f15 fw4" href="/pages/service.php" target="_self">서비스</a>
-
-							</ul>
-					</li> -->
-
-					
-							<!-- <li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle ks4 f16" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" target="_self">
-					제품안내					</a>
-						#서브
-						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-														<a class="dropdown-item ks4 f15 fw4" href="/gallery" target="_self">갤러리 1</a>
-
-							</ul>
-					</li> -->
-
-					
-					<li class="nav-item dropdown">
-					<a class="nav-link ks4 f16" href="scv" id="navbarDropdownBlog" aria-haspopup="true" aria-expanded="false" target="_self">
-					SCV 페이지</a>
+	  				<li class="nav-item dropdown">
+					<a class="btn-primary nav-link ks4 f16" href="scv" id="navbarDropdownBlog" aria-haspopup="true" aria-expanded="false" target="_self" style="border-radius:.2rem;">
+					건설왕 시작하기</a>
 					</li>
 
                     <li class="nav-item dropdown">
@@ -136,7 +97,7 @@ var g5_cookie_domain = "";
 					</li>
 
 					<li class="nav-item dropdown">
-					<a class="nav-link ks4 f16" href="constructor_faq.php" id="navbarDropdownBlog" aria-haspopup="true" aria-expanded="false" target="_self">
+					<a class="nav-link ks4 f16 half_HL" href="constructor_faq.php" id="navbarDropdownBlog" aria-haspopup="true" aria-expanded="false" target="_self">
 					건설사 FAQ</a>
 					</li>
 
@@ -168,19 +129,32 @@ var g5_cookie_domain = "";
 <!-------------------------- ./게시판 상단 배경 수정하는 곳 -------------------------->
 	<!-------------------------- 상단배경 수정 -------------------------->
 		<style>
+	.image-description{
+		/* text-align: left; */
+		/* vertical-align: bottom; */
+		position: absolute;
+		bottom: 10px;
+		left: 30px;
+		font-family: 'S-CoreDream-4Regular';
+		font-size: 2em;
+	}
+
 	/* mobile */
 	@media (min-width: 1px) and (max-width: 1089px) {
-			.about-bg{background-image:url('home/img/3.jpg');width:100%;-webkit-background-size:100% auto;-moz-background-size:100% auto;-o-background-size:100% auto;background-position:center; background-size: cover; background-repeat:no-repeat;color:#fff;height:100%;padding-top: 70px;}.ml-auto,.mx-auto{padding-top:10px;padding-bottom:10px}.lead{font-size:12px;font-weight:300}.display-4{ font-size:1.5rem;font-weight:300;}.btn,a.btn{line-height:20px!important;height:20px!important;padding:0 5px;text-align:center;font-weight:700;border:0;-webkit-transition:background-color .3s ease-out;-moz-transition:background-color .3s ease-out;-o-transition:background-color .3s ease-out;transition:background-color .3s ease-out}.btn-outline-secondary{font-size:11px;padding:0 5px}
+		.about-bg{background-image:url('home/img/crane-and-building-construction-site-on-background-LEE7E6H.JPG	');width:100%;-webkit-background-size:100% auto;-moz-background-size:100% auto;-o-background-size:100% auto;background-position:center; background-size: cover; background-repeat:no-repeat;color:#fff;height:100%;padding-top: 70px;}.ml-auto,.mx-auto{padding-top:10px;padding-bottom:10px}.lead{font-size:12px;font-weight:300}.display-4{ font-size:1.5rem;font-weight:300;}.btn,a.btn{line-height:20px!important;height:20px!important;padding:0 5px;text-align:center;font-weight:700;border:0;-webkit-transition:background-color .3s ease-out;-moz-transition:background-color .3s ease-out;-o-transition:background-color .3s ease-out;transition:background-color .3s ease-out}.btn-outline-secondary{font-size:11px;padding:0 5px}
+		.image-description{font-size:1.3em;}
 	}
 	/* desktop */
 	@media (min-width: 1090px) {
-		.about-bg{background-image:url('home/img/3.jpg');background-position:center center;background-repeat:no-repeat;color:#fff;height:300px}.lead{font-size:1.25rem;font-weight:300}.display-4{font-size:2.5rem;font-weight:300;line-height:1.2}
+		.about-bg{background-image:url('home/img/crane-and-building-construction-site-on-background-LEE7E6H.JPG');background-position:center center;background-repeat:no-repeat;color:#fff;height:300px}.lead{font-size:1.25rem;font-weight:300}.display-4{font-size:2.5rem;font-weight:300;line-height:1.2}
 	}
+
+	
 	</style>
 
 
 	<div class="position-relative overflow-hidden p-md-5 text-center bg-dark bg-sub-1 ety-mt-main about-bg">
-
+	<p class="image-description">건설사의 믿음직한 파트너 '건설왕'</p>
 	  <div class="col-md-5 p-lg-5 mx-auto my-5">
 		<h1 class="display-4 font-weight-normal"></h1>
 		<p class="lead font-weight-normal ko1">
@@ -341,18 +315,18 @@ function faq_open(el)
 
 
 		
-	<footer class="py-5 bg-dark margin-top-80">
+<footer class="py-5 bg-dark margin-top-80">
 		<div class="container footer">
 			<div class="row">
 				<div class="col-md-12 text-white text-center">
 					<h2 class="en1">MJW.DEB.KR</h2><!-- image or text  -->
 					<p class="ks2 f12">
-					별도 문의사항은 <span class="color-white">admin@scv.com</span> 으로 연락 주시기 바랍니다.
+					별도 문의사항은 <a href="mailto:s34190@naver.com" class="color-white">s34190@naver.com</a> 으로 연락 주시기 바랍니다.
 					</p>
 					<p class="ks2 f12">
 						<i class="far fa-building"></i> 사무실 : 서울 강동구 성내로6길 14-20 청정빌딩 402호<br />
-						<i class="fas fa-phone"></i> 연락처 : 010-3886-3419<br />
-						<i class="far fa-envelope-open"></i> <a href="mailto:admin@scv.com" class="color-white">Email : ADMIN@SCV.COM</a><br />
+						<i class="fas fa-phone"></i> 연락처 : 070-4118-0113<br />
+						<i class="far fa-envelope-open"></i> <a href="mailto:s34190@naver.com" class="color-white">Email : S34190@NAVER.COM</a><br />
 						<i class="fas fa-fax"></i> 팩스번호 : 02) 1234-1234<br />
 					</p>
 
