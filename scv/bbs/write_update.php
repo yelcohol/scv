@@ -41,6 +41,10 @@ if($ca_name == '모집종료'){
     alert("모집종료는 관리자가 처리합니다.",G5_BBS_URL.'/board.php?bo_table=works');
 }
 
+if($ca_name_before == '모집취소'){
+    alert("모집취소처리 한 글은 수정이 불가합니다.",G5_BBS_URL.'/board.php?bo_table=works');
+}
+
 $current_date_origin = date('Y-m-d', strtotime("+1 days"));
 $current_date = str_replace('-','',$current_date_origin);
 if($w == 'u' && $wr_6 == $current_date){
