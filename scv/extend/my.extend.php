@@ -7,6 +7,7 @@ if ($member['mb_id']) {
     // 건설사면
     else if ($member['mb_10'] === 'constructor')
         $is_constructor = true;
+    else{}
 }
 
 $works_table = $g5['write_preifx'].'works';
@@ -49,6 +50,4 @@ if($second_apply_confirm_time == $now){ //2차 출근 확정 시기가 끝났을
                                          where ma_state = '지원 합격' and wr_6 = '{$today}'";
     sql_query($sql);
 }
-
-$end_time = G5_TIME_YMD.' 18:59:59';
 ?>
