@@ -431,8 +431,8 @@ a.btn_b04, .btn_b04 {padding:0 10px}
 .list_head li.sel {position:absolute;left:5px}
 .list_head li.num {width:10%}
 .list_head li.tit {width:60%}
-.list_head li.wri {width:15%}
-.list_head li.view {width:5%}
+.list_head li.wri {width:13%}
+.list_head li.view {width:7%}
 .list_head li.date {width:10%}
 
 .list_03 li .view .fa-eye,
@@ -453,8 +453,8 @@ a.btn_b04, .btn_b04 {padding:0 10px}
 .list_03 li .sel {position:absolute;left:5px}
 .list_03 li .num {width:10%;text-align:center}
 .list_03 li .tit {width:60%}
-.list_03 li .wri {width:15%;text-align:center}
-.list_03 li .view {width:5%;text-align:center}
+.list_03 li .wri {width:13%;text-align:center}
+.list_03 li .view {width:7%;text-align:center}
 .list_03 li .date {width:10%;text-align:center}
 
 /* 기본폼 */

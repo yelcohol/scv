@@ -381,7 +381,7 @@
 	position:relative
 }
 .viewTable td.payInfo .payInfoBox {
-    width: 356px;
+    /* width: 356px; */
 	max-width: 100%;
     position: relative;
     top: -6px;

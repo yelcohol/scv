@@ -104,9 +104,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 	            <?php } ?>
 	            <li class="num">지역</li>
 	            <li class="tit">제목</li>
-	            <li class="wri">글쓴이</li>
 	            <li class="view"><?php echo subject_sort_link('wr_10', $qstr2, 1) ?>일당</a></th>
 	            <li class="date"><?php echo subject_sort_link(strtotime('wr_6'), $qstr2, 1) ?>근무날짜</a></th>
+				<li class="wri">글쓴이</li>
 	    	</ul>
 	    	<div id="bo_li_01" class="list_03">   
 		        <ul>
@@ -132,9 +132,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 		                    <input type="checkbox" name="chk_wr_id[]" value="<?php echo $list[$i]['wr_id'] ?>" id="chk_wr_id_<?php echo $i ?>">
 		                </span>
 		                <?php } ?>
+
+						<!-- 지역: 두 단어만 보이게 출력 / 예시: 경기 성남시 -->
 		                <?php $tmp_place = explode(" ", $list[$i]['wr_12']);
 						$place = $tmp_place[0].' '.$tmp_place[1];
 						?>
+
+						<!-- 공지사항 -->
 		            	<div class="num cnt_left li_status">
 							<?php
 				            if ($list[$i]['is_notice']) // 공지사항
@@ -145,7 +149,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 								echo $place;
 				            ?>
 						</div>
-	
+						
+						<!-- 제목 -->
 		            	<div class="tit cnt_left bo_subject">
 							<?php if ($is_category && $list[$i]['ca_name']) { ?>
 			                <a href="<?php echo $list[$i]['ca_name_href'] ?>" class="bo_cate_link">[<?php echo $list[$i]['ca_name'] ?>]</a>
@@ -160,6 +165,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 								<div style="font-weight:normal;">&nbsp;&#x2937;&nbsp;<?=$new_wr_9?></div>
 								
 							</a>
+
+							<!-- 지원하기 버튼 or 지원마감 -->
 							<?php $bbs=G5_BBS_URL?>
 							<?php 
 							if($is_worker){
@@ -185,16 +192,22 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 					        	<?php } ?>
 		                    </a> 
 		                </div>
-		
-		                <div class="wri cnt_left bo_info">
-				        	<span class="sound_only">작성자</span><span class="bo_guest"><?php echo $list[$i]['name'] ?></span>
-				        </div>
-				        <div class="view cnt_left">
+						
+						<!-- 일당 -->
+						<div class="view cnt_left">
 				        	<span class="sound_only">일당</span><span class="bo_view"></i> <?=number_format((double)$list[$i]['wr_10'])?></span>
 				        </div>
+
+						<!-- 근무날짜 -->
 				        <div class="date cnt_left">
 				        	<span class="sound_only">근무날짜</span><span class="bo_date"><i class="far fa-clock"></i> <?=date("m/d",strtotime($list[$i]['wr_6']))?><?="~".date("m/d",strtotime($list[$i]['wr_16']))?></span>
 				        </div>	
+
+						<!-- 글쓴이 -->
+		                <div class="wri cnt_left bo_info">
+				        	<span class="sound_only">작성자</span><span class="bo_guest"><?php echo $list[$i]['name'] ?></span>
+				        </div>
+				        
 		            </li><?php } } ?>
 		            <?php if (count($list) == 0) { echo '<li class="empty_table">게시물이 없습니다.</li>'; } ?>
 		        </ul>
