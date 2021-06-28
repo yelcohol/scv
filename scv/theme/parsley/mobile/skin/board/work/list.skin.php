@@ -200,8 +200,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 				        	<span class="sound_only">일당</span><span class="bo_view"></i> <?=number_format((double)$list[$i]['wr_10'])?></span>
 				        </div>
 				        <div class="date cnt_left">
-				        	<span class="sound_only">근무날짜</span><span class="bo_date"><i class="far fa-clock"></i> <?=date("m/d",strtotime($list[$i]['wr_6']))?><?="~".date("m/d",strtotime($list[$i]['wr_16']))?></span>
-				        </div>	
+							<?php if(date("m/d",strtotime($list[$i]['wr_6'])) == date("m/d",strtotime($list[$i]['wr_16']))) {?>
+				        	<span class="sound_only">근무날짜</span><span class="bo_date"><i class="far fa-clock"></i> <?php echo date("m/d",strtotime($list[$i]['wr_6']))?><?php echo '   '.$list[$i]['wr_7'].' ~ '.$list[$i]['wr_8']?></span>
+							<?php } else { ?>
+							<span class="sound_only">근무날짜</span><span class="bo_date"><i class="far fa-clock"></i> <?php echo date("m/d",strtotime($list[$i]['wr_6']))?><?="~".date("m/d",strtotime($list[$i]['wr_16']))?></span>
+							<?php } ?>
+						</div>	
 		            </li><?php } } ?>
 		            <?php if (count($list) == 0) { echo '<li class="empty_table">게시물이 없습니다.</li>'; } ?>
 		        </ul>

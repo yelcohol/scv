@@ -52,7 +52,10 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.bxslider.js"></script>', 10);
                     <?php if(($is_constructor && $row['me_name'] == '내가 지원한 일자리') || ($is_worker && $row['me_name'] == '내가 올린 일자리')) {?>
                     <?php continue;?>
                     <?php } ?>
-                    <a href="<?php echo $row['me_link']; ?>" target="_<?php echo $row['me_target']; ?>" class="gnb_1da"><i class="far fa-list-alt"></i> <?php echo $row['me_name'] ?></a>
+                    <?php if($row['me_name'] == ' 일자리'){ ?>
+                            <?php $link = $row['me_link'].'&sca=모집중'; ?>
+                    <?php    }?>
+                    <a href="<?php echo $row['me_link']; ?>" target="_<?php echo $row['me_target']; ?>" class="gnb_1da"><i class="far fa-list-alt"></i> <?php echo $row['me_name'].'11' ?></a>
                     <?php
                     $sql2 = " select *
                                 from {$g5['menu_table']}
