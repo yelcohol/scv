@@ -163,7 +163,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 							<?php $bbs=G5_BBS_URL?>
 							<?php 
 							if($is_worker){
-								if($list[$i]['ca_name']!='모집종료'){
+								if($list[$i]['ca_name']!='모집종료' && $list[$i]['ca_name'] != '모집취소'){
 									if($list[$i]['ca_name'] == '재모집'){
 										echo '<a href="./apply_memo_form.php?re=1'.'&me_recv_mb_id='.$list[$i]['mb_id'].'&bo_table='.$bo_table.'&wr_id='.$list[$i]['wr_id'].'" target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';	
 									}else{
@@ -175,6 +175,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 									echo '<h3 style="color:red"><b>지원마감</b></h3>';
 								}
 							}?>
+							<?php if($is_constructor && $member['mb_id'] == $list[$i]['mb_id']) { ?>
+										<?php echo '<a href="./apply2.php?'.'bo_table='.$bo_table.'&wr_id='.$list[$i]['wr_id'].'" target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원내역 확인하기</span></a>'; ?>
+							<?php } ?>
 		                        <?php
 		                        if (isset($list[$i]['icon_hot'])) echo $list[$i]['icon_hot'];
 		                        if (isset($list[$i]['icon_file'])) echo $list[$i]['icon_file'];
