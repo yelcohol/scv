@@ -24,6 +24,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
                     <input type="hidden" name="bo_table" value="works">
                     <input type="hidden" name="wr_id" value=<?php echo $wr_id ?>>
                     <input type="hidden" name="val" value=<?php echo $val ?>>
+                    <input type="hidden" name="re" value=<?php echo $re ?>>
                     <?php if($ma_id != -1) { ?>
                         <input type="hidden" name="ma_id" value=<?php echo $ma_id?>>
                     <?php } ?>
