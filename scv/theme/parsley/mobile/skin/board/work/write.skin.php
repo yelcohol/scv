@@ -130,7 +130,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 		    	<div class="wli_tit">제목</div>
 		    	<div class="wli_cnt">
 		    		<label for="wr_subject" class="sound_only">제목<strong>필수</strong></label>
-        			<input type="text" name="wr_subject" value="<?php echo $subject ?>" id="wr_subject" required class="frm_input required" placeholder="제목">
+        			<input type="text" name="wr_subject" value="<?php echo $subject ?>" id="wr_subject" required class="frm_input required" maxlength="25" placeholder="제목">
 		    	</div>
 		    </li>
 		    <!-- <li class="bo_w_option">
@@ -150,6 +150,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 				    $("#mail").click(function(){
 				        $(".mail_ck").toggleClass("click_off");
 				    });
+
 				    $("#secret").click(function(){
 				        $(".secret_ck").toggleClass("click_on");
 				    });
@@ -167,15 +168,15 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 			<div class="wli_tit">담당자 정보</div>
 			<div class="write_div">
         		<label for="wr_1" class="sound_only">회사명</label>
-        		<input class="frm_input full_input required" type="text" name="wr_1" value="<?=$write['wr_1']?>" id="wr_1" placeholder="업체 이름">
+        		<input class="frm_input full_input required" type="text" name="wr_1" value="<?=$write['wr_1']?>" id="wr_1" maxlength="20" placeholder="업체 이름">
     		</div>
     		<div class="write_div">
         		<label for="wr_2" class="sound_only">담당자명</label>
-        		<input class="frm_input full_input required" type="text" name="wr_2" value="<?=$write['wr_2']?>" id="wr_2" placeholder="담당자 이름">
+        		<input class="frm_input full_input required" type="text" name="wr_2" value="<?=$write['wr_2']?>" id="wr_2" maxlength="10" placeholder="담당자 이름">
     		</div>
     		<div class="write_div">
         		<label for="wr_3" class="sound_only">담당자 연락처</label>
-        		<input class="frm_input full_input required" type="text" name="wr_3" value="<?=$write['wr_3']?>" id="wr_3" placeholder="담당자 연락처 / 예시: 010-1234-5678">
+        		<input class="frm_input full_input required" type="tel" name="wr_3" value="<?=$write['wr_3']?>" id="wr_3" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}" maxlength="13" placeholder="담당자 연락처">
     		</div>
 			</li>
 			<li>
@@ -298,7 +299,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 			<li>
 			<div class="write_div">
 				<label for="wr_10" class="sound_only">일당</label>
-				<input class="frm_input thirty_input required" type="number" name="wr_10" value="<?=$write['wr_10']?>" id="wr_10" placeholder="일당" required>
+				<input class="frm_input thirty_input required" type="number" name="wr_10" value="<?=$write['wr_10']?>" id="wr_10" max="999999999" placeholder="일당" required>
 			
 				<label for="wr_15" class="sound_only">준비물</label>
 				<input class="frm_input thirty_input" type="text" name="wr_15" value="<?=$write['wr_15']?>" id="wr_15" placeholder="준비물">
@@ -503,4 +504,67 @@ function fwrite_submit(f)
 
     return true;
 }
+
+//휴대번호 하이픈(-)
+function autoHypenTel(str) {
+  str = str.replace(/[^0-9]/g, '');
+  var tmp = '';
+
+  if (str.substring(0, 2) == 02) {
+    // 서울 전화번호일 경우 10자리까지만 나타나고 그 이상의 자리수는 자동삭제
+    if (str.length < 3) {
+      return str;
+    } else if (str.length < 6) {
+      tmp += str.substr(0, 2);
+      tmp += '-';
+      tmp += str.substr(2);
+      return tmp;
+    } else if (str.length < 10) {
+      tmp += str.substr(0, 2);
+      tmp += '-';
+      tmp += str.substr(2, 3);
+      tmp += '-';
+      tmp += str.substr(5);
+      return tmp;
+    } else {
+      tmp += str.substr(0, 2);
+      tmp += '-';
+      tmp += str.substr(2, 4);
+      tmp += '-';
+      tmp += str.substr(6, 4);
+      return tmp;
+    }
+  } else {
+    // 핸드폰 및 다른 지역 전화번호 일 경우
+    if (str.length < 4) {
+      return str;
+    } else if (str.length < 7) {
+      tmp += str.substr(0, 3);
+      tmp += '-';
+      tmp += str.substr(3);
+      return tmp;
+    } else if (str.length < 11) {
+      tmp += str.substr(0, 3);
+      tmp += '-';
+      tmp += str.substr(3, 3);
+      tmp += '-';
+      tmp += str.substr(6);
+      return tmp;
+    } else {
+      tmp += str.substr(0, 3);
+      tmp += '-';
+      tmp += str.substr(3, 4);
+      tmp += '-';
+      tmp += str.substr(7);
+      return tmp;
+    }
+  }
+
+  return str;
+}
+$('#wr_3').keyup(function (event) {
+  event = event || window.event;
+  var _val = this.value.trim();
+  this.value = autoHypenTel(_val);
+});
 </script>
