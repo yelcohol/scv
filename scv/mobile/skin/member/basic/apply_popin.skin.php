@@ -11,6 +11,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
     <form name="f_apply_popin" action="./apply_popin_update.php" method="post">
     <input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
     <input type="hidden" name="wr_id" value="<?php echo $wr_id ?>">
+	<input type="hidden" name="re" value="<?php echo $re ?>">
     <div class="new_win_con">
 	    <!-- <h2 class="sound_only">제목 확인 및 댓글 쓰기</h2> -->
 	    <ul>

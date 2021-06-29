@@ -3,6 +3,8 @@ include_once('./_common.php');
 
 include_once(G5_PATH.'/head.sub.php');
 
+$re = isset($_GET['re']) ? $_GET['re'] : -10;
+
 if ($is_guest) {
     $href = './login.php?'.$qstr.'&amp;url='.urlencode(get_pretty_url($bo_table, $wr_id));
     $href2 = str_replace('&amp;', '&', $href);
@@ -50,21 +52,23 @@ $row = sql_fetch($sql);
 if ($row['cnt']) {
 
     $back_url = get_pretty_url($bo_table, $wr_id);
-
-    echo <<<HEREDOC
-    <script>
-    if (confirm('이미 지원하신 공고입니다.\\n\\n지금 지원 내역을 확인하시겠습니까?'))
-        document.location.href = './apply.php';
-    else
-        window.close();
-    </script>
-    <noscript>
-    <p>이미 지원하신 공고입니다.</p>
-    <a href="./apply.php">지원 내역 확인하기</a>
-    <a href="{$back_url}">돌아가기</a>
-    </noscript>
-HEREDOC;
-    exit;
+    if($re != 1){
+        echo <<<HEREDOC
+        <script>
+        if (confirm('이미 지원하신 공고입니다.\\n\\n지금 지원 내역을 확인하시겠습니까?'))
+            document.location.href = './apply.php';
+        else
+            window.close();
+        </script>
+        <noscript>
+        <p>이미 지원하신 공고입니다.</p>
+        <a href="./apply.php">지원 내역 확인하기</a>
+        <a href="{$back_url}">돌아가기</a>
+        </noscript>
+        HEREDOC;
+        exit;
+    }
+    
 }
 
 include_once($member_skin_path.'/apply_popin.skin.php');
