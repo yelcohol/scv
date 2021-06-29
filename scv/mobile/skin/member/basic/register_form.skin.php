@@ -14,7 +14,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 
     <form name="fregisterform" id="fregisterform" action="<?php echo $register_action_url ?>" onsubmit="return fregisterform_submit(this);" method="post" enctype="multipart/form-data" autocomplete="off">
     <?php
-    if(!isset($reg_type)){
+	# 정보 수정일 경우에는 reg_type이 없기 때문에 미리 저장되어 있는 mb_10 값으로 reg_type을 설정한다.
+	# reg_type은 근로자/건설사를 뜻한다.
+    if(!isset($reg_type)){	
 		$reg_type=$member['mb_10'];
 	}?>
 	<input type="text" name="mb_10" value="<?php echo $reg_type?>" hidden>

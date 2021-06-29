@@ -7,6 +7,8 @@ if(G5_TIME_YMD != $board['bo_1']){
 	$sql = " select wr_id, ca_name, wr_5 from {$write_table} where wr_is_comment = 0 order by wr_id desc limit 0, 1000 ";
 	$result = sql_query($sql);
 	for ($i=0; $row = sql_fetch_array($result); $i++) {
+		
+		// 종료 날짜가 지나면 모집종료로 변경
 		if($row['ca_name']=='모집중' && $row['wr_16'] < G5_TIME_YMD){
 			sql_query(" update {$write_table} set ca_name='모집종료' where wr_id = {$row['wr_id']} ");
 		}
@@ -104,7 +106,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 	            <?php } ?>
 	            <li class="num">지역</li>
 	            <li class="tit">제목</li>
+				<!-- 일당 클릭하면 일당순으로 정렬됨 -->
 	            <li class="view"><?php echo subject_sort_link('wr_10', $qstr2, 1) ?>일당</a></th>
+				<!-- 근무날짜 클릭하면 최신순으로 정렬됨 -->
 	            <li class="date"><?php echo subject_sort_link(strtotime('wr_6'), $qstr2, 1) ?>근무날짜</a></th>
 				<li class="wri">글쓴이</li>
 	    	</ul>
@@ -114,14 +118,24 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
 					// 근로자일 경우에 선호 직종만 출력
 					if($is_worker){
+						// 자신의 선호 직종을 |을 기준으로 슬라이스
 						$pieces_1 = explode("|", $member['mb_5']);
 					}
 					for ($i=0; $i<count($list); $i++) { // 게시글 목록 시작 
 						// 선호 직종만 출력하기
 						if($is_worker){
+							// 공고의 모집 직종을 |을 기준으로 슬라이스
 							$pieces_2 = explode("|", $list[$i]['wr_9']);
+							// 자신의 선호 직종과 공고의 모집 직종의 교집합을 pieces_result에 넣는다.
 							$pieces_result = array_intersect($pieces_1, $pieces_2);
 						}
+
+						// 공고 출력 조건
+						// 1. pieces_result 원소의 개수가 1보다 클 경우에만 출력한다.
+						// 2. 건설사일 경우에는 모두 출력한다.
+						// 3. admin일 경우에는 모두 출력한다.
+						// 4. 근로자의 선호 직종이 없을 경우 모두 출력한다.
+						// 5. 공고에 모집 직종이 없을 경우 모두 출력한다.
 						if(($is_worker&&count($pieces_result)>0)||$is_constructor||($is_worker&&($list[$i]['wr_9']==''||$member['mb_5']==''))||$is_admin){
 					?>
 		            <li class="<?php if ($list[$i]['is_notice']) echo "bo_notice"; ?>">
@@ -160,7 +174,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 		                        <?php echo $list[$i]['icon_reply']; ?>
 								<span style="font-weight:normal;color:gray;"><?php echo $list[$i]['wr_1'] ?></span>
 								<div style="font-size:1.3em;"><?=$list[$i]['subject']?></div>
+								<!-- 모집 직종을 |를 기준으로 슬라이스 -->
 								<?php $new_wr_9 = explode("|", $list[$i]['wr_9']); 
+								// 다시 ,를 기준으로 병합
 								$new_wr_9 = implode(", ", $new_wr_9); ?>
 								<div style="font-weight:normal;">&nbsp;&#x2937;&nbsp;<?=$new_wr_9?></div>
 								
@@ -202,7 +218,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 						
 						<!-- 일당 -->
 						<div class="view cnt_left">
-				        	<span class="sound_only">일당</span><span class="bo_view"></i> <?=number_format((double)$list[$i]['wr_10'])?></span>
+				        	<span class="sound_only">일당</span><span class="bo_view">₩<?=number_format((double)$list[$i]['wr_10'])?></span>
 				        </div>
 
 						<!-- 근무날짜 -->

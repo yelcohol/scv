@@ -35,5 +35,6 @@ $mb_md5 = md5($member['mb_id'].$member['mb_email'].$member['mb_datetime']);
 $content = $content . '<p>더 이상 정보 수신을 원치 않으시면 [<a href="'.G5_BBS_URL.'/email_stop.php?mb_id='.$mb_id.'&amp;mb_md5='.$mb_md5.'" target="_blank">수신거부</a>] 해 주십시오.</p>';
 
 mailer($config['cf_title'], $member['mb_email'], $member['mb_email'], $subject, $content, 1);
+// Gmailer($member['mb_email'], $config['cf_title'].' '.$subject, $content);
 
 alert($member['mb_nick'].'('.$member['mb_email'].')님께 테스트 메일을 발송하였습니다. 확인하여 주십시오.');
