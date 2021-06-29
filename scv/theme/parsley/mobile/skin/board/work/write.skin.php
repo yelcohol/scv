@@ -405,8 +405,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
     // });
     // <!-- 달력 끝 -->
     $(function(){ // 날짜 입력
-		$("#wr_6, #wr_16").datepicker({ changeMonth: true, changeYear: true, dateFormat: "yymmdd", showButtonPanel: true });
-
+		$("#wr_6, #wr_16").datepicker({ 
+			changeMonth: true, 
+			changeYear: true, 
+			dateFormat: "yymmdd", 
+			showButtonPanel: true,
+			minDate: 0
+			});
+		
         $(document).on('click', '.btn-color', function() {
             $('.btn-color').text('선택').css('font-weight', 'normal').removeClass('active');
             $(this).text('사용').css('font-weight', 'bold').addClass('active');
