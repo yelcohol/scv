@@ -130,6 +130,90 @@ function no_comma(data)
     return tmp;
 }
 
+//불합격 확인
+function refuse(href)
+{
+    if(confirm("확인을 누르시면 위 근로자는 불합격처리가됩니다.\n\n정말 합격 처리 하시겠습니까?")) {
+        var iev = -1;
+        if (navigator.appName == 'Microsoft Internet Explorer') {
+            var ua = navigator.userAgent;
+            var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+            if (re.exec(ua) != null)
+                iev = parseFloat(RegExp.$1);
+        }
+
+        // IE6 이하에서 한글깨짐 방지
+        if (iev != -1 && iev < 7) {
+            document.location.href = encodeURI(href);
+        } else {
+            document.location.href = href;
+        }
+    }
+}
+
+//합격 확인
+function accept(href)
+{
+    if(confirm("확인을 누르시면 위 근로자는 합격처리가됩니다.\n\n정말 합격 처리 하시겠습니까?")) {
+        var iev = -1;
+        if (navigator.appName == 'Microsoft Internet Explorer') {
+            var ua = navigator.userAgent;
+            var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+            if (re.exec(ua) != null)
+                iev = parseFloat(RegExp.$1);
+        }
+
+        // IE6 이하에서 한글깨짐 방지
+        if (iev != -1 && iev < 7) {
+            document.location.href = encodeURI(href);
+        } else {
+            document.location.href = href;
+        }
+    }
+}
+
+//불합격 확인
+function confirm_refuse_check(href)
+{
+    if(confirm("위 일자리에 합격하셨지만 지원 철회가 됩니다.\n\n정말 지원 철회 하시겠습니까?")) {
+        var iev = -1;
+        if (navigator.appName == 'Microsoft Internet Explorer') {
+            var ua = navigator.userAgent;
+            var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+            if (re.exec(ua) != null)
+                iev = parseFloat(RegExp.$1);
+        }
+
+        // IE6 이하에서 한글깨짐 방지
+        if (iev != -1 && iev < 7) {
+            document.location.href = encodeURI(href);
+        } else {
+            document.location.href = href;
+        }
+    }
+}
+
+//합격 확인
+function confirm_check(href)
+{
+    if(confirm("위 일자리에 출근확정합니다. 자동으로 같은 날 시작하는 일자리는 자동 지원 철회됩니다..\n\n정말 출근 확정 하시겠습니까?")) {
+        var iev = -1;
+        if (navigator.appName == 'Microsoft Internet Explorer') {
+            var ua = navigator.userAgent;
+            var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+            if (re.exec(ua) != null)
+                iev = parseFloat(RegExp.$1);
+        }
+
+        // IE6 이하에서 한글깨짐 방지
+        if (iev != -1 && iev < 7) {
+            document.location.href = encodeURI(href);
+        } else {
+            document.location.href = href;
+        }
+    }
+}
+
 // 삭제 검사 확인
 function del(href)
 {

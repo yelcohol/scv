@@ -54,10 +54,12 @@ if ($w == '') {
         }
     }
 
+    
     $title_msg = '글쓰기';
 } else if ($w == 'u') {
     // 김선용 1.00 : 글쓰기 권한과 수정은 별도로 처리되어야 함
     //if ($member['mb_level'] < $board['bo_write_level']) {
+    
     if($member['mb_id'] && $write['mb_id'] === $member['mb_id']) {
         ;
     } else if ($member['mb_level'] < $board['bo_write_level']) {
@@ -65,6 +67,21 @@ if ($w == '') {
             alert('글을 수정할 권한이 없습니다.');
         } else {
             alert('글을 수정할 권한이 없습니다.\\n\\n회원이시라면 로그인 후 이용해 보십시오.', G5_BBS_URL.'/login.php?'.$qstr.'&amp;url='.urlencode($_SERVER['SCRIPT_NAME'].'?bo_table='.$bo_table));
+        }
+    }
+
+    $tommorow_origin = date('Y-m-d', strtotime("+1 days"));
+    $tommorow = str_replace('-','',$tommorow_origin);
+    $today_origin = date('Y-m-d', strtotime("now"));
+    $today = str_replace('-','',$today_origin);
+    if($write['wr_6'] == $tommorow){
+        if(write_fix_check_tommorow()){
+            alert("내일 시작하는 일자리 글은 지금 수정할 수 없습니다 \\n 지금 노동자들이 출근을 확정하고 있습니다.", G5_BBS_URL.'/board.php?bo_table='.$bo_table);
+        }
+    }
+    if($write['wr_6'] == $today){
+        if(write_fix_check_today()){
+            alert("오늘 시작하는 일자리 글은 지금 수정할 수 없습니다 \\n 지금 노동자들이 출근을 확정하고 있습니다.", G5_BBS_URL.'/board.php?bo_table='.$bo_table);
         }
     }
 

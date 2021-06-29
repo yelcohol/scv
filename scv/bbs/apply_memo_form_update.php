@@ -9,6 +9,9 @@ if (!chk_captcha()) {
     alert('자동등록방지 숫자가 틀렸습니다.');
 }
 
+$val = $_POST['val'];
+$mb_id = $_POST['me_recv_mb_id'];
+$ma_id = isset($_POST['ma_id']) ? $_POST['ma_id'] : -1;
 $recv_list = isset($_POST['me_recv_mb_id']) ? explode(',', trim($_POST['me_recv_mb_id'])) : array();
 $str_nick_list = '';
 $msg = '';
@@ -59,6 +62,61 @@ if (!$is_admin) {
     }
 }
 
+$sql = " select wr_6 from {$write_table} where wr_id = '{$wr_id}'";
+$row = sql_fetch($sql);
+$start_date = $row['wr_6'];
+$sql = "select count(*) as cnt 
+    from {$g5['apply_table']} as A join {$write_table} as W on A.wr_id = W.wr_id 
+    where A.mb_id = '{$member['mb_id']}' and W.wr_6 = '{$start_date}' and A.ma_state = '출근 확정'";
+
+$row = sql_fetch($sql);
+if($row['cnt']){
+    alert("출근 확정한 경우 재모집 공고에 지원할 수 없습니다.", G5_BBS_URL.'/board.php?bo_table='.$bo_table);
+}
+
+$sql = " select count(*) as cnt from {$g5['apply_table']}
+            where mb_id = '{$member['mb_id']}'
+            and bo_table = '$bo_table'
+            and wr_id = '$wr_id'";
+$row = sql_fetch($sql);
+if ($row['cnt']) {
+
+    $back_url = get_pretty_url($bo_table, $wr_id);
+
+    if($re == 1){
+        echo <<<HEREDOC
+        <script>
+        if (confirm('지원했던 공고에 다시 지원은 불가합니다.\\n\\n지금 지원 내역을 확인하시겠습니까?'))
+            document.location.href = './apply.php';
+        else
+            window.close();
+        </script>
+        <noscript>
+        <p>이미 지원하신 공고입니다.</p>
+        <a href="./apply.php">지원 내역 확인하기</a>
+        <a href="{$back_url}">돌아가기</a>
+        </noscript>
+        HEREDOC;
+        exit;
+    }else{
+        echo <<<HEREDOC
+        <script>
+        if (confirm('이미 지원하신 공고입니다.\\n\\n지금 지원 내역을 확인하시겠습니까?'))
+            document.location.href = './apply.php';
+        else
+            window.close();
+        </script>
+        <noscript>
+        <p>이미 지원하신 공고입니다.</p>
+        <a href="./apply.php">지원 내역 확인하기</a>
+        <a href="{$back_url}">돌아가기</a>
+        </noscript>
+        HEREDOC;
+        exit;
+    }
+    
+}
+
 for ($i=0; $i<count($member_list['id']); $i++) {
     $tmp_row = sql_fetch(" select max(me_id) as max_me_id from {$g5['memo_table']} ");
     $me_id = $tmp_row['max_me_id'] + 1;
@@ -89,17 +147,69 @@ for ($i=0; $i<count($member_list['id']); $i++) {
     }
 }
 
+    // $redirect_url = "";
+    // $str_nick_list = implode(',', $member_list['nick']);
+    // $alert_message = "";
+
+    // if($val == 0){
+    //     $redirect_url = G5_HTTP_BBS_URL."/apply_refuse.php?wr_id=".$_POST['wr_id']."&mb_id=".$mb_id."&ma_id=".$ma_id;
+    //     $alert_message = "지원자 불합격 처리됐습니다.";
+    // }else if($val == 1){
+    //     $redirect_url = G5_HTTP_BBS_URL."/apply_accept.php?wr_id=".$_POST['wr_id']."&mb_id=".$mb_id."&ma_id=".$ma_id;
+    //     $alert_message = "지원자 합격 처리됐습니다.";
+    // }else{
+    //     $redirect_url = G5_HTTP_BBS_URL."/apply_popin.php?bo_table=".$_POST['bo_table']."&wr_id=".$_POST['wr_id'];
+    //     $alert_message = "지원 메시지를 보냈습니다.";
+    // }
+
+    // run_event('memo_form_update_after', $member_list, $str_nick_list, $redirect_url, $_POST['me_memo']);
+
+    // alert($alert_message, $redirect_url, false);
+
 if ($member_list) {
 
-    $redirect_url = G5_HTTP_BBS_URL."/apply_popin.php?bo_table=".$_POST['bo_table']."&wr_id=".$_POST['wr_id'];
+
+    $redirect_url = "";
     $str_nick_list = implode(',', $member_list['nick']);
+    $alert_message = "";
+
+    if($val == 0){
+        $redirect_url = G5_HTTP_BBS_URL."/apply_refuse.php?wr_id=".$_POST['wr_id']."&mb_id=".$mb_id."&ma_id=".$ma_id;
+        $alert_message = "지원자 불합격 처리됐습니다.";
+    }else if($val == 1){
+        $redirect_url = G5_HTTP_BBS_URL."/apply_accept.php?wr_id=".$_POST['wr_id']."&mb_id=".$mb_id."&ma_id=".$ma_id;
+        $alert_message = "지원자 합격 처리됐습니다.";
+    }
+    else if($val == 3){//출근 확정
+        $redirect_url = G5_HTTP_BBS_URL."/apply_confirm.php?wr_id=".$_POST['wr_id']."&ma_id=".$ma_id;
+        $alert_message = "출근 확정했습니다.";
+    }
+    else if($val == 4){//지원 철회
+        $redirect_url = G5_HTTP_BBS_URL."/apply_confirm_refuse.php?wr_id=".$_POST['wr_id']."&ma_id=".$ma_id;
+        $alert_message = "지원 철회했습니다.";
+    }
+    else{
+        $redirect_url = G5_HTTP_BBS_URL."/apply_popin.php?bo_table=".$_POST['bo_table']."&wr_id=".$_POST['wr_id'];
+        $alert_message = "지원 메시지를 보냈습니다.";
+    }
 
     run_event('memo_form_update_after', $member_list, $str_nick_list, $redirect_url, $_POST['me_memo']);
 
-    alert("지원 메시지를 보냈습니다.", $redirect_url, false);
-} else {
+    alert($alert_message, $redirect_url, false);
 
-    $redirect_url = G5_HTTP_BBS_URL."/apply_memo_form.php";
+    // $redirect_url = G5_HTTP_BBS_URL."/apply_popin.php?bo_table=".$_POST['bo_table']."&wr_id=".$_POST['wr_id'];
+    // $str_nick_list = implode(',', $member_list['nick']);
+
+    // run_event('memo_form_update_after', $member_list, $str_nick_list, $redirect_url, $_POST['me_memo']);
+
+    // alert("지원 메시지를 보냈습니다.", $redirect_url, false);
+} else {
+    if($is_constructor){
+        $redirect_url = G5_HTTP_BBS_URL."/apply2.php";
+    }
+    else{
+        $redirect_url = G5_HTTP_BBS_URL."/apply.php";
+    }
     
     run_event('memo_form_update_failed', $member_list, $redirect_url, $_POST['me_memo']);
 

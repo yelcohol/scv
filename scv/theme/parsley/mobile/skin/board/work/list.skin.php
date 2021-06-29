@@ -170,14 +170,21 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 							<?php $bbs=G5_BBS_URL?>
 							<?php 
 							if($is_worker){
-								if($list[$i]['ca_name']!='모집종료'){
-									//echo '<a href="./apply_popin.php?bo_table='.$bo_table.'&wr_id='.$list[$i]['wr_id'].' target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
-									echo '<a href="./apply_memo_form.php?'.'me_recv_mb_id='.$list[$i]['mb_id'].'&bo_table='.$bo_table.'&wr_id='.$list[$i]['wr_id'].' target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
-								}
-								else{
+								if($list[$i]['ca_name'] == '모집 종료' || $list[$i]['ca_name'] == '모집취소'){
 									echo '<h3 style="color:red"><b>지원마감</b></h3>';
 								}
+								else{
+									if($list[$i]['ca_name'] == '재모집'){
+										echo '<a href="./apply_memo_form.php?re=1'.'&me_recv_mb_id='.$list[$i]['mb_id'].'&bo_table='.$bo_table.'&wr_id='.$list[$i]['wr_id'].'" target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';	
+									}else{
+										//echo '<a href="./apply_popin.php?bo_table='.$bo_table.'&wr_id='.$list[$i]['wr_id'].' target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
+										echo '<a href="./apply_memo_form.php?'.'me_recv_mb_id='.$list[$i]['mb_id'].'&bo_table='.$bo_table.'&wr_id='.$list[$i]['wr_id'].'" target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
+									}
+								}
 							}?>
+							<?php if($is_constructor && $member['mb_id'] == $list[$i]['mb_id']) { ?>
+										<?php echo '<a href="./apply2.php?'.'bo_table='.$bo_table.'&wr_id='.$list[$i]['wr_id'].'" target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원내역 확인하기</span></a>'; ?>
+							<?php } ?>
 		                        <?php
 		                        if (isset($list[$i]['icon_hot'])) echo $list[$i]['icon_hot'];
 		                        if (isset($list[$i]['icon_file'])) echo $list[$i]['icon_file'];
@@ -200,7 +207,11 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
 						<!-- 근무날짜 -->
 				        <div class="date cnt_left">
-				        	<span class="sound_only">근무날짜</span><span class="bo_date"><i class="far fa-clock"></i> <?=date("m/d",strtotime($list[$i]['wr_6']))?><?="~".date("m/d",strtotime($list[$i]['wr_16']))?></span>
+							<?php if(date("m/d",strtotime($list[$i]['wr_6'])) == date("m/d",strtotime($list[$i]['wr_16']))) {?>
+				        	<span class="sound_only">근무날짜</span><span class="bo_date"><i class="far fa-clock"></i> <?php echo date("m/d",strtotime($list[$i]['wr_6']))?><?php echo '   '.$list[$i]['wr_7'].' ~ '.$list[$i]['wr_8']?></span>
+							<?php } else { ?>
+							<span class="sound_only">근무날짜</span><span class="bo_date"><i class="far fa-clock"></i> <?php echo date("m/d",strtotime($list[$i]['wr_6']))?><?="~".date("m/d",strtotime($list[$i]['wr_16']))?></span>
+							<?php } ?>
 				        </div>	
 
 						<!-- 글쓴이 -->

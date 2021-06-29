@@ -16,7 +16,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
 	    <ul>
 	        <li class="apply_tit">
 	            <span class="sound_only">제목</span>
-	            <?php echo "공고: ".get_text(cut_str($write['wr_subject'], 255)) ?>
+	            <?php echo "공고: ".get_text(cut_str($write['wr_subject'], 255)).
+				" 위치: ".$write['wr_12'].$write['wr_13'].$write['wr_14']." 일시: ".$write['wr_6']." ".$write['wr_7']." ~ ".$write['wr_16']." ".$write['wr_8'] ?>
 	        </li>
 	        <!-- <li>
 	            <label for="wr_content">댓글작성</label>

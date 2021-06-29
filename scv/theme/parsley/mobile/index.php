@@ -9,6 +9,28 @@ include_once(G5_LIB_PATH.'/popular.lib.php');
 add_javascript('<script src="'.G5_JS_URL.'/jquery.bxslider.js"></script>', 10);
 ?>
 
+<?php
+	//로그인시 쪽지 왔는지 알려주는 
+	if ($is_member) {
+		//쪽지 테이블에서 마지막 쪽지를 읽어온다.
+		$sql = "select * from {$g5['memo_table']} where me_recv_mb_id = '{$member['mb_id']}' and me_read_datetime = '0000-00-00 00:00:00' order by me_id desc limit 0,1 ";
+		$result = sql_fetch($sql);	
+		//$get_nick = get_member($result['me_send_mb_id'], $fields='mb_nick');
+		if ($result) {
+			//새창을 띄워준다.
+			//$msg = "{$get_nick['mb_nick']} 님으로부터 쪽지가 도착했습니다.";
+            $msg = "알림 - {$result['me_memo']}";
+			$url = G5_BBS_URL."/memo.php";				
+	?>
+	<script>
+		alert("<?php echo $msg?>");
+		window.open("<?php echo $url?>", "win_memo","width=620, height=620");
+	</script>
+	<?php
+		}	
+	}
+	?>
+
 <!-- 메인 최신글 시작 -->
 <div class="conle_idx_top">
 <?php echo outlogin("theme/basic_side"); ?>
@@ -30,7 +52,10 @@ add_javascript('<script src="'.G5_JS_URL.'/jquery.bxslider.js"></script>', 10);
                     <?php if(($is_constructor && $row['me_name'] == '내가 지원한 일자리') || ($is_worker && $row['me_name'] == '내가 올린 일자리')) {?>
                     <?php continue;?>
                     <?php } ?>
-                    <a href="<?php echo $row['me_link']; ?>" target="_<?php echo $row['me_target']; ?>" class="gnb_1da"><i class="far fa-list-alt"></i> <?php echo $row['me_name'] ?></a>
+                    <?php if($row['me_name'] == ' 일자리'){ ?>
+                            <?php $link = $row['me_link'].'&sca=모집중'; ?>
+                    <?php    }?>
+                    <a href="<?php echo $row['me_link']; ?>" target="_<?php echo $row['me_target']; ?>" class="gnb_1da"><i class="far fa-list-alt"></i> <?php echo $row['me_name'].'11' ?></a>
                     <?php
                     $sql2 = " select *
                                 from {$g5['menu_table']}

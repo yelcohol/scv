@@ -26,5 +26,5 @@ sql_query($sql);
 $sql = " update `{$g5['member_table']}` set mb_apply_cnt = '".get_apply_totals($temp_mb_id)."' where mb_id = '{$temp_mb_id}' ";
 sql_query($sql);
 
-goto_url('./apply2.php?page='.$page);
+goto_url('./apply2.php?bo_table=works&wr_id='.$temp_wr_id.'&page='.$page);
 ?>
