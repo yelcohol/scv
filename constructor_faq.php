@@ -80,7 +80,7 @@ var g5_cookie_domain = "";
 </style>
 <nav class="navbar fixed-top navbar-expand-lg navbar-white bg-white fixed-top">
   <div class="container">
-  	<a class="navbar-brand" href="" class="logo"><img src="https://image.flaticon.com/icons/png/512/2092/2092877.png" style="width:70px;">&nbsp;<span class="ks4">건설왕</span></a>
+  	<a class="navbar-brand" href="index.php" class="logo"><img src="https://image.flaticon.com/icons/png/512/2092/2092877.png" style="width:70px;">&nbsp;<span class="ks4">건설왕</span></a>
 	<button class="navbar-toggler navbar-dark navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 	  <span class="navbar-toggler-icon"></span>
 	</button>
@@ -141,12 +141,12 @@ var g5_cookie_domain = "";
 
 	/* mobile */
 	@media (min-width: 1px) and (max-width: 1089px) {
-		.about-bg{background-image:url('home/img/crane-and-building-construction-site-on-background-LEE7E6H.JPG	');width:100%;-webkit-background-size:100% auto;-moz-background-size:100% auto;-o-background-size:100% auto;background-position:center; background-size: cover; background-repeat:no-repeat;color:#fff;height:100%;padding-top: 70px;}.ml-auto,.mx-auto{padding-top:10px;padding-bottom:10px}.lead{font-size:12px;font-weight:300}.display-4{ font-size:1.5rem;font-weight:300;}.btn,a.btn{line-height:20px!important;height:20px!important;padding:0 5px;text-align:center;font-weight:700;border:0;-webkit-transition:background-color .3s ease-out;-moz-transition:background-color .3s ease-out;-o-transition:background-color .3s ease-out;transition:background-color .3s ease-out}.btn-outline-secondary{font-size:11px;padding:0 5px}
+		.about-bg{background-image:url('home/img/crane-and-building-construction-site-on-background-LEE7E6H.JPG	');width:100%;-webkit-background-size:100% auto;-moz-background-size:100% auto;-o-background-size:100% auto;background-position:center -10px; background-size: cover; background-repeat:no-repeat;color:#fff;height:100%;padding-top: 150px;}.ml-auto,.mx-auto{padding-top:10px;padding-bottom:10px}.lead{font-size:12px;font-weight:300}.display-4{ font-size:1.5rem;font-weight:300;}.btn,a.btn{line-height:20px!important;height:20px!important;padding:0 5px;text-align:center;font-weight:700;border:0;-webkit-transition:background-color .3s ease-out;-moz-transition:background-color .3s ease-out;-o-transition:background-color .3s ease-out;transition:background-color .3s ease-out}.btn-outline-secondary{font-size:11px;padding:0 5px}
 		.image-description{font-size:1.3em;}
 	}
 	/* desktop */
 	@media (min-width: 1090px) {
-		.about-bg{background-image:url('home/img/crane-and-building-construction-site-on-background-LEE7E6H.JPG');background-position:center center;background-repeat:no-repeat;color:#fff;height:300px}.lead{font-size:1.25rem;font-weight:300}.display-4{font-size:2.5rem;font-weight:300;line-height:1.2}
+		.about-bg{background-image:url('home/img/crane-and-building-construction-site-on-background-LEE7E6H.JPG');-webkit-background-size:100% auto;background-position:center -150px;background-repeat:no-repeat;color:#fff;height:500px}.lead{font-size:1.25rem;font-weight:300}.display-4{font-size:2.5rem;font-weight:300;line-height:1.2}
 	}
 
 	
@@ -208,7 +208,7 @@ var g5_cookie_domain = "";
 
 					7) 건설현장관리자께서 일근로 후 출근 및 공수 확인<br><br>
 
-					8) 당일 임금 지급(SCV서비스 18:00~19:00)</p>
+					8) 당일 임금 지급(건설왕 서비스 18:00~19:00)</p>
                     <div class="con_closer"><button type="button" class="closer_btn btn_b03">닫기</button></div>
                 </div>
             </li>
@@ -266,7 +266,7 @@ var g5_cookie_domain = "";
 
                     현장에서 근로 계약서를 작성하면 자세히 알 수 있는데요.<br>
                     일반적으로 오전 7시 부터 근무를 시작할 경우, 점심 시간과 휴식 시간(2시간)을 제외하고 5시에 작업이 종료되어 8시간 근무하게 됩니다.<br>
-                    근무 시간 외 근로하게 되면 (가다 현장 직원에게 연락 요망) 현장과 협의 하에 초과된 시간에 대하여 임금을 받을 수 있습니다.</p>
+                    근무 시간 외 근로하게 되면 (건설왕 현장 직원에게 연락 요망) 현장과 협의 하에 초과된 시간에 대하여 임금을 받을 수 있습니다.</p>
                     <div class="con_closer"><button type="button" class="closer_btn btn_b03">닫기</button></div>
                 </div>
             </li>

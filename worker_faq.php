@@ -80,7 +80,7 @@ var g5_cookie_domain = "";
 </style>
 <nav class="navbar fixed-top navbar-expand-lg navbar-white bg-white fixed-top">
   <div class="container">
-  	<a class="navbar-brand" href="" class="logo"><img src="https://image.flaticon.com/icons/png/512/2092/2092877.png" style="width:70px;">&nbsp;<span class="ks4">건설왕</span></a>
+  	<a class="navbar-brand" href="index.php" class="logo"><img src="https://image.flaticon.com/icons/png/512/2092/2092877.png" style="width:70px;">&nbsp;<span class="ks4">건설왕</span></a>
 	<button class="navbar-toggler navbar-dark navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 	  <span class="navbar-toggler-icon"></span>
 	</button>
@@ -141,12 +141,12 @@ var g5_cookie_domain = "";
 
 	/* mobile */
 	@media (min-width: 1px) and (max-width: 1089px) {
-		.about-bg{background-image:url('home/img/contractor-in-silhouette-working-on-a-roof-top-PFBKLZ8.jpg');width:100%;-webkit-background-size:100% auto;-moz-background-size:100% auto;-o-background-size:100% auto;background-position:center; background-size: cover; background-repeat:no-repeat;color:#fff;height:100%;padding-top: 70px;}.ml-auto,.mx-auto{padding-top:10px;padding-bottom:10px}.lead{font-size:12px;font-weight:300}.display-4{ font-size:1.5rem;font-weight:300;}.btn,a.btn{line-height:20px!important;height:20px!important;padding:0 5px;text-align:center;font-weight:700;border:0;-webkit-transition:background-color .3s ease-out;-moz-transition:background-color .3s ease-out;-o-transition:background-color .3s ease-out;transition:background-color .3s ease-out}.btn-outline-secondary{font-size:11px;padding:0 5px}
+		.about-bg{background-image:url('home/img/contractor-in-silhouette-working-on-a-roof-top-PFBKLZ8.jpg');width:100%;-webkit-background-size:100% auto;-moz-background-size:100% auto;-o-background-size:100% auto;background-position:center -10px; background-size: cover; background-repeat:no-repeat;color:#fff;height:100%;padding-top: 150px;}.ml-auto,.mx-auto{padding-top:10px;padding-bottom:10px}.lead{font-size:12px;font-weight:300}.display-4{ font-size:1.5rem;font-weight:300;}.btn,a.btn{line-height:20px!important;height:20px!important;padding:0 5px;text-align:center;font-weight:700;border:0;-webkit-transition:background-color .3s ease-out;-moz-transition:background-color .3s ease-out;-o-transition:background-color .3s ease-out;transition:background-color .3s ease-out}.btn-outline-secondary{font-size:11px;padding:0 5px}
 		.image-description{font-size:1.3em;}
 	}
 	/* desktop */
 	@media (min-width: 1090px) {
-		.about-bg{background-image:url('home/img/contractor-in-silhouette-working-on-a-roof-top-PFBKLZ8.jpg');background-position:center center;background-repeat:no-repeat;color:#fff;height:300px}.lead{font-size:1.25rem;font-weight:300}.display-4{font-size:2.5rem;font-weight:300;line-height:1.2}
+		.about-bg{background-image:url('home/img/contractor-in-silhouette-working-on-a-roof-top-PFBKLZ8.jpg');-webkit-background-size:100% auto;background-position:center -160px	;background-repeat:no-repeat;color:#fff;height:500px}.lead{font-size:1.25rem;font-weight:300}.display-4{font-size:2.5rem;font-weight:300;line-height:1.2}
 	}
 
 	
@@ -185,7 +185,7 @@ var g5_cookie_domain = "";
                     현재 대구, 부산, 강원지역 부터 전국으로 확대해 나가고 있습니다.<br>
                     지방 지역에도 많은 일자리를 확보해 나가도록 하겠습니다. 지속적인 관심 부탁 드립니다.<br><br>
 
-                    추가 궁금하신 사항이 있으시면 010-3886-3419로 연락하여 주시기 바랍니다.</p>
+                    추가 궁금하신 사항이 있으시면 070-4118-0113로 연락하여 주시기 바랍니다.</p>
                     <div class="con_closer"><button type="button" class="closer_btn btn_b03">닫기</button></div>
                 </div>
             </li>
@@ -227,7 +227,7 @@ var g5_cookie_domain = "";
 
                     1) 직업 교육을 받았던 교육 기관에 방문하여 재발급 받는 방법<br><br>
 
-                    2) 안전보건공단 안전보건교육포털 http://www.koshats.or.kr/ 에 접속하여 이수증을 직접 출력하거나, TEL. 1644-2275로 문의하여 신원확인 후 문자로 받아보는 방법<br><br>
+                    2) 안전보건공단 안전보건교육포털 http://www.koshats.or.kr/ 에 접속하여 이수증을 직접 출력하거나, TEL. 070-4118-0113로 문의하여 신원확인 후 문자로 받아보는 방법<br><br>
 
                     편리하신 방법으로 재발급 받은 후 등록하여 재인증을 부탁 드립니다.</p>
                     <div class="con_closer"><button type="button" class="closer_btn btn_b03">닫기</button></div>
@@ -257,7 +257,7 @@ var g5_cookie_domain = "";
 
                     현장에서 근로 계약서를 작성하면 자세히 알 수 있는데요.<br>
                     일반적으로 오전 7시 부터 근무를 시작할 경우, 점심 시간과 휴식 시간(2시간)을 제외하고 5시에 작업이 종료되어 8시간 근무하게 됩니다.<br>
-                    근무 시간 외 근로하게 되면 (가다 현장 직원에게 연락 요망) 현장과 협의 하에 초과된 시간에 대하여 임금을 받을 수 있습니다.</p>
+                    근무 시간 외 근로하게 되면 (건설왕 현장 직원에게 연락 요망) 현장과 협의 하에 초과된 시간에 대하여 임금을 받을 수 있습니다.</p>
                     <div class="con_closer"><button type="button" class="closer_btn btn_b03">닫기</button></div>
                 </div>
             </li>

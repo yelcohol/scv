@@ -311,7 +311,7 @@ $(function() {
 백그라운드 색상을 조정해주시면 됩니다.
 -->
 
-<div class="py-5 margin-top-80" style="background:#d1ecf1;">
+<!-- <div class="py-5 margin-top-80" style="background:#d1ecf1;">
 	<div class="container margin-top-80">
 	  <div class="row">
 		<div class="col-lg-6">
@@ -326,7 +326,7 @@ $(function() {
 		</div>
 	  </div>
 	</div>
-</div>
+</div> -->
 
 
 			
