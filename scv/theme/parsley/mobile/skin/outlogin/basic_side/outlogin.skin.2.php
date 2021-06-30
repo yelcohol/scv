@@ -76,8 +76,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$outlogin_skin_url.'/style.css">'
         <!-- 근로자만 볼 수 있는 사이드 시작 -->
         <?php if($is_worker) { ?>
         <li>
-            <span id="ol_after_work">일한 횟수</span><br>
-				<strong><?php echo $work_cnt ?></strong>
+            <span id="ol_after_work">일한 횟수<br>
+				<strong><?php echo $work_cnt ?></strong></span>
         </li>
         <?php } ?>
         <!-- 근로자만 볼 수 있는 사이드 끝 -->
