@@ -4,12 +4,13 @@ include_once('./_common.php');
 if (!$is_worker)
     alert_close('근로자만 조회하실 수 있습니다.');
 
-// 공고 제목 출력
+# 공고 제목 출력
 $g5['title'] = get_text($member['mb_nick']).'님의 지원 내역';
 include_once(G5_PATH.'/head.sub.php');
 
 $works_table = $g5['write_prefix'].'works';
 
+# 다음 날
 $tommorow_origin = date('Y-m-d H:i:s', strtotime("+1 days"));
 $tommorow = str_replace('-','',$tommorow_origin);
 $today_origin = date('Y-m-d', strtotime("now"));
@@ -21,14 +22,16 @@ $first_apply_confirm_time = G5_TIME_YMD.' 19:00:00';
 $second_apply_time = G5_TIME_YMD.' 05:00:00';
 $second_apply_confirm_time = G5_TIME_YMD.' 06:00:00';
 
-if($first_apply_time <= $now && $first_apply_confirm_time >= $now){//18시에 지원 검토중인 내일 시작하는 일자리는 모두 '지원 반려'로 처리
+# 18시에 지원 검토중인 내일 시작하는 일자리는 모두 '지원 반려'로 처리
+if($first_apply_time <= $now && $first_apply_confirm_time >= $now){
     $sql = " update {$g5['apply_table']} as A join {$works_table} as W on A.wr_id = W.wr_id 
                                          set ma_state = '지원 반려' 
                                          where ma_state = '지원검토중' and wr_6 = '{$tommorow}'";
     sql_query($sql);                               
 }
 
-if($first_apply_confirm_time <= $now){ //1차 출근 확정 시기가 끝났을 때 내일 시작하는 일자리가 '지원 합격'이면 모두 '지원 철회'로 처리
+# 1차 출근 확정 시기가 끝났을 때 내일 시작하는 일자리가 '지원 합격'이면 모두 '지원 철회'로 처리
+if($first_apply_confirm_time <= $now){ 
     $sql = " update {$g5['apply_table']} as A join {$works_table} as W on A.wr_id = W.wr_id  
                                          set ma_state  = '지원 철회'
                                          where ma_state = '지원 합격' and wr_6 = '{$tommorow}'";
@@ -75,7 +78,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
     if (!$row3['wr_subject'])
         $row3['wr_subject'] = '[글 없음]';
 
-    //해당 일자리 게시글의 시작 날짜의 전날이 오늘이고 17시00분에서 17시59분 사이인 경우, 그리고 ma_state가 '지원합격'인 경우 최종 출근 할지 안 할지 결정하는 버튼 
+    //해당 일자리 게시글의 시작 날짜의 전날이 오늘이고 18시 00분에서 18시 59분 사이인 경우, 그리고 ma_state가 '지원합격'인 경우 최종 출근 할 지 안 할 지 결정하는 버튼 
     $confirm_check = false;
     $re_confirm = false;
     $start_date = date('Y-m-d',strtotime($row3['wr_6']));
@@ -109,6 +112,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
         $list[$i]['confirm_href'] = './apply_memo_form.php?val=3&ma_id='.$row['ma_id'].'&wr_id='.$row['wr_id'].'&me_recv_mb_id='.$row3['mb_id'].'&amp;page='.$page;
         $list[$i]['confirm_refuse_href'] = './apply_memo_form.php?val=4&ma_id='.$row['ma_id'].'&wr_id='.$row['wr_id'].'&me_recv_mb_id='.$row3['mb_id'].'&amp;page='.$page;
     }
+    # 삭제 링크
     $list[$i]['del_href'] = './apply_delete.php?ma_id='.$row['ma_id'].'&bo_table='.$row['bo_table'].'&wr_id='.$row['wr_id'].'&amp;page='.$page;
 }
 

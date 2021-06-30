@@ -40,6 +40,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$outlogin_skin_url.'/style.css">'
         <div class="ol_m_info">
         	<strong><?php echo $nick ?>님</strong>
         	<a href="<?php echo G5_BBS_URL ?>/logout.php" id="ol_after_logout" class="btn_b04">로그아웃</a>
+            <?php if ($is_constructor || $is_worker) {  ?><span onclick="member_leave()" class="btn_admin btn_04" style="cursor:pointer">탈퇴</a><?php } ?>
         	<?php if ($is_admin == 'super' || $is_auth) {  ?><a href="<?php echo G5_ADMIN_URL ?>" class="btn_admin btn_04">관리자</a><?php }  ?>
     	</div>
     </header>
@@ -51,6 +52,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$outlogin_skin_url.'/style.css">'
             </a>
         </li>
 
+        <!-- 근로자만 볼 수 있는 사이드 시작 -->
         <?php if($is_worker){ ?>
         <li>
             <a href="<?php echo G5_BBS_URL ?>/scrap.php" target="_blank" id="ol_after_scrap" class="win_scrap">찜한 일자리<br>
@@ -63,19 +65,22 @@ add_stylesheet('<link rel="stylesheet" href="'.$outlogin_skin_url.'/style.css">'
             </a>
         </li>
         <?php } ?>
+        <!-- 근로자만 볼 수 있는 사이드 끝 -->
 
         <li>
             <a href="<?php echo G5_BBS_URL ?>/point.php" target="_blank" id="ol_after_pt" class="win_point">포인트<br>
 				<strong><?php echo $point ?></strong>
             </a>
         </li>
+        
+        <!-- 근로자만 볼 수 있는 사이드 시작 -->
         <?php if($is_worker) { ?>
         <li>
-            <span id="ol_after_work">일한 횟수<br>
+            <span id="ol_after_work">일한 횟수</span><br>
 				<strong><?php echo $work_cnt ?></strong>
-            </a>
         </li>
         <?php } ?>
+        <!-- 근로자만 볼 수 있는 사이드 끝 -->
     </ul>
 
 </section>

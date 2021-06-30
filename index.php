@@ -104,6 +104,8 @@ $(function() {
     visibility: visible;
 }
 </style>
+
+<!-- 메뉴 시작 -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-white bg-white fixed-top">
   <div class="container">
 	<a class="navbar-brand" href="" class="logo"><img src="https://image.flaticon.com/icons/png/512/2092/2092877.png" style="width:70px;">&nbsp;<span class="ks4">건설왕</span></a>
@@ -112,29 +114,30 @@ $(function() {
 	</button>
 	<div class="collapse navbar-collapse" id="navbarResponsive" data-hover="dropdown" data-animations="fadeIn fadeIn fadeInUp fadeInRight">
 	  <ul class="navbar-nav ml-auto">		
-					<li class="nav-item dropdown">
-					<a class="btn-primary nav-link ks4 f16" href="scv" id="navbarDropdownBlog" aria-haspopup="true" aria-expanded="false" target="_self" style="border-radius:.2rem;">
-					건설왕 시작하기</a>
-					</li>
+		<li class="nav-item dropdown">
+		  <a class="btn-primary nav-link ks4 f16" href="scv" id="navbarDropdownBlog" aria-haspopup="true" aria-expanded="false" target="_self" style="border-radius:.2rem;">
+		  건설왕 시작하기</a>
+		</li>
 
-					<li class="nav-item dropdown">
-					<a class="nav-link ks4 f16" href="worker_faq.php" id="navbarDropdownBlog" aria-haspopup="true" aria-expanded="false" target="_self">
-					근로자 FAQ</a>
-					</li>
+		<li class="nav-item dropdown">
+		  <a class="nav-link ks4 f16" href="worker_faq.php" id="navbarDropdownBlog" aria-haspopup="true" aria-expanded="false" target="_self">
+		  근로자 FAQ</a>
+		</li>
 
-					<li class="nav-item dropdown">
-					<a class="nav-link ks4 f16" href="constructor_faq.php" id="navbarDropdownBlog" aria-haspopup="true" aria-expanded="false" target="_self">
-					건설사 FAQ</a>
-					</li>
+		<li class="nav-item dropdown">
+		  <a class="nav-link ks4 f16" href="constructor_faq.php" id="navbarDropdownBlog" aria-haspopup="true" aria-expanded="false" target="_self">
+		  건설사 FAQ</a>
+		</li>
 
-					<li class="nav-item dropdown">
-					<a class="nav-link ks4 f16" href="#googleform" id="navbarDropdownBlog" aria-haspopup="true" aria-expanded="false" target="_self">
-					제휴 문의</a>
-					</li>
+		<li class="nav-item dropdown">
+		  <a class="nav-link ks4 f16" href="#googleform" id="navbarDropdownBlog" aria-haspopup="true" aria-expanded="false" target="_self">
+		  제휴 문의</a>
+		</li>
 	  </ul>
 	</div>
   </div>
 </nav>
+<!-- 메뉴 끝 -->
 
 <style>
 /* mobile */

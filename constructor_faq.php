@@ -74,10 +74,14 @@ var g5_cookie_domain = "";
     transition-delay: 5s;
     visibility: visible;
 }
+
+/* 형광펜 반만 */
 .half_HL{
 	background: linear-gradient(to top, #FFE400 40%, transparent 40%);
 }
 </style>
+
+<!-- 메뉴 시작 -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-white bg-white fixed-top">
   <div class="container">
   	<a class="navbar-brand" href="index.php" class="logo"><img src="https://image.flaticon.com/icons/png/512/2092/2092877.png" style="width:70px;">&nbsp;<span class="ks4">건설왕</span></a>
@@ -85,30 +89,31 @@ var g5_cookie_domain = "";
 	  <span class="navbar-toggler-icon"></span>
 	</button>
 	<div class="collapse navbar-collapse" id="navbarResponsive" data-hover="dropdown" data-animations="fadeIn fadeIn fadeInUp fadeInRight">
-	  <ul class="navbar-nav ml-auto">
-	  				<li class="nav-item dropdown">
-					<a class="btn-primary nav-link ks4 f16" href="scv" id="navbarDropdownBlog" aria-haspopup="true" aria-expanded="false" target="_self" style="border-radius:.2rem;">
-					건설왕 시작하기</a>
-					</li>
+	  <ul class="navbar-nav ml-auto">					
+	  	<li class="nav-item dropdown">
+		  <a class="btn-primary nav-link ks4 f16" href="scv" id="navbarDropdownBlog" aria-haspopup="true" aria-expanded="false" target="_self" style="border-radius:.2rem;">
+		  건설왕 시작하기</a>
+		</li>
 
-                    <li class="nav-item dropdown">
-					<a class="nav-link ks4 f16" href="worker_faq.php" id="navbarDropdownBlog" aria-haspopup="true" aria-expanded="false" target="_self">
-					근로자 FAQ</a>
-					</li>
+        <li class="nav-item dropdown">
+		  <a class="nav-link ks4 f16" href="worker_faq.php" id="navbarDropdownBlog" aria-haspopup="true" aria-expanded="false" target="_self">
+		  근로자 FAQ</a>
+		</li>
 
-					<li class="nav-item dropdown">
-					<a class="nav-link ks4 f16 half_HL" href="constructor_faq.php" id="navbarDropdownBlog" aria-haspopup="true" aria-expanded="false" target="_self">
-					건설사 FAQ</a>
-					</li>
+		<li class="nav-item dropdown">
+		  <a class="nav-link ks4 f16 half_HL" href="constructor_faq.php" id="navbarDropdownBlog" aria-haspopup="true" aria-expanded="false" target="_self">
+		  건설사 FAQ</a>
+		</li>
 
-					<li class="nav-item dropdown">
-					<a class="nav-link ks4 f16" href="index.php#googleform" id="navbarDropdownBlog" aria-haspopup="true" aria-expanded="false" target="_self">
-					제휴 문의</a>
-					</li>
+		<li class="nav-item dropdown">
+		  <a class="nav-link ks4 f16" href="index.php#googleform" id="navbarDropdownBlog" aria-haspopup="true" aria-expanded="false" target="_self">
+		  제휴 문의</a>
+		</li>
 	  </ul>
 	</div>
   </div>
 </nav>
+<!-- 메뉴 끝 -->
 
 <style>
 /* mobile */
@@ -154,11 +159,12 @@ var g5_cookie_domain = "";
 
 
 	<div class="position-relative overflow-hidden p-md-5 text-center bg-dark bg-sub-1 ety-mt-main about-bg">
+	
+	<!-- 상단 이미지 속 글자 -->
 	<p class="image-description">건설사의 믿음직한 파트너 '건설왕'</p>
 	  <div class="col-md-5 p-lg-5 mx-auto my-5">
 		<h1 class="display-4 font-weight-normal"></h1>
-		<p class="lead font-weight-normal ko1">
-					</p>
+		<p class="lead font-weight-normal ko1"></p>
 	  </div>
 	  <div class="product-device shadow-sm d-none d-md-block"></div>
 	  <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>

@@ -16,12 +16,15 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 	            <span class="bo_v_tit"><?php echo cut_str(get_text($view['wr_subject']), 70); // 글제목 출력 ?></span>
 				<span style="float:right;">
 				<?php 
+				// 근로자만 확인 가능
 				if($is_worker){
 					if($view['ca_name']!='모집종료'){
 						//echo '<a href='.$apply_href.' target="_blank" class="btn_b01 btn" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
+						// 재모집일 때(re=1)
 						if($list[$i]['ca_name'] == '재모집'){
 							echo '<a href="./apply_memo_form.php?re=1'.'&me_recv_mb_id='.$view['mb_id'].'&bo_table='.$bo_table.'&wr_id='.$view['wr_id'].'" target="_blank" class="btn_b01 btn" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';	
-						}else{
+						}
+						else{
 							//echo '<a href="./apply_popin.php?bo_table='.$bo_table.'&wr_id='.$list[$i]['wr_id'].' target="_blank" class="btn btn_b03" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
 							echo '<a href="./apply_memo_form.php?'.'me_recv_mb_id='.$view['mb_id'].'&bo_table='.$bo_table.'&wr_id='.$view['wr_id'].'" target="_blank" class="btn_b01 btn" onclick="win_apply(this.href); return false;"><i class="fa fa-check-circle"></i> <span class="hidden-xs">지원하기</span></a>';
 						}	
@@ -30,6 +33,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 					}
 				}?>
 				<?php 
+				// 해당 공고를 작성한 건설사만이 볼 수 있는 버튼(해당 공고에 지원한 근로자 리스트)
 				if($is_constructor && $view['mb_id'] == $member['mb_id']) {?>
 					<a style="float:right;" href="<?=$apply_cons_href?>" target="_blank" class="btn_b01 btn" onclick="win_apply_cons(this.href); return false;"><i class="fa fa-check-circle" aria-hidden="true"></i> 지원내역 확인하기</a>
 				<?php } ?>
@@ -52,7 +56,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 		<section id="bo_v_atc">
 	        <h2 id="bo_v_atc_title">본문</h2>
 			
-			<!-- <?php if ( $good_href || $nogood_href || $scrap_href || $sns_msg) { ?>
+			<!-- 현재는 추천, 비추천, sns 공유 사용X -->
+			<!-- <?php if ( $good_href || $nogood_href || $sns_msg) { ?>
 			<aside id="bo_v_aside">
 		        <div id="bo_v_act">
 			        <?php if ( $good_href || $nogood_href) { //추천, 비추천 ?>
@@ -119,6 +124,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 				<tr>
 					<th>담당자</th>
 					<td>
+						<!-- 담당자이름(담당자전화번호) -->
 						<span><?=$view['wr_2']."("?><a href="tel:<?=$view['wr_3']?>"><span style="color:#2aba8a"><u><?=$view['wr_3']?></u></span></a>)</span>
 					</td>
 				</tr>
@@ -147,13 +153,14 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
                 <tr>
                     <th>근무기간</th>
                     <td>
+						<!-- 예시: 06.18(화) ~ 06.19(수) -->
 						<span class="textPoint letter_0"><?=date("m.d", strtotime($view['wr_6']))."(".$start_day.") ~ ".date("m.d", strtotime($view['wr_16']))."(".$end_day.")"?></span>
-                            
                     </td>
                 </tr>
                 <tr>
                     <th>근무시간</th>
                     <td>
+						<!-- 예시: 07:10~15:00 -->
                         <span class="letter_0">
                             <?=$view['wr_7']."~".$view['wr_8']?>
                         </span>

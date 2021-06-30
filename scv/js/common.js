@@ -688,11 +688,13 @@ $(function(){
         return false;
     });
 
+    // 지원하기 창 (근로자)
     $(".win_apply").click(function() {
         win_apply(this.href);
         return false;
     });
 
+    // 지원한 근로자 확인하기 창 (건설사)
     $(".win_apply_cons").click(function() {
         win_apply_cons(this.href);
         return false;

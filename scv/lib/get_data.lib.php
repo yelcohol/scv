@@ -479,6 +479,7 @@ function get_scrap_totals($mb_id=''){
     return isset($row['cnt']) ? $row['cnt'] : 0;
 }
 
+// 지원횟수 계산
 function get_apply_totals($mb_id=''){
     global $g5;
 

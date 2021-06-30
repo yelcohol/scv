@@ -3,6 +3,7 @@ include_once('./_common.php');
 
 include_once(G5_PATH.'/head.sub.php');
 
+// 재모집
 $re = isset($_GET['re']) ? $_GET['re'] : -10;
 
 if ($is_guest) {
