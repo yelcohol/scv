@@ -11,13 +11,13 @@ add_stylesheet('<link rel="stylesheet" href="'.$member_skin_url.'/style.css">', 
     <form name="f_apply_popin" action="./apply_popin_update.php" method="post">
     <input type="hidden" name="bo_table" value="<?php echo $bo_table ?>">
     <input type="hidden" name="wr_id" value="<?php echo $wr_id ?>">
+	<input type="hidden" name="re" value="<?php echo $re ?>">
     <div class="new_win_con">
 	    <!-- <h2 class="sound_only">제목 확인 및 댓글 쓰기</h2> -->
 	    <ul>
 	        <li class="apply_tit">
 	            <span class="sound_only">제목</span>
-	            <?php echo "공고: ".get_text(cut_str($write['wr_subject'], 255)).
-				" 위치: ".$write['wr_12'].$write['wr_13'].$write['wr_14']." 일시: ".$write['wr_6']." ".$write['wr_7']." ~ ".$write['wr_16']." ".$write['wr_8'] ?>
+	            <?php echo "공고: ".get_text(cut_str($write['wr_subject'], 255)) ?>
 	        </li>
 	        <!-- <li>
 	            <label for="wr_content">댓글작성</label>

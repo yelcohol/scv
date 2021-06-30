@@ -186,7 +186,7 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 							<?php $bbs=G5_BBS_URL?>
 							<?php 
 							if($is_worker){
-								if($list[$i]['ca_name'] == '모집 종료' || $list[$i]['ca_name'] == '모집취소'){
+								if($list[$i]['ca_name'] == '모집종료' || $list[$i]['ca_name'] == '모집취소'){
 									echo '<h3 style="color:red"><b>지원마감</b></h3>';
 								}
 								else{

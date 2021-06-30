@@ -3,6 +3,8 @@ include_once('./_common.php');
 
 include_once(G5_PATH.'/head.sub.php');
 
+$re = $_POST['re'];
+
 if (!$is_member)
 {
     $href = './login.php?'.$qstr.'&amp;url='.urlencode(get_pretty_url($bo_table, $wr_id));
@@ -15,27 +17,27 @@ if(!$write['wr_id'])
     alert_close('지원하시려는 게시글이 존재하지 않습니다.');
 
 // 같은 게시글을 지원한 내역이 존재하는지
-$sql = " select count(*) as cnt from {$g5['apply_table']}
-            where mb_id = '{$member['mb_id']}'
-            and bo_table = '$bo_table'
-            and wr_id = '$wr_id' ";
-$row = sql_fetch($sql);
-if ($row['cnt'])
-{
-    echo '
-    <script>
-    if (confirm(\'이미 지원하신 글 입니다.'."\n\n".'지금 지원내역을 확인하시겠습니까?\'))
-        document.location.href = \'./apply.php\';
-    else
-        window.close();
-    </script>
-    <noscript>
-    <p>이미 지원하신 글 입니다.</p>
-    <a href="./apply.php">지원 내역 확인하기</a>
-    <a href="'.get_pretty_url($bo_table, $wr_id).'">돌아가기</a>
-    </noscript>';
-    exit;
-}
+// $sql = " select count(*) as cnt from {$g5['apply_table']}
+//             where mb_id = '{$member['mb_id']}'
+//             and bo_table = '$bo_table'
+//             and wr_id = '$wr_id' ";
+// $row = sql_fetch($sql);
+// if ($row['cnt'])
+// {
+//     echo '
+//     <script>
+//     if (confirm(\'이미 지원하신 글 입니다.'."\n\n".'지금 지원내역을 확인하시겠습니까?\'))
+//         document.location.href = \'./apply.php\';
+//     else
+//         window.close();
+//     </script>
+//     <noscript>
+//     <p>이미 지원하신 글 입니다.</p>
+//     <a href="./apply.php">지원 내역 확인하기</a>
+//     <a href="'.get_pretty_url($bo_table, $wr_id).'">돌아가기</a>
+//     </noscript>';
+//     exit;
+// }
 
 // 같은 날 지원한 내역이 존재하는지
 // 여기 수정하는 방법을 모르겠음..
@@ -70,8 +72,14 @@ if ($row['cnt'])
 // include_once(G5_HTTP_BBS_URL.'/apply_memo_form.php?me_recv_mb_id='.$me_recv_mb_id);
 
 // g5_apply에 지원내역 추가
-$sql = " insert into {$g5['apply_table']} ( mb_id, bo_table, wr_id, ma_datetime ) values 
+if($re == 1){
+    $sql = "update {$g5['apply_table']} set ma_state = '지원검토중',
+                                            ma_datetime = '".G5_TIME_YMDHIS."'
+                                            where wr_id = '{$wr_id}' and mb_id = '{$member['mb_id']}'";
+}else{
+    $sql = " insert into {$g5['apply_table']} ( mb_id, bo_table, wr_id, ma_datetime ) values 
                                             ( '{$member['mb_id']}', '$bo_table', '$wr_id', '".G5_TIME_YMDHIS."' ) ";
+}
 sql_query($sql);
 
 // works table에서 현재 지원자 수 1 증가

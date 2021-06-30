@@ -11,6 +11,7 @@ if (!chk_captcha()) {
 
 $val = $_POST['val'];
 $mb_id = $_POST['me_recv_mb_id'];
+$re = $_POST['re'];
 $ma_id = isset($_POST['ma_id']) ? $_POST['ma_id'] : -1;
 $recv_list = isset($_POST['me_recv_mb_id']) ? explode(',', trim($_POST['me_recv_mb_id'])) : array();
 $str_nick_list = '';
@@ -191,6 +192,10 @@ if ($member_list) {
     else{
         $redirect_url = G5_HTTP_BBS_URL."/apply_popin.php?bo_table=".$_POST['bo_table']."&wr_id=".$_POST['wr_id'];
         $alert_message = "지원 메시지를 보냈습니다.";
+    }
+
+    if($re == 1){
+        $redirect_url = $redirect_url.'&re=1';
     }
 
     run_event('memo_form_update_after', $member_list, $str_nick_list, $redirect_url, $_POST['me_memo']);
